@@ -50,3 +50,130 @@ Default.args = {
   ],
   helperText: "Test Cost",
 };
+
+export const DefaultError = Template.bind({});
+
+DefaultError.args = {
+  label: "Cost",
+  error: true,
+  options: [
+    {
+      value: "100",
+      title: "Not Applicable (100.0%)",
+    },
+    {
+      value: "92.5",
+      title: "Very High (92.5%)",
+    },
+    {
+      value: "77.5",
+      title: "High (77.5%)",
+    },
+    {
+      value: "65",
+      title: "Average High (65.0%)",
+    },
+    {
+      value: "50",
+      title: "Average (50.0%)",
+    },
+    {
+      value: "35",
+      title: "Average Low (35.0%)",
+    },
+    {
+      value: "22.5",
+      title: "Low (22.5%)",
+    },
+    {
+      value: "7.5",
+      title: "Very Low (7.5%)",
+    },
+  ],
+  errorMessage: "Test Error",
+};
+
+export const DefaultSmall = Template.bind({});
+
+DefaultSmall.args = {
+  label: "Cost",
+  options: [
+    {
+      value: "100",
+      title: "Not Applicable (100.0%)",
+    },
+    {
+      value: "92.5",
+      title: "Very High (92.5%)",
+    },
+    {
+      value: "77.5",
+      title: "High (77.5%)",
+    },
+    {
+      value: "65",
+      title: "Average High (65.0%)",
+    },
+    {
+      value: "50",
+      title: "Average (50.0%)",
+    },
+    {
+      value: "35",
+      title: "Average Low (35.0%)",
+    },
+    {
+      value: "22.5",
+      title: "Low (22.5%)",
+    },
+    {
+      value: "7.5",
+      title: "Very Low (7.5%)",
+    },
+  ],
+  helperText: "Test Cost",
+  smallField: true,
+};
+
+export const DefaultErrorSmall = Template.bind({});
+
+DefaultErrorSmall.args = {
+  label: "Cost",
+  error: true,
+  options: [
+    {
+      value: "100",
+      title: "Not Applicable (100.0%)",
+    },
+    {
+      value: "92.5",
+      title: "Very High (92.5%)",
+    },
+    {
+      value: "77.5",
+      title: "High (77.5%)",
+    },
+    {
+      value: "65",
+      title: "Average High (65.0%)",
+    },
+    {
+      value: "50",
+      title: "Average (50.0%)",
+    },
+    {
+      value: "35",
+      title: "Average Low (35.0%)",
+    },
+    {
+      value: "22.5",
+      title: "Low (22.5%)",
+    },
+    {
+      value: "7.5",
+      title: "Very Low (7.5%)",
+    },
+  ],
+  errorMessage: "Test Error",
+  smallField: true,
+};

@@ -1,5 +1,5 @@
 .datalist {
-  width: 200px;
+  width: 250px;
   margin: 0;
   padding: 0;
   display: -webkit-box;
@@ -62,7 +62,7 @@
   border-radius: 10px 10px;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  width: 170px;
+  width: 220px;
 }
 
 .datalist .datalist-input-container .datalist-input:focus {
@@ -83,7 +83,6 @@
   position: absolute;
   top: 0;
   right: 14px;
-  pointer-events: none;
   height: 60px;
 }
 
@@ -119,7 +118,7 @@
 }
 
 .datalist .datalist-dropdown-container .datalist-dropdown li {
-  padding: 3px 8px;
+  padding: 3px 14px;
   list-style: none;
   font-size: 16px;
 }
@@ -156,5 +155,70 @@
 
 .datalist .datalist-helper-text p.datalist-error-message {
   color: #ff695a;
+}
+
+.datalist .datalist-trash-container {
+  margin-left: 10px;
+  margin-top: 17px;
+}
+
+.datalist .datalist-trash-container .datalist-trash {
+  height: 25px;
+}
+
+.datalist-smallField .datalist-input-container .datalist-label-text-label {
+  top: -23.5px;
+}
+
+.datalist-smallField .datalist-input-container .datalist-label-text-placeholder {
+  top: -8px;
+}
+
+.datalist-smallField .datalist-input-container .datalist-input {
+  padding: 8.5px 14px;
+}
+
+.datalist-smallField .datalist-input-container .datalist-input.datalist-input-selected {
+  border: #2c79f7 2px solid;
+  padding: calc(8.5px - 1px) calc(14px - 1px);
+}
+
+.datalist-smallField .datalist-input-container .datalist-down-icon-container {
+  height: 40px;
+}
+
+.datalist-smallField .datalist-trash-container {
+  margin-left: 10px;
+  margin-top: 7px;
+}
+
+.datalist-smallField .datalist-trash-container .datalist-trash {
+  height: 25px;
+}
+
+.datalist-error .datalist-input-container .datalist-label-text-label {
+  color: #ff695a;
+}
+
+.datalist-error .datalist-input-container .datalist-label-text-label.datalist-label-selected {
+  color: #ff695a;
+}
+
+.datalist-error .datalist-input-container .datalist-input {
+  border: #ff695a 1px solid;
+}
+
+.datalist-error .datalist-input-container .datalist-input.datalist-input-selected {
+  border: #ff695a 2px solid;
+}
+
+.datalist-error .datalist-dropdown-container .datalist-dropdown {
+  border: 1px #ff695a;
+  border-style: none solid solid solid;
+}
+
+.datalist-error .datalist-dropdown-container .datalist-dropdown-background {
+  border: 1px #ff695a;
+  border-style: none solid none solid;
 }
 /*# sourceMappingURL=DataList.css.map */

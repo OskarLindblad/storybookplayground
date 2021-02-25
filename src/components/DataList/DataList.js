@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./DataList.css";
 import down from "./down.svg";
+import trash from "./trash.svg";
+
 import PropTypes from "prop-types";
 
 export const DataList = ({
@@ -32,7 +34,11 @@ export const DataList = ({
   };
 
   return (
-    <div className="datalist">
+    <div
+      className={`datalist ${error ? "datalist-error" : ""} ${
+        smallField ? "datalist-smallField" : ""
+      }`}
+    >
       <div className="datalist-container">
         <div className="datalist-input-container">
           <p
@@ -108,6 +114,9 @@ export const DataList = ({
             <p>{helperText}</p>
           )}
         </div>
+      </div>
+      <div className="datalist-trash-container">
+        <img src={trash} alt="trash" className="datalist-trash" />
       </div>
     </div>
   );
