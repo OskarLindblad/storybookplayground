@@ -1,4 +1,4 @@
-$OxfordBlue: #2e394b;
+$Blue: #2e394b;
 $Selected: #2c79f7;
 $PlaceHolderGray: #979797;
 $White: #fff;
@@ -31,7 +31,7 @@ $Dropdown-Width: 250px;
       white-space: nowrap;
     }
     .dropdown-label-text-label {
-      color: $OxfordBlue;
+      color: $Blue;
       top: -23.5px;
       left: 12.5px;
       font-size: 14px;
@@ -54,7 +54,7 @@ $Dropdown-Width: 250px;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
 
-      border: $OxfordBlue 1px solid;
+      border: $Blue 1px solid;
       -moz-appearance: none; /* Firefox */
       -webkit-appearance: none; /* Safari and Chrome */
       appearance: none;
@@ -110,7 +110,7 @@ $Dropdown-Width: 250px;
 .dropdown-smallField {
   label {
     .dropdown-label-text-label {
-      color: $OxfordBlue;
+      color: $Blue;
       top: -23.5px;
       left: 12.5px;
     }

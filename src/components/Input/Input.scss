@@ -1,4 +1,4 @@
-$OxfordBlue: #2e394b;
+$Blue: #2e394b;
 $Selected: #2c79f7;
 $PlaceHolderGray: #979797;
 $White: #fff;
@@ -40,7 +40,7 @@ $Input-Width: 250px;
       white-space: nowrap;
     }
     .input-label-text-label {
-      color: $OxfordBlue;
+      color: $Blue;
       top: -14.5px;
       left: 12.5px;
       font-size: 14px;
@@ -60,9 +60,9 @@ $Input-Width: 250px;
       pointer-events: none;
     }
     input {
-      border-top: $OxfordBlue 1px solid;
-      border-left: $OxfordBlue 1px solid;
-      border-bottom: $OxfordBlue 1px solid;
+      border-top: $Blue 1px solid;
+      border-left: $Blue 1px solid;
+      border-bottom: $Blue 1px solid;
       border-right: $White 0px solid;
       padding: $PV 0 $PV $PH;
       border-radius: 10px 0 0 10px;
@@ -81,9 +81,9 @@ $Input-Width: 250px;
         font-weight: 600;
       }
       &.bold-border {
-        border-top: $OxfordBlue 4px solid;
-        border-left: $OxfordBlue 4px solid;
-        border-bottom: $OxfordBlue 4px solid;
+        border-top: $Blue 4px solid;
+        border-left: $Blue 4px solid;
+        border-bottom: $Blue 4px solid;
         border-right: $White 0px solid;
         padding: calc(#{$PV} - 3px) 0 calc(#{$PV} - 3px) calc(#{$PH} - 2px);
         &.input-inputfield-selected {
@@ -100,10 +100,10 @@ $Input-Width: 250px;
     }
     .input-suffix {
       background-color: $White;
-      border-top: $OxfordBlue 1px solid;
+      border-top: $Blue 1px solid;
       border-left: $White 0px solid;
-      border-bottom: $OxfordBlue 1px solid;
-      border-right: $OxfordBlue 1px solid;
+      border-bottom: $Blue 1px solid;
+      border-right: $Blue 1px solid;
       padding: #{$PV} #{$PH} #{$PV} 0;
       border-radius: 0 10px 10px 0;
       position: relative;
@@ -134,10 +134,10 @@ $Input-Width: 250px;
         margin-left: 6px;
       }
       &.bold-border {
-        border-top: $OxfordBlue 4px solid;
+        border-top: $Blue 4px solid;
         border-left: $White 0px solid;
-        border-bottom: $OxfordBlue 4px solid;
-        border-right: $OxfordBlue 4px solid;
+        border-bottom: $Blue 4px solid;
+        border-right: $Blue 4px solid;
         padding: calc(#{$PV} - 1px) calc(#{$PH} - 2px) calc(#{$PV} - 4px) 0;
         &.suffix-image {
           padding: calc(#{$PV} - 3px) calc(#{$PH} - 2px) calc(#{$PV} - 6px) 0;

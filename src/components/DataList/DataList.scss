@@ -1,4 +1,4 @@
-$OxfordBlue: #2e394b;
+$Blue: #2e394b;
 $Selected: #2c79f7;
 $PlaceHolderGray: #979797;
 $White: #fff;
@@ -33,7 +33,7 @@ $Width: 250px;
       white-space: nowrap;
     }
     .datalist-label-text-label {
-      color: $OxfordBlue;
+      color: $Blue;
       top: -23.5px;
       left: 12.5px;
       font-size: 14px;
@@ -53,7 +53,7 @@ $Width: 250px;
     }
 
     .datalist-input {
-      border: $OxfordBlue 1px solid;
+      border: $Blue 1px solid;
       padding: $PV $PH;
       border-radius: 10px 10px;
       font-family: "Roboto", sans-serif;
@@ -100,7 +100,7 @@ $Width: 250px;
       position: absolute;
       top: 0;
       background-color: white;
-      border: 1px $OxfordBlue;
+      border: 1px $Blue;
       border-style: none solid solid solid;
       width: calc(100% - 2px);
       margin: 0;
@@ -119,7 +119,7 @@ $Width: 250px;
       position: absolute;
       top: -$PV;
       background-color: $White;
-      border: 1px $OxfordBlue;
+      border: 1px $Blue;
       border-style: none solid none solid;
       width: calc(100% - 2px);
       height: $PV;
