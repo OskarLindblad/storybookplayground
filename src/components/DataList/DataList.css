@@ -1,5 +1,14 @@
 .datalist {
-  font-size: 16px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   font-family: "Roboto", sans-serif;
 }
 
@@ -11,30 +20,86 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  position: relative;
+}
+
+.datalist .datalist-input-container .datalist-label-text {
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  z-index: 33;
+  -webkit-transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+  transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+  background-color: #fff;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.datalist .datalist-input-container .datalist-label-text-label {
+  color: #2e394b;
+  top: -23.5px;
+  left: 12.5px;
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+  padding: 0 3px;
+  background-color: #fff;
+}
+
+.datalist .datalist-input-container .datalist-label-text-label.datalist-label-selected {
+  color: #2c79f7;
+}
+
+.datalist .datalist-input-container .datalist-label-text-placeholder {
+  color: #979797;
+  top: 2px;
+  left: 16px;
+  font-size: 18px;
 }
 
 .datalist .datalist-input-container .datalist-input {
-  border: 2px solid #2e394b;
-  padding: 4px 8px;
+  border: #2e394b 1px solid;
+  padding: 18.5px 14px;
+  border-radius: 10px 10px;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  border-radius: 2px;
-  border-radius: 2px;
-  width: 196px;
+  font-size: 18px;
+  width: 170px;
 }
 
 .datalist .datalist-input-container .datalist-input:focus {
   outline: 0;
 }
 
-.datalist .datalist-input-container .input-down-button {
-  position: relative;
+.datalist .datalist-input-container .datalist-input.datalist-input-selected {
+  border: #2c79f7 2px solid;
+  padding: calc(18.5px - 1px) calc(14px - 1px);
 }
 
-.datalist .datalist-input-container .input-down-button img {
+.datalist .datalist-input-container .datalist-input::-webkit-outer-spin-button, .datalist .datalist-input-container .datalist-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.datalist .datalist-input-container .datalist-down-icon-container {
   position: absolute;
-  left: -20px;
-  top: 9px;
+  top: 0;
+  right: 14px;
+  pointer-events: none;
+  height: 60px;
+}
+
+.datalist .datalist-input-container .datalist-down-icon-container .datalist-down-icon {
+  height: 100%;
+  position: relative;
+  border: #2e394b 2px;
+}
+
+.datalist .datalist-input-container .datalist-down-icon-container .datalist-down-icon img {
+  padding-top: 0%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 0;
 }
 
 .datalist .datalist-dropdown-container {
@@ -43,10 +108,11 @@
 
 .datalist .datalist-dropdown-container .datalist-dropdown {
   position: absolute;
-  top: -2px;
+  top: 0;
   background-color: white;
-  border: 2px solid #2e394b;
-  width: 212px;
+  border: 1px #2e394b;
+  border-style: none solid solid solid;
+  width: calc(100% - 2px);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -55,9 +121,40 @@
 .datalist .datalist-dropdown-container .datalist-dropdown li {
   padding: 3px 8px;
   list-style: none;
+  font-size: 16px;
 }
 
 .datalist .datalist-dropdown-container .datalist-dropdown li:hover {
   background-color: #e9e8e8;
+}
+
+.datalist .datalist-dropdown-container .datalist-dropdown-background {
+  position: absolute;
+  top: -18.5px;
+  background-color: #fff;
+  border: 1px #2e394b;
+  border-style: none solid none solid;
+  width: calc(100% - 2px);
+  height: 18.5px;
+  margin: 0;
+  padding: 0;
+  z-index: -30;
+}
+
+.datalist .datalist-helper-text {
+  font-size: 14px;
+  margin: 4px 14px 0 14px;
+}
+
+.datalist .datalist-helper-text p {
+  margin-top: 12px;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+.datalist .datalist-helper-text p.datalist-error-message {
+  color: #ff695a;
 }
 /*# sourceMappingURL=DataList.css.map */

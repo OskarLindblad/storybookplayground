@@ -1,31 +1,97 @@
+$OxfordBlue: #2e394b;
+$Selected: #2c79f7;
+$PlaceHolderGray: #979797;
+$White: #fff;
+$Red: #ff695a;
+
+$PH: 14px; //Padding Horizontally
+$PV: 18.5px; //Padding Vertically
+$PVs: 8.5px; //Padding Vertically small
+
 $Width: 200px;
 
 .datalist {
-  font-size: 16px;
+  width: $Width;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
   font-family: "Roboto", sans-serif;
 
   .datalist-input-container {
     display: flex;
     flex-direction: row;
-    .datalist-input {
-      border: 2px solid #2e394b;
-      padding: 4px 8px;
+    position: relative;
+
+    .datalist-label-text {
       font-family: "Roboto", sans-serif;
-      font-size: 16px;
-      border-radius: 2px;
-      border-radius: 2px;
-      width: $Width - 4px;
+      position: absolute;
+      z-index: 33;
+      transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+      background-color: $White;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .datalist-label-text-label {
+      color: $OxfordBlue;
+      top: -23.5px;
+      left: 12.5px;
+      font-size: 14px;
+      font-weight: 600;
+      pointer-events: none;
+      padding: 0 3px;
+      background-color: $White;
+      &.datalist-label-selected {
+        color: $Selected;
+      }
+    }
+    .datalist-label-text-placeholder {
+      color: $PlaceHolderGray;
+      top: 2px;
+      left: 16px;
+      font-size: 18px;
+    }
+
+    .datalist-input {
+      border: $OxfordBlue 1px solid;
+      padding: $PV $PH;
+      border-radius: 10px 10px;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      width: $Width - $PH - $PH -2px;
 
       &:focus {
         outline: 0;
       }
+      &.datalist-input-selected {
+        border: $Selected 2px solid;
+        padding: calc(#{$PV} - 1px) calc(#{$PH} - 1px);
+      }
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
-    .input-down-button {
-      position: relative;
-      img {
-        position: absolute;
-        left: -20px;
-        top: 9px;
+
+    .datalist-down-icon-container {
+      position: absolute;
+      top: 0;
+      right: $PH;
+      pointer-events: none;
+      height: 60px;
+      .datalist-down-icon {
+        height: 100%;
+        position: relative;
+        border: #2e394b 2px;
+        img {
+          padding-top: 0%;
+          position: absolute;
+          top: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          right: 0;
+        }
       }
     }
   }
@@ -33,20 +99,46 @@ $Width: 200px;
     position: relative;
     .datalist-dropdown {
       position: absolute;
-      top: -2px;
+      top: 0;
       background-color: white;
-      border: 2px solid #2e394b;
-
-      width: $Width + 12px;
+      border: 1px $OxfordBlue;
+      border-style: none solid solid solid;
+      width: calc(100% - 2px);
       margin: 0;
       padding: 0;
       list-style: none;
       li {
         padding: 3px 8px;
         list-style: none;
+        font-size: 16px;
       }
       li:hover {
         background-color: rgb(233, 232, 232);
+      }
+    }
+    .datalist-dropdown-background {
+      position: absolute;
+      top: -$PV;
+      background-color: $White;
+      border: 1px $OxfordBlue;
+      border-style: none solid none solid;
+      width: calc(100% - 2px);
+      height: $PV;
+      margin: 0;
+      padding: 0;
+      z-index: -30;
+    }
+  }
+  .datalist-helper-text {
+    font-size: 14px;
+    margin: 4px 14px 0 14px;
+
+    p {
+      margin-top: 12px;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      &.datalist-error-message {
+        color: $Red;
       }
     }
   }

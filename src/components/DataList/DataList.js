@@ -1,40 +1,79 @@
 import React, { useState } from "react";
 import "./DataList.css";
 import down from "./down.svg";
+import PropTypes from "prop-types";
 
-export const DataList = () => {
-  const [selected, setSelected] = useState("");
+export const DataList = ({
+  label,
+  value,
+  name,
+  className,
+  onChange,
+  options,
+  error,
+  errorMessage,
+  helperText,
+  smallField,
+  //width,
+  ...rest
+}) => {
+  const [pick, setPick] = useState("");
+  const [selected, setSelected] = useState(false);
+  const [labelShrink, setLabelShrink] = useState(false);
   const [dropDown, showDropDown] = useState(false);
 
   const handleChange = (e) => {
     showDropDown(true);
-    setSelected(e.target.value);
+    setPick(e.target.value);
   };
 
   const handleClick = (likelyHood) => {
-    setSelected(likelyHood);
+    setPick(likelyHood);
   };
 
   return (
-    <>
-      <div className="datalist">
+    <div className="datalist">
+      <div className="datalist-container">
         <div className="datalist-input-container">
+          <p
+            className={`
+            datalist-label-text
+            datalist-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "datalist-label-selected" : ""}
+            `}
+          >
+            {label}
+          </p>
           <input
-            className="datalist-input"
+            className={`datalist-input ${
+              selected ? "datalist-input-selected" : ""
+            }`}
             type="number"
             name="number"
-            value={selected}
+            value={pick}
             onInput={handleChange}
-            onFocus={() => showDropDown(true)}
+            onFocus={() => {
+              setSelected(true);
+              !pick && setLabelShrink(true);
+              showDropDown(true);
+            }}
             onBlur={() => {
+              setSelected(false);
+              !pick && setLabelShrink(false);
               setTimeout(() => {
                 showDropDown(false);
-              }, 100);
+              }, 200);
             }}
             autoComplete="off"
+            step="0.5"
           />
-          <div onClick={() => showDropDown(true)} className="input-down-button">
-            <img src={down} alt="Remove" />
+          <div className="datalist-down-icon-container">
+            <div
+              onClick={() => showDropDown(true)}
+              className="datalist-down-icon"
+            >
+              <img src={down} alt="down" />
+            </div>
           </div>
         </div>
 
@@ -49,52 +88,58 @@ export const DataList = () => {
             }}
           >
             <ul className="datalist-dropdown">
-              <li value="100" onClick={() => handleClick("100")}>
-                Not Applicable (100.0%)
-              </li>
-              <li value="92.5" onClick={() => handleClick("92.5")}>
-                Very High (92.5%)
-              </li>
-              <li value="77.5" onClick={() => handleClick("77.5")}>
-                High (77.5%)
-              </li>
-              <li value="65" onClick={() => handleClick("65")}>
-                Average High (65.0%)
-              </li>
-              <li value="50" onClick={() => handleClick("50")}>
-                Average (50.0%)
-              </li>
-              <li value="35" onClick={() => handleClick("35")}>
-                Average Low (35.0%)
-              </li>
-              <li value="22.5" onClick={() => handleClick("22.5")}>
-                Low (22.5%)
-              </li>
-              <li value="7.5" onClick={() => handleClick("7.5")}>
-                Very Low (7.5%)
-              </li>
+              {options.map((option, index) => (
+                <li
+                  key={index}
+                  value={option.value}
+                  onClick={() => handleClick(option.value)}
+                >
+                  {option.title}
+                </li>
+              ))}
             </ul>
+            <div className="datalist-dropdown-background"></div>
           </div>
         )}
+        <div className="datalist-helper-text">
+          {errorMessage && error ? (
+            <p className="datalist-error-message">{errorMessage}</p>
+          ) : (
+            <p>{helperText}</p>
+          )}
+        </div>
       </div>
-
-      <p>
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
-        quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
-        eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
-        corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-        voluptas nulla pariatur?"
-      </p>
-    </>
+    </div>
   );
 };
 
 export default DataList;
+
+DataList.propTypes = {
+  label: PropTypes.string,
+  value: PropTypes.string,
+  className: PropTypes.string,
+  onChange: PropTypes.func,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+  error: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  helperText: PropTypes.string,
+  smallField: PropTypes.bool,
+};
+
+DataList.defaultProps = {
+  label: "",
+  value: "",
+  className: "",
+  onChange: undefined,
+  options: [{ value: "", title: "" }],
+  error: false,
+  errorMessage: "",
+  helperText: "",
+  smallField: false,
+};
