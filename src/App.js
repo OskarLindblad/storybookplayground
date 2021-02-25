@@ -1,5 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import DropDown from "./components/DropDown/DropDown";
+import Input from "./components/Input/Input";
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
         >
           Learn React
         </a>
+        <DropDown label={"korv"} value={"korv"} />
+        <br />
+        <Input />
       </header>
     </div>
   );
