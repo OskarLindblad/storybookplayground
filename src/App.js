@@ -1,6 +1,7 @@
 import "./App.css";
 import DropDown from "./components/DropDown/DropDown";
 import Input from "./components/Input/Input";
+import Scroll from "./components/Scroll/Scroll";
 
 function App() {
   return (
@@ -17,9 +18,13 @@ function App() {
         >
           Learn React
         </a>
-        <DropDown label={"korv"} value={"korv"} />
-        <br />
-        <Input />
+        <div style={{ width: "300px" }}>
+          <Scroll height="100px">
+            <DropDown label={"korv"} value={"korv"} />
+            <br />
+            <Input />
+          </Scroll>
+        </div>
       </header>
     </div>
   );

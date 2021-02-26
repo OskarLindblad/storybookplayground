@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./DataList.css";
 import down from "./down.svg";
 import trash from "./trash.svg";
+import NumberFormat from "react-number-format";
 
 import PropTypes from "prop-types";
 
@@ -16,7 +17,6 @@ export const DataList = ({
   errorMessage,
   helperText,
   smallField,
-  //width,
   ...rest
 }) => {
   const [pick, setPick] = useState("");
@@ -25,8 +25,13 @@ export const DataList = ({
   const [dropDown, showDropDown] = useState(false);
 
   const handleChange = (e) => {
+    const data = parseInt(e.target.value);
     showDropDown(true);
-    setPick(e.target.value);
+    if (!isNaN(data)) {
+      setPick(data);
+    } else {
+      setPick("");
+    }
   };
 
   const handleClick = (likelyHood) => {
@@ -44,24 +49,21 @@ export const DataList = ({
           <p
             className={`
             datalist-label-text
-            datalist-label-text-${labelShrink ? "label" : "placeholder"}
+            datalist-label-text-${labelShrink || pick ? "label" : "placeholder"}
             ${selected ? "datalist-label-selected" : ""}
             `}
           >
             {label}
           </p>
-          <input
+          <NumberFormat
             className={`datalist-input ${
               selected ? "datalist-input-selected" : ""
             }`}
-            type="number"
-            name="number"
             value={pick}
             onInput={handleChange}
             onFocus={() => {
               setSelected(true);
-              !pick && setLabelShrink(true);
-              showDropDown(true);
+              setLabelShrink(true);
             }}
             onBlur={() => {
               setSelected(false);
@@ -70,8 +72,16 @@ export const DataList = ({
                 showDropDown(false);
               }, 200);
             }}
+            onMouseLeave={() => {
+              showDropDown(false);
+            }}
             autoComplete="off"
             step="0.5"
+            isAllowed={(values) => {
+              const { floatValue } = values;
+              console.log(floatValue);
+              return floatValue >= 5 && floatValue <= 10000;
+            }}
           />
           <div className="datalist-down-icon-container">
             <div
@@ -115,6 +125,7 @@ export const DataList = ({
           )}
         </div>
       </div>
+      {pick && <p className="datalist-likelyhood">{pick}%</p>}
       <div className="datalist-trash-container">
         <img src={trash} alt="trash" className="datalist-trash" />
       </div>
@@ -126,7 +137,7 @@ export default DataList;
 
 DataList.propTypes = {
   label: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string,
   onChange: PropTypes.func,
   options: PropTypes.arrayOf(

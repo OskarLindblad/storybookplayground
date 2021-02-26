@@ -77,8 +77,9 @@ $Width: 250px;
     .datalist-down-icon-container {
       position: absolute;
       top: 0;
-      right: $PH;
+      right: 0;
       height: 60px;
+      width: $PH + $PH;
       .datalist-down-icon {
         height: 100%;
         position: relative;
@@ -87,6 +88,7 @@ $Width: 250px;
           padding-top: 0%;
           position: absolute;
           top: 50%;
+          left: 0;
           -ms-transform: translateY(-50%);
           transform: translateY(-50%);
           right: 0;
@@ -140,6 +142,13 @@ $Width: 250px;
         color: $Red;
       }
     }
+  }
+  .datalist-likelyhood {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-top: 12px;
   }
   .datalist-trash-container {
     margin-left: 10px;
