@@ -28,7 +28,11 @@ export const DataList = ({
     const data = parseInt(e.target.value);
     showDropDown(true);
     if (!isNaN(data)) {
-      setPick(data);
+      if (data <= 100 && data >= 0) {
+        setPick(data);
+      } else {
+        setPick(pick);
+      }
     } else {
       setPick("");
     }
@@ -77,11 +81,6 @@ export const DataList = ({
             }}
             autoComplete="off"
             step="0.5"
-            isAllowed={(values) => {
-              const { floatValue } = values;
-              console.log(floatValue);
-              return floatValue >= 5 && floatValue <= 10000;
-            }}
           />
           <div className="datalist-down-icon-container">
             <div

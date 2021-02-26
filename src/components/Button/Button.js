@@ -15,19 +15,17 @@ export const Button = ({
     <div
       className={`
         button 
-        button-color-${type}
-        button-size-${size}
-        ${className}
+        button-type-${type}
+        ${icon ? "button-with-icon" : ""}
+        ${className && className}
         `}
     >
       {side === "left" ? (
         <div className="button-container">
           {icon && (
-            <img
-              src={icon}
-              alt="icon"
-              className="button-icon button-icon-left"
-            />
+            <div className="button-icon-container button-icon-left">
+              <img src={icon} alt="icon" className="button-icon" />
+            </div>
           )}
           <div className="button-label">
             <p>{label}</p>
@@ -40,11 +38,9 @@ export const Button = ({
           </div>
 
           {icon && (
-            <img
-              src={icon}
-              alt="icon"
-              className="button-icon button-icon-right"
-            />
+            <div className="button-icon-container button-icon-right">
+              <img src={icon} alt="icon" className="button-icon" />
+            </div>
           )}
         </div>
       )}
@@ -56,16 +52,16 @@ export default Button;
 
 Button.propTypes = {
   label: PropTypes.string,
-  type: PropTypes.oneOf(["yellow", "red", "purple", "blue"]),
-  size: PropTypes.oneOf(["small", "medium", "large"]),
+  type: PropTypes.oneOf(["contained", "outlined", "text", "nonactive"]),
   side: PropTypes.oneOf(["left", "right"]),
   icon: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
   label: "",
-  type: "blue",
-  size: "medium",
+  type: "contained",
   side: "left",
   icon: "",
+  className: "",
 };

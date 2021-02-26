@@ -4,28 +4,27 @@ $Yellow: #ffd778;
 $White: #fff;
 $Red: #ff695a;
 $Purple: #914696;
+$Grey: #cecece;
 
-$PHs: 12px; //Padding Horizontally small
-$PVs: 3px; //Padding Vertically small
-$PHm: 15px; //Padding Horizontally small
-$PVm: 5px; //Padding Vertically small
-$PHl: 22px; //Padding Horizontally small
-$PVl: 8px; //Padding Vertically small
+$PV: 13px; //Padding Vertically
+$PH: 44px; //Padding Horizontally
 
 .button {
   font-family: "Roboto", sans-serif;
   display: inline-block;
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 900;
+  font-size: 18px;
   letter-spacing: 0.02857em;
-  border-radius: 10px 10px;
+  border-radius: 5px;
+  padding: $PV $PH;
+  line-height: 1;
   cursor: pointer;
   .button-container {
     display: flex;
     flex-direction: row;
 
     .button-label {
-      padding: 1px 0;
+      margin: 0;
       p {
         margin-block-start: 0em;
         margin-block-end: 0em;
@@ -33,50 +32,61 @@ $PVl: 8px; //Padding Vertically small
         width: 100%;
       }
     }
-    .button-icon {
-      height: 20px;
-      width: auto;
-    }
-    .button-icon-right {
-      margin-left: 6px;
-    }
-    .button-icon-left {
-      margin-right: 6px;
+    .button-icon-container {
+      height: 18px;
+      width: 18px;
+
+      &.button-icon-right {
+        margin-left: 12px;
+      }
+      &.button-icon-left {
+        margin-right: 12px;
+      }
+      .button-icon {
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 
-  &.button-color-yellow {
-    background-color: $Yellow;
-    p {
-      color: $Blue;
-    }
-  }
-  &.button-color-red {
-    background-color: $Red;
-    p {
-      color: $White;
-    }
-  }
-  &.button-color-purple {
-    background-color: $Purple;
-    p {
-      color: $White;
-    }
-  }
-  &.button-color-blue {
+  &.button-type-contained {
     background-color: $Blue;
     p {
       color: $White;
     }
   }
 
-  &.button-size-small {
-    padding: $PVs $PHs;
+  &.button-type-outlined {
+    background-color: $White;
+    border: 1px $Blue solid;
+    padding: calc(#{$PV - 1px}) calc(#{$PH} - 1px);
+    p {
+      color: $Blue;
+    }
+    &.button-with-icon {
+      padding: calc(#{$PV - 1px}) calc(#{$PH} - 9.5px) calc(#{$PV - 1px})
+        calc(#{$PH} - 22.5px);
+    }
   }
-  &.button-size-medium {
-    padding: $PVm $PHm;
+
+  &.button-type-text {
+    background-color: $White;
+    p {
+      color: $Blue;
+    }
   }
-  &.button-size-large {
-    padding: $PVl $PHl;
+
+  &.button-type-nonactive {
+    background-color: $Grey;
+    p {
+      color: $White;
+    }
+  }
+  //$PV: 13px; //Padding Vertically
+  //$PH: 44px; //Padding Horizontally
+  &.button-with-icon {
+    padding: 11.5px 35.5px 11.5px 22.5px;
+    padding: calc(#{$PV + 0px}) calc(#{$PH} - 8.5px) calc(#{$PV + 0px})
+      calc(#{$PH} - 21.5px);
   }
 }

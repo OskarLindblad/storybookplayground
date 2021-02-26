@@ -1,10 +1,12 @@
 .button {
   font-family: "Roboto", sans-serif;
   display: inline-block;
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 900;
+  font-size: 18px;
   letter-spacing: 0.02857em;
-  border-radius: 10px 10px;
+  border-radius: 5px;
+  padding: 13px 44px;
+  line-height: 1;
   cursor: pointer;
 }
 
@@ -19,7 +21,7 @@
 }
 
 .button .button-container .button-label {
-  padding: 1px 0;
+  margin: 0;
 }
 
 .button .button-container .button-label p {
@@ -31,60 +33,64 @@
   width: 100%;
 }
 
-.button .button-container .button-icon {
-  height: 20px;
-  width: auto;
+.button .button-container .button-icon-container {
+  height: 18px;
+  width: 18px;
 }
 
-.button .button-container .button-icon-right {
-  margin-left: 6px;
+.button .button-container .button-icon-container.button-icon-right {
+  margin-left: 12px;
 }
 
-.button .button-container .button-icon-left {
-  margin-right: 6px;
+.button .button-container .button-icon-container.button-icon-left {
+  margin-right: 12px;
 }
 
-.button.button-color-yellow {
-  background-color: #ffd778;
+.button .button-container .button-icon-container .button-icon {
+  height: 100%;
+  width: 100%;
 }
 
-.button.button-color-yellow p {
-  color: #2e394b;
-}
-
-.button.button-color-red {
-  background-color: #ff695a;
-}
-
-.button.button-color-red p {
-  color: #fff;
-}
-
-.button.button-color-purple {
-  background-color: #914696;
-}
-
-.button.button-color-purple p {
-  color: #fff;
-}
-
-.button.button-color-blue {
+.button.button-type-contained {
   background-color: #2e394b;
 }
 
-.button.button-color-blue p {
+.button.button-type-contained p {
   color: #fff;
 }
 
-.button.button-size-small {
-  padding: 3px 12px;
+.button.button-type-outlined {
+  background-color: #fff;
+  border: 1px #2e394b solid;
+  padding: calc(12px) calc(44px - 1px);
 }
 
-.button.button-size-medium {
-  padding: 5px 15px;
+.button.button-type-outlined p {
+  color: #2e394b;
 }
 
-.button.button-size-large {
-  padding: 8px 22px;
+.button.button-type-outlined.button-with-icon {
+  padding: calc(12px) calc(44px - 9.5px) calc(12px) calc(44px - 22.5px);
+}
+
+.button.button-type-text {
+  background-color: #fff;
+}
+
+.button.button-type-text p {
+  color: #2e394b;
+}
+
+.button.button-type-nonactive {
+  background-color: #cecece;
+}
+
+.button.button-type-nonactive p {
+  color: #fff;
+}
+
+.button.button-with-icon {
+  padding: 11.5px 35.5px 11.5px 22.5px;
+  padding: calc(13px) calc(44px - 8.5px) calc(13px) calc(44px - 21.5px);
 }
 /*# sourceMappingURL=Button.css.map */
