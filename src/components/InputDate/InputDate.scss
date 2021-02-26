@@ -1,0 +1,343 @@
+$Blue: #2e394b;
+$Selected: #2c79f7;
+$PlaceHolderGray: #979797;
+$White: #fff;
+$Red: #ff695a;
+
+$PH: 14px; //Padding Horizontally
+$PV: 18.5px; //Padding Vertically
+$PVs: 8.5px; //Padding Vertically small
+
+$Input-Width: 250px;
+
+.inputdate {
+  width: $Input-Width;
+  line-height: 0;
+  p {
+    display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+  }
+  .inputdate-label {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    position: relative;
+
+    .inputdate-container {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      width: $Input-Width;
+    }
+
+    //label/placeholder
+    .inputdate-label-text {
+      position: absolute;
+      z-index: 33;
+      transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+      background-color: $White;
+      white-space: nowrap;
+    }
+    .inputdate-label-text-label {
+      color: $Blue;
+      top: -14.5px;
+      left: 12.5px;
+      font-size: 14px;
+      font-weight: 600;
+      pointer-events: none;
+      padding: 6px 3px;
+      background-color: $White;
+      &.inputdate-label-selected {
+        color: $Selected;
+      }
+    }
+    .inputdate-label-text-placeholder {
+      color: $PlaceHolderGray;
+      top: 21.5px;
+      left: 16px;
+      font-size: 18px;
+      pointer-events: none;
+    }
+    input {
+      border-top: $Blue 1px solid;
+      border-left: $Blue 1px solid;
+      border-bottom: $Blue 1px solid;
+      border-right: $White 0px solid;
+      padding: $PV 0 $PV $PH;
+      border-radius: 10px 0 0 10px;
+      font-size: 18px;
+      width: 100%;
+      background-color: $White;
+      outline: $White 0px;
+      &.inputdate-inputfield-selected {
+        border-top: $Selected 2px solid !important;
+        border-left: $Selected 2px solid !important;
+        border-bottom: $Selected 2px solid !important;
+        border-right: $White 0px solid;
+        padding: calc(#{$PV} - 1px) 0 calc(#{$PV} - 1px) calc(#{$PH} - 1px);
+      }
+      &.bold-text {
+        font-weight: 600;
+      }
+      &.bold-border {
+        border-top: $Blue 4px solid;
+        border-left: $Blue 4px solid;
+        border-bottom: $Blue 4px solid;
+        border-right: $White 0px solid;
+        padding: calc(#{$PV} - 3px) 0 calc(#{$PV} - 3px) calc(#{$PH} - 2px);
+        &.inputdate-inputfield-selected {
+          border-top: $Selected 4px solid !important;
+          border-left: $Selected 4px solid !important;
+          border-bottom: $Selected 4px solid !important;
+          border-right: $White 0px solid;
+          padding: calc(#{$PV} - 3px) 0 calc(#{$PV} - 3px) calc(#{$PH} - 2px);
+        }
+      }
+    }
+    input:focus {
+      outline: none;
+    }
+    .inputdate-suffix {
+      background-color: $White;
+      border-top: $Blue 1px solid;
+      border-left: $White 0px solid;
+      border-bottom: $Blue 1px solid;
+      border-right: $Blue 1px solid;
+      padding: #{$PV} #{$PH} #{$PV} 0;
+      border-radius: 0 10px 10px 0;
+      position: relative;
+      padding: calc(#{$PV} + 1px) $PH calc(#{$PV} - 1px) 0;
+
+      &.inputdate-suffix-selected {
+        border-top: $Selected 2px solid;
+        border-left: $White 0px solid;
+        border-bottom: $Selected 2px solid;
+        border-right: $Selected 2px solid;
+        padding: calc(#{$PV} - 0px) calc(#{$PH} - 1px) calc(#{$PV} - 4px) 0;
+        &.suffix-image {
+          padding: calc(#{$PV} - 2px) calc(#{$PH} - 4px) calc(#{$PV} - 5px) 0;
+        }
+      }
+      &.suffix-image {
+        padding: calc(#{$PV} - 1px) calc(#{$PH} - 3px) calc(#{$PV} - 4px) 0;
+      }
+      p {
+        margin-left: 14px;
+        &.bold-text {
+          font-weight: 600;
+        }
+      }
+      img {
+        height: 22px;
+        width: auto;
+        margin-left: 6px;
+      }
+      &.bold-border {
+        border-top: $Blue 4px solid;
+        border-left: $White 0px solid;
+        border-bottom: $Blue 4px solid;
+        border-right: $Blue 4px solid;
+        padding: calc(#{$PV} - 1px) calc(#{$PH} - 2px) calc(#{$PV} - 4px) 0;
+        &.suffix-image {
+          padding: calc(#{$PV} - 3px) calc(#{$PH} - 2px) calc(#{$PV} - 6px) 0;
+          img {
+            margin-left: 3px;
+          }
+        }
+        &.inputdate-suffix-selected {
+          border-top: $Selected 4px solid;
+          border-left: $White 0px solid;
+          border-bottom: $Selected 4px solid;
+          border-right: $Selected 4px solid;
+        }
+      }
+    }
+    .inputdate-helper-text {
+      font-size: 14px;
+      margin: 5px 14px 0 14px;
+      p {
+        margin-top: 12px;
+      }
+    }
+  }
+}
+
+//Error styling
+.inputdate-error.inputdate-label {
+  .inputdate-label-text-label {
+    color: $Red;
+    background-color: $White;
+    &.inputdate-label-selected {
+      color: $Red;
+    }
+  }
+
+  input {
+    border-top: $Red 1px solid;
+    border-left: $Red 1px solid;
+    border-bottom: $Red 1px solid;
+    border-right: $White 0px solid;
+    color: $Red;
+    &.bold-border {
+      border-top: $Red 3px solid !important;
+      border-left: $Red 3px solid !important;
+      border-bottom: $Red 3px solid !important;
+      border-right: $White 0px solid;
+      padding: calc(#{$PV} - 2px) 0 calc(#{$PV} - 2px) calc(#{$PH} - 4px);
+    }
+    &.inputdate-inputfield-selected {
+      border-top: $Red 2px solid !important;
+      border-left: $Red 2px solid !important;
+      border-bottom: $Red 2px solid !important;
+      border-right: $White 0px solid;
+      &.bold-border {
+        border-top: $Red 5px solid !important;
+        border-left: $Red 5px solid !important;
+        border-bottom: $Red 5px solid !important;
+        border-right: $White 0px solid;
+        padding: calc(#{$PV} - 4px) 0 calc(#{$PV} - 4px) calc(#{$PH} - 4px);
+      }
+    }
+  }
+  .inputdate-suffix {
+    border-top: $Red 1px solid;
+    border-bottom: $Red 1px solid;
+    border-right: $Red 1px solid;
+
+    &.bold-border {
+      border-top: $Red 3px solid !important;
+      border-right: $Red 3px solid !important;
+      border-bottom: $Red 3px solid !important;
+      border-left: $White 0px solid;
+      &.suffix-image {
+        padding: calc(#{$PV} - 3px) calc(#{$PH} - 2px) calc(#{$PV} - 6px) 0;
+        img {
+          margin-left: 3px;
+        }
+      }
+    }
+    &.inputdate-suffix-selected {
+      border-top: $Red 2px solid;
+      border-bottom: $Red 2px solid;
+      border-right: $Red 2px solid;
+      padding: calc(#{$PV} - 0px) calc(#{$PH} - 1px) calc(#{$PV} - 5px) 0;
+      &.suffix-image {
+        padding: calc(#{$PV} - 2px) calc(#{$PH} - 4px) calc(#{$PV} - 5px) 0;
+      }
+      &.bold-border {
+        border-top: $Red 5px solid !important;
+        border-right: $Red 5px solid !important;
+        border-bottom: $Red 5px solid !important;
+        border-left: $White 0px solid !important;
+        padding: calc(#{$PV} - 3px) calc(#{$PH} - 4px) calc(#{$PV} - 5px) 0;
+        &.suffix-image {
+          padding: calc(#{$PV} - 5px) calc(#{$PH} - 4px) calc(#{$PV} - 8px) 0;
+          img {
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+
+    p {
+      color: $Red;
+      margin-left: 14px;
+    }
+  }
+  .inputdate-helper-text {
+    color: $Red;
+  }
+}
+
+// Small ---------------------------------------------
+
+.inputdate-label.inputdate-smallField {
+  .inputdate-label-text-label {
+    top: -14.5px;
+  }
+  .inputdate-label-text-placeholder {
+    color: $PlaceHolderGray;
+    top: 11.5px;
+  }
+  input {
+    padding: $PVs 0 $PVs $PH;
+    &.inputdate-inputfield-selected {
+      padding: calc(#{$PVs} - 1px) 0 calc(#{$PVs} - 1px) calc(#{$PH} - 1px);
+    }
+    &.bold-border {
+      padding: calc(#{$PVs} - 3px) 0 calc(#{$PVs} - 3px) calc(#{$PH} - 2px);
+      &.inputdate-inputfield-selected {
+        padding: calc(#{$PVs} - 3px) 0 calc(#{$PVs} - 3px) calc(#{$PH} - 2px);
+      }
+    }
+  }
+
+  .inputdate-suffix {
+    padding: calc(#{$PVs} + 1px) $PH calc(#{$PVs} - 1px) 0;
+
+    &.inputdate-suffix-selected {
+      padding: calc(#{$PVs} - 0px) calc(#{$PH} - 1px) calc(#{$PVs} - 2px) 0;
+      &.suffix-image {
+        padding: calc(#{$PVs} - 2px) calc(#{$PH} - 4px) calc(#{$PVs} - 5px) 0;
+      }
+    }
+    &.suffix-image {
+      padding: calc(#{$PVs} - 1px) calc(#{$PH} - 3px) calc(#{$PVs} - 4px) 0;
+    }
+    &.bold-border {
+      padding: calc(#{$PVs} - 1px) calc(#{$PH} - 2px) calc(#{$PVs} - 5px) 0;
+      &.inputdate-suffix-selected {
+        padding: calc(#{$PVs} - 1px) calc(#{$PH} - 2px) calc(#{$PVs} - 5px) 0;
+      }
+      &.suffix-image {
+        padding: calc(#{$PVs} - 3px) calc(#{$PH} - 2px) calc(#{$PVs} - 6px) 0;
+        img {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+  .inputdate-helper-text {
+    font-size: 14px;
+    margin: 5px 14px 0 14px;
+  }
+}
+
+//Error styling - small
+.inputdate-error.inputdate-smallField {
+  input {
+    &.bold-border {
+      padding: calc(#{$PVs} - 2px) 0 calc(#{$PVs} - 2px) calc(#{$PH} - 4px);
+    }
+    &.inputdate-inputfield-selected {
+      &.bold-border {
+        padding: calc(#{$PVs} - 4px) 0 calc(#{$PVs} - 4px) calc(#{$PH} - 4px);
+      }
+    }
+  }
+  .inputdate-suffix {
+    &.bold-border {
+      &.suffix-image {
+        padding: calc(#{$PVs} - 3px) calc(#{$PH} - 2px) calc(#{$PVs} - 6px) 0;
+        img {
+          margin-left: 3px;
+        }
+      }
+    }
+    &.inputdate-suffix-selected {
+      &.suffix-image {
+        padding: calc(#{$PVs} - 2px) calc(#{$PH} - 4px) calc(#{$PVs} - 5px) 0;
+      }
+      &.bold-border {
+        padding: calc(#{$PVs} - 3px) calc(#{$PH} - 4px) calc(#{$PVs} - 6px) 0;
+        &.suffix-image {
+          padding: calc(#{$PVs} - 5px) calc(#{$PH} - 4px) calc(#{$PVs} - 8px) 0;
+          img {
+            margin-left: 3px;
+          }
+        }
+      }
+    }
+  }
+}
