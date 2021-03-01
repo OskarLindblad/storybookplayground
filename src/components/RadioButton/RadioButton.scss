@@ -1,0 +1,30 @@
+$radio-button-size: 14px;
+$PlaceHolderGray: #979797;
+
+.radiobutton {
+  font-size: 18px;
+
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: row;
+
+  .radiobutton-checkbox-container {
+    height: auto;
+    width: $radio-button-size;
+    margin-right: 4px;
+    position: relative;
+    .radiobutton-checkbox {
+      height: 100%;
+      width: $radio-button-size;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+  }
+
+  &.radiobutton-unClickable {
+    color: $PlaceHolderGray;
+  }
+}

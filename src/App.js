@@ -1,19 +1,12 @@
 import "./App.css";
-import DropDown from "./components/DropDown/DropDown";
-import Input from "./components/Input/Input";
-import Scroll from "./components/Scroll/Scroll";
-import InputDate from "./components/InputDate/InputDate";
-import React, { useState } from "react";
-
-import ValidateDate from "./components/InputDate/ValidateDate";
+//import DropDown from "./components/DropDown/DropDown";
+//import Input from "./components/Input/Input";
+//import Scroll from "./components/Scroll/Scroll";
+import DatePicker from "./datepicker/DatePicker";
+import React from "react";
 
 function App() {
-  const [date, setDate] = useState("");
-  const [test, setTest] = useState("");
-  const handleDate = (e) => {
-    setDate(e.target.value);
-    ValidateDate(e.target.value);
-  };
+  //const [test, setTest] = useState("");
 
   return (
     <div className="App">
@@ -30,7 +23,7 @@ function App() {
           Learn React
         </a>
         <div style={{ width: "300px", border: "1px black solid" }}>
-          <Scroll height="100px">
+          {/*<Scroll height="100px">
             <DropDown label={"korv"} value={"korv"} />
             <br />
             <Input
@@ -39,14 +32,13 @@ function App() {
               onChange={(e) => setTest(e.target.value)}
               smallField
             />
-          </Scroll>
+  </Scroll>*/}
         </div>
-        <br />
-        <br />
-        <br />
-        <InputDate label="Date" value={date} onChange={handleDate} />
-        {date}
       </header>
+      <br />
+      <br />
+      <br />
+      <DatePicker />
     </div>
   );
 }
