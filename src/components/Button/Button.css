@@ -25,6 +25,10 @@
 }
 
 .button .button-container .button-label p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -webkit-margin-before: 0em;
           margin-block-start: 0em;
   -webkit-margin-after: 0em;

@@ -126,6 +126,9 @@ $Dropdown-Width: 250px;
         padding: calc(#{$PVs} - 1px) calc(#{$PH} - 1px);
       }
     }
+    .dropdown-down-icon-container {
+      height: 40px !important;
+    }
   }
 }
 

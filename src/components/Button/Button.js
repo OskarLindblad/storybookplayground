@@ -9,6 +9,7 @@ export const Button = ({
   type, // actually color, but that messes with storybook
   size,
   side,
+  onClick,
   ...rest
 }) => {
   return (
@@ -19,6 +20,7 @@ export const Button = ({
         ${icon ? "button-with-icon" : ""}
         ${className && className}
         `}
+      onClick={onClick}
     >
       {side === "left" ? (
         <div className="button-container">
@@ -56,6 +58,7 @@ Button.propTypes = {
   side: PropTypes.oneOf(["left", "right"]),
   icon: PropTypes.string,
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
@@ -64,4 +67,5 @@ Button.defaultProps = {
   side: "left",
   icon: "",
   className: "",
+  onClick: undefined,
 };

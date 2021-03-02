@@ -11,17 +11,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        Calcutron 2000
         <div style={{ width: "300px", border: "1px black solid" }}>
           {/*<Scroll height="100px">
             <DropDown label={"korv"} value={"korv"} />
@@ -35,8 +25,6 @@ function App() {
   </Scroll>*/}
         </div>
       </header>
-      <br />
-      <br />
       <br />
       <DatePicker />
     </div>

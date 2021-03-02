@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import ValidateDate from "../components/InputDate/ValidateDate";
 import InputDate from "../components/InputDate/InputDate";
+
 import SpecificOrApproximateDate from "./SpecificOrApproximateDate";
+import ApproximateDate from "./ApproximateDate";
+import SpecificDate from "./SpecificDate";
 
 export default function DatePicker() {
   const [dateType, setDateType] = useState("");
@@ -9,14 +12,23 @@ export default function DatePicker() {
   const [date, setDate] = useState("");
   const [error, setError] = useState(false);
   const [dateValidated, setDateValidated] = useState(false);
+  const [approximations, setApproximations] = useState([
+    { approximation: 6, displayed: "6 months" },
+  ]);
 
   let datetypeSelected;
   if (dateType === "" || !dateValidated) {
     datetypeSelected = <></>;
   } else if (dateType === "approximate") {
-    datetypeSelected = <p>approximate</p>;
+    datetypeSelected = (
+      <ApproximateDate
+        date={date}
+        approximations={approximations}
+        setApproximations={setApproximations}
+      />
+    );
   } else if (dateType === "specific") {
-    datetypeSelected = <p>specific</p>;
+    datetypeSelected = <SpecificDate date={date} />;
   }
 
   const handleDate = (e) => {
@@ -33,6 +45,7 @@ export default function DatePicker() {
       setDateValidated(true);
     }
   };
+
   return (
     <div>
       <InputDate
@@ -55,7 +68,7 @@ export default function DatePicker() {
           unClickable={true}
         />
       )}
-      <br /> <br />
+      <br />
       {datetypeSelected}
     </div>
   );

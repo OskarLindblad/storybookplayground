@@ -132,6 +132,10 @@
   padding: calc(8.5px - 1px) calc(14px - 1px);
 }
 
+.dropdown-smallField label .dropdown-down-icon-container {
+  height: 40px !important;
+}
+
 .dropdown-error label .dropdown-label-text-label.dropdown-label-selected {
   color: #ff695a;
 }
