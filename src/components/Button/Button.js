@@ -10,6 +10,7 @@ export const Button = ({
   size,
   side,
   onClick,
+  NoUpperCase,
   ...rest
 }) => {
   return (
@@ -18,9 +19,12 @@ export const Button = ({
         button 
         button-type-${type}
         ${icon ? "button-with-icon" : ""}
+        ${NoUpperCase ? "button-NoUpperCase" : ""}
         ${className && className}
         `}
-      onClick={onClick}
+      onClick={() => {
+        onClick();
+      }}
     >
       {side === "left" ? (
         <div className="button-container">
@@ -59,6 +63,7 @@ Button.propTypes = {
   icon: PropTypes.string,
   className: PropTypes.string,
   onClick: PropTypes.func,
+  NoUpperCase: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -68,4 +73,5 @@ Button.defaultProps = {
   icon: "",
   className: "",
   onClick: undefined,
+  NoUpperCase: true,
 };

@@ -13,7 +13,7 @@ export default function DatePicker() {
   const [error, setError] = useState(false);
   const [dateValidated, setDateValidated] = useState(false);
   const [approximations, setApproximations] = useState([
-    { approximation: 6, displayed: "6 months" },
+    { id: Date.now(), value: 6, displayed: "6 months" },
   ]);
 
   let datetypeSelected;
