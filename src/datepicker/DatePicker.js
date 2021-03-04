@@ -16,6 +16,10 @@ export default function DatePicker() {
     { id: Date.now(), value: 6, displayed: "6 months" },
   ]);
 
+  const [specificDates, setSpecificDates] = useState([
+    { id: Date.now(), value: "", filled: false, error: false },
+  ]);
+
   let datetypeSelected;
   if (dateType === "" || !dateValidated) {
     datetypeSelected = <></>;
@@ -28,7 +32,13 @@ export default function DatePicker() {
       />
     );
   } else if (dateType === "specific") {
-    datetypeSelected = <SpecificDate date={date} />;
+    datetypeSelected = (
+      <SpecificDate
+        date={date}
+        specificDates={specificDates}
+        setSpecificDates={setSpecificDates}
+      />
+    );
   }
 
   const handleDate = (e) => {

@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../components/Button/Button";
 import plus from "./plus.svg";
 import cross from "./cross.svg";
+import OrdinalNumeral from "./OrdinalNumeral";
 
 import displayedApproximation from "./displayedApproximation";
 
@@ -50,30 +51,14 @@ export default function ApproximateDate({
     return newRange;
   };
 
-  const OrdinalNumeral = (i) => {
-    var j = i % 10,
-      k = i % 100;
-    if (i === 1) {
-      return "";
-    }
-    if (j === 1 && k !== 11) {
-      return i + "st ";
-    }
-    if (j === 2 && k !== 12) {
-      return i + "nd ";
-    }
-    if (j === 3 && k !== 13) {
-      return i + "rd ";
-    }
-    return i + "th ";
-  };
-
   return (
     <>
       {approximations.map((approximation, index) => (
         <div key={approximation.id}>
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <h3 style={{ marginRight: "0.5em" }}>{index + 1}st Court Date</h3>
+            <h3 style={{ marginRight: "0.5em" }}>
+              {OrdinalNumeral(index + 2)} Court Date
+            </h3>
             {index + 1 === approximations.length && (
               <img
                 src={cross}
@@ -107,7 +92,6 @@ export default function ApproximateDate({
               max="48"
               value={approximation.value}
               className="slider"
-              id="myRange"
               onChange={(e) => handleChange(e, approximation.id)}
             />
             <p>{displayedApproximation(approximation.value)}</p>
@@ -116,7 +100,7 @@ export default function ApproximateDate({
       ))}
 
       <Button
-        label={`Add ${OrdinalNumeral(approximations.length + 1)}Court Date`}
+        label={`Add ${OrdinalNumeral(approximations.length + 2)} Court Date`}
         type="outlined"
         icon={plus}
         onClick={addCourtCase}

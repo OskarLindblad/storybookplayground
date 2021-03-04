@@ -8,7 +8,7 @@ export default function SpecificOrApproximateDate({
 }) {
   return (
     <div className="specific-or-approximate-date">
-      <h3>Date Estimation</h3>
+      <h3>1st Court Instance</h3>
 
       <RadioButton
         setChecked={setDateType}
