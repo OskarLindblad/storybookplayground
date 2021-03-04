@@ -3,10 +3,21 @@ import "./App.css";
 //import Input from "./components/Input/Input";
 import Scroll from "./components/Scroll/Scroll";
 import DatePicker from "./datepicker/DatePicker";
-import React from "react";
+import React, { useState } from "react";
+import MultiRange from "./components/MultiRange/MultiRange";
 
 function App() {
-  //const [test, setTest] = useState("");
+  const [dates, setDates] = useState([{ id: 1, value: 1 }]);
+
+  const addRange = () => {
+    setDates((e) => [
+      ...e,
+      {
+        id: Date.now(),
+        value: 1,
+      },
+    ]);
+  };
 
   return (
     <div className="App">
@@ -14,14 +25,6 @@ function App() {
         Calcutron 2000
         <div style={{ width: "300px", border: "1px black solid" }}>
           <Scroll height="50px">
-            {/*<DropDown label={"korv"} value={"korv"} />
-            <br />
-            <Input
-              label="Test"
-              value={test}
-              onChange={(e) => setTest(e.target.value)}
-              smallField
-            />*/}
             <p>
               "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
@@ -43,6 +46,9 @@ function App() {
       </header>
       <br />
       <DatePicker />
+      <br />
+      <MultiRange ranges={dates} setRanges={setDates} label={"Test"} />
+      <button onClick={addRange}>Click</button>
     </div>
   );
 }

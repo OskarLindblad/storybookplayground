@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAcA,AAAA,WAAW,CAAC;EACV,gBAAgB,EAAE,MAAM;CACzB",
+    "sources": [
+        "MultiRange.scss"
+    ],
+    "names": [],
+    "file": "MultiRange.css"
+}
