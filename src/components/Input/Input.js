@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import "./Input.css";
 import PropTypes from "prop-types";
+import NumberFormat from "react-number-format";
 
 export const Input = ({
   value,
-  onChange,
+  setValue,
+  readOnly,
   suffixInput,
   suffixImg,
   label,
+  maxLength, // Maximum number of charachters
+  maxDecimals, // Minimum number of decimals
   helperText,
   boldBorder,
   boldText,
@@ -19,6 +23,14 @@ export const Input = ({
   const [labelShrink, setLabelShrink] = useState(false);
   const [selected, setSeleted] = useState(false);
 
+  const onChange = (e) => {
+    let value = e.target.value.replace(/^0+/, "");
+    value = value.replace(/ /g, "");
+    setValue(value);
+  };
+
+  const blockInvalidChar = (e) =>
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
   return (
     <div className="input">
       <label
@@ -40,7 +52,7 @@ export const Input = ({
           </p>
         )}
         <div className="input-container">
-          <input
+          <NumberFormat
             className={`input-inputfield ${
               selected ? "input-inputfield-selected" : ""
             }
@@ -57,6 +69,12 @@ export const Input = ({
               !value && setLabelShrink(false);
               setSeleted(false);
             }}
+            onKeyDown={blockInvalidChar}
+            decimalScale={maxDecimals ? maxDecimals : "none"}
+            maxLength={maxLength ? maxLength : "none"}
+            thousandSeparator=" "
+            decimalSeparator=","
+            readOnly={readOnly ? readOnly : false}
             {...rest}
           />
           <div
@@ -89,6 +107,8 @@ export default Input;
 
 Input.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  setValue: PropTypes.func,
+  readOnly: PropTypes.bool,
   suffixInput: PropTypes.string,
   suffixImg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   label: PropTypes.string,
@@ -98,11 +118,14 @@ Input.propTypes = {
   smallField: PropTypes.bool,
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
-  onChange: PropTypes.func,
+  maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  maxDecimals: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Input.defaultProps = {
   value: "",
+  setValue: undefined,
+  readOnly: false,
   suffixInput: "",
   suffixImg: false,
   label: "",
@@ -112,5 +135,6 @@ Input.defaultProps = {
   smallField: false,
   error: false,
   errorMessage: "",
-  onChange: undefined,
+  maxLength: "none",
+  maxDecimals: "none",
 };

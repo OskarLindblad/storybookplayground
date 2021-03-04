@@ -7,10 +7,9 @@ export const Button = ({
   icon,
   className,
   type, // actually color, but that messes with storybook
-  size,
-  side,
+  side, // icon placement
   onClick,
-  NoUpperCase,
+  NoUpperCase, // Default sets all letters to upperCase
   ...rest
 }) => {
   return (

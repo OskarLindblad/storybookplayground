@@ -8,10 +8,7 @@ $PH: 14px; //Padding Horizontally
 $PV: 18.5px; //Padding Vertically
 $PVs: 8.5px; //Padding Vertically small
 
-$Dropdown-Width: 250px;
-
 .dropdown {
-  width: $Dropdown-Width;
   margin: 0;
   padding: 0;
   display: flex;
@@ -58,7 +55,6 @@ $Dropdown-Width: 250px;
       -moz-appearance: none; /* Firefox */
       -webkit-appearance: none; /* Safari and Chrome */
       appearance: none;
-      width: $Dropdown-Width;
       padding: $PV $PH;
       border-radius: 10px 10px;
       &.dropdown-select-selected {

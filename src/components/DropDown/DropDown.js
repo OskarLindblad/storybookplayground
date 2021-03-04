@@ -5,21 +5,24 @@ import down from "./down.svg";
 
 export const DropDown = ({
   label,
-  value,
+  value, // set default value to "notSelected"
+  setValue,
   name,
   className,
-  onChange,
-  notSelectedOption,
   options,
   error,
   errorMessage,
   helperText,
   smallField,
-  //width,
+  width,
   ...rest
 }) => {
   const [labelShrink, setLabelShrink] = useState(false);
   const [selected, setSeleted] = useState(false);
+
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <div
@@ -28,6 +31,7 @@ export const DropDown = ({
     ${smallField ? "dropdown-smallField" : ""}
 
     `}
+      style={{ width: width }}
     >
       <label
         className={`
@@ -52,20 +56,26 @@ export const DropDown = ({
           value={value}
           onChange={onChange}
           onFocus={() => {
-            value === "notSelected" && setLabelShrink(true);
+            setLabelShrink(true);
             setSeleted(true);
           }}
           onBlur={() => {
             value === "notSelected" && setLabelShrink(false);
             setSeleted(false);
           }}
+          style={{ width: width }}
           {...rest}
         >
-          <option
-            value="notSelected"
-            className="dropdown-notSelected"
-            disabled
-          ></option>
+          {value === "notSelected" ? (
+            <option
+              value="notSelected"
+              className="dropdown-notSelected"
+              disabled={value === "notSelected" ? true : false}
+            ></option>
+          ) : (
+            <></>
+          )}
+
           {options.map((option, index) => (
             <option key={index} value={option.value}>
               {option.title}
@@ -95,9 +105,8 @@ export default DropDown;
 DropDown.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string,
+  setValue: PropTypes.func,
   className: PropTypes.string,
-  notSelectedOption: PropTypes.string,
-  onChange: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
@@ -108,17 +117,18 @@ DropDown.propTypes = {
   errorMessage: PropTypes.string,
   helperText: PropTypes.string,
   smallField: PropTypes.bool,
+  width: PropTypes.string,
 };
 
 DropDown.defaultProps = {
   label: "",
   value: "notSelected",
+  setValue: undefined,
   className: "",
-  notSelectedOption: "",
-  onChange: undefined,
   options: [{ value: "", title: "" }],
   error: false,
   errorMessage: "",
   helperText: "",
   smallField: false,
+  width: "250px",
 };

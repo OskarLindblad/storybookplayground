@@ -1,5 +1,4 @@
 .datalist {
-  width: 250px;
   margin: 0;
   padding: 0;
   display: -webkit-box;
@@ -62,7 +61,6 @@
   border-radius: 10px 10px;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  width: 220px;
 }
 
 .datalist .datalist-input-container .datalist-input:focus {
@@ -166,7 +164,7 @@
           margin-block-end: 0em;
   font-weight: 600;
   margin-left: 10px;
-  margin-top: 12px;
+  margin-top: 21px;
 }
 
 .datalist .datalist-trash-container {
@@ -199,9 +197,13 @@
   height: 40px;
 }
 
+.datalist-smallField .datalist-likelyhood {
+  margin-top: 12px;
+}
+
 .datalist-smallField .datalist-trash-container {
   margin-left: 10px;
-  margin-top: 7px;
+  margin-top: 8px;
 }
 
 .datalist-smallField .datalist-trash-container .datalist-trash {

@@ -1,5 +1,4 @@
 .dropdown {
-  width: 250px;
   margin: 0;
   padding: 0;
   display: -webkit-box;
@@ -58,7 +57,6 @@
   -webkit-appearance: none;
   /* Safari and Chrome */
   appearance: none;
-  width: 250px;
   padding: 18.5px 14px;
   border-radius: 10px 10px;
 }

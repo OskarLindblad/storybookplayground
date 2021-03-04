@@ -9,37 +9,44 @@ import PropTypes from "prop-types";
 export const DataList = ({
   label,
   value,
+  setValue,
   name,
   className,
-  onChange,
   options,
   error,
   errorMessage,
   helperText,
   smallField,
+  width,
   ...rest
 }) => {
-  const [pick, setPick] = useState("");
   const [selected, setSelected] = useState(false);
   const [labelShrink, setLabelShrink] = useState(false);
   const [dropDown, showDropDown] = useState(false);
 
   const handleChange = (e) => {
-    const data = parseInt(e.target.value);
+    let data = e.target.value;
+    data = data.replace(",", ".");
     showDropDown(true);
+
     if (!isNaN(data)) {
       if (data <= 100 && data >= 0) {
-        setPick(data);
+        data = data.replace(".", ",");
+        setValue(data);
       } else {
-        setPick(pick);
+        setValue(value);
       }
     } else {
-      setPick("");
+      setValue("");
     }
   };
 
   const handleClick = (likelyHood) => {
-    setPick(likelyHood);
+    setValue(likelyHood);
+  };
+
+  const removeValue = () => {
+    setValue("");
   };
 
   return (
@@ -47,13 +54,16 @@ export const DataList = ({
       className={`datalist ${error ? "datalist-error" : ""} ${
         smallField ? "datalist-smallField" : ""
       }`}
+      style={{ width: width }}
     >
       <div className="datalist-container">
         <div className="datalist-input-container">
           <p
             className={`
             datalist-label-text
-            datalist-label-text-${labelShrink || pick ? "label" : "placeholder"}
+            datalist-label-text-${
+              labelShrink || value ? "label" : "placeholder"
+            }
             ${selected ? "datalist-label-selected" : ""}
             `}
           >
@@ -63,7 +73,7 @@ export const DataList = ({
             className={`datalist-input ${
               selected ? "datalist-input-selected" : ""
             }`}
-            value={pick}
+            value={value}
             onInput={handleChange}
             onFocus={() => {
               setSelected(true);
@@ -71,7 +81,7 @@ export const DataList = ({
             }}
             onBlur={() => {
               setSelected(false);
-              !pick && setLabelShrink(false);
+              !value && setLabelShrink(false);
               setTimeout(() => {
                 showDropDown(false);
               }, 200);
@@ -81,6 +91,11 @@ export const DataList = ({
             }}
             autoComplete="off"
             step="0.5"
+            maxLength="4"
+            decimalSeparator=","
+            decimalScale="1"
+            {...rest}
+            style={{ width: `calc(${width} - 30px)` }}
           />
           <div className="datalist-down-icon-container">
             <div
@@ -124,9 +139,14 @@ export const DataList = ({
           )}
         </div>
       </div>
-      {pick && <p className="datalist-likelyhood">{pick}%</p>}
+      {value && <p className="datalist-likelyhood">{value}%</p>}
       <div className="datalist-trash-container">
-        <img src={trash} alt="trash" className="datalist-trash" />
+        <img
+          src={trash}
+          alt="trash"
+          className="datalist-trash"
+          onClick={removeValue}
+        />
       </div>
     </div>
   );
@@ -149,6 +169,7 @@ DataList.propTypes = {
   errorMessage: PropTypes.string,
   helperText: PropTypes.string,
   smallField: PropTypes.bool,
+  width: PropTypes.string,
 };
 
 DataList.defaultProps = {
@@ -156,9 +177,10 @@ DataList.defaultProps = {
   value: "",
   className: "",
   onChange: undefined,
-  options: [{ value: "", title: "" }],
+  options: [{ value: "addArray", title: "addArray" }],
   error: false,
   errorMessage: "",
   helperText: "",
   smallField: false,
+  width: "250px",
 };
