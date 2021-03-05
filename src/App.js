@@ -1,6 +1,4 @@
 import "./App.css";
-import DataList from "./components/DataList/DataList";
-//import Input from "./components/Input/Input";
 
 import Scroll from "./components/Scroll/Scroll";
 import DatePicker from "./datepicker/DatePicker";
@@ -9,32 +7,17 @@ import MultiRange from "./components/MultiRange/MultiRange";
 
 function App() {
   const [dates, setDates] = useState([{ id: 1, value: 1 }]);
-  const [test, setTest] = useState("");
 
   const addRange = () => {
     setDates((e) => [
       ...e,
       {
         id: Date.now(),
-        value: 1,
+        value: dates[dates.length - 1].value + 1,
       },
     ]);
   };
 
-  let options = [
-    {
-      value: "test1",
-      title: "Test1",
-    },
-    {
-      value: "test2",
-      title: "Test2",
-    },
-    {
-      value: "test3",
-      title: "Test3",
-    },
-  ];
   return (
     <div className="App">
       <header className="App-header">
@@ -65,16 +48,6 @@ function App() {
       <br />
       <MultiRange ranges={dates} setRanges={setDates} label={"Test"} />
       <button onClick={addRange}>Click</button>
-
-      <br />
-      <br />
-      <DataList
-        width="130px"
-        options={options}
-        value={test}
-        setValue={setTest}
-        label="korv"
-      />
     </div>
   );
 }

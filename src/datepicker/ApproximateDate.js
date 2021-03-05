@@ -57,7 +57,7 @@ export default function ApproximateDate({
         <div key={approximation.id}>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <h3 style={{ marginRight: "0.5em" }}>
-              {OrdinalNumeral(index + 2)} Court Date
+              {OrdinalNumeral(index + 1)} Court Date
             </h3>
             {index + 1 === approximations.length && (
               <img
@@ -100,7 +100,7 @@ export default function ApproximateDate({
       ))}
 
       <Button
-        label={`Add ${OrdinalNumeral(approximations.length + 2)} Court Date`}
+        label={`Add ${OrdinalNumeral(approximations.length + 1)} Court Date`}
         type="outlined"
         icon={plus}
         onClick={addCourtCase}

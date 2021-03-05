@@ -3,7 +3,7 @@ import React from "react";
 import MultiRange from "./MultiRange";
 
 export default {
-  title: "Form/multRange",
+  title: "Form/multiRange",
   component: MultiRange,
 };
 

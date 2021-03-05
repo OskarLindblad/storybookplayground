@@ -1,4 +1,48 @@
 .multiRange {
-  background-color: bisque;
+  position: relative;
+  pointer-events: none;
+}
+
+.multiRange .multiRange-container {
+  position: absolute;
+  top: 0;
+}
+
+.multiRange .multiRange-container input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0px;
+}
+
+.multiRange .multiRange-container input[type="range" i] {
+  margin: 0;
+}
+
+.multiRange .multiRange-container input[type="range"]::-webkit-slider-thumb {
+  pointer-events: auto;
+  margin-top: -14px;
+  width: 16px;
+  height: 36px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.multiRange .multiRange-container .multiRange-value-hide {
+  color: rgba(0, 0, 0, 0);
+}
+
+.multiRange .multiRange-container .multiRange-value-down .multiRange-value-up {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.multiRange .multiRange-bar {
+  background-color: grey;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  bottom: 62px;
+  z-index: -3;
 }
 /*# sourceMappingURL=MultiRange.css.map */

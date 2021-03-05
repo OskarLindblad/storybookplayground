@@ -14,24 +14,65 @@ export const MultiRange = ({
   width,
   ...rest
 }) => {
-  const handleChange = (e, id) => {
+  const handleChange = (e, id, index) => {
+    let numberOfRanges = ranges.length - 1; // -1 to easier compare to index
+    let current = parseInt(e.target.value);
+
+    let direction;
+    if (ranges[index].value < current) {
+      direction = "higher";
+    } else if (ranges[index].value > current) {
+      direction = "lower";
+    }
+
     setRanges(
       ranges.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              value: parseInt(e.target.value),
-            }
-          : item
+        item.id === id ? { ...item, value: current } : item
       )
     );
+    //  higher
+    if (direction === "higher" && numberOfRanges > index) {
+      const after = ranges[index + 1].value;
+      if (current >= after) {
+        setRanges(
+          ranges.map((item) =>
+            item.id === id ? { ...item, value: after - 1 } : item
+          )
+        );
+      }
+    }
+    // lower
+    else if (direction === "lower" && index !== 0) {
+      const before = ranges[index - 1].value;
+      if (current <= before) {
+        setRanges(
+          ranges.map((item) =>
+            item.id === id ? { ...item, value: before + 1 } : item
+          )
+        );
+      }
+    }
   };
 
   return (
-    <div className="multiRange">
+    <div className="multiRange" style={{ width: width }}>
       <p>{label}</p>
       {ranges.map((range, index) => (
-        <div key={index}>
+        <div
+          key={index}
+          className="multiRange-container"
+          style={{ width: `calc( 100% )` }}
+        >
+          <p
+            style={{
+              marginLeft: `calc(  ${width} / ${rangeMax * ranges.length} *  ${
+                range.value
+              } - ${width} / ${rangeMax * ranges.length} * 0.75 )`,
+            }}
+            className={`multiRange-value-${index % 2 === 0 ? "up" : "hide"}`}
+          >
+            {range.value}m
+          </p>
           <input
             key={index}
             type="range"
@@ -39,12 +80,27 @@ export const MultiRange = ({
             max={rangeMax * (index + 1)}
             value={range.value}
             className="slider"
-            onChange={(e) => handleChange(e, range.id)}
-            style={{ width: `calc(${width} * ${index + 1})` }}
+            onChange={(e) => handleChange(e, range.id, index)}
+            style={{ width: `calc( 100% / ${ranges.length} * ${index + 1} )` }}
           />
-          <p>{range.value}</p>
+          <p
+            style={{
+              marginLeft: `calc(  ${width} / ${rangeMax * ranges.length} *  ${
+                range.value
+              } - ${width} / ${rangeMax * ranges.length} * 0.75 )`,
+            }}
+            className={`multiRange-value-${index % 2 !== 0 ? "down" : "hide"}`}
+          >
+            {range.value}m
+          </p>
         </div>
       ))}
+      <div className="multiRange-bar"></div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
@@ -69,5 +125,5 @@ MultiRange.defaultProps = {
   ranges: [{ id: 1, value: 1 }],
   setRanges: undefined,
   rangeMax: 10,
-  width: "100px",
+  width: "500px",
 };
