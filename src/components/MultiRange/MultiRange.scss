@@ -15,6 +15,12 @@ $PH: 44px; //Padding Horizontally
 .multiRange {
   position: relative;
   pointer-events: none;
+  font-family: "Roboto", sans-serif;
+  height: 100px;
+
+  .multiRange-label {
+    font-size: 18px;
+  }
   .multiRange-container {
     position: absolute;
     top: 0;
@@ -37,20 +43,42 @@ $PH: 44px; //Padding Horizontally
       -webkit-appearance: none;
     }
 
-    .multiRange-value-hide {
-      color: rgba($color: #000000, $alpha: 0);
+    .multiRange-value-display-up {
+      height: 3em;
+      position: relative;
     }
-    .multiRange-value-down .multiRange-value-up {
-      margin-top: 0;
-      margin-bottom: 0;
+
+    .multiRange-value-display-down {
+      height: 2em;
+      position: relative;
+    }
+
+    .multiRange-value-up {
+      white-space: nowrap;
+      position: absolute;
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+      bottom: 0;
+    }
+    .multiRange-value-down {
+      white-space: nowrap;
+      position: absolute;
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+    }
+
+    .multiRange-value-hide {
+      display: none;
+      position: absolute;
     }
   }
+
   .multiRange-bar {
     background-color: grey;
     height: 5px;
     width: 100%;
     position: absolute;
-    bottom: 62px;
+    bottom: 40px;
     z-index: -3;
   }
 }

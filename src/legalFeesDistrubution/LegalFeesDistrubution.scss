@@ -1,0 +1,119 @@
+$height: 200px;
+$width: 73px; //73
+
+$Blue: #2e394b;
+
+$Yellow: #ffd778;
+$White: #fff;
+$Red: #ff695a;
+$Purple: #914696;
+$Grey: #cecece;
+$LightGrey: #e6e6e6;
+
+.FeeDistribution {
+  .FeeDistribution-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: auto;
+    .FeeRange {
+      display: flex;
+      flex-direction: column;
+      width: 135px;
+      margin: 0 10px;
+
+      .slider-container {
+        height: $height;
+        width: $width;
+        position: relative;
+        width: 135px;
+        margin: 36px 0;
+        z-index: 50;
+
+        .slider {
+          -webkit-appearance: none;
+          appearance: none;
+          //Need to be swapped becuse of rotation
+          width: $height;
+          height: $width;
+          outline: none;
+          position: absolute;
+          left: -34px;
+          transform: rotate(270deg);
+          background-color: rgba($color: #000000, $alpha: 0);
+          &.slider-win {
+            top: 98px;
+          }
+          &.slider-lose {
+            top: 25px;
+          }
+        }
+
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 0px;
+          height: $width;
+          cursor: pointer;
+        }
+
+        .slider-bar {
+          width: $width;
+          background-color: $Blue;
+          z-index: 53;
+          bottom: 0;
+          left: 32px;
+          position: absolute;
+          pointer-events: none;
+          &.slider-bar-win {
+            bottom: -36px;
+          }
+          &.slider-bar-lose {
+            top: -37px;
+          }
+        }
+      }
+      .FeeDistribution-text {
+        text-align: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        display: inline-block;
+        margin: 0;
+        height: 43px;
+        letter-spacing: 0px;
+        border: 1px black;
+        border-style: solid none;
+        background-color: $White;
+        padding-top: 0.2em;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        box-sizing: border-box;
+      }
+    }
+    .slider-text {
+      text-align: center;
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      position: absolute;
+      pointer-events: none;
+    }
+    .slider-text-bold {
+      font-weight: 900;
+    }
+    .fee-button {
+      height: 17px;
+      width: 17px;
+      background-color: $Yellow;
+      border-radius: 50%;
+    }
+  }
+  .FeeDistribution-white-bar {
+    height: 41px;
+    width: calc((123px + 20px) * 10);
+    border: 1px black solid;
+    position: absolute;
+    top: 353px;
+    z-index: -1;
+    background-color: $White;
+  }
+}

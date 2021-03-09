@@ -1,6 +1,12 @@
 .multiRange {
   position: relative;
   pointer-events: none;
+  font-family: "Roboto", sans-serif;
+  height: 100px;
+}
+
+.multiRange .multiRange-label {
+  font-size: 18px;
 }
 
 .multiRange .multiRange-container {
@@ -28,13 +34,38 @@
   -webkit-appearance: none;
 }
 
-.multiRange .multiRange-container .multiRange-value-hide {
-  color: rgba(0, 0, 0, 0);
+.multiRange .multiRange-container .multiRange-value-display-up {
+  height: 3em;
+  position: relative;
 }
 
-.multiRange .multiRange-container .multiRange-value-down .multiRange-value-up {
-  margin-top: 0;
-  margin-bottom: 0;
+.multiRange .multiRange-container .multiRange-value-display-down {
+  height: 2em;
+  position: relative;
+}
+
+.multiRange .multiRange-container .multiRange-value-up {
+  white-space: nowrap;
+  position: absolute;
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+  bottom: 0;
+}
+
+.multiRange .multiRange-container .multiRange-value-down {
+  white-space: nowrap;
+  position: absolute;
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+}
+
+.multiRange .multiRange-container .multiRange-value-hide {
+  display: none;
+  position: absolute;
 }
 
 .multiRange .multiRange-bar {
@@ -42,7 +73,7 @@
   height: 5px;
   width: 100%;
   position: absolute;
-  bottom: 62px;
+  bottom: 40px;
   z-index: -3;
 }
 /*# sourceMappingURL=MultiRange.css.map */

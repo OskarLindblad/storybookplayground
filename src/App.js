@@ -1,26 +1,16 @@
 import "./App.css";
 
-import Scroll from "./components/Scroll/Scroll";
-import DatePicker from "./datepicker/DatePicker";
-import React, { useState } from "react";
-import MultiRange from "./components/MultiRange/MultiRange";
+//import Scroll from "./components/Scroll/Scroll";
+//import DatePicker from "./datepicker/DatePicker";
+import React from "react";
+import LegalFeesDistrubution from "./legalFeesDistrubution/LegalFeesDistrubution";
+//import MultiRange from "./components/MultiRange/MultiRange";
 
 function App() {
-  const [dates, setDates] = useState([{ id: 1, value: 1 }]);
-
-  const addRange = () => {
-    setDates((e) => [
-      ...e,
-      {
-        id: Date.now(),
-        value: dates[dates.length - 1].value + 1,
-      },
-    ]);
-  };
-
   return (
     <div className="App">
-      <header className="App-header">
+      <LegalFeesDistrubution />
+      {/*<header className="App-header">
         Calcutron 2000
         <div style={{ width: "300px", border: "1px black solid" }}>
           <Scroll height="50px">
@@ -46,10 +36,31 @@ function App() {
       <br />
       <DatePicker />
       <br />
-      <MultiRange ranges={dates} setRanges={setDates} label={"Test"} />
-      <button onClick={addRange}>Click</button>
+      <MultiRange
+        ranges={dates}
+        setRanges={setDates}
+        label={"Test"}
+        rangeMax={48}
+        startDate="01/01/2000"
+      />
+      <button onClick={addRange}>Click</button>*/}
     </div>
   );
 }
 
 export default App;
+
+/*
+
+  const [dates, setDates] = useState([{ id: 1, value: 1 }]);
+
+  const addRange = () => {
+    setDates((e) => [
+      ...e,
+      {
+        id: Date.now(),
+        value: dates[dates.length - 1].value + 1,
+      },
+    ]);
+  };
+*/
