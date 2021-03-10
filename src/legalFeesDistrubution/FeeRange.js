@@ -9,9 +9,19 @@ export default function FeeRange({
   index,
 }) {
   const handleChange = (e, id) => {
+    const value = parseInt(e.target.value);
+    let t11 = 0;
+    let t12 = 0;
+
+    if (value > 0) {
+      t11 = value / 10;
+    } else if (value < 0) {
+      t12 = (value / 10) * -1;
+    }
+
     setFeeDistributions(
       feeDistributions.map((item) =>
-        item.id === id ? { ...item, value: parseInt(e.target.value) } : item
+        item.id === id ? { ...item, value: value, t11: t11, t12: t12 } : item
       )
     );
   };
@@ -33,24 +43,51 @@ export default function FeeRange({
       }% of other party's legal fees`;
     }
   };
-  const add = (id) => {
-    setFeeDistributions(
-      feeDistributions.map((item) =>
-        item.id === id
-          ? { ...item, value: item.value >= 10 ? 10 : item.value + 1 }
-          : item
-      )
-    );
-  };
 
-  const remove = (id) => {
-    setFeeDistributions(
-      feeDistributions.map((item) =>
-        item.id === id
-          ? { ...item, value: item.value <= -10 ? -10 : item.value - 1 }
-          : item
-      )
-    );
+  const handleClick = (id, dir) => {
+    if (dir === "add") {
+      setFeeDistributions(
+        feeDistributions.map((item) =>
+          item.id === id
+            ? {
+                ...item,
+                value: item.value >= 10 ? 10 : item.value + 1,
+                t11:
+                  item.value >= 10
+                    ? 1
+                    : item.value >= 0
+                    ? (item.value + 1) / 10
+                    : 0,
+                t12: item.value >= 0 ? 0 : ((item.value + 1) / 10) * -1,
+              }
+            : item
+        )
+      );
+    } else if (dir === "remove") {
+      setFeeDistributions(
+        feeDistributions.map((item) =>
+          item.id === id
+            ? {
+                ...item,
+                value: item.value <= -10 ? -10 : item.value - 1,
+                t11: item.value <= 0 ? 0 : (item.value - 1) / 10,
+                t12:
+                  item.value <= -10
+                    ? 1
+                    : item.value <= 0
+                    ? ((item.value - 1) / 10) * -1
+                    : 0,
+              }
+            : item
+        )
+      );
+    } else if (dir === "reset") {
+      setFeeDistributions(
+        feeDistributions.map((item) =>
+          item.id === id ? { ...item, value: 0, t11: 0, t12: 0 } : item
+        )
+      );
+    }
   };
 
   return (
@@ -59,7 +96,7 @@ export default function FeeRange({
         <div className="slider-container">
           <div
             className="plus-fee-button"
-            onClick={() => add(feeDistribution.id)}
+            onClick={() => handleClick(feeDistribution.id, "add")}
           >
             <div className="fee-button">
               <img src={Plus} alt="plus" />
@@ -114,6 +151,7 @@ export default function FeeRange({
           </p>
         </div>
         <p
+          onClick={() => handleClick(feeDistribution.id, "reset")}
           className={`FeeDistribution-text ${
             index === 0 ? "FeeDistribution-text-first" : ""
           }
@@ -121,11 +159,10 @@ export default function FeeRange({
             index === feeDistributions.length - 1
               ? "FeeDistribution-text-last"
               : ""
-          }
-          
-          `}
+          }`}
         >
-          Win {feeDistribution.percentage} of distrubuted amount
+          Win {feeDistribution.range[0]}%-{feeDistribution.range[1]}% of
+          distrubuted amount
         </p>
         <div className="slider-container">
           <div
@@ -149,14 +186,13 @@ export default function FeeRange({
           />
           <div
             className="minus-fee-button"
-            onClick={() => remove(feeDistribution.id)}
+            onClick={() => handleClick(feeDistribution.id, "remove")}
           >
             <div className="fee-button">
               <img src={Minus} alt="minus" />
             </div>
           </div>
         </div>
-        <p>{feeDistribution.value}</p>
       </div>
     </div>
   );

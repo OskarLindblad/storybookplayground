@@ -10,38 +10,19 @@ t11: 0
 t12: 0.3
 range: [0, 10] 
 */
-const array = [
-  { id: 0, t11: 0, t12: 0.3, range: [0, 10] },
-  { id: 1, t11: 0, t12: 0.2, range: [11, 20] },
-  { id: 2, t11: 0.2, t12: 0, range: [21, 30] },
-  { id: 3, t11: 0.3, t12: 0, range: [31, 40] },
-  { id: 4, t11: 0.4, t12: 0, range: [41, 50] },
-  { id: 5, t11: 0.5, t12: 0, range: [51, 60] },
-  { id: 6, t11: 0.6, t12: 0, range: [61, 70] },
-  { id: 7, t11: 0.7, t12: 0, range: [71, 80] },
-  { id: 8, t11: 0.8, t12: 0, range: [81, 90] },
-  { id: 9, t11: 0.5, t12: 0, range: [91, 100] },
-];
 
 export default function LegalFeesDistrubution() {
   const [feeDistributions, setFeeDistributions] = useState([
-    { id: 0, percentage: "0%-10%", value: 0, t11: 0, t12: 0, range: [0, 10] },
-    { id: 1, percentage: "10%-20%", value: 0, t11: 0, t12: 0, range: [11, 20] },
-    { id: 2, percentage: "20%-30%", value: 0, t11: 0, t12: 0, range: [21, 30] },
-    { id: 3, percentage: "30%-40%", value: 0, t11: 0, t12: 0, range: [31, 40] },
-    { id: 4, percentage: "40%-50%", value: 0, t11: 0, t12: 0, range: [41, 50] },
-    { id: 5, percentage: "50%-60%", value: 0, t11: 0, t12: 0, range: [51, 60] },
-    { id: 6, percentage: "60%-70%", value: 0, t11: 0, t12: 0, range: [61, 70] },
-    { id: 7, percentage: "70%-80%", value: 0, t11: 0, t12: 0, range: [71, 80] },
-    { id: 8, percentage: "80%-90%", value: 0, t11: 0, t12: 0, range: [81, 90] },
-    {
-      id: 9,
-      percentage: "90%-100%",
-      value: 0,
-      t11: 0,
-      t12: 0,
-      range: [91, 100],
-    },
+    { id: 0, value: 0, t11: 0, t12: 0, range: [0, 10] },
+    { id: 1, value: 0, t11: 0, t12: 0, range: [10, 20] },
+    { id: 2, value: 0, t11: 0, t12: 0, range: [20, 30] },
+    { id: 3, value: 0, t11: 0, t12: 0, range: [30, 40] },
+    { id: 4, value: 0, t11: 0, t12: 0, range: [40, 50] },
+    { id: 5, value: 0, t11: 0, t12: 0, range: [50, 60] },
+    { id: 6, value: 0, t11: 0, t12: 0, range: [60, 70] },
+    { id: 7, value: 0, t11: 0, t12: 0, range: [70, 80] },
+    { id: 8, value: 0, t11: 0, t12: 0, range: [80, 90] },
+    { id: 9, value: 0, t11: 0, t12: 0, range: [90, 100] },
   ]);
   return (
     <div className="FeeDistribution">
