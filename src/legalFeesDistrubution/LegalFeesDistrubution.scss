@@ -22,7 +22,6 @@ $LightGrey: #e6e6e6;
       display: flex;
       width: 100%;
       overflow: hidden;
-      outline: 1px solid black;
       flex-direction: column;
       padding: 4em 0;
       .slider-overlay {
@@ -67,7 +66,7 @@ $LightGrey: #e6e6e6;
           transform: rotate(270deg);
           cursor: pointer;
 
-          background-color: rgba($color: #000000, $alpha: 0.1);
+          background-color: rgba($color: #000000, $alpha: 0);
           &.slider-win {
             top: 98px;
           }
@@ -117,6 +116,7 @@ $LightGrey: #e6e6e6;
     .slider-text {
       text-align: center;
       font-size: 14px;
+      padding: 0 5px;
       font-family: "Roboto", sans-serif;
       position: absolute;
       pointer-events: none;
@@ -133,15 +133,16 @@ $LightGrey: #e6e6e6;
 
     .plus-fee-button {
       position: absolute;
-      bottom: -35px;
-      left: calc(50% - 8.5px);
+      left: 50%;
+      bottom: 0px;
+      transform: translateX(-50%);
       z-index: 60;
       cursor: pointer;
     }
     .minus-fee-button {
       position: absolute;
-      top: -35px;
-      left: calc(50% - 8.5px);
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 60;
       cursor: pointer;
     }
@@ -168,8 +169,65 @@ $LightGrey: #e6e6e6;
   }
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+@media only screen and (max-width: 900px) {
+  .FeeDistribution {
+    .FeeDistribution-container {
+      .FeeRange {
+        .FeeDistribution-text {
+          font-size: 12px;
+        }
+      }
+      .slider-text {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1333px) {
+  .FeeDistribution {
+    .FeeDistribution-text {
+      height: 60px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1017px) {
+  .FeeDistribution {
+    .FeeDistribution-text {
+      height: 74px;
+    }
+  }
+}
+
+@media only screen and (max-width: 910px) {
+  .FeeDistribution {
+    .FeeDistribution-text {
+      height: 88px;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .FeeDistribution {
+    .FeeDistribution-text {
+      height: 52px;
+    }
+  }
+}
+
+@media only screen and (max-width: 887px) {
+  .FeeDistribution {
+    .FeeDistribution-text {
+      height: 66px;
+    }
+  }
+}
+
+@media only screen and (max-width: 795px) {
+  .FeeDistribution {
+    .FeeDistribution-text {
+      height: 80px;
+    }
   }
 }

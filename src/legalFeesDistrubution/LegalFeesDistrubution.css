@@ -22,7 +22,6 @@
   display: flex;
   width: 100%;
   overflow: hidden;
-  outline: 1px solid black;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -81,7 +80,7 @@
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .FeeDistribution .FeeDistribution-container .FeeRange .slider-container .slider.slider-win {
@@ -137,6 +136,7 @@
 .FeeDistribution .FeeDistribution-container .slider-text {
   text-align: center;
   font-size: 14px;
+  padding: 0 5px;
   font-family: "Roboto", sans-serif;
   position: absolute;
   pointer-events: none;
@@ -153,16 +153,19 @@
 
 .FeeDistribution .FeeDistribution-container .plus-fee-button {
   position: absolute;
-  bottom: -35px;
-  left: calc(50% - 8.5px);
+  left: 50%;
+  bottom: 0px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   z-index: 60;
   cursor: pointer;
 }
 
 .FeeDistribution .FeeDistribution-container .minus-fee-button {
   position: absolute;
-  top: -35px;
-  left: calc(50% - 8.5px);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   z-index: 60;
   cursor: pointer;
 }
@@ -190,9 +193,48 @@
           transform: translate(-50%, -50%);
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+@media only screen and (max-width: 900px) {
+  .FeeDistribution .FeeDistribution-container .FeeRange .FeeDistribution-text {
+    font-size: 12px;
+  }
+  .FeeDistribution .FeeDistribution-container .slider-text {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 1333px) {
+  .FeeDistribution .FeeDistribution-text {
+    height: 60px;
+  }
+}
+
+@media only screen and (max-width: 1017px) {
+  .FeeDistribution .FeeDistribution-text {
+    height: 74px;
+  }
+}
+
+@media only screen and (max-width: 910px) {
+  .FeeDistribution .FeeDistribution-text {
+    height: 88px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .FeeDistribution .FeeDistribution-text {
+    height: 52px;
+  }
+}
+
+@media only screen and (max-width: 887px) {
+  .FeeDistribution .FeeDistribution-text {
+    height: 66px;
+  }
+}
+
+@media only screen and (max-width: 795px) {
+  .FeeDistribution .FeeDistribution-text {
+    height: 80px;
   }
 }
 /*# sourceMappingURL=LegalFeesDistrubution.css.map */

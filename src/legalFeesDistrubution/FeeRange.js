@@ -98,6 +98,14 @@ export default function FeeRange({
       <div className="slider-box">
         <div className="slider-container">
           <div className="slider-overlay">
+            <div
+              className="plus-fee-button"
+              onClick={() => handleClick(feeDistribution.id, "add")}
+            >
+              <div className="fee-button">
+                <img src={Plus} alt="plus" />
+              </div>
+            </div>
             <p
               className={`slider-text slider-text-up ${
                 feeDistribution.value === 0 ? "slider-text-bold" : ""
@@ -105,7 +113,7 @@ export default function FeeRange({
               style={{
                 bottom:
                   feeDistribution.value === 0
-                    ? `calc( 200px / 10 * ${feeDistribution.value} )`
+                    ? `calc( 200px / 10 * ${feeDistribution.value} + 8px )`
                     : `calc( 200px / 10 * ${feeDistribution.value} + 8px - 200px / 10)`,
               }}
             >
@@ -121,15 +129,6 @@ export default function FeeRange({
               }}
             ></div>
           </div>
-
-          {/*<div
-            className="plus-fee-button"
-            onClick={() => handleClick(feeDistribution.id, "add")}
-          >
-            <div className="fee-button">
-              <img src={Plus} alt="plus" />
-            </div>
-          </div>*/}
 
           <input
             type="range"
@@ -151,13 +150,20 @@ export default function FeeRange({
               ? "FeeDistribution-text-last"
               : ""
           }`}
-          style={{ width: `calc( 100%  ` }}
         >
           Win {feeDistribution.range[0]}%-{feeDistribution.range[1]}% of
           distrubuted amount
         </p>
         <div className="slider-container">
           <div className="slider-overlay">
+            <div
+              className="minus-fee-button"
+              onClick={() => handleClick(feeDistribution.id, "remove")}
+            >
+              <div className="fee-button">
+                <img src={Minus} alt="minus" />
+              </div>
+            </div>
             <div
               className="slider-bar slider-bar-lose"
               style={{
@@ -173,10 +179,10 @@ export default function FeeRange({
                 feeDistribution.value === 0 ? "bold" : ""
               }`}
               style={{
-                bottom:
+                top:
                   feeDistribution.value === 0
-                    ? `calc( 200px / 10 * ${feeDistribution.value} + 125px)`
-                    : `calc( 200px / 10 * ${feeDistribution.value} + 135px)`,
+                    ? `calc( 200px / 10 * (${feeDistribution.value} * -1 ) + 5px)`
+                    : `calc( 200px / 10 * (${feeDistribution.value} * -1 ) - 10px)`,
               }}
             >
               {textDown()}
@@ -192,14 +198,6 @@ export default function FeeRange({
             orient="vertical"
             onChange={(e) => handleChange(e, feeDistribution.id)}
           />
-          {/*          <div
-            className="minus-fee-button"
-            onClick={() => handleClick(feeDistribution.id, "remove")}
-          >
-            <div className="fee-button">
-              <img src={Minus} alt="minus" />
-            </div>
-  </div>*/}
         </div>
       </div>
     </div>
