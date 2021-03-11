@@ -91,41 +91,46 @@ export default function FeeRange({
   };
 
   return (
-    <div className="FeeRange">
+    <div
+      className="FeeRange"
+      style={{ width: `calc( 100% / ${feeDistributions.length} ` }}
+    >
       <div className="slider-box">
         <div className="slider-container">
-          <div
+          <div className="slider-overlay">
+            <p
+              className={`slider-text slider-text-up ${
+                feeDistribution.value === 0 ? "slider-text-bold" : ""
+              }`}
+              style={{
+                bottom:
+                  feeDistribution.value === 0
+                    ? `calc( 200px / 10 * ${feeDistribution.value} )`
+                    : `calc( 200px / 10 * ${feeDistribution.value} + 8px - 200px / 10)`,
+              }}
+            >
+              {textUp()}
+            </p>
+            <div
+              className="slider-bar slider-bar-win"
+              style={{
+                height:
+                  feeDistribution.value > 0
+                    ? `calc( 200px / 10 * ${feeDistribution.value})`
+                    : "0",
+              }}
+            ></div>
+          </div>
+
+          {/*<div
             className="plus-fee-button"
             onClick={() => handleClick(feeDistribution.id, "add")}
           >
             <div className="fee-button">
               <img src={Plus} alt="plus" />
             </div>
-          </div>
+          </div>*/}
 
-          <p
-            className={`slider-text slider-text-up ${
-              feeDistribution.value === 0 ? "slider-text-bold" : ""
-            }`}
-            style={{
-              bottom:
-                feeDistribution.value === 0
-                  ? `calc( 200px / 10 * ${feeDistribution.value} - 28px)`
-                  : `calc( 200px / 10 * ${feeDistribution.value} - 28px - 200px / 10)`,
-            }}
-          >
-            {textUp()}
-          </p>
-
-          <div
-            className="slider-bar slider-bar-win"
-            style={{
-              height:
-                feeDistribution.value > 0
-                  ? `calc( 200px / 10 * ${feeDistribution.value})`
-                  : "0",
-            }}
-          ></div>
           <input
             type="range"
             min="0"
@@ -135,20 +140,6 @@ export default function FeeRange({
             orient="vertical"
             onChange={(e) => handleChange(e, feeDistribution.id)}
           />
-
-          <p
-            className={`slider-text slider-text-down slider-text-${
-              feeDistribution.value === 0 ? "bold" : ""
-            }`}
-            style={{
-              bottom:
-                feeDistribution.value === 0
-                  ? `calc( 200px / 10 * ${feeDistribution.value} - 145px)`
-                  : `calc( 200px / 10 * ${feeDistribution.value} - 105px - 200px / 10)`,
-            }}
-          >
-            {textDown()}
-          </p>
         </div>
         <p
           onClick={() => handleClick(feeDistribution.id, "reset")}
@@ -160,20 +151,37 @@ export default function FeeRange({
               ? "FeeDistribution-text-last"
               : ""
           }`}
+          style={{ width: `calc( 100%  ` }}
         >
           Win {feeDistribution.range[0]}%-{feeDistribution.range[1]}% of
           distrubuted amount
         </p>
         <div className="slider-container">
-          <div
-            className="slider-bar slider-bar-lose"
-            style={{
-              height:
-                feeDistribution.value < 0
-                  ? `calc( 200px / 10 * (${feeDistribution.value}) * -1)`
-                  : "0",
-            }}
-          ></div>
+          <div className="slider-overlay">
+            <div
+              className="slider-bar slider-bar-lose"
+              style={{
+                height:
+                  feeDistribution.value < 0
+                    ? `calc( 200px / 10 * (${feeDistribution.value}) * -1)`
+                    : "0",
+              }}
+            ></div>
+
+            <p
+              className={`slider-text slider-text-down slider-text-${
+                feeDistribution.value === 0 ? "bold" : ""
+              }`}
+              style={{
+                bottom:
+                  feeDistribution.value === 0
+                    ? `calc( 200px / 10 * ${feeDistribution.value} + 125px)`
+                    : `calc( 200px / 10 * ${feeDistribution.value} + 135px)`,
+              }}
+            >
+              {textDown()}
+            </p>
+          </div>
 
           <input
             type="range"
@@ -184,14 +192,14 @@ export default function FeeRange({
             orient="vertical"
             onChange={(e) => handleChange(e, feeDistribution.id)}
           />
-          <div
+          {/*          <div
             className="minus-fee-button"
             onClick={() => handleClick(feeDistribution.id, "remove")}
           >
             <div className="fee-button">
               <img src={Minus} alt="minus" />
             </div>
-          </div>
+  </div>*/}
         </div>
       </div>
     </div>

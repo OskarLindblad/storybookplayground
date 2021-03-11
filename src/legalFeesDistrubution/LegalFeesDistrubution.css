@@ -1,9 +1,6 @@
 .FeeDistribution {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%;
-  background-color: #cecece;
-  width: calc((123px + 20px) * 10 + 120px);
   z-index: -50;
   display: block;
 }
@@ -23,19 +20,53 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  overflow: hidden;
+  outline: 1px solid black;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 155px;
+  padding: 4em 0;
+}
+
+.FeeDistribution .FeeDistribution-container .FeeRange .slider-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.FeeDistribution .FeeDistribution-container .FeeRange .slider-overlay .slider-bar {
+  width: 73px;
+  background-color: #2e394b;
+  z-index: 0;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: absolute;
+  pointer-events: none;
+}
+
+.FeeDistribution .FeeDistribution-container .FeeRange .slider-overlay .slider-bar.slider-bar-win {
+  bottom: 0;
+}
+
+.FeeDistribution .FeeDistribution-container .FeeRange .slider-overlay .slider-bar.slider-bar-lose {
+  top: 0;
 }
 
 .FeeDistribution .FeeDistribution-container .FeeRange .slider-container {
   height: 200px;
-  width: 73px;
+  width: 100%;
   position: relative;
-  width: 135px;
-  margin: 36px 0;
   z-index: 50;
 }
 
@@ -43,15 +74,14 @@
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
+  margin: 0;
   width: 200px;
-  height: 73px;
+  height: 100%;
   outline: none;
-  position: absolute;
-  left: -34px;
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .FeeDistribution .FeeDistribution-container .FeeRange .slider-container .slider.slider-win {
@@ -70,42 +100,24 @@
   cursor: pointer;
 }
 
-.FeeDistribution .FeeDistribution-container .FeeRange .slider-container .slider-bar {
-  width: 73px;
-  background-color: #2e394b;
-  z-index: 0;
-  bottom: 0;
-  left: 32px;
-  position: absolute;
-  pointer-events: none;
-}
-
-.FeeDistribution .FeeDistribution-container .FeeRange .slider-container .slider-bar.slider-bar-win {
-  bottom: -36px;
-}
-
-.FeeDistribution .FeeDistribution-container .FeeRange .slider-container .slider-bar.slider-bar-lose {
-  top: -37px;
-}
-
 .FeeDistribution .FeeDistribution-container .FeeRange .FeeDistribution-text {
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   display: inline-block;
   margin: 0;
-  height: 43px;
   letter-spacing: 0px;
   border: 1px black;
   border-style: solid none;
   background-color: #fff;
-  padding-top: 0.2em;
+  padding: 5px;
   -webkit-margin-before: 0em;
           margin-block-start: 0em;
   -webkit-margin-after: 0em;
           margin-block-end: 0em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  width: 100%;
   cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -176,5 +188,11 @@
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
 }
 /*# sourceMappingURL=LegalFeesDistrubution.css.map */
