@@ -14,7 +14,7 @@ export const MultiRange = ({
   setRanges,
   rangeMax,
   width,
-  startDate,
+  initiationDate,
   ...rest
 }) => {
   const handleChange = (e, id, index) => {
@@ -63,7 +63,7 @@ export const MultiRange = ({
   };
 
   const whatDate = (months) => {
-    const date = moment(startDate, "DD/MM/YYYY")
+    const date = moment(initiationDate, "DD/MM/YYYY")
       .add(months, "months")
       .calendar();
     const formatedDate = moment(date, "MM/DD/YYYY").format("DD/MM/YYYY");
@@ -88,6 +88,8 @@ export const MultiRange = ({
   return (
     <div className="multiRange" style={{ width: width }}>
       <p className="multiRange-label">{label}</p>
+      {initiationDate}
+
       {ranges.map((range, index) => (
         <div
           key={index}

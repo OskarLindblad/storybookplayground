@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .FeeDistribution {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -215,7 +216,7 @@
 }
 
 @media only screen and (max-width: 910px) {
-  .FeeDistribution .FeeDistribution-text {
+  .FeeDistribution § .FeeDistribution-text {
     height: 88px;
   }
 }
