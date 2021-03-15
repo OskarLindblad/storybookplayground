@@ -105,7 +105,7 @@ export const MultiRange = ({
                   }`}
                 >
                   {date.type === "initial" && `${date.date}`}
-                  {date.type === "specific" && `${whatDate(date.month)}`}
+                  {date.type === "specific" && `${date.date}`}
                   {date.type === "approximate" &&
                     `${monthDifference(index)} months`}
                 </p>

@@ -6,50 +6,32 @@ export const Button = ({
   label,
   icon,
   className,
-  type, // actually color, but that messes with storybook
+  buttonType, // actually color, but that messes with storybook
   side, // icon placement
   onClick,
+  type,
   NoUpperCase, // Default sets all letters to upperCase
   ...rest
 }) => {
   return (
-    <div
+    <button
+      type={type}
       className={`
         button 
-        button-type-${type}
+        button-type-${buttonType}
         ${icon ? "button-with-icon" : ""}
         ${NoUpperCase ? "button-NoUpperCase" : ""}
+        ${icon ? `button-icon-on-side-${icon && side}` : ""}
         ${className && className}
         `}
       onClick={() => {
         onClick();
       }}
     >
-      {side === "left" ? (
-        <div className="button-container">
-          {icon && (
-            <div className="button-icon-container button-icon-left">
-              <img src={icon} alt="icon" className="button-icon" />
-            </div>
-          )}
-          <div className="button-label">
-            <p>{label}</p>
-          </div>
-        </div>
-      ) : (
-        <div className="button-container">
-          <div className="button-label">
-            <p>{label}</p>
-          </div>
+      {label}
 
-          {icon && (
-            <div className="button-icon-container button-icon-right">
-              <img src={icon} alt="icon" className="button-icon" />
-            </div>
-          )}
-        </div>
-      )}
-    </div>
+      {icon && <img src={icon} alt="icon" className="button-icon" />}
+    </button>
   );
 };
 
@@ -57,20 +39,28 @@ export default Button;
 
 Button.propTypes = {
   label: PropTypes.string,
-  type: PropTypes.oneOf(["contained", "outlined", "text", "nonactive"]),
+  buttonType: PropTypes.oneOf([
+    "contained",
+    "outlined",
+    "text",
+    "nonactive",
+    "yellow",
+  ]),
   side: PropTypes.oneOf(["left", "right"]),
   icon: PropTypes.string,
   className: PropTypes.string,
+  type: PropTypes.string,
   onClick: PropTypes.func,
   NoUpperCase: PropTypes.bool,
 };
 
 Button.defaultProps = {
   label: "",
-  type: "contained",
+  buttonType: "contained",
   side: "left",
   icon: "",
   className: "",
+  type: "button",
   onClick: undefined,
   NoUpperCase: true,
 };

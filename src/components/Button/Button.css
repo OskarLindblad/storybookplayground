@@ -7,114 +7,124 @@
   border-radius: 5px;
   padding: 13px 44px;
   line-height: 1;
+  outline: none;
   text-transform: uppercase;
-  cursor: pointer;
+  border: none;
 }
 
 .button.button-NoUpperCase {
   text-transform: none;
 }
 
-.button .button-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.button .button-container .button-label {
-  margin: 0;
-}
-
-.button .button-container .button-label p {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -webkit-margin-before: 0em;
-          margin-block-start: 0em;
-  -webkit-margin-after: 0em;
-          margin-block-end: 0em;
-  width: 100%;
-}
-
-.button .button-container .button-icon-container {
+.button .button-icon {
   height: 18px;
   width: 18px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.button .button-container .button-icon-container.button-icon-right {
-  margin-left: 12px;
-}
-
-.button .button-container .button-icon-container.button-icon-left {
-  margin-right: 12px;
-}
-
-.button .button-container .button-icon-container .button-icon {
-  height: 100%;
-  width: 100%;
 }
 
 .button.button-type-contained {
   background-color: #2e394b;
-}
-
-.button.button-type-contained p {
   color: #fff;
 }
 
+.button.button-type-contained:hover {
+  background-color: #334055;
+}
+
 .button.button-type-contained:active {
-  background-color: #181f29;
+  background-color: #2e394b;
 }
 
 .button.button-type-outlined {
   background-color: #fff;
   border: 1px #2e394b solid;
   padding: calc(12px) calc(44px - 1px);
-}
-
-.button.button-type-outlined p {
   color: #2e394b;
 }
 
-.button.button-type-outlined.button-with-icon {
-  padding: calc(12px) calc(44px - 9.5px) calc(12px) calc(44px - 22.5px);
+.button.button-type-outlined.button-with-icon.button-icon-on-side-left {
+  padding: calc(12px) calc(31px) calc(12px) calc(20px);
+}
+
+.button.button-type-outlined.button-with-icon.button-icon-on-side-right {
+  padding: calc(12px) calc(20px) calc(12px) calc(31px);
+}
+
+.button.button-type-outlined:hover {
+  background-color: #edf4ff;
 }
 
 .button.button-type-outlined:active {
-  background-color: #e6e6e6;
+  background-color: #fff;
+}
+
+.button.button-type-yellow {
+  background-color: #ffd778;
+  border: 1px #2e394b solid;
+  padding: calc(12px) calc(44px - 1px);
+  color: #2e394b;
+}
+
+.button.button-type-yellow.button-with-icon.button-icon-on-side-left {
+  padding: calc(12px) calc(31px) calc(12px) calc(20px);
+}
+
+.button.button-type-yellow.button-with-icon.button-icon-on-side-right {
+  padding: calc(12px) calc(20px) calc(12px) calc(31px);
+}
+
+.button.button-type-yellow:hover {
+  background-color: #f8c346;
+}
+
+.button.button-type-yellow:active {
+  background-color: #ffd778;
 }
 
 .button.button-type-text {
   background-color: #fff;
-}
-
-.button.button-type-text p {
   color: #2e394b;
 }
 
+.button.button-type-text:hover {
+  background-color: #edf4ff;
+}
+
 .button.button-type-text:active {
-  background-color: #e6e6e6;
+  background-color: #fff;
 }
 
 .button.button-type-nonactive {
   background-color: #cecece;
-}
-
-.button.button-type-nonactive p {
   color: #fff;
 }
 
 .button.button-with-icon {
-  padding: 11.5px 35.5px 11.5px 22.5px;
-  padding: calc(13px) calc(44px - 8.5px) calc(13px) calc(44px - 21.5px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.button.button-with-icon.button-icon-on-side-left {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  padding: calc(13px) calc(33px) calc(13px) calc(20px);
+}
+
+.button.button-with-icon.button-icon-on-side-left img {
+  margin-right: 17px;
+}
+
+.button.button-with-icon.button-icon-on-side-right {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: calc(13px) calc(20px) calc(13px) calc(33px);
+}
+
+.button.button-with-icon.button-icon-on-side-right img {
+  margin-left: 17px;
 }
 /*# sourceMappingURL=Button.css.map */

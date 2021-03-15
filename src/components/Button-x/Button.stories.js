@@ -5,7 +5,7 @@ import error from "./error.svg";
 import test from "./test.svg";
 
 export default {
-  title: "Form/Button",
+  title: "Form/ButtonRemoveLater",
   component: Button,
 };
 
@@ -22,7 +22,7 @@ export const Icon = Template.bind({});
 Icon.args = {
   label: "button",
   icon: error,
-  buttonType: "nonactive",
+  type: "nonactive",
 };
 
 export const IconTest = Template.bind({});
@@ -30,5 +30,5 @@ export const IconTest = Template.bind({});
 IconTest.args = {
   label: "button",
   icon: test,
-  buttonType: "outlined",
+  type: "outlined",
 };
