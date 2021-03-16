@@ -77,13 +77,25 @@ export const MultiRange = ({
     return rangeMax * (index + 1);
   };
 
+  const showDate = (date) => {
+    if (date.type === "none") {
+      return false;
+    } else if (date.type === "specific" && date.date === "") {
+      return false;
+    } else if (date.type === "approximate" && date.month === "") {
+      return false;
+    }
+    return true;
+    //date.type !== "none" && date.date !== ""
+  };
+
   return (
     <div className="multiRange" style={{ width: width }}>
       <p className="multiRange-label">{label}</p>
 
       {dates.map((date, index) => (
         <React.Fragment key={index}>
-          {date.type !== "none" && date.date !== "" && (
+          {showDate(date) && (
             <div
               className="multiRange-container"
               style={{ width: `calc( 100% )` }}
@@ -113,7 +125,7 @@ export const MultiRange = ({
               <input
                 key={index}
                 type="range"
-                min="1"
+                min="0"
                 max={calcRangeMax(index)}
                 value={date.month}
                 className="slider"

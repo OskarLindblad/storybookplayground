@@ -5,8 +5,20 @@ $White: #fff;
 $Red: #ff695a;
 
 $PH: 14px; //Padding Horizontally
-$PV: 18.5px; //Padding Vertically
+$PV: 13px; //Padding Vertically
 $PVs: 8.5px; //Padding Vertically small
+
+/*Remove */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 * {
+  cursor: default;
+  margin: 0;
+}
 
 .dropdown {
   margin: 0;
@@ -29,7 +41,7 @@ $PVs: 8.5px; //Padding Vertically small
     }
     .dropdown-label-text-label {
       color: $Blue;
-      top: -23.5px;
+      top: -10.5px;
       left: 12.5px;
       font-size: 14px;
       font-weight: 600;
@@ -42,12 +54,12 @@ $PVs: 8.5px; //Padding Vertically small
     }
     .dropdown-label-text-placeholder {
       color: $PlaceHolderGray;
-      top: 2px;
+      top: 14px;
       left: 16px;
       font-size: 18px;
     }
 
-    select {
+    select.dropdown-select {
       font-family: "Roboto", sans-serif;
       font-size: 18px;
 
@@ -63,7 +75,7 @@ $PVs: 8.5px; //Padding Vertically small
       }
     }
 
-    select:focus {
+    select.dropdown-select:focus {
       outline: none;
     }
   }
@@ -72,7 +84,7 @@ $PVs: 8.5px; //Padding Vertically small
     top: 0;
     right: $PH;
     pointer-events: none;
-    height: 60px;
+    height: 49px;
     .dropdown-down-icon {
       height: 100%;
       position: relative;
@@ -107,23 +119,25 @@ $PVs: 8.5px; //Padding Vertically small
   label {
     .dropdown-label-text-label {
       color: $Blue;
-      top: -23.5px;
+      top: -10.5px;
       left: 12.5px;
     }
     .dropdown-label-text-placeholder {
-      top: -8px;
+      top: 10px;
+      font-size: 14px;
     }
 
-    select {
+    select.dropdown-select {
       padding: $PVs $PH;
       border-radius: 10px 10px;
+      font-size: 14px;
       &.dropdown-select-selected {
         border: $Selected 2px solid;
         padding: calc(#{$PVs} - 1px) calc(#{$PH} - 1px);
       }
     }
     .dropdown-down-icon-container {
-      height: 40px !important;
+      height: 35px !important;
     }
   }
 }
@@ -136,7 +150,7 @@ $PVs: 8.5px; //Padding Vertically small
         color: $Red;
       }
     }
-    select {
+    select.dropdown-select {
       border: $Red 1px solid;
       &.dropdown-select-selected {
         border: $Red 2px solid;

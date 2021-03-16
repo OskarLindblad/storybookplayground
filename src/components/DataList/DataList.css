@@ -1,3 +1,14 @@
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 * {
+  cursor: default;
+  margin: 0;
+}
+
 .datalist {
   margin: 0;
   padding: 0;
@@ -35,7 +46,7 @@
 
 .datalist .datalist-input-container .datalist-label-text-label {
   color: #2e394b;
-  top: -23.5px;
+  top: -10.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
@@ -50,14 +61,14 @@
 
 .datalist .datalist-input-container .datalist-label-text-placeholder {
   color: #979797;
-  top: 2px;
+  top: 14px;
   left: 16px;
   font-size: 18px;
 }
 
 .datalist .datalist-input-container .datalist-input {
   border: #2e394b 1px solid;
-  padding: 18.5px 14px;
+  padding: 13px 14px;
   border-radius: 10px 10px;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -69,7 +80,7 @@
 
 .datalist .datalist-input-container .datalist-input.datalist-input-selected {
   border: #2c79f7 2px solid;
-  padding: calc(18.5px - 1px) calc(14px - 1px);
+  padding: calc(13px - 1px) calc(14px - 1px);
 }
 
 .datalist .datalist-input-container .datalist-input::-webkit-outer-spin-button, .datalist .datalist-input-container .datalist-input::-webkit-inner-spin-button {
@@ -81,7 +92,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  height: 60px;
+  height: 49px;
   width: 28px;
 }
 
@@ -129,12 +140,12 @@
 
 .datalist .datalist-dropdown-container .datalist-dropdown-background {
   position: absolute;
-  top: -18.5px;
+  top: -13px;
   background-color: #fff;
   border: 1px #2e394b;
   border-style: none solid none solid;
   width: calc(100% - 2px);
-  height: 18.5px;
+  height: 13px;
   margin: 0;
   padding: 0;
   z-index: -30;
@@ -164,12 +175,12 @@
           margin-block-end: 0em;
   font-weight: 600;
   margin-left: 10px;
-  margin-top: 21px;
+  margin-top: 16px;
 }
 
 .datalist .datalist-trash-container {
   margin-left: 10px;
-  margin-top: 17px;
+  margin-top: 12px;
 }
 
 .datalist .datalist-trash-container .datalist-trash {

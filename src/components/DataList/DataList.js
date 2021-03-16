@@ -34,7 +34,7 @@ export const DataList = ({
         data = data.replace(".", ",");
         setValue(data);
       } else {
-        setValue(value);
+        setValue((value) => value);
       }
     } else {
       setValue("");

@@ -10,14 +10,16 @@ $Purple: #914696;
 $Grey: #cecece;
 $LightBlue: #edf4ff;
 
-$PV: 13px; //Padding Vertically
-$PH: 44px; //Padding Horizontally
+$PV: 8.5px; //Padding Vertically
+$PH: 34px; //Padding Horizontally
+$PVs: 6.8px; //Padding Vertically
+$PHs: 27.2px; //Padding Horizontally
 
 .button {
   font-family: "Roboto", sans-serif;
   display: inline-block;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.02857em;
   border-radius: 5px;
   padding: $PV $PH;
@@ -25,19 +27,33 @@ $PH: 44px; //Padding Horizontally
   outline: none;
   text-transform: uppercase;
   border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
 
+  display: inline-flex;
+  align-items: center;
   &.button-NoUpperCase {
     text-transform: none;
   }
 
+  .button-container {
+    height: 18px;
+  }
+
   .button-icon {
     height: 18px;
-    width: 18px;
   }
 
   &.button-type-contained {
     background-color: $Blue;
-    color: $White;
+    .button-text {
+      color: $White;
+    }
   }
   &.button-type-contained:hover {
     background-color: $HoverBlue;
@@ -50,8 +66,9 @@ $PH: 44px; //Padding Horizontally
     background-color: $White;
     border: 1px $Blue solid;
     padding: calc(#{$PV - 1px}) calc(#{$PH} - 1px);
-    color: $Blue;
-
+    .button-text {
+      color: $Blue;
+    }
     &.button-with-icon.button-icon-on-side-left {
       padding: calc(#{$PV - 1px}) calc(#{$PH - 13px}) calc(#{$PV - 1px})
         calc(#{$PH - 24px});
@@ -72,8 +89,9 @@ $PH: 44px; //Padding Horizontally
     background-color: $Yellow;
     border: 1px $Blue solid;
     padding: calc(#{$PV - 1px}) calc(#{$PH} - 1px);
-    color: $Blue;
-
+    .button-text {
+      color: $Blue;
+    }
     &.button-with-icon.button-icon-on-side-left {
       padding: calc(#{$PV - 1px}) calc(#{$PH - 13px}) calc(#{$PV - 1px})
         calc(#{$PH - 24px});
@@ -92,7 +110,9 @@ $PH: 44px; //Padding Horizontally
 
   &.button-type-text {
     background-color: $White;
-    color: $Blue;
+    .button-text {
+      color: $Blue;
+    }
   }
   &.button-type-text:hover {
     background-color: $LightBlue;
@@ -103,7 +123,10 @@ $PH: 44px; //Padding Horizontally
 
   &.button-type-nonactive {
     background-color: $Grey;
-    color: $White;
+    cursor: default;
+    .button-text {
+      color: $White;
+    }
   }
 
   &.button-with-icon {
@@ -114,7 +137,7 @@ $PH: 44px; //Padding Horizontally
       padding: calc(#{$PV + 0px}) calc(#{$PH - 11px}) calc(#{$PV + 0px})
         calc(#{$PH - 24px});
       img {
-        margin-right: 17px;
+        margin-right: 12px;
       }
     }
     &.button-icon-on-side-right {
@@ -122,7 +145,65 @@ $PH: 44px; //Padding Horizontally
       padding: calc(#{$PV + 0px}) calc(#{$PH - 24px}) calc(#{$PV + 0px})
         calc(#{$PH - 11px});
       img {
-        margin-left: 17px;
+        margin-left: 12px;
+      }
+    }
+  }
+}
+
+//small
+.button.button-type-small {
+  font-size: 12px;
+  padding: $PVs $PHs;
+
+  .button-container {
+    height: 14.4px;
+  }
+
+  .button-icon {
+    height: 14.4px;
+  }
+
+  &.button-type-outlined {
+    padding: calc(#{$PVs - 1px}) calc(#{$PHs} - 1px);
+
+    &.button-with-icon.button-icon-on-side-left {
+      padding: calc(#{$PVs - 1px}) calc(#{$PHs - 13px}) calc(#{$PVs - 1px})
+        calc(#{$PHs - 24px});
+    }
+    &.button-with-icon.button-icon-on-side-right {
+      padding: calc(#{$PVs - 1px}) calc(#{$PHs - 24px}) calc(#{$PVs - 1px})
+        calc(#{$PHs - 13px});
+    }
+  }
+
+  &.button-type-yellow {
+    padding: calc(#{$PVs - 1px}) calc(#{$PHs} - 1px);
+
+    &.button-with-icon.button-icon-on-side-left {
+      padding: calc(#{$PVs - 1px}) calc(#{$PHs - 13px}) calc(#{$PVs - 1px})
+        calc(#{$PHs - 24px});
+    }
+    &.button-with-icon.button-icon-on-side-right {
+      padding: calc(#{$PVs - 1px}) calc(#{$PHs - 24px}) calc(#{$PVs - 1px})
+        calc(#{$PHs - 13px});
+    }
+  }
+
+  &.button-with-icon {
+    &.button-icon-on-side-left {
+      flex-direction: row-reverse;
+      padding: calc(#{$PVs + 0px}) calc(#{$PHs - 11px}) calc(#{$PVs + 0px})
+        calc(#{$PHs - 24px});
+      img {
+        margin-right: 9.6px;
+      }
+    }
+    &.button-icon-on-side-right {
+      padding: calc(#{$PVs + 0px}) calc(#{$PHs - 24px}) calc(#{$PVs + 0px})
+        calc(#{$PHs - 11px});
+      img {
+        margin-left: 9.6px;
       }
     }
   }

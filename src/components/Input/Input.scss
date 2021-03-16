@@ -5,10 +5,22 @@ $White: #fff;
 $Red: #ff695a;
 
 $PH: 14px; //Padding Horizontally
-$PV: 18.5px; //Padding Vertically
+$PV: 13px; //Padding Vertically
 $PVs: 8.5px; //Padding Vertically small
 
 $Input-Width: 250px;
+
+// Remove
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 * {
+  cursor: default;
+  margin: 0;
+}
 
 .input {
   width: $Input-Width;
@@ -54,7 +66,7 @@ $Input-Width: 250px;
     }
     .input-label-text-placeholder {
       color: $PlaceHolderGray;
-      top: 21.5px;
+      top: 15.5px;
       left: 16px;
       font-size: 18px;
       pointer-events: none;
@@ -70,6 +82,9 @@ $Input-Width: 250px;
       width: 100%;
       background-color: $White;
       outline: $White 0px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       &.input-inputfield-selected {
         border-top: $Selected 2px solid !important;
         border-left: $Selected 2px solid !important;

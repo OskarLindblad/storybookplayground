@@ -4,7 +4,7 @@ import InputDate from "../components/InputDate/InputDate";
 import ValidateDate from "../components/InputDate/ValidateDate";
 import approximateMonth from "./Modules/approximateMonth";
 
-export default function SpecificDate({ date, dates, setDates }) {
+export default function SpecificDate({ date, dates, setDates, index }) {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [validDate, setValidDate] = useState(false);
@@ -19,7 +19,7 @@ export default function SpecificDate({ date, dates, setDates }) {
       ...e,
       {
         id: Date.now(),
-        month: dates[dates.length - 1].value + 1,
+        month: dates[dates.length - 1].month + 1,
         date: "",
         type: "none",
       },
@@ -63,7 +63,9 @@ export default function SpecificDate({ date, dates, setDates }) {
         smallField
         error={error}
       />
-      {validDate && <button onClick={addDate}>Add Date</button>}
+      {validDate && dates.length - 1 === index && (
+        <button onClick={addDate}>Add Date</button>
+      )}
     </>
   );
 }

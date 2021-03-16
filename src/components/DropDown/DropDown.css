@@ -1,3 +1,15 @@
+/*Remove */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 * {
+  cursor: default;
+  margin: 0;
+}
+
 .dropdown {
   margin: 0;
   padding: 0;
@@ -28,7 +40,7 @@
 
 .dropdown label .dropdown-label-text-label {
   color: #2e394b;
-  top: -23.5px;
+  top: -10.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
@@ -43,12 +55,12 @@
 
 .dropdown label .dropdown-label-text-placeholder {
   color: #979797;
-  top: 2px;
+  top: 14px;
   left: 16px;
   font-size: 18px;
 }
 
-.dropdown label select {
+.dropdown label select.dropdown-select {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   border: #2e394b 1px solid;
@@ -57,16 +69,16 @@
   -webkit-appearance: none;
   /* Safari and Chrome */
   appearance: none;
-  padding: 18.5px 14px;
+  padding: 13px 14px;
   border-radius: 10px 10px;
 }
 
-.dropdown label select.dropdown-select-selected {
+.dropdown label select.dropdown-select.dropdown-select-selected {
   border: #2c79f7 2px solid;
-  padding: calc(18.5px - 1px) calc(14px - 1px);
+  padding: calc(13px - 1px) calc(14px - 1px);
 }
 
-.dropdown label select:focus {
+.dropdown label select.dropdown-select:focus {
   outline: none;
 }
 
@@ -75,7 +87,7 @@
   top: 0;
   right: 14px;
   pointer-events: none;
-  height: 60px;
+  height: 49px;
 }
 
 .dropdown .dropdown-down-icon-container .dropdown-down-icon {
@@ -112,37 +124,39 @@
 
 .dropdown-smallField label .dropdown-label-text-label {
   color: #2e394b;
-  top: -23.5px;
+  top: -10.5px;
   left: 12.5px;
 }
 
 .dropdown-smallField label .dropdown-label-text-placeholder {
-  top: -8px;
+  top: 10px;
+  font-size: 14px;
 }
 
-.dropdown-smallField label select {
+.dropdown-smallField label select.dropdown-select {
   padding: 8.5px 14px;
   border-radius: 10px 10px;
+  font-size: 14px;
 }
 
-.dropdown-smallField label select.dropdown-select-selected {
+.dropdown-smallField label select.dropdown-select.dropdown-select-selected {
   border: #2c79f7 2px solid;
   padding: calc(8.5px - 1px) calc(14px - 1px);
 }
 
 .dropdown-smallField label .dropdown-down-icon-container {
-  height: 40px !important;
+  height: 35px !important;
 }
 
 .dropdown-error label .dropdown-label-text-label.dropdown-label-selected {
   color: #ff695a;
 }
 
-.dropdown-error label select {
+.dropdown-error label select.dropdown-select {
   border: #ff695a 1px solid;
 }
 
-.dropdown-error label select.dropdown-select-selected {
+.dropdown-error label select.dropdown-select.dropdown-select-selected {
   border: #ff695a 2px solid;
 }
 /*# sourceMappingURL=DropDown.css.map */

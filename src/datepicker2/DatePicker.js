@@ -8,10 +8,12 @@ import SpecificOrApproximateDate from "./SpecificOrApproximateDate";
 export default function DatePicker() {
   const [dates, setDates] = useState([
     { id: 1, date: "", month: 0, type: "initial" },
-    { id: 2, date: "", month: 0, type: "none" },
+    { id: 2, date: "", month: 1, type: "none" },
   ]);
   const [error, setError] = useState(false);
   const [dateValidated, setDateValidated] = useState(false);
+
+  const rangeMax = 48;
 
   const handleInitiantionDates = (e) => {
     setDates(
@@ -52,6 +54,7 @@ export default function DatePicker() {
           date={date}
           dates={dates}
           setDates={setDates}
+          rangeMax={rangeMax}
         />
       ))}
 
@@ -61,7 +64,7 @@ export default function DatePicker() {
           dates={dates}
           setDates={setDates}
           label={"Test"}
-          rangeMax={48}
+          rangeMax={rangeMax}
         />
       )}
     </div>

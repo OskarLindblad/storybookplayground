@@ -8,28 +8,24 @@ export const Button = ({
   className,
   buttonType, // actually color, but that messes with storybook
   side, // icon placement
-  onClick,
-  type,
   NoUpperCase, // Default sets all letters to upperCase
+  small,
   ...rest
 }) => {
   return (
     <button
-      type={type}
       className={`
-        button 
+        button
         button-type-${buttonType}
+        ${small ? "button-type-small" : ""}
         ${icon ? "button-with-icon" : ""}
         ${NoUpperCase ? "button-NoUpperCase" : ""}
         ${icon ? `button-icon-on-side-${icon && side}` : ""}
-        ${className && className}
         `}
-      onClick={() => {
-        onClick();
-      }}
+      {...rest}
     >
-      {label}
-
+      <div className="button-text">{label}</div>
+      <div className="button-container"></div>
       {icon && <img src={icon} alt="icon" className="button-icon" />}
     </button>
   );
@@ -49,18 +45,18 @@ Button.propTypes = {
   side: PropTypes.oneOf(["left", "right"]),
   icon: PropTypes.string,
   className: PropTypes.string,
-  type: PropTypes.string,
   onClick: PropTypes.func,
   NoUpperCase: PropTypes.bool,
+  small: PropTypes.bool,
 };
 
 Button.defaultProps = {
-  label: "",
+  label: "default",
   buttonType: "contained",
   side: "left",
   icon: "",
   className: "",
-  type: "button",
   onClick: undefined,
   NoUpperCase: true,
+  small: false,
 };

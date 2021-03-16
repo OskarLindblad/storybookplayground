@@ -5,8 +5,7 @@ import down from "./down.svg";
 
 export const DropDown = ({
   label,
-  value, // set default value to "notSelected"
-  setValue,
+  startValue, // boolean(picks first)
   name,
   className,
   options,
@@ -15,12 +14,24 @@ export const DropDown = ({
   helperText,
   smallField,
   width,
+  onChange,
   ...rest
 }) => {
-  const [labelShrink, setLabelShrink] = useState(false);
+  const [labelShrink, setLabelShrink] = useState(startValue ? true : false);
   const [selected, setSeleted] = useState(false);
+  const [value, setValue] = useState("");
 
-  const onChange = (e) => {
+  let optionsList = [];
+  for (let i = 0; i < options.length; i++) {
+    if (typeof options[i] === "string" || typeof options[i] === "number") {
+      optionsList.push({ value: options[i], title: options[i] });
+    } else {
+      optionsList.push(options[i]);
+    }
+  }
+
+  const handleValue = (e) => {
+    onChange(e);
     setValue(e.target.value);
   };
 
@@ -54,19 +65,19 @@ export const DropDown = ({
             selected ? "dropdown-select-selected" : ""
           }`}
           value={value}
-          onChange={onChange}
           onFocus={() => {
             setLabelShrink(true);
             setSeleted(true);
           }}
           onBlur={() => {
-            value === "notSelected" && setLabelShrink(false);
+            value === "" && setLabelShrink(false);
             setSeleted(false);
           }}
           style={{ width: width }}
+          onChange={(e) => handleValue(e)}
           {...rest}
         >
-          {value === "notSelected" ? (
+          {value === "" && !startValue ? (
             <option
               value="notSelected"
               className="dropdown-notSelected"
@@ -76,7 +87,7 @@ export const DropDown = ({
             <></>
           )}
 
-          {options.map((option, index) => (
+          {optionsList.map((option, index) => (
             <option key={index} value={option.value}>
               {option.title}
             </option>
@@ -104,14 +115,18 @@ export default DropDown;
 
 DropDown.propTypes = {
   label: PropTypes.string,
-  value: PropTypes.string,
-  setValue: PropTypes.func,
+  startValue: PropTypes.bool,
   className: PropTypes.string,
+  onChange: PropTypes.func,
   options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string,
-      title: PropTypes.string,
-    })
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        value: PropTypes.string,
+        title: PropTypes.string,
+      }),
+      PropTypes.string,
+      PropTypes.number,
+    ])
   ),
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
@@ -122,8 +137,8 @@ DropDown.propTypes = {
 
 DropDown.defaultProps = {
   label: "",
-  value: "notSelected",
-  setValue: undefined,
+  startValue: true,
+  onChange: undefined,
   className: "",
   options: [{ value: "", title: "" }],
   error: false,

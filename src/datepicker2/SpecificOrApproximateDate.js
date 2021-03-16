@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import RadioButton from "../components/RadioButton/RadioButton";
 import ordinalNumber from "./Modules/ordinalNumeral";
 import SpecificDate from "./SpecificDate";
+import ApproximateDate from "./ApproximateDate";
 
 export default function SpecificOrApproximateDate({
   dateValidated,
@@ -9,13 +10,19 @@ export default function SpecificOrApproximateDate({
   date,
   dates,
   setDates,
+  rangeMax,
 }) {
   const [dateType, setDateType] = useState("none");
 
   useEffect(() => {
     setDates(
       dates.map((item) =>
-        item.id === date.id ? { ...item, type: dateType } : item
+        item.id === date.id
+          ? {
+              ...item,
+              type: dateType,
+            }
+          : item
       )
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,7 +50,21 @@ export default function SpecificOrApproximateDate({
             type="approximate"
           />
           {date.type === "specific" && (
-            <SpecificDate date={date} dates={dates} setDates={setDates} />
+            <SpecificDate
+              date={date}
+              dates={dates}
+              setDates={setDates}
+              index={index}
+            />
+          )}
+          {date.type === "approximate" && (
+            <ApproximateDate
+              date={date}
+              dates={dates}
+              setDates={setDates}
+              rangeMax={rangeMax}
+              index={index}
+            />
           )}
         </div>
       )}

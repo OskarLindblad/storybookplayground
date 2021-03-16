@@ -28,6 +28,7 @@ Default.args = {
     },
   ],
   helperText: "Test Cost",
+  startValue: false,
 };
 
 export const DefaultError = Template.bind({});
@@ -51,6 +52,7 @@ DefaultError.args = {
   ],
   helperText: "Test Cost",
   errorMessage: "Test Error",
+  startValue: false,
 };
 
 export const DefaultSmall = Template.bind({});
@@ -73,6 +75,7 @@ DefaultSmall.args = {
   ],
   helperText: "Test Cost",
   smallField: true,
+  startValue: false,
 };
 
 export const DefaultErrorSmall = Template.bind({});
@@ -97,4 +100,5 @@ DefaultErrorSmall.args = {
   helperText: "Test Cost",
   errorMessage: "Test Error",
   smallField: true,
+  startValue: false,
 };
