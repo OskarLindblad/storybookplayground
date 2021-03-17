@@ -51,6 +51,7 @@ h6 * {
       font-weight: 600;
       pointer-events: none;
       padding: 0 3px;
+      z-index: 1;
       background-color: $White;
       &.datalist-label-selected {
         color: $Selected;
@@ -66,7 +67,7 @@ h6 * {
     .datalist-input {
       border: $Blue 1px solid;
       padding: $PV $PH;
-      border-radius: 10px 10px;
+      border-radius: 4px;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
 
@@ -173,10 +174,10 @@ h6 * {
 .datalist-smallField {
   .datalist-input-container {
     .datalist-label-text-label {
-      top: -23.5px;
+      top: -10.5px;
     }
     .datalist-label-text-placeholder {
-      top: -8px;
+      top: 9px;
     }
     .datalist-input {
       padding: $PVs $PH;

@@ -52,6 +52,7 @@ h6 * {
   font-weight: 600;
   pointer-events: none;
   padding: 0 3px;
+  z-index: 1;
   background-color: #fff;
 }
 
@@ -69,7 +70,7 @@ h6 * {
 .datalist .datalist-input-container .datalist-input {
   border: #2e394b 1px solid;
   padding: 13px 14px;
-  border-radius: 10px 10px;
+  border-radius: 4px;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
 }
@@ -188,11 +189,11 @@ h6 * {
 }
 
 .datalist-smallField .datalist-input-container .datalist-label-text-label {
-  top: -23.5px;
+  top: -10.5px;
 }
 
 .datalist-smallField .datalist-input-container .datalist-label-text-placeholder {
-  top: -8px;
+  top: 9px;
 }
 
 .datalist-smallField .datalist-input-container .datalist-input {

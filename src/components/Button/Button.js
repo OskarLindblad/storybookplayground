@@ -26,7 +26,7 @@ export const Button = ({
     >
       <div className="button-text">{label}</div>
       <div className="button-container"></div>
-      {icon && <img src={icon} alt="icon" className="button-icon" />}
+      {icon && <img src={icon} alt="icon" className="button-icon" {...rest} />}
     </button>
   );
 };

@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import NumberFormat from "react-number-format";
 
 export const Input = ({
-  value,
-  setValue,
   readOnly,
   suffixInput,
   suffixImg,
@@ -13,20 +11,23 @@ export const Input = ({
   maxLength, // Maximum number of charachters
   maxDecimals, // Minimum number of decimals
   helperText,
-  boldBorder,
-  boldText,
   smallField,
+  className,
   error,
   errorMessage,
+  onChange,
   ...rest
 }) => {
   const [labelShrink, setLabelShrink] = useState(false);
   const [selected, setSeleted] = useState(false);
+  const [value, setValue] = useState("");
 
-  const onChange = (e) => {
+  const handleChange = (e) => {
     let value = e.target.value.replace(/^0+/, "");
     value = value.replace(/ /g, "");
+    console.log(value);
     setValue(value);
+    onChange(value.replace(/,/g, "."));
   };
 
   const blockInvalidChar = (e) =>
@@ -44,9 +45,7 @@ export const Input = ({
           <p
             className={`input-label-text
             input-label-text-${labelShrink ? "label" : "placeholder"}
-            ${selected ? "input-label-selected" : ""}
-            
-            `}
+            ${selected ? "input-label-selected" : ""}`}
           >
             {label}
           </p>
@@ -56,13 +55,12 @@ export const Input = ({
             className={`input-inputfield ${
               selected ? "input-inputfield-selected" : ""
             }
-            ${boldText ? "bold-text" : ""}
-            ${boldBorder ? "bold-border" : ""}
+            ${className ? className : ""}
             `}
             value={value}
-            onChange={onChange}
+            onChange={handleChange}
             onFocus={() => {
-              !value && setLabelShrink(true);
+              setLabelShrink(true);
               setSeleted(true);
             }}
             onBlur={() => {
@@ -80,18 +78,13 @@ export const Input = ({
           <div
             className={`input-suffix 
             ${selected ? "input-suffix-selected" : ""}
-            ${boldBorder ? "bold-border" : ""}
             ${suffixImg ? "suffix-image" : ""}
             `}
           >
             {suffixImg ? (
               <img src={suffixImg} className="suffixImg" alt="suffixImg" />
             ) : (
-              suffixInput && (
-                <p className={`${boldText ? "bold-text" : ""}`}>
-                  {suffixInput}
-                </p>
-              )
+              suffixInput && <p>{suffixInput}</p>
             )}
           </div>
         </div>
@@ -106,35 +99,31 @@ export const Input = ({
 export default Input;
 
 Input.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  setValue: PropTypes.func,
   readOnly: PropTypes.bool,
   suffixInput: PropTypes.string,
   suffixImg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   label: PropTypes.string,
   helperText: PropTypes.string,
-  boldBorder: PropTypes.bool,
-  boldText: PropTypes.bool,
+  className: PropTypes.string,
   smallField: PropTypes.bool,
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
   maxLength: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxDecimals: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onChange: PropTypes.func,
 };
 
 Input.defaultProps = {
-  value: "",
-  setValue: undefined,
   readOnly: false,
   suffixInput: "",
   suffixImg: false,
   label: "",
+  className: "",
   helperText: "",
-  boldBorder: false,
-  boldText: false,
   smallField: false,
   error: false,
   errorMessage: "",
   maxLength: "none",
-  maxDecimals: "none",
+  maxDecimals: 200,
+  onChange: undefined,
 };

@@ -8,8 +8,6 @@ import PropTypes from "prop-types";
 
 export const DataList = ({
   label,
-  value,
-  setValue,
   name,
   className,
   options,
@@ -18,11 +16,13 @@ export const DataList = ({
   helperText,
   smallField,
   width,
+  onChange,
   ...rest
 }) => {
   const [selected, setSelected] = useState(false);
   const [labelShrink, setLabelShrink] = useState(false);
   const [dropDown, showDropDown] = useState(false);
+  const [value, setValue] = useState("");
 
   const handleChange = (e) => {
     let data = e.target.value;
@@ -33,20 +33,25 @@ export const DataList = ({
       if (data <= 100 && data >= 0) {
         data = data.replace(".", ",");
         setValue(data);
+        onChange(data);
       } else {
-        setValue((value) => value);
+        setValue(value);
+        onChange(value);
       }
     } else {
       setValue("");
+      onChange("");
     }
   };
 
   const handleClick = (likelyHood) => {
     setValue(likelyHood);
+    onChange(likelyHood);
   };
 
   const removeValue = () => {
     setValue("");
+    onChange("");
   };
 
   return (
@@ -156,7 +161,6 @@ export default DataList;
 
 DataList.propTypes = {
   label: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string,
   onChange: PropTypes.func,
   options: PropTypes.arrayOf(
@@ -174,7 +178,6 @@ DataList.propTypes = {
 
 DataList.defaultProps = {
   label: "",
-  value: "",
   className: "",
   onChange: undefined,
   options: [{ value: "addArray", title: "addArray" }],

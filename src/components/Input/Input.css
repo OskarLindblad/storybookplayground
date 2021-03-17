@@ -12,6 +12,7 @@ h6 * {
 .input {
   width: 250px;
   line-height: 0;
+  height: auto;
 }
 
 .input p {
@@ -52,7 +53,7 @@ h6 * {
 }
 
 .input .input-label .input-label-text-label {
-  color: #2e394b;
+  color: #818181;
   top: -14.5px;
   left: 12.5px;
   font-size: 14px;
@@ -68,7 +69,7 @@ h6 * {
 
 .input .input-label .input-label-text-placeholder {
   color: #979797;
-  top: 15.5px;
+  top: 14.5px;
   left: 16px;
   font-size: 18px;
   pointer-events: none;
@@ -98,26 +99,6 @@ h6 * {
   padding: calc(13px - 1px) 0 calc(13px - 1px) calc(14px - 1px);
 }
 
-.input .input-label input.bold-text {
-  font-weight: 600;
-}
-
-.input .input-label input.bold-border {
-  border-top: #2e394b 4px solid;
-  border-left: #2e394b 4px solid;
-  border-bottom: #2e394b 4px solid;
-  border-right: #fff 0px solid;
-  padding: calc(13px - 3px) 0 calc(13px - 3px) calc(14px - 2px);
-}
-
-.input .input-label input.bold-border.input-inputfield-selected {
-  border-top: #2c79f7 4px solid !important;
-  border-left: #2c79f7 4px solid !important;
-  border-bottom: #2c79f7 4px solid !important;
-  border-right: #fff 0px solid;
-  padding: calc(13px - 3px) 0 calc(13px - 3px) calc(14px - 2px);
-}
-
 .input .input-label input:focus {
   outline: none;
 }
@@ -131,7 +112,8 @@ h6 * {
   padding: 13px 14px 13px 0;
   border-radius: 0 10px 10px 0;
   position: relative;
-  padding: calc(13px + 1px) 14px calc(13px - 1px) 0;
+  padding: 13px 14px 13px 0;
+  line-height: 0.1;
 }
 
 .input .input-label .input-suffix.input-suffix-selected {
@@ -139,52 +121,17 @@ h6 * {
   border-left: #fff 0px solid;
   border-bottom: #2c79f7 2px solid;
   border-right: #2c79f7 2px solid;
-  padding: calc(13px - 0px) calc(14px - 1px) calc(13px - 4px) 0;
-}
-
-.input .input-label .input-suffix.input-suffix-selected.suffix-image {
-  padding: calc(13px - 2px) calc(14px - 4px) calc(13px - 5px) 0;
-}
-
-.input .input-label .input-suffix.suffix-image {
-  padding: calc(13px - 1px) calc(14px - 3px) calc(13px - 4px) 0;
+  padding: calc(13px - 1px) calc(14px - 1px) calc(13px - 1px) 0;
 }
 
 .input .input-label .input-suffix p {
   margin-left: 14px;
 }
 
-.input .input-label .input-suffix p.bold-text {
-  font-weight: 600;
-}
-
 .input .input-label .input-suffix img {
   height: 22px;
   width: auto;
   margin-left: 6px;
-}
-
-.input .input-label .input-suffix.bold-border {
-  border-top: #2e394b 4px solid;
-  border-left: #fff 0px solid;
-  border-bottom: #2e394b 4px solid;
-  border-right: #2e394b 4px solid;
-  padding: calc(13px - 1px) calc(14px - 2px) calc(13px - 4px) 0;
-}
-
-.input .input-label .input-suffix.bold-border.suffix-image {
-  padding: calc(13px - 3px) calc(14px - 2px) calc(13px - 6px) 0;
-}
-
-.input .input-label .input-suffix.bold-border.suffix-image img {
-  margin-left: 3px;
-}
-
-.input .input-label .input-suffix.bold-border.input-suffix-selected {
-  border-top: #2c79f7 4px solid;
-  border-left: #fff 0px solid;
-  border-bottom: #2c79f7 4px solid;
-  border-right: #2c79f7 4px solid;
 }
 
 .input .input-label .input-helper-text {
@@ -213,27 +160,11 @@ h6 * {
   color: #ff695a;
 }
 
-.input-error.input-label input.bold-border {
-  border-top: #ff695a 3px solid !important;
-  border-left: #ff695a 3px solid !important;
-  border-bottom: #ff695a 3px solid !important;
-  border-right: #fff 0px solid;
-  padding: calc(13px - 2px) 0 calc(13px - 2px) calc(14px - 4px);
-}
-
 .input-error.input-label input.input-inputfield-selected {
   border-top: #ff695a 2px solid !important;
   border-left: #ff695a 2px solid !important;
   border-bottom: #ff695a 2px solid !important;
   border-right: #fff 0px solid;
-}
-
-.input-error.input-label input.input-inputfield-selected.bold-border {
-  border-top: #ff695a 5px solid !important;
-  border-left: #ff695a 5px solid !important;
-  border-bottom: #ff695a 5px solid !important;
-  border-right: #fff 0px solid;
-  padding: calc(13px - 4px) 0 calc(13px - 4px) calc(14px - 4px);
 }
 
 .input-error.input-label .input-suffix {
@@ -242,46 +173,10 @@ h6 * {
   border-right: #ff695a 1px solid;
 }
 
-.input-error.input-label .input-suffix.bold-border {
-  border-top: #ff695a 3px solid !important;
-  border-right: #ff695a 3px solid !important;
-  border-bottom: #ff695a 3px solid !important;
-  border-left: #fff 0px solid;
-}
-
-.input-error.input-label .input-suffix.bold-border.suffix-image {
-  padding: calc(13px - 3px) calc(14px - 2px) calc(13px - 6px) 0;
-}
-
-.input-error.input-label .input-suffix.bold-border.suffix-image img {
-  margin-left: 3px;
-}
-
 .input-error.input-label .input-suffix.input-suffix-selected {
   border-top: #ff695a 2px solid;
   border-bottom: #ff695a 2px solid;
   border-right: #ff695a 2px solid;
-  padding: calc(13px - 0px) calc(14px - 1px) calc(13px - 5px) 0;
-}
-
-.input-error.input-label .input-suffix.input-suffix-selected.suffix-image {
-  padding: calc(13px - 2px) calc(14px - 4px) calc(13px - 5px) 0;
-}
-
-.input-error.input-label .input-suffix.input-suffix-selected.bold-border {
-  border-top: #ff695a 5px solid !important;
-  border-right: #ff695a 5px solid !important;
-  border-bottom: #ff695a 5px solid !important;
-  border-left: #fff 0px solid !important;
-  padding: calc(13px - 3px) calc(14px - 4px) calc(13px - 5px) 0;
-}
-
-.input-error.input-label .input-suffix.input-suffix-selected.bold-border.suffix-image {
-  padding: calc(13px - 5px) calc(14px - 4px) calc(13px - 8px) 0;
-}
-
-.input-error.input-label .input-suffix.input-suffix-selected.bold-border.suffix-image img {
-  margin-left: 3px;
 }
 
 .input-error.input-label .input-suffix p {
@@ -294,32 +189,32 @@ h6 * {
 }
 
 .input-label.input-smallField .input-label-text-label {
-  top: -14.5px;
+  top: -13.5px;
+  font-size: 12px;
 }
 
 .input-label.input-smallField .input-label-text-placeholder {
   color: #979797;
-  top: 11.5px;
+  top: 9.5px;
+  font-size: 14px;
 }
 
 .input-label.input-smallField input {
   padding: 8.5px 0 8.5px 14px;
+  font-size: 14px;
 }
 
 .input-label.input-smallField input.input-inputfield-selected {
   padding: calc(8.5px - 1px) 0 calc(8.5px - 1px) calc(14px - 1px);
 }
 
-.input-label.input-smallField input.bold-border {
-  padding: calc(8.5px - 3px) 0 calc(8.5px - 3px) calc(14px - 2px);
-}
-
-.input-label.input-smallField input.bold-border.input-inputfield-selected {
-  padding: calc(8.5px - 3px) 0 calc(8.5px - 3px) calc(14px - 2px);
-}
-
 .input-label.input-smallField .input-suffix {
   padding: calc(8.5px + 1px) 14px calc(8.5px - 1px) 0;
+  font-size: 14px;
+}
+
+.input-label.input-smallField .input-suffix.suffix-image {
+  padding: calc(8.5px - 2.5px) calc(14px - 3px) calc(8.5px - 2.5px) 0;
 }
 
 .input-label.input-smallField .input-suffix.input-suffix-selected {
@@ -327,63 +222,11 @@ h6 * {
 }
 
 .input-label.input-smallField .input-suffix.input-suffix-selected.suffix-image {
-  padding: calc(8.5px - 2px) calc(14px - 4px) calc(8.5px - 5px) 0;
-}
-
-.input-label.input-smallField .input-suffix.suffix-image {
-  padding: calc(8.5px - 1px) calc(14px - 3px) calc(8.5px - 4px) 0;
-}
-
-.input-label.input-smallField .input-suffix.bold-border {
-  padding: calc(8.5px - 1px) calc(14px - 2px) calc(8.5px - 5px) 0;
-}
-
-.input-label.input-smallField .input-suffix.bold-border.input-suffix-selected {
-  padding: calc(8.5px - 1px) calc(14px - 2px) calc(8.5px - 5px) 0;
-}
-
-.input-label.input-smallField .input-suffix.bold-border.suffix-image {
-  padding: calc(8.5px - 3px) calc(14px - 2px) calc(8.5px - 6px) 0;
-}
-
-.input-label.input-smallField .input-suffix.bold-border.suffix-image img {
-  margin-left: 3px;
+  padding: calc(8.5px - 3.5px) calc(14px - 4px) calc(8.5px - 3.5px) 0;
 }
 
 .input-label.input-smallField .input-helper-text {
   font-size: 14px;
   margin: 5px 14px 0 14px;
-}
-
-.input-error.input-smallField input.bold-border {
-  padding: calc(8.5px - 2px) 0 calc(8.5px - 2px) calc(14px - 4px);
-}
-
-.input-error.input-smallField input.input-inputfield-selected.bold-border {
-  padding: calc(8.5px - 4px) 0 calc(8.5px - 4px) calc(14px - 4px);
-}
-
-.input-error.input-smallField .input-suffix.bold-border.suffix-image {
-  padding: calc(8.5px - 3px) calc(14px - 2px) calc(8.5px - 6px) 0;
-}
-
-.input-error.input-smallField .input-suffix.bold-border.suffix-image img {
-  margin-left: 3px;
-}
-
-.input-error.input-smallField .input-suffix.input-suffix-selected.suffix-image {
-  padding: calc(8.5px - 2px) calc(14px - 4px) calc(8.5px - 5px) 0;
-}
-
-.input-error.input-smallField .input-suffix.input-suffix-selected.bold-border {
-  padding: calc(8.5px - 3px) calc(14px - 4px) calc(8.5px - 6px) 0;
-}
-
-.input-error.input-smallField .input-suffix.input-suffix-selected.bold-border.suffix-image {
-  padding: calc(8.5px - 5px) calc(14px - 4px) calc(8.5px - 8px) 0;
-}
-
-.input-error.input-smallField .input-suffix.input-suffix-selected.bold-border.suffix-image img {
-  margin-left: 3px;
 }
 /*# sourceMappingURL=Input.css.map */

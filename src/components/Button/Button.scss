@@ -7,7 +7,8 @@ $DarkYellow: #f8c346;
 $White: #fff;
 $Red: #ff695a;
 $Purple: #914696;
-$Grey: #cecece;
+$NonactiveGrey: #cecece;
+$Grey: #818181;
 $LightBlue: #edf4ff;
 
 $PV: 8.5px; //Padding Vertically
@@ -21,7 +22,7 @@ $PHs: 27.2px; //Padding Horizontally
   font-weight: 900;
   font-size: 14px;
   letter-spacing: 0.02857em;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: $PV $PH;
   line-height: 1;
   outline: none;
@@ -122,7 +123,7 @@ $PHs: 27.2px; //Padding Horizontally
   }
 
   &.button-type-nonactive {
-    background-color: $Grey;
+    background-color: $NonactiveGrey;
     cursor: default;
     .button-text {
       color: $White;

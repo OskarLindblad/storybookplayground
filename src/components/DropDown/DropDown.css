@@ -23,11 +23,11 @@ h6 * {
   font-family: "Roboto", sans-serif;
 }
 
-.dropdown label {
+.dropdown label.input-label {
   position: relative;
 }
 
-.dropdown label .dropdown-label-text {
+.dropdown label.input-label .dropdown-label-text {
   font-family: "Roboto", sans-serif;
   position: absolute;
   z-index: 33;
@@ -38,47 +38,50 @@ h6 * {
   white-space: nowrap;
 }
 
-.dropdown label .dropdown-label-text-label {
-  color: #2e394b;
+.dropdown label.input-label .dropdown-label-text-label {
+  color: #818181;
   top: -10.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
   padding: 0 3px;
+  z-index: 1;
   background-color: #fff;
 }
 
-.dropdown label .dropdown-label-text-label.dropdown-label-selected {
+.dropdown label.input-label .dropdown-label-text-label.dropdown-label-selected {
   color: #2c79f7;
 }
 
-.dropdown label .dropdown-label-text-placeholder {
+.dropdown label.input-label .dropdown-label-text-placeholder {
   color: #979797;
   top: 14px;
   left: 16px;
   font-size: 18px;
 }
 
-.dropdown label select.dropdown-select {
+.dropdown label.input-label select.dropdown-select {
+  cursor: pointer;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  border: #2e394b 1px solid;
+  height: auto;
+  border: #818181 1px solid;
   -moz-appearance: none;
   /* Firefox */
   -webkit-appearance: none;
   /* Safari and Chrome */
   appearance: none;
-  padding: 13px 14px;
-  border-radius: 10px 10px;
+  padding: 13px calc(14px + 20px) 13px 14px;
+  border-radius: 4px;
 }
 
-.dropdown label select.dropdown-select.dropdown-select-selected {
+.dropdown label.input-label select.dropdown-select.dropdown-select-selected {
   border: #2c79f7 2px solid;
-  padding: calc(13px - 1px) calc(14px - 1px);
+  padding: calc(13px - 1px) calc(14px + 19px) calc(13px - 1px) calc(14px - 1px);
 }
 
-.dropdown label select.dropdown-select:focus {
+.dropdown label.input-label select.dropdown-select:focus {
   outline: none;
 }
 
@@ -122,29 +125,30 @@ h6 * {
   color: #ff695a;
 }
 
-.dropdown-smallField label .dropdown-label-text-label {
-  color: #2e394b;
-  top: -10.5px;
+.dropdown-smallField label.input-label .dropdown-label-text-label {
+  color: #818181;
+  top: -8.5px;
   left: 12.5px;
+  font-size: 12px;
 }
 
-.dropdown-smallField label .dropdown-label-text-placeholder {
+.dropdown-smallField label.input-label .dropdown-label-text-placeholder {
   top: 10px;
   font-size: 14px;
 }
 
-.dropdown-smallField label select.dropdown-select {
-  padding: 8.5px 14px;
-  border-radius: 10px 10px;
+.dropdown-smallField label.input-label select.dropdown-select {
+  padding: 8.5px calc(8.5px + 20px) 8.5px 14px;
+  border-radius: 4px;
   font-size: 14px;
 }
 
-.dropdown-smallField label select.dropdown-select.dropdown-select-selected {
+.dropdown-smallField label.input-label select.dropdown-select.dropdown-select-selected {
   border: #2c79f7 2px solid;
-  padding: calc(8.5px - 1px) calc(14px - 1px);
+  padding: calc(8.5px - 1px) calc(14px + 19px) calc(8.5px - 1px) calc(14px - 1px);
 }
 
-.dropdown-smallField label .dropdown-down-icon-container {
+.dropdown-smallField label.input-label .dropdown-down-icon-container {
   height: 35px !important;
 }
 

@@ -1,9 +1,9 @@
 $Blue: #2e394b;
 $Selected: #2c79f7;
-$PlaceHolderGray: #979797;
+$PlaceHolderGrey: #979797;
 $White: #fff;
 $Red: #ff695a;
-
+$Grey: #818181;
 $PH: 14px; //Padding Horizontally
 $PV: 13px; //Padding Vertically
 $PVs: 8.5px; //Padding Vertically small
@@ -25,6 +25,7 @@ h6 * {
 .input {
   width: $Input-Width;
   line-height: 0;
+  height: auto;
   p {
     display: block;
     margin-block-start: 0.5em;
@@ -52,7 +53,7 @@ h6 * {
       white-space: nowrap;
     }
     .input-label-text-label {
-      color: $Blue;
+      color: $Grey;
       top: -14.5px;
       left: 12.5px;
       font-size: 14px;
@@ -65,8 +66,8 @@ h6 * {
       }
     }
     .input-label-text-placeholder {
-      color: $PlaceHolderGray;
-      top: 15.5px;
+      color: $PlaceHolderGrey;
+      top: 14.5px;
       left: 16px;
       font-size: 18px;
       pointer-events: none;
@@ -92,23 +93,6 @@ h6 * {
         border-right: $White 0px solid;
         padding: calc(#{$PV} - 1px) 0 calc(#{$PV} - 1px) calc(#{$PH} - 1px);
       }
-      &.bold-text {
-        font-weight: 600;
-      }
-      &.bold-border {
-        border-top: $Blue 4px solid;
-        border-left: $Blue 4px solid;
-        border-bottom: $Blue 4px solid;
-        border-right: $White 0px solid;
-        padding: calc(#{$PV} - 3px) 0 calc(#{$PV} - 3px) calc(#{$PH} - 2px);
-        &.input-inputfield-selected {
-          border-top: $Selected 4px solid !important;
-          border-left: $Selected 4px solid !important;
-          border-bottom: $Selected 4px solid !important;
-          border-right: $White 0px solid;
-          padding: calc(#{$PV} - 3px) 0 calc(#{$PV} - 3px) calc(#{$PH} - 2px);
-        }
-      }
     }
     input:focus {
       outline: none;
@@ -122,50 +106,22 @@ h6 * {
       padding: #{$PV} #{$PH} #{$PV} 0;
       border-radius: 0 10px 10px 0;
       position: relative;
-      padding: calc(#{$PV} + 1px) $PH calc(#{$PV} - 1px) 0;
-
+      padding: $PV $PH $PV 0;
+      line-height: 0.1;
       &.input-suffix-selected {
         border-top: $Selected 2px solid;
         border-left: $White 0px solid;
         border-bottom: $Selected 2px solid;
         border-right: $Selected 2px solid;
-        padding: calc(#{$PV} - 0px) calc(#{$PH} - 1px) calc(#{$PV} - 4px) 0;
-        &.suffix-image {
-          padding: calc(#{$PV} - 2px) calc(#{$PH} - 4px) calc(#{$PV} - 5px) 0;
-        }
-      }
-      &.suffix-image {
-        padding: calc(#{$PV} - 1px) calc(#{$PH} - 3px) calc(#{$PV} - 4px) 0;
+        padding: calc(#{$PV} - 1px) calc(#{$PH} - 1px) calc(#{$PV} - 1px) 0;
       }
       p {
         margin-left: 14px;
-        &.bold-text {
-          font-weight: 600;
-        }
       }
       img {
         height: 22px;
         width: auto;
         margin-left: 6px;
-      }
-      &.bold-border {
-        border-top: $Blue 4px solid;
-        border-left: $White 0px solid;
-        border-bottom: $Blue 4px solid;
-        border-right: $Blue 4px solid;
-        padding: calc(#{$PV} - 1px) calc(#{$PH} - 2px) calc(#{$PV} - 4px) 0;
-        &.suffix-image {
-          padding: calc(#{$PV} - 3px) calc(#{$PH} - 2px) calc(#{$PV} - 6px) 0;
-          img {
-            margin-left: 3px;
-          }
-        }
-        &.input-suffix-selected {
-          border-top: $Selected 4px solid;
-          border-left: $White 0px solid;
-          border-bottom: $Selected 4px solid;
-          border-right: $Selected 4px solid;
-        }
       }
     }
     .input-helper-text {
@@ -194,65 +150,21 @@ h6 * {
     border-bottom: $Red 1px solid;
     border-right: $White 0px solid;
     color: $Red;
-    &.bold-border {
-      border-top: $Red 3px solid !important;
-      border-left: $Red 3px solid !important;
-      border-bottom: $Red 3px solid !important;
-      border-right: $White 0px solid;
-      padding: calc(#{$PV} - 2px) 0 calc(#{$PV} - 2px) calc(#{$PH} - 4px);
-    }
     &.input-inputfield-selected {
       border-top: $Red 2px solid !important;
       border-left: $Red 2px solid !important;
       border-bottom: $Red 2px solid !important;
       border-right: $White 0px solid;
-      &.bold-border {
-        border-top: $Red 5px solid !important;
-        border-left: $Red 5px solid !important;
-        border-bottom: $Red 5px solid !important;
-        border-right: $White 0px solid;
-        padding: calc(#{$PV} - 4px) 0 calc(#{$PV} - 4px) calc(#{$PH} - 4px);
-      }
     }
   }
   .input-suffix {
     border-top: $Red 1px solid;
     border-bottom: $Red 1px solid;
     border-right: $Red 1px solid;
-
-    &.bold-border {
-      border-top: $Red 3px solid !important;
-      border-right: $Red 3px solid !important;
-      border-bottom: $Red 3px solid !important;
-      border-left: $White 0px solid;
-      &.suffix-image {
-        padding: calc(#{$PV} - 3px) calc(#{$PH} - 2px) calc(#{$PV} - 6px) 0;
-        img {
-          margin-left: 3px;
-        }
-      }
-    }
     &.input-suffix-selected {
       border-top: $Red 2px solid;
       border-bottom: $Red 2px solid;
       border-right: $Red 2px solid;
-      padding: calc(#{$PV} - 0px) calc(#{$PH} - 1px) calc(#{$PV} - 5px) 0;
-      &.suffix-image {
-        padding: calc(#{$PV} - 2px) calc(#{$PH} - 4px) calc(#{$PV} - 5px) 0;
-      }
-      &.bold-border {
-        border-top: $Red 5px solid !important;
-        border-right: $Red 5px solid !important;
-        border-bottom: $Red 5px solid !important;
-        border-left: $White 0px solid !important;
-        padding: calc(#{$PV} - 3px) calc(#{$PH} - 4px) calc(#{$PV} - 5px) 0;
-        &.suffix-image {
-          padding: calc(#{$PV} - 5px) calc(#{$PH} - 4px) calc(#{$PV} - 8px) 0;
-          img {
-            margin-left: 3px;
-          }
-        }
-      }
     }
 
     p {
@@ -269,90 +181,39 @@ h6 * {
 
 .input-label.input-smallField {
   .input-label-text-label {
-    top: -14.5px;
+    top: -13.5px;
+    font-size: 12px;
   }
   .input-label-text-placeholder {
-    color: $PlaceHolderGray;
-    top: 11.5px;
+    color: $PlaceHolderGrey;
+    top: 9.5px;
+    font-size: 14px;
   }
   input {
     padding: $PVs 0 $PVs $PH;
+    font-size: 14px;
+
     &.input-inputfield-selected {
       padding: calc(#{$PVs} - 1px) 0 calc(#{$PVs} - 1px) calc(#{$PH} - 1px);
-    }
-    &.bold-border {
-      padding: calc(#{$PVs} - 3px) 0 calc(#{$PVs} - 3px) calc(#{$PH} - 2px);
-      &.input-inputfield-selected {
-        padding: calc(#{$PVs} - 3px) 0 calc(#{$PVs} - 3px) calc(#{$PH} - 2px);
-      }
     }
   }
 
   .input-suffix {
     padding: calc(#{$PVs} + 1px) $PH calc(#{$PVs} - 1px) 0;
-
+    font-size: 14px;
+    &.suffix-image {
+      padding: calc(#{$PVs} - 2.5px) calc(#{$PH} - 3px) calc(#{$PVs} - 2.5px) 0;
+    }
     &.input-suffix-selected {
       padding: calc(#{$PVs} - 0px) calc(#{$PH} - 1px) calc(#{$PVs} - 2px) 0;
       &.suffix-image {
-        padding: calc(#{$PVs} - 2px) calc(#{$PH} - 4px) calc(#{$PVs} - 5px) 0;
-      }
-    }
-    &.suffix-image {
-      padding: calc(#{$PVs} - 1px) calc(#{$PH} - 3px) calc(#{$PVs} - 4px) 0;
-    }
-    &.bold-border {
-      padding: calc(#{$PVs} - 1px) calc(#{$PH} - 2px) calc(#{$PVs} - 5px) 0;
-      &.input-suffix-selected {
-        padding: calc(#{$PVs} - 1px) calc(#{$PH} - 2px) calc(#{$PVs} - 5px) 0;
-      }
-      &.suffix-image {
-        padding: calc(#{$PVs} - 3px) calc(#{$PH} - 2px) calc(#{$PVs} - 6px) 0;
-        img {
-          margin-left: 3px;
-        }
+        padding: calc(#{$PVs} - 3.5px) calc(#{$PH} - 4px) calc(#{$PVs} - 3.5px)
+          0;
       }
     }
   }
   .input-helper-text {
     font-size: 14px;
     margin: 5px 14px 0 14px;
-  }
-}
-
-//Error styling - small
-.input-error.input-smallField {
-  input {
-    &.bold-border {
-      padding: calc(#{$PVs} - 2px) 0 calc(#{$PVs} - 2px) calc(#{$PH} - 4px);
-    }
-    &.input-inputfield-selected {
-      &.bold-border {
-        padding: calc(#{$PVs} - 4px) 0 calc(#{$PVs} - 4px) calc(#{$PH} - 4px);
-      }
-    }
-  }
-  .input-suffix {
-    &.bold-border {
-      &.suffix-image {
-        padding: calc(#{$PVs} - 3px) calc(#{$PH} - 2px) calc(#{$PVs} - 6px) 0;
-        img {
-          margin-left: 3px;
-        }
-      }
-    }
-    &.input-suffix-selected {
-      &.suffix-image {
-        padding: calc(#{$PVs} - 2px) calc(#{$PH} - 4px) calc(#{$PVs} - 5px) 0;
-      }
-      &.bold-border {
-        padding: calc(#{$PVs} - 3px) calc(#{$PH} - 4px) calc(#{$PVs} - 6px) 0;
-        &.suffix-image {
-          padding: calc(#{$PVs} - 5px) calc(#{$PH} - 4px) calc(#{$PVs} - 8px) 0;
-          img {
-            margin-left: 3px;
-          }
-        }
-      }
-    }
   }
 }
