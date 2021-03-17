@@ -134,6 +134,14 @@ h6 * {
   margin-left: 6px;
 }
 
+.input .input-label .input-suffix.suffix-image {
+  padding: calc(13px - 1px) calc(14px - 1px) calc(13px - 1px) 0;
+}
+
+.input .input-label .input-suffix.input-suffix-selected.suffix-image {
+  padding: calc(13px - 2px) calc(14px - 2px) calc(13px - 2px) 0;
+}
+
 .input .input-label .input-helper-text {
   font-size: 14px;
   margin: 5px 14px 0 14px;
@@ -214,7 +222,7 @@ h6 * {
 }
 
 .input-label.input-smallField .input-suffix.suffix-image {
-  padding: calc(8.5px - 2.5px) calc(14px - 3px) calc(8.5px - 2.5px) 0;
+  padding: calc(8.5px - 3px) calc(14px - 3px) calc(8.5px - 3px) 0;
 }
 
 .input-label.input-smallField .input-suffix.input-suffix-selected {
@@ -229,4 +237,4 @@ h6 * {
   font-size: 14px;
   margin: 5px 14px 0 14px;
 }
-/*# sourceMappingURL=Input.css.map */
+/*# sourceMappingURL=InputNum.css.map */

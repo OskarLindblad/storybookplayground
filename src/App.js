@@ -2,9 +2,10 @@ import React, { useState } from "react";
 //import React from "react";
 
 import "./App.css";
-import Input from "./components/Input/Input";
+import Input from "./components/InputNum/InputNum";
+import error from "./logo.svg";
 
-import DatePicker from "./datepicker2/DatePicker";
+//import DatePicker from "./datepicker2/DatePicker";
 
 //import LegalFeesDistrubution from "./legalFeesDistrubution/LegalFeesDistrubution";
 
@@ -15,13 +16,15 @@ function App() {
     <div className="App">
       {/*<LegalFeesDistrubution />*/}
       <br />
-      <DatePicker />
+      {/*<DatePicker />*/}
       <br />
       <Input
         label="banana"
         onChange={setstate}
         suffixInput="65465734567"
-        smallField
+        suffixImg={error}
+        value={10000}
+        readOnly
       />
       <br />
       {state}

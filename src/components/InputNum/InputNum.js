@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./Input.css";
+import "./InputNum.css";
 import PropTypes from "prop-types";
 import NumberFormat from "react-number-format";
 
 export const Input = ({
   readOnly,
+  value, // needs to be a string
   suffixInput,
   suffixImg,
   label,
@@ -18,16 +19,15 @@ export const Input = ({
   onChange,
   ...rest
 }) => {
-  const [labelShrink, setLabelShrink] = useState(false);
+  const [labelShrink, setLabelShrink] = useState(value ? true : false);
   const [selected, setSeleted] = useState(false);
-  const [value, setValue] = useState("");
+  const [localValue, setLocalValue] = useState(value ? value.toString() : "");
 
   const handleChange = (e) => {
-    let value = e.target.value.replace(/^0+/, "");
-    value = value.replace(/ /g, "");
-    console.log(value);
-    setValue(value);
-    onChange(value.replace(/,/g, "."));
+    let localValue = e.target.localValue.replace(/^0+/, "");
+    localValue = localValue.replace(/ /g, "");
+    setLocalValue(localValue);
+    onChange(localValue.replace(/,/g, "."));
   };
 
   const blockInvalidChar = (e) =>
@@ -39,6 +39,7 @@ export const Input = ({
           input-label 
           ${error ? "input-error" : ""}
           ${smallField ? "input-smallField" : ""}
+          ${className ? className : ""}
         `}
       >
         {label && (
@@ -57,14 +58,14 @@ export const Input = ({
             }
             ${className ? className : ""}
             `}
-            value={value}
+            value={localValue}
             onChange={handleChange}
             onFocus={() => {
               setLabelShrink(true);
               setSeleted(true);
             }}
             onBlur={() => {
-              !value && setLabelShrink(false);
+              !localValue && setLabelShrink(false);
               setSeleted(false);
             }}
             onKeyDown={blockInvalidChar}

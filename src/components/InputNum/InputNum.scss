@@ -123,7 +123,16 @@ h6 * {
         width: auto;
         margin-left: 6px;
       }
+      &.suffix-image {
+        padding: calc(#{$PV} - 1px) calc(#{$PH} - 1px) calc(#{$PV} - 1px) 0;
+      }
+      &.input-suffix-selected {
+        &.suffix-image {
+          padding: calc(#{$PV} - 2px) calc(#{$PH} - 2px) calc(#{$PV} - 2px) 0;
+        }
+      }
     }
+
     .input-helper-text {
       font-size: 14px;
       margin: 5px 14px 0 14px;
@@ -202,7 +211,7 @@ h6 * {
     padding: calc(#{$PVs} + 1px) $PH calc(#{$PVs} - 1px) 0;
     font-size: 14px;
     &.suffix-image {
-      padding: calc(#{$PVs} - 2.5px) calc(#{$PH} - 3px) calc(#{$PVs} - 2.5px) 0;
+      padding: calc(#{$PVs} - 3px) calc(#{$PH} - 3px) calc(#{$PVs} - 3px) 0;
     }
     &.input-suffix-selected {
       padding: calc(#{$PVs} - 0px) calc(#{$PH} - 1px) calc(#{$PVs} - 2px) 0;

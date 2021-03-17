@@ -1,14 +1,14 @@
 import React from "react";
 /* eslint-disable import/no-anonymous-default-export */
 import errorImg from "./error.svg";
-import Input from "./Input";
+import InputNum from "./InputNum";
 
 export default {
-  title: "Form/Input",
-  component: Input,
+  title: "Form/InputNum",
+  component: InputNum,
 };
 
-const Template = (args) => <Input {...args} />;
+const Template = (args) => <InputNum {...args} />;
 
 export const Default = Template.bind({});
 
