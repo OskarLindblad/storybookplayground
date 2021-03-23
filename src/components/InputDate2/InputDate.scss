@@ -20,7 +20,7 @@ h6 * {
   margin: 0;
 }
 
-.inputNum {
+.inputdate {
   line-height: 0;
   height: auto;
   p {
@@ -28,34 +28,34 @@ h6 * {
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
   }
-  .inputNum-label {
+  .inputdate-label {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
     position: relative;
 
-    .inputNum-container {
+    .inputdate-container {
       display: flex;
       flex-direction: row;
       position: relative;
     }
 
     //label/placeholder
-    .inputNum-label-text {
+    .inputdate-label-text {
       position: absolute;
-      z-index: 1;
-      transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+      z-index: 33;
+      transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s, width 0.2s;
       background-color: $White;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       height: auto;
+      flex-direction: row;
       p {
-        color: $Grey;
         transition: max-width 0.2s;
       }
     }
-    .inputNum-label-text-label {
+    .inputdate-label-text-label {
       color: $Grey;
       top: -14.5px;
       left: 12.5px;
@@ -64,21 +64,26 @@ h6 * {
       pointer-events: none;
       padding: 6px 3px;
       background-color: $White;
-      &.inputNum-label-selected {
+      white-space: nowrap;
+      &.inputdate-label-selected {
         color: $Selected;
       }
     }
-    .inputNum-label-text-placeholder {
+    .inputdate-label-text-placeholder {
       color: $PlaceHolderGrey;
-      top: 14.5px;
+      top: 17.5px;
       left: 16px;
       font-size: 18px;
       pointer-events: none;
+      white-space: nowrap;
+      overflow: hidden;
+      background-color: rgba($color: #fff, $alpha: 0.1);
     }
     input {
-      border-top: $Grey 1px solid;
-      border-left: $Grey 1px solid;
-      border-bottom: $Grey 1px solid;
+      font-family: "Roboto", sans-serif;
+      border-top: $Blue 1px solid;
+      border-left: $Blue 1px solid;
+      border-bottom: $Blue 1px solid;
       border-right: $White 0px solid;
       padding: $PV 0 $PV $PH;
       border-radius: 4px 0 0 4px;
@@ -89,7 +94,7 @@ h6 * {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      &.inputNum-inputfield-selected {
+      &.inputdate-inputfield-selected {
         border-top: $Selected 2px solid !important;
         border-left: $Selected 2px solid !important;
         border-bottom: $Selected 2px solid !important;
@@ -100,23 +105,18 @@ h6 * {
     input:focus {
       outline: none;
     }
-    input.inputNum-noButton::-webkit-outer-spin-button,
-    input.inputNum-noButton::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    .inputNum-suffix {
+    .inputdate-suffix {
       background-color: $White;
-      border-top: $Grey 1px solid;
+      border-top: $Blue 1px solid;
       border-left: $White 0px solid;
-      border-bottom: $Grey 1px solid;
-      border-right: $Grey 1px solid;
+      border-bottom: $Blue 1px solid;
+      border-right: $Blue 1px solid;
       padding: #{$PV} #{$PH} #{$PV} 0;
       border-radius: 0 4px 4px 0;
       position: relative;
       padding: $PV $PH $PV 0;
-      line-height: 0.1;
-      &.inputNum-suffix-selected {
+      line-height: 0.5;
+      &.inputdate-suffix-selected {
         border-top: $Selected 2px solid;
         border-left: $White 0px solid;
         border-bottom: $Selected 2px solid;
@@ -134,14 +134,14 @@ h6 * {
       &.suffix-image {
         padding: calc(#{$PV} - 1px) calc(#{$PH} - 1px) calc(#{$PV} - 1px) 0;
       }
-      &.inputNum-suffix-selected {
+      &.inputdate-suffix-selected {
         &.suffix-image {
           padding: calc(#{$PV} - 2px) calc(#{$PH} - 2px) calc(#{$PV} - 2px) 0;
         }
       }
     }
 
-    .inputNum-helper-text {
+    .inputdate-helper-text {
       font-size: 14px;
       margin: 5px 14px 0 14px;
       p {
@@ -152,12 +152,11 @@ h6 * {
 }
 
 //Error styling
-.inputNum-error.inputNum-label {
-  .inputNum-label-text-label {
+.inputdate-error.inputdate-label {
+  .inputdate-label-text-label {
     color: $Red;
     background-color: $White;
-    z-index: 1;
-    &.inputNum-label-selected {
+    &.inputdate-label-selected {
       color: $Red;
     }
   }
@@ -168,18 +167,18 @@ h6 * {
     border-bottom: $Red 1px solid;
     border-right: $White 0px solid;
     color: $Red;
-    &.inputNum-inputfield-selected {
+    &.inputdate-inputfield-selected {
       border-top: $Red 2px solid !important;
       border-left: $Red 2px solid !important;
       border-bottom: $Red 2px solid !important;
       border-right: $White 0px solid;
     }
   }
-  .inputNum-suffix {
+  .inputdate-suffix {
     border-top: $Red 1px solid;
     border-bottom: $Red 1px solid;
     border-right: $Red 1px solid;
-    &.inputNum-suffix-selected {
+    &.inputdate-suffix-selected {
       border-top: $Red 2px solid;
       border-bottom: $Red 2px solid;
       border-right: $Red 2px solid;
@@ -190,40 +189,39 @@ h6 * {
       margin-left: 14px;
     }
   }
-  .inputNum-helper-text {
+  .inputdate-helper-text {
     color: $Red;
   }
 }
 
 // Small ---------------------------------------------
 
-.inputNum-label.inputNum-smallField {
-  .inputNum-label-text-label {
+.inputdate-label.inputdate-smallField {
+  .inputdate-label-text-label {
     top: -13.5px;
     font-size: 12px;
-    background-color: $White;
   }
-  .inputNum-label-text-placeholder {
+  .inputdate-label-text-placeholder {
     color: $PlaceHolderGrey;
-    top: 9.5px;
+    top: 12.5px;
     font-size: 14px;
   }
   input {
     padding: $PVs 0 $PVs $PH;
     font-size: 14px;
 
-    &.inputNum-inputfield-selected {
+    &.inputdate-inputfield-selected {
       padding: calc(#{$PVs} - 1px) 0 calc(#{$PVs} - 1px) calc(#{$PH} - 1px);
     }
   }
 
-  .inputNum-suffix {
+  .inputdate-suffix {
     padding: calc(#{$PVs} + 1px) $PH calc(#{$PVs} - 1px) 0;
     font-size: 14px;
     &.suffix-image {
       padding: calc(#{$PVs} - 3px) calc(#{$PH} - 3px) calc(#{$PVs} - 3px) 0;
     }
-    &.inputNum-suffix-selected {
+    &.inputdate-suffix-selected {
       padding: calc(#{$PVs} - 0px) calc(#{$PH} - 1px) calc(#{$PVs} - 2px) 0;
       &.suffix-image {
         padding: calc(#{$PVs} - 3.5px) calc(#{$PH} - 4px) calc(#{$PVs} - 3.5px)
@@ -231,7 +229,7 @@ h6 * {
       }
     }
   }
-  .inputNum-helper-text {
+  .inputdate-helper-text {
     font-size: 14px;
     margin: 5px 14px 0 14px;
   }

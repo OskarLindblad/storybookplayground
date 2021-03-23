@@ -123,11 +123,11 @@ $PHs: 27.2px; //Padding Horizontally
   }
 
   &.button-type-nonactive {
-    background-color: $NonactiveGrey;
-    cursor: default;
+    background-color: $Grey;
     .button-text {
       color: $White;
     }
+    cursor: default;
   }
 
   &.button-with-icon {

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./InputNum.css";
+import "./DataList.css";
 import PropTypes from "prop-types";
 //import { useFormContext } from 'react-hook-form'
 import { numToString, stringToNum } from "./formatNum";
 
 // 0,0001 = almost zero
 
-export const InputNum = ({
+export const DataList = ({
   readOnly,
   suffix,
   suffixImg,
@@ -63,20 +63,20 @@ export const InputNum = ({
   const newDefaultValue = numToString(defaultValue);
 
   return (
-    <div className="inputNum" stye={{ width: width }}>
+    <div className="dataList" stye={{ width: width }}>
       <label
         className={`
-          inputNum-label 
-          ${error ? "inputNum-error" : ""}
-          ${smallField ? "inputNum-smallField" : ""}
+          dataList-label 
+          ${error ? "dataList-error" : ""}
+          ${smallField ? "dataList-smallField" : ""}
           ${className ? className : ""}
         `}
       >
         {label && (
           <div
-            className={`inputNum-label-text
-            inputNum-label-text-${labelShrink ? "label" : "placeholder"}
-            ${selected ? "inputNum-label-selected" : ""}`}
+            className={`dataList-label-text
+            dataList-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "dataList-label-selected" : ""}`}
           >
             <p
               style={
@@ -89,14 +89,14 @@ export const InputNum = ({
             </p>
           </div>
         )}
-        <div className="inputNum-container" style={{ width: width }}>
+        <div className="dataList-container" style={{ width: width }}>
           <input
             type="text"
-            className={`inputNum-inputfield ${
-              selected ? "inputNum-inputfield-selected" : ""
+            className={`dataList-inputfield ${
+              selected ? "dataList-inputfield-selected" : ""
             } 
             ${className ? className : ""}
-            ${noButton ? "inputNum-noButton" : ""}
+            ${noButton ? "dataList-noButton" : ""}
 
             `}
             defaultValue={newDefaultValue}
@@ -120,8 +120,8 @@ export const InputNum = ({
             {...rest}
           />
           <div
-            className={`inputNum-suffix 
-            ${selected ? "inputNum-suffix-selected" : ""}
+            className={`dataList-suffix 
+            ${selected ? "dataList-suffix-selected" : ""}
             ${suffixImg ? "suffix-image" : ""}
             `}
           >
@@ -132,7 +132,7 @@ export const InputNum = ({
             )}
           </div>
         </div>
-        <div className="inputNum-helper-text">
+        <div className="dataList-helper-text">
           {errorMessage && error ? <p>{errorMessage}</p> : <p>{helperText}</p>}
         </div>
       </label>
@@ -140,9 +140,9 @@ export const InputNum = ({
   );
 };
 
-export default InputNum;
+export default DataList;
 
-InputNum.propTypes = {
+DataList.propTypes = {
   readOnly: PropTypes.bool,
   suffix: PropTypes.string,
   suffixImg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
@@ -162,7 +162,7 @@ InputNum.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-InputNum.defaultProps = {
+DataList.defaultProps = {
   readOnly: false,
   suffix: "",
   suffixImg: false,

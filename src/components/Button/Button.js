@@ -20,6 +20,7 @@ export const Button = ({
         ${small ? "button-type-small" : ""}
         ${icon ? "button-with-icon" : ""}
         ${NoUpperCase ? "button-NoUpperCase" : ""}
+        ${className ? className : ""}
         ${icon ? `button-icon-on-side-${icon && side}` : ""}
         `}
       {...rest}

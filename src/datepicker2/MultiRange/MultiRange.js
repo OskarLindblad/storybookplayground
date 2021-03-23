@@ -53,7 +53,7 @@ export const MultiRange = ({
       }
     }
   };
-
+  /*
   const whatDate = (months) => {
     const date = moment(dates[0].month, "DD/MM/YYYY")
       .add(months, "months")
@@ -61,7 +61,7 @@ export const MultiRange = ({
     const formatedDate = moment(date, "MM/DD/YYYY").format("DD/MM/YYYY");
     return formatedDate;
   };
-
+*/
   const monthDifference = (index) => {
     const current = dates[index].month;
     let before;
