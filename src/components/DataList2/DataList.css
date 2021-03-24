@@ -12,6 +12,8 @@ h6 * {
 .dataList {
   line-height: 0;
   height: auto;
+  z-index: 100;
+  position: relative;
 }
 
 .dataList p {
@@ -129,6 +131,28 @@ h6 * {
   line-height: 0.1;
 }
 
+.dataList .dataList-label .dataList-suffix .dataList-suffix-empty {
+  margin-left: calc(14px + 5px);
+}
+
+.dataList .dataList-label .dataList-suffix .dataList-dropDown-button {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dataList .dataList-label .dataList-suffix .dataList-dropDown-button img {
+  width: 12px;
+  padding: 0 2px 1px;
+}
+
 .dataList .dataList-label .dataList-suffix.dataList-suffix-selected {
   border-top: #2c79f7 2px solid;
   border-left: #fff 0px solid;
@@ -138,7 +162,7 @@ h6 * {
 }
 
 .dataList .dataList-label .dataList-suffix p {
-  margin-left: 14px;
+  margin-left: 26px;
 }
 
 .dataList .dataList-label .dataList-suffix img {
@@ -151,8 +175,20 @@ h6 * {
   padding: calc(13px - 1px) calc(14px - 1px) calc(13px - 1px) 0;
 }
 
+.dataList .dataList-label .dataList-suffix.suffix-image .dataList-dropDown-button {
+  position: absolute;
+  right: 40px;
+  top: 0;
+}
+
 .dataList .dataList-label .dataList-suffix.dataList-suffix-selected.suffix-image {
   padding: calc(13px - 2px) calc(14px - 2px) calc(13px - 2px) 0;
+}
+
+.dataList .dataList-label .dataList-suffix.dataList-suffix-selected.suffix-image .dataList-dropDown-button {
+  position: absolute;
+  right: 39px;
+  top: 0;
 }
 
 .dataList .dataList-label .dataList-helper-text {
@@ -162,6 +198,51 @@ h6 * {
 
 .dataList .dataList-label .dataList-helper-text p {
   margin-top: 12px;
+}
+
+.dataList .dataList-label .datalist-dropdown-container {
+  position: relative;
+}
+
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown {
+  position: absolute;
+  top: 0;
+  background-color: white;
+  border: 1px #818181;
+  border-style: none solid solid solid;
+  width: calc(100% - 2px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown li {
+  padding: 10px 14px;
+  list-style: none;
+  font-size: 14px;
+}
+
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown li:first-child {
+  padding: 16px 14px 10px;
+  list-style: none;
+  font-size: 14px;
+}
+
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown li:hover {
+  background-color: #e9e8e8;
+}
+
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown-background {
+  position: absolute;
+  top: -13px;
+  background-color: #fff;
+  border: 1px #2e394b;
+  border-style: none solid none solid;
+  width: calc(100% - 2px);
+  height: 13px;
+  margin: 0;
+  padding: 0;
+  z-index: -30;
 }
 
 .dataList-error.dataList-label .dataList-label-text-label {
@@ -245,7 +326,7 @@ h6 * {
 }
 
 .dataList-label.dataList-smallField .dataList-suffix.dataList-suffix-selected.suffix-image {
-  padding: calc(8.5px - 3.5px) calc(14px - 4px) calc(8.5px - 3.5px) 0;
+  padding: calc(8.5px - 4px) calc(14px - 4px) calc(8.5px - 4px) 0;
 }
 
 .dataList-label.dataList-smallField .dataList-helper-text {

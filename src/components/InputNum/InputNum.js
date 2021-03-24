@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 //import { useFormContext } from 'react-hook-form'
 import { numToString, stringToNum } from "./formatNum";
 
-// 0,0001 = almost zero
-
 export const InputNum = ({
   readOnly,
   suffix,

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 //import React from "react";
 
+import logo from "./logo.svg";
+
 import "./App.css";
 
 // import DatePicker from "./datepicker2/DatePicker";
 
 // import LegalFeesDistrubution from "./legalFeesDistrubution/LegalFeesDistrubution";
-
 import DataList from "./components/DataList2/DataList";
 
 function App() {
@@ -26,8 +27,15 @@ function App() {
         label="hdsjdgs"
         defaultValue={state}
         maxDecimals={5}
-        suffix="SEK"
+        options={[-12, 23, 333]}
+        smallField
+        suffixImg={logo}
       />
+
+      <br />
+      <br />
+      <br />
+      <br />
       <br />
       {state}
     </div>

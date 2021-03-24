@@ -23,6 +23,8 @@ h6 * {
 .dataList {
   line-height: 0;
   height: auto;
+  z-index: 100;
+  position: relative;
   p {
     display: block;
     margin-block-start: 0.5em;
@@ -116,6 +118,23 @@ h6 * {
       position: relative;
       padding: $PV $PH $PV 0;
       line-height: 0.1;
+      .dataList-suffix-empty {
+        margin-left: calc(#{$PH} + 5px);
+      }
+      .dataList-dropDown-button {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        display: inline-flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        cursor: pointer;
+        img {
+          width: 12px;
+          padding: 0 2px 1px;
+        }
+      }
       &.dataList-suffix-selected {
         border-top: $Selected 2px solid;
         border-left: $White 0px solid;
@@ -124,7 +143,7 @@ h6 * {
         padding: calc(#{$PV} - 1px) calc(#{$PH} - 1px) calc(#{$PV} - 1px) 0;
       }
       p {
-        margin-left: 14px;
+        margin-left: 26px;
       }
       img {
         height: 22px;
@@ -133,10 +152,21 @@ h6 * {
       }
       &.suffix-image {
         padding: calc(#{$PV} - 1px) calc(#{$PH} - 1px) calc(#{$PV} - 1px) 0;
+
+        .dataList-dropDown-button {
+          position: absolute;
+          right: 40px;
+          top: 0;
+        }
       }
       &.dataList-suffix-selected {
         &.suffix-image {
           padding: calc(#{$PV} - 2px) calc(#{$PH} - 2px) calc(#{$PV} - 2px) 0;
+          .dataList-dropDown-button {
+            position: absolute;
+            right: 39px;
+            top: 0;
+          }
         }
       }
     }
@@ -146,6 +176,45 @@ h6 * {
       margin: 5px 14px 0 14px;
       p {
         margin-top: 12px;
+      }
+    }
+    .datalist-dropdown-container {
+      position: relative;
+      .datalist-dropdown {
+        position: absolute;
+        top: 0;
+        background-color: white;
+        border: 1px $Grey;
+        border-style: none solid solid solid;
+        width: calc(100% - 2px);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+          padding: 10px $PH;
+          list-style: none;
+          font-size: 14px;
+        }
+        li:first-child {
+          padding: 16px $PH 10px;
+          list-style: none;
+          font-size: 14px;
+        }
+        li:hover {
+          background-color: rgb(233, 232, 232);
+        }
+      }
+      .datalist-dropdown-background {
+        position: absolute;
+        top: -$PV;
+        background-color: $White;
+        border: 1px $Blue;
+        border-style: none solid none solid;
+        width: calc(100% - 2px);
+        height: $PV;
+        margin: 0;
+        padding: 0;
+        z-index: -30;
       }
     }
   }
@@ -175,6 +244,7 @@ h6 * {
       border-right: $White 0px solid;
     }
   }
+
   .dataList-suffix {
     border-top: $Red 1px solid;
     border-bottom: $Red 1px solid;
@@ -220,14 +290,14 @@ h6 * {
   .dataList-suffix {
     padding: calc(#{$PVs} + 1px) $PH calc(#{$PVs} - 1px) 0;
     font-size: 14px;
+
     &.suffix-image {
       padding: calc(#{$PVs} - 3px) calc(#{$PH} - 3px) calc(#{$PVs} - 3px) 0;
     }
     &.dataList-suffix-selected {
       padding: calc(#{$PVs} - 0px) calc(#{$PH} - 1px) calc(#{$PVs} - 2px) 0;
       &.suffix-image {
-        padding: calc(#{$PVs} - 3.5px) calc(#{$PH} - 4px) calc(#{$PVs} - 3.5px)
-          0;
+        padding: calc(#{$PVs} - 4px) calc(#{$PH} - 4px) calc(#{$PVs} - 4px) 0;
       }
     }
   }

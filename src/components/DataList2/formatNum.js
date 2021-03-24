@@ -71,14 +71,19 @@ export const stringToNum = (string) => {
     return parseFloat(n);
   } else {
     // without decimal
+    if (isNaN(parseFloat(string))) {
+      return "";
+    }
     return parseFloat(string.replace(/ /g, ""));
   }
 };
 
 export const numDisplay = (num) => {
-  console.log(parseFloat(num));
-  if (parseFloat(num) <= 0.0009) {
-    return "Almost Zero";
+  if (parseFloat(num) === 0) {
+    return "0";
+  }
+  if (parseFloat(num) <= 0.0001) {
+    return "Almost 0";
   }
   let newNum = num.toString();
   if (newNum === "") {
