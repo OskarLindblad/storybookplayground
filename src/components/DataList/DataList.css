@@ -9,16 +9,9 @@ h6 * {
   margin: 0;
 }
 
-.testing {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .dataList {
   line-height: 0;
   height: auto;
-  z-index: 100;
   position: relative;
 }
 
@@ -213,6 +206,7 @@ h6 * {
 .dataList .dataList-label .datalist-dropdown-container .datalist-dropdown {
   position: absolute;
   top: 0;
+  z-index: 300;
   background-color: white;
   border: 1px #818181;
   border-style: none solid solid solid;

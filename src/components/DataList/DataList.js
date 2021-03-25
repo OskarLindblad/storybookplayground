@@ -26,7 +26,7 @@ export const DataList = ({
   onChange,
   width,
   tagcolor,
-  id,
+  id, // Default-id doesn't work with multiple Ids. ADD id
   name,
   reference,
   ...rest
@@ -125,18 +125,8 @@ export const DataList = ({
   };
 
   const newDefaultValue = numToString(defaultValue);
-
   return (
     <>
-      <div className="testing" style={{ maxWidth: placeHolderMaxWidth }}>
-        nsdsdsddsffe
-      </div>
-
-      <br />
-      <br />
-      <br />
-
-      {/*REMOVE ABOVE*/}
       <div className="dataList" style={{ width: width }}>
         <label
           className={`
@@ -158,6 +148,7 @@ export const DataList = ({
                     ? { maxWidth: width, color: tagcolor }
                     : { maxWidth: placeHolderMaxWidth }
                 }
+                className="testing"
               >
                 {label}
               </p>
@@ -199,9 +190,12 @@ export const DataList = ({
             ${selected ? "dataList-suffix-selected" : ""}
             ${suffixImg ? "suffix-image" : ""}
             `}
-              onMouseUp={handleDropDown}
+              onClick={handleDropDown}
             >
-              <div className="dataList-dropDown-button">
+              <div
+                className="dataList-dropDown-button"
+                onClick={handleDropDown}
+              >
                 <img alt="downArrow" src={down} />
               </div>
 
@@ -220,9 +214,9 @@ export const DataList = ({
               onMouseEnter={() => {
                 showDropDown(true);
               }}
-              onMouseLeave={() => {
-                showDropDown(false);
-              }}
+              //onMouseLeave={() => {
+              //showDropDown(false);
+              //}}
               style={{ width: width }}
             >
               <ul className="datalist-dropdown">
@@ -304,7 +298,7 @@ DataList.defaultProps = {
   width: "200px",
   placeHolderMaxWidth: "100%",
   tagcolor: "#818181",
-  id: Math.random().toString(36).substr(2, 9),
+  id: [...Array(10)].map((i) => (~~(Math.random() * 36)).toString(36)).join(""),
   maxValue: 100,
   minValue: 0,
 };

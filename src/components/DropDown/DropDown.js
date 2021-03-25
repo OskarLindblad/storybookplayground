@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import "./DropDown.css";
-import PropTypes from "prop-types";
-import down from "./down.svg";
+import React, { useState } from 'react'
+import './DropDown.css'
+import PropTypes from 'prop-types'
+import down from './down.svg'
 
 export const DropDown = ({
   label,
   startValue, // boolean(picks first)
-  defaultValue,
   name,
   className,
   options,
@@ -16,31 +15,33 @@ export const DropDown = ({
   smallField,
   width,
   onChange,
+  reference,
+  value,
   ...rest
 }) => {
-  const [labelShrink, setLabelShrink] = useState(startValue ? true : false);
-  const [selected, setSeleted] = useState(false);
-  const [value, setValue] = useState(defaultValue ? defaultValue : "");
+  const [labelShrink, setLabelShrink] = useState(startValue ? true : false)
+  const [selected, setSeleted] = useState(false)
+  const [newValue, setNewValue] = useState(value)
 
-  let optionsList = [];
+  let optionsList = []
   for (let i = 0; i < options.length; i++) {
-    if (typeof options[i] === "string" || typeof options[i] === "number") {
-      optionsList.push({ value: options[i], title: options[i] });
+    if (typeof options[i] === 'string' || typeof options[i] === 'number') {
+      optionsList.push({ value: options[i], title: options[i] })
     } else {
-      optionsList.push(options[i]);
+      optionsList.push(options[i])
     }
   }
 
   const handleValue = (e) => {
-    onChange(e);
-    setValue(e.target.value);
-  };
+    onChange(e)
+    setNewValue(e.target.value)
+  }
 
   return (
     <div
       className={`dropdown
-    ${error ? "dropdown-error" : ""}
-    ${smallField ? "dropdown-smallField" : ""}
+    ${error ? 'dropdown-error' : ''}
+    ${smallField ? 'dropdown-smallField' : ''}
 
     `}
       style={{ width: width }}
@@ -48,14 +49,14 @@ export const DropDown = ({
       <label
         className={`
               input-label 
-              ${error ? "input-error" : ""}
+              ${error ? 'input-error' : ''}
             `}
       >
         <p
           className={`
             dropdown-label-text
-            dropdown-label-text-${labelShrink ? "label" : "placeholder"}
-            ${selected ? "dropdown-label-selected" : ""}
+            dropdown-label-text-${labelShrink ? 'label' : 'placeholder'}
+            ${selected ? 'dropdown-label-selected' : ''}
             `}
         >
           {label}
@@ -63,26 +64,27 @@ export const DropDown = ({
         <select
           name={name}
           className={`dropdown-select ${
-            selected ? "dropdown-select-selected" : ""
+            selected ? 'dropdown-select-selected' : ''
           }`}
-          value={value}
+          value={newValue}
           onFocus={() => {
-            setLabelShrink(true);
-            setSeleted(true);
+            setLabelShrink(true)
+            setSeleted(true)
           }}
           onBlur={() => {
-            value === "" && setLabelShrink(false);
-            setSeleted(false);
+            newValue === '' && setLabelShrink(false)
+            setSeleted(false)
           }}
           style={{ width: width }}
           onChange={(e) => handleValue(e)}
+          ref={reference}
           {...rest}
         >
-          {value === "" && !startValue ? (
+          {newValue === '' && !startValue ? (
             <option
               value="notSelected"
               className="dropdown-notSelected"
-              disabled={value === "notSelected" ? true : false}
+              disabled={newValue === 'notSelected' ? true : false}
             ></option>
           ) : (
             <></>
@@ -109,10 +111,10 @@ export const DropDown = ({
         </div>
       </label>
     </div>
-  );
-};
+  )
+}
 
-export default DropDown;
+export default DropDown
 
 DropDown.propTypes = {
   label: PropTypes.string,
@@ -127,24 +129,24 @@ DropDown.propTypes = {
       }),
       PropTypes.string,
       PropTypes.number,
-    ])
+    ]),
   ),
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
   helperText: PropTypes.string,
   smallField: PropTypes.bool,
   width: PropTypes.string,
-};
+}
 
 DropDown.defaultProps = {
-  label: "",
+  label: '',
   startValue: true,
   onChange: undefined,
-  className: "",
-  options: [{ value: "", title: "" }],
+  className: '',
+  options: [{ value: '', title: '' }],
   error: false,
-  errorMessage: "",
-  helperText: "",
+  errorMessage: '',
+  helperText: '',
   smallField: false,
-  width: "250px",
-};
+  width: '250px',
+}

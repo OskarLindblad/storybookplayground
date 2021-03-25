@@ -19,7 +19,9 @@ export default function ApproximateDate({
     setDates((e) => [
       ...e,
       {
-        id: Date.now(),
+        id: [...Array(10)]
+          .map((i) => (~~(Math.random() * 36)).toString(36))
+          .join(""),
         month: dates[dates.length - 1].month + 1,
         date: "",
         type: "none",

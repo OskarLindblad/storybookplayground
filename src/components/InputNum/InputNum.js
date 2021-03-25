@@ -177,5 +177,5 @@ InputNum.defaultProps = {
   width: "200px",
   placeHolderMaxWidth: "100%",
   tagcolor: "#818181",
-  id: Math.random().toString(36).substr(2, 9),
+  id: [...Array(10)].map((i) => (~~(Math.random() * 36)).toString(36)).join(""),
 };

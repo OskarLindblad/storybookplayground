@@ -13,11 +13,24 @@ export default function DatePicker() {
   const [error, setError] = useState(false);
   const [dateValidated, setDateValidated] = useState(false);
   const [approximations, setApproximations] = useState([
-    { id: Date.now(), value: 6, displayed: "6 months" },
+    {
+      id: [...Array(10)]
+        .map((i) => (~~(Math.random() * 36)).toString(36))
+        .join(""),
+      value: 6,
+      displayed: "6 months",
+    },
   ]);
 
   const [specificDates, setSpecificDates] = useState([
-    { id: Date.now(), value: "", filled: false, error: false },
+    {
+      id: [...Array(10)]
+        .map((i) => (~~(Math.random() * 36)).toString(36))
+        .join(""),
+      value: "",
+      filled: false,
+      error: false,
+    },
   ]);
 
   let datetypeSelected;

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 //import React from "react";
 
-import logo from "./logo.svg";
+//mport logo from "./logo.svg";
+import InputNum from "./components/InputNum/InputNum";
 
 import "./App.css";
 
@@ -29,14 +30,17 @@ function App() {
         maxDecimals={5}
         smallField
         options={[-12, 23, 333]}
-        placeHolderMaxWidth="50px"
+        placeHolderMaxWidth="30px"
       />
-
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <InputNum
+        onChange={handleChange}
+        label="hdsjdgs"
+        defaultValue={state}
+        maxDecimals={5}
+        smallField
+        placeHolderMaxWidth="30px"
+      />
       {state}
     </div>
   );
