@@ -1,6 +1,6 @@
 import React from "react";
 /* eslint-disable import/no-anonymous-default-export */
-
+import errorImg from "./error.svg";
 import DataList from "./DataList";
 
 export default {
@@ -13,167 +13,83 @@ const Template = (args) => <DataList {...args} />;
 export const Default = Template.bind({});
 
 Default.args = {
+  suffixInput: "SEK",
   label: "Cost",
-  options: [
-    {
-      value: "100",
-      title: "Not Applicable (100.0%)",
-    },
-    {
-      value: "92.5",
-      title: "Very High (92.5%)",
-    },
-    {
-      value: "77.5",
-      title: "High (77.5%)",
-    },
-    {
-      value: "65",
-      title: "Average High (65.0%)",
-    },
-    {
-      value: "50",
-      title: "Average (50.0%)",
-    },
-    {
-      value: "35",
-      title: "Average Low (35.0%)",
-    },
-    {
-      value: "22.5",
-      title: "Low (22.5%)",
-    },
-    {
-      value: "7.5",
-      title: "Very Low (7.5%)",
-    },
-  ],
   helperText: "Test Cost",
-};
-
-export const DefaultError = Template.bind({});
-
-DefaultError.args = {
-  label: "Cost",
-  error: true,
-  options: [
-    {
-      value: "100",
-      title: "Not Applicable (100.0%)",
-    },
-    {
-      value: "92.5",
-      title: "Very High (92.5%)",
-    },
-    {
-      value: "77.5",
-      title: "High (77.5%)",
-    },
-    {
-      value: "65",
-      title: "Average High (65.0%)",
-    },
-    {
-      value: "50",
-      title: "Average (50.0%)",
-    },
-    {
-      value: "35",
-      title: "Average Low (35.0%)",
-    },
-    {
-      value: "22.5",
-      title: "Low (22.5%)",
-    },
-    {
-      value: "7.5",
-      title: "Very Low (7.5%)",
-    },
-  ],
-  errorMessage: "Test Error",
 };
 
 export const DefaultSmall = Template.bind({});
 
 DefaultSmall.args = {
+  suffixInput: "SEK",
   label: "Cost",
-  options: [
-    {
-      value: "100",
-      title: "Not Applicable (100.0%)",
-    },
-    {
-      value: "92.5",
-      title: "Very High (92.5%)",
-    },
-    {
-      value: "77.5",
-      title: "High (77.5%)",
-    },
-    {
-      value: "65",
-      title: "Average High (65.0%)",
-    },
-    {
-      value: "50",
-      title: "Average (50.0%)",
-    },
-    {
-      value: "35",
-      title: "Average Low (35.0%)",
-    },
-    {
-      value: "22.5",
-      title: "Low (22.5%)",
-    },
-    {
-      value: "7.5",
-      title: "Very Low (7.5%)",
-    },
-  ],
   helperText: "Test Cost",
   smallField: true,
 };
 
-export const DefaultErrorSmall = Template.bind({});
+export const Error = Template.bind({});
 
-DefaultErrorSmall.args = {
+Error.args = {
+  suffixInput: "SEK",
   label: "Cost",
+  helperText: "Test Cost",
+  suffixImg: errorImg,
   error: true,
-  options: [
-    {
-      value: "100",
-      title: "Not Applicable (100.0%)",
-    },
-    {
-      value: "92.5",
-      title: "Very High (92.5%)",
-    },
-    {
-      value: "77.5",
-      title: "High (77.5%)",
-    },
-    {
-      value: "65",
-      title: "Average High (65.0%)",
-    },
-    {
-      value: "50",
-      title: "Average (50.0%)",
-    },
-    {
-      value: "35",
-      title: "Average Low (35.0%)",
-    },
-    {
-      value: "22.5",
-      title: "Low (22.5%)",
-    },
-    {
-      value: "7.5",
-      title: "Very Low (7.5%)",
-    },
-  ],
   errorMessage: "Test Error",
+};
+
+export const ErrorSmall = Template.bind({});
+
+ErrorSmall.args = {
+  suffixInput: "SEK",
+  label: "Cost",
+  helperText: "Test Cost",
   smallField: true,
+  error: true,
+  suffixImg: errorImg,
+  errorMassage: "Test Error",
+};
+
+export const DefaultBold = Template.bind({});
+
+DefaultBold.args = {
+  suffixInput: "SEK",
+  label: "Cost",
+  helperText: "Test Cost",
+  boldBorder: true,
+};
+
+export const DefaultSmallBold = Template.bind({});
+
+DefaultSmallBold.args = {
+  suffixInput: "SEK",
+  label: "Cost",
+  helperText: "Test Cost",
+  smallField: true,
+  boldBorder: true,
+};
+
+export const ErrorBold = Template.bind({});
+
+ErrorBold.args = {
+  suffixInput: "SEK",
+  label: "Cost",
+  helperText: "Test Cost",
+  error: true,
+  errorMassage: "Test Error",
+  boldBorder: true,
+  suffixImg: errorImg,
+};
+
+export const ErrorSmallBold = Template.bind({});
+
+ErrorSmallBold.args = {
+  suffixInput: "SEK",
+  label: "Cost",
+  helperText: "Test Cost",
+  smallField: true,
+  error: true,
+  errorMassage: "Test Error",
+  boldBorder: true,
+  suffixImg: errorImg,
 };

@@ -8,7 +8,7 @@ import "./App.css";
 // import DatePicker from "./datepicker2/DatePicker";
 
 // import LegalFeesDistrubution from "./legalFeesDistrubution/LegalFeesDistrubution";
-import DataList from "./components/DataList2/DataList";
+import DataList from "./components/DataList/DataList";
 
 function App() {
   const [state, setstate] = useState("");
@@ -27,9 +27,9 @@ function App() {
         label="hdsjdgs"
         defaultValue={state}
         maxDecimals={5}
-        options={[-12, 23, 333]}
         smallField
-        suffixImg={logo}
+        options={[-12, 23, 333]}
+        placeHolderMaxWidth="50px"
       />
 
       <br />

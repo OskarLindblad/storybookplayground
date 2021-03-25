@@ -9,20 +9,36 @@ h6 * {
   margin: 0;
 }
 
-.datalist {
-  margin: 0;
-  padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  font-family: "Roboto", sans-serif;
+.testing {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.datalist .datalist-input-container {
+.dataList {
+  line-height: 0;
+  height: auto;
+  z-index: 100;
+  position: relative;
+}
+
+.dataList p {
+  display: block;
+  -webkit-margin-before: 0.5em;
+          margin-block-start: 0.5em;
+  -webkit-margin-after: 0.5em;
+          margin-block-end: 0.5em;
+}
+
+.dataList .dataList-label {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  position: relative;
+}
+
+.dataList .dataList-label .dataList-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,95 +49,172 @@ h6 * {
   position: relative;
 }
 
-.datalist .datalist-input-container .datalist-label-text {
-  font-family: "Roboto", sans-serif;
+.dataList .dataList-label .dataList-label-text {
   position: absolute;
-  z-index: 33;
+  z-index: 1;
   -webkit-transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
   transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
   background-color: #fff;
-  pointer-events: none;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: auto;
 }
 
-.datalist .datalist-input-container .datalist-label-text-label {
-  color: #2e394b;
-  top: -10.5px;
+.dataList .dataList-label .dataList-label-text p {
+  color: #818181;
+  -webkit-transition: max-width 0.2s;
+  transition: max-width 0.2s;
+}
+
+.dataList .dataList-label .dataList-label-text-label {
+  color: #818181;
+  top: -14.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
-  padding: 0 3px;
-  z-index: 1;
+  padding: 6px 3px;
   background-color: #fff;
 }
 
-.datalist .datalist-input-container .datalist-label-text-label.datalist-label-selected {
+.dataList .dataList-label .dataList-label-text-label.dataList-label-selected {
   color: #2c79f7;
 }
 
-.datalist .datalist-input-container .datalist-label-text-placeholder {
+.dataList .dataList-label .dataList-label-text-placeholder {
   color: #979797;
-  top: 14px;
+  top: 14.5px;
   left: 16px;
   font-size: 18px;
+  pointer-events: none;
 }
 
-.datalist .datalist-input-container .datalist-input {
-  border: #2e394b 1px solid;
-  padding: 13px 14px;
-  border-radius: 4px;
-  font-family: "Roboto", sans-serif;
+.dataList .dataList-label input {
+  border-top: #818181 1px solid;
+  border-left: #818181 1px solid;
+  border-bottom: #818181 1px solid;
+  border-right: #fff 0px solid;
+  padding: 13px 0 13px 14px;
+  border-radius: 4px 0 0 4px;
   font-size: 18px;
+  width: 100%;
+  background-color: #fff;
+  outline: #fff 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.datalist .datalist-input-container .datalist-input:focus {
-  outline: 0;
+.dataList .dataList-label input.dataList-inputfield-selected {
+  border-top: #2c79f7 2px solid !important;
+  border-left: #2c79f7 2px solid !important;
+  border-bottom: #2c79f7 2px solid !important;
+  border-right: #fff 0px solid;
+  padding: calc(13px - 1px) 0 calc(13px - 1px) calc(14px - 1px);
 }
 
-.datalist .datalist-input-container .datalist-input.datalist-input-selected {
-  border: #2c79f7 2px solid;
-  padding: calc(13px - 1px) calc(14px - 1px);
+.dataList .dataList-label input:focus {
+  outline: none;
 }
 
-.datalist .datalist-input-container .datalist-input::-webkit-outer-spin-button, .datalist .datalist-input-container .datalist-input::-webkit-inner-spin-button {
+.dataList .dataList-label input.dataList-noButton::-webkit-outer-spin-button,
+.dataList .dataList-label input.dataList-noButton::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.datalist .datalist-input-container .datalist-down-icon-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 49px;
-  width: 28px;
+.dataList .dataList-label .dataList-suffix {
+  background-color: #fff;
+  border-top: #818181 1px solid;
+  border-left: #fff 0px solid;
+  border-bottom: #818181 1px solid;
+  border-right: #818181 1px solid;
+  padding: 13px 14px 13px 0;
+  border-radius: 0 4px 4px 0;
+  position: relative;
+  padding: 13px 14px 13px 0;
+  line-height: 0.1;
 }
 
-.datalist .datalist-input-container .datalist-down-icon-container .datalist-down-icon {
+.dataList .dataList-label .dataList-suffix .dataList-suffix-empty {
+  margin-left: calc(14px + 5px);
+}
+
+.dataList .dataList-label .dataList-suffix .dataList-dropDown-button {
+  position: absolute;
   height: 100%;
-  position: relative;
-  border: #2e394b 2px;
+  top: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-.datalist .datalist-input-container .datalist-down-icon-container .datalist-down-icon img {
-  padding-top: 0%;
+.dataList .dataList-label .dataList-suffix .dataList-dropDown-button img {
+  width: 12px;
+  padding: 0 2px 1px;
+}
+
+.dataList .dataList-label .dataList-suffix.dataList-suffix-selected {
+  border-top: #2c79f7 2px solid;
+  border-left: #fff 0px solid;
+  border-bottom: #2c79f7 2px solid;
+  border-right: #2c79f7 2px solid;
+  padding: calc(13px - 1px) calc(14px - 1px) calc(13px - 1px) 0;
+}
+
+.dataList .dataList-label .dataList-suffix p {
+  margin-left: 26px;
+}
+
+.dataList .dataList-label .dataList-suffix img {
+  height: 22px;
+  width: auto;
+  margin-left: 6px;
+}
+
+.dataList .dataList-label .dataList-suffix.suffix-image {
+  padding: calc(13px - 1px) calc(14px - 1px) calc(13px - 1px) 0;
+}
+
+.dataList .dataList-label .dataList-suffix.suffix-image .dataList-dropDown-button {
   position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  right: 0;
+  right: 40px;
+  top: 0;
 }
 
-.datalist .datalist-dropdown-container {
+.dataList .dataList-label .dataList-suffix.dataList-suffix-selected.suffix-image {
+  padding: calc(13px - 2px) calc(14px - 2px) calc(13px - 2px) 0;
+}
+
+.dataList .dataList-label .dataList-suffix.dataList-suffix-selected.suffix-image .dataList-dropDown-button {
+  position: absolute;
+  right: 39px;
+  top: 0;
+}
+
+.dataList .dataList-label .dataList-helper-text {
+  font-size: 12px;
+  margin: 5px 14px 0 14px;
+}
+
+.dataList .dataList-label .dataList-helper-text p {
+  margin-top: 12px;
+}
+
+.dataList .dataList-label .datalist-dropdown-container {
   position: relative;
 }
 
-.datalist .datalist-dropdown-container .datalist-dropdown {
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown {
   position: absolute;
   top: 0;
   background-color: white;
-  border: 1px #2e394b;
+  border: 1px #818181;
   border-style: none solid solid solid;
   width: calc(100% - 2px);
   margin: 0;
@@ -129,17 +222,23 @@ h6 * {
   list-style: none;
 }
 
-.datalist .datalist-dropdown-container .datalist-dropdown li {
-  padding: 3px 14px;
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown li {
+  padding: 10px 14px;
   list-style: none;
-  font-size: 16px;
+  font-size: 14px;
 }
 
-.datalist .datalist-dropdown-container .datalist-dropdown li:hover {
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown li:first-child {
+  padding: 16px 14px 10px;
+  list-style: none;
+  font-size: 14px;
+}
+
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown li:hover {
   background-color: #e9e8e8;
 }
 
-.datalist .datalist-dropdown-container .datalist-dropdown-background {
+.dataList .dataList-label .datalist-dropdown-container .datalist-dropdown-background {
   position: absolute;
   top: -13px;
   background-color: #fff;
@@ -152,99 +251,92 @@ h6 * {
   z-index: -30;
 }
 
-.datalist .datalist-helper-text {
+.dataList-error.dataList-label .dataList-label-text-label {
+  color: #ff695a;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.dataList-error.dataList-label .dataList-label-text-label.dataList-label-selected {
+  color: #ff695a;
+}
+
+.dataList-error.dataList-label input {
+  border-top: #ff695a 1px solid;
+  border-left: #ff695a 1px solid;
+  border-bottom: #ff695a 1px solid;
+  border-right: #fff 0px solid;
+  color: #ff695a;
+}
+
+.dataList-error.dataList-label input.dataList-inputfield-selected {
+  border-top: #ff695a 2px solid !important;
+  border-left: #ff695a 2px solid !important;
+  border-bottom: #ff695a 2px solid !important;
+  border-right: #fff 0px solid;
+}
+
+.dataList-error.dataList-label .dataList-suffix {
+  border-top: #ff695a 1px solid;
+  border-bottom: #ff695a 1px solid;
+  border-right: #ff695a 1px solid;
+}
+
+.dataList-error.dataList-label .dataList-suffix.dataList-suffix-selected {
+  border-top: #ff695a 2px solid;
+  border-bottom: #ff695a 2px solid;
+  border-right: #ff695a 2px solid;
+}
+
+.dataList-error.dataList-label .dataList-suffix p {
+  color: #ff695a;
+  margin-left: 14px;
+}
+
+.dataList-error.dataList-label .dataList-helper-text {
+  color: #ff695a;
+}
+
+.dataList-label.dataList-smallField .dataList-label-text-label {
+  top: -13.5px;
+  font-size: 12px;
+  background-color: #fff;
+}
+
+.dataList-label.dataList-smallField .dataList-label-text-placeholder {
+  color: #979797;
+  top: 9.5px;
   font-size: 14px;
-  margin: 4px 14px 0 14px;
 }
 
-.datalist .datalist-helper-text p {
-  margin-top: 12px;
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
-  -webkit-margin-after: 0;
-          margin-block-end: 0;
+.dataList-label.dataList-smallField input {
+  padding: 8.5px 0 8.5px 14px;
+  font-size: 14px;
 }
 
-.datalist .datalist-helper-text p.datalist-error-message {
-  color: #ff695a;
+.dataList-label.dataList-smallField input.dataList-inputfield-selected {
+  padding: calc(8.5px - 1px) 0 calc(8.5px - 1px) calc(14px - 1px);
 }
 
-.datalist .datalist-likelyhood {
-  -webkit-margin-before: 0em;
-          margin-block-start: 0em;
-  -webkit-margin-after: 0em;
-          margin-block-end: 0em;
-  font-weight: 600;
-  margin-left: 10px;
-  margin-top: 16px;
+.dataList-label.dataList-smallField .dataList-suffix {
+  padding: calc(8.5px + 1px) 14px calc(8.5px - 1px) 0;
+  font-size: 14px;
 }
 
-.datalist .datalist-trash-container {
-  margin-left: 10px;
-  margin-top: 12px;
+.dataList-label.dataList-smallField .dataList-suffix.suffix-image {
+  padding: calc(8.5px - 3px) calc(14px - 3px) calc(8.5px - 3px) 0;
 }
 
-.datalist .datalist-trash-container .datalist-trash {
-  height: 25px;
+.dataList-label.dataList-smallField .dataList-suffix.dataList-suffix-selected {
+  padding: calc(8.5px - 0px) calc(14px - 1px) calc(8.5px - 2px) 0;
 }
 
-.datalist-smallField .datalist-input-container .datalist-label-text-label {
-  top: -10.5px;
+.dataList-label.dataList-smallField .dataList-suffix.dataList-suffix-selected.suffix-image {
+  padding: calc(8.5px - 4px) calc(14px - 4px) calc(8.5px - 4px) 0;
 }
 
-.datalist-smallField .datalist-input-container .datalist-label-text-placeholder {
-  top: 9px;
-}
-
-.datalist-smallField .datalist-input-container .datalist-input {
-  padding: 8.5px 14px;
-}
-
-.datalist-smallField .datalist-input-container .datalist-input.datalist-input-selected {
-  border: #2c79f7 2px solid;
-  padding: calc(8.5px - 1px) calc(14px - 1px);
-}
-
-.datalist-smallField .datalist-input-container .datalist-down-icon-container {
-  height: 40px;
-}
-
-.datalist-smallField .datalist-likelyhood {
-  margin-top: 12px;
-}
-
-.datalist-smallField .datalist-trash-container {
-  margin-left: 10px;
-  margin-top: 8px;
-}
-
-.datalist-smallField .datalist-trash-container .datalist-trash {
-  height: 25px;
-}
-
-.datalist-error .datalist-input-container .datalist-label-text-label {
-  color: #ff695a;
-}
-
-.datalist-error .datalist-input-container .datalist-label-text-label.datalist-label-selected {
-  color: #ff695a;
-}
-
-.datalist-error .datalist-input-container .datalist-input {
-  border: #ff695a 1px solid;
-}
-
-.datalist-error .datalist-input-container .datalist-input.datalist-input-selected {
-  border: #ff695a 2px solid;
-}
-
-.datalist-error .datalist-dropdown-container .datalist-dropdown {
-  border: 1px #ff695a;
-  border-style: none solid solid solid;
-}
-
-.datalist-error .datalist-dropdown-container .datalist-dropdown-background {
-  border: 1px #ff695a;
-  border-style: none solid none solid;
+.dataList-label.dataList-smallField .dataList-helper-text {
+  font-size: 12px;
+  margin: 5px 14px 0 14px;
 }
 /*# sourceMappingURL=DataList.css.map */
