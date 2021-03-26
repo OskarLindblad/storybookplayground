@@ -44,44 +44,43 @@ h6 * {
 .inputdate .inputdate-label .inputdate-label-text {
   position: absolute;
   z-index: 1;
-  -webkit-transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s, width 0.2s;
-  transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s, width 0.2s;
-  background-color: #fff;
+  -webkit-transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+  transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  border-radius: 2px;
 }
 
-.inputdate .inputdate-label .inputdate-label-text p {
-  -webkit-transition: max-width 0.2s;
-  transition: max-width 0.2s;
+.inputdate .inputdate-label .inputdate-label-text .inputdate-label-text-p {
+  -webkit-transition: max-width 0.5s;
+  transition: max-width 0.5s;
 }
 
 .inputdate .inputdate-label .inputdate-label-text-label {
-  top: -14.5px;
+  color: #818181;
+  top: -9.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
-  padding: 6px 3px;
-  background-color: #fff;
-  white-space: nowrap;
 }
 
 .inputdate .inputdate-label .inputdate-label-text-label p {
-  color: #818181;
+  padding: 0 3px;
 }
 
 .inputdate .inputdate-label .inputdate-label-text-label.inputdate-label-selected {
   color: #2c79f7;
+}
+
+.inputdate .inputdate-label .inputdate-label-text-label .inputdate-label-background {
+  width: auto;
+  background-color: #fff;
+  height: 5px;
+  position: relative;
+  top: -4.5px;
+  z-index: -1;
 }
 
 .inputdate .inputdate-label .inputdate-label-text-placeholder {
@@ -164,18 +163,18 @@ h6 * {
 }
 
 .inputdate .inputdate-label .inputdate-helper-text {
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 1.4;
   margin: 5px 14px 0 14px;
 }
 
 .inputdate .inputdate-label .inputdate-helper-text p {
   color: #b00020;
-  margin-top: 12px;
+  margin-top: 2px;
 }
 
 .inputdate-error.inputdate-label .inputdate-label-text-label {
   color: #b00020;
-  background-color: #fff;
 }
 
 .inputdate-error.inputdate-label .inputdate-label-text-label.inputdate-label-selected {
@@ -219,7 +218,7 @@ h6 * {
 }
 
 .inputdate-label.inputdate-smallField .inputdate-label-text-label {
-  top: -13.5px;
+  top: -7.5px;
   font-size: 12px;
 }
 

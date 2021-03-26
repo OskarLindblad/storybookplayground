@@ -107,7 +107,6 @@ export const DataList = ({
           return maxReached(value);
         }
       }
-
       return minValue;
     }
     return value;
@@ -155,15 +154,16 @@ export const DataList = ({
             ${selected ? "dataList-label-selected" : ""}`}
             >
               <p
+                className="dataList-label-text-p"
                 style={
                   labelShrink
                     ? { maxWidth: width, color: tagcolor }
                     : { maxWidth: placeHolderMaxWidth }
                 }
-                className="testing"
               >
                 {label}
               </p>
+              {labelShrink && <div className="dataList-label-background"></div>}
             </div>
           )}
           <div className="dataList-container" style={{ width: width }}>

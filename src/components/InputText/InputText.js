@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import './InputText.css'
-import PropTypes from 'prop-types'
-import { useFormContext } from 'react-hook-form'
+import React, { useState } from "react";
+import "./InputText.css";
+import PropTypes from "prop-types";
+//import { useFormContext } from 'react-hook-form'
 
 export const InputText = ({
   readOnly,
@@ -24,32 +24,33 @@ export const InputText = ({
   ...rest
 }) => {
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly ? true : false,
-  )
-  const [selected, setSeleted] = useState(false)
-  const { getValues } = useFormContext()
+    defaultValue || readOnly ? true : false
+  );
+  const [selected, setSeleted] = useState(false);
+  //const { getValues } = useFormContext()
 
   const handleChange = (e) => {
-    onChange(e)
-  }
+    onChange(e);
+  };
 
   return (
     <div className="inputText" stye={{ width: width }}>
       <label
         className={`
           inputText-label 
-          ${error ? 'inputText-error' : ''}
-          ${smallField ? 'inputText-smallField' : ''}
-          ${className ? className : ''}
+          ${error ? "inputText-error" : ""}
+          ${smallField ? "inputText-smallField" : ""}
+          ${className ? className : ""}
         `}
       >
         {label && (
           <div
             className={`inputText-label-text
-          inputText-label-text-${labelShrink ? 'label' : 'placeholder'}
-          ${selected ? 'inputText-label-selected' : ''}`}
+              inputText-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "inputText-label-selected" : ""}`}
           >
             <p
+              className="inputText-label-text-p"
               style={
                 labelShrink
                   ? { maxWidth: width }
@@ -58,27 +59,28 @@ export const InputText = ({
             >
               {label}
             </p>
+            {labelShrink && <div className="inputText-label-background"></div>}
           </div>
         )}
         <div className="inputText-container" style={{ width: width }}>
           <input
             type="text"
             className={`inputText-inputfield ${
-              selected ? 'inputText-inputfield-selected' : ''
+              selected ? "inputText-inputfield-selected" : ""
             }
-            ${className ? className : ''}
+            ${className ? className : ""}
             `}
             defaultValue={defaultValue}
             onChange={handleChange}
             onFocus={() => {
-              setLabelShrink(true)
-              setSeleted(true)
+              setLabelShrink(true);
+              setSeleted(true);
             }}
             onBlur={() => {
-              !getValues(name) && setLabelShrink(false)
-              setSeleted(false)
+              /*!getValues(name)*/ defaultValue && setLabelShrink(false);
+              setSeleted(false);
             }}
-            maxLength={maxLength ? maxLength : 'none'}
+            maxLength={maxLength ? maxLength : "none"}
             readOnly={readOnly ? readOnly : false}
             ref={reference}
             name={name}
@@ -87,8 +89,8 @@ export const InputText = ({
           />
           <div
             className={`inputText-suffix 
-            ${selected ? 'inputText-suffix-selected' : ''}
-            ${suffixImg ? 'suffix-image' : ''}
+            ${selected ? "inputText-suffix-selected" : ""}
+            ${suffixImg ? "suffix-image" : ""}
             `}
           >
             {suffixImg ? (
@@ -103,10 +105,10 @@ export const InputText = ({
         </div>
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default InputText
+export default InputText;
 
 InputText.propTypes = {
   defaultValue: PropTypes.string,
@@ -124,23 +126,23 @@ InputText.propTypes = {
   width: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 InputText.defaultProps = {
-  defaultValue: '',
+  defaultValue: "",
   readOnly: false,
-  suffix: '',
+  suffix: "",
   suffixImg: false,
-  label: '',
-  className: '',
-  helperText: '',
+  label: "",
+  className: "",
+  helperText: "",
   smallField: false,
   error: false,
-  errorMessage: '',
-  maxLength: 'none',
+  errorMessage: "",
+  maxLength: "none",
   onChange: undefined,
-  width: '200px',
-  placeHolderMaxWidth: '100%',
+  width: "200px",
+  placeHolderMaxWidth: "100%",
   id: undefined,
   name: undefined,
-}
+};

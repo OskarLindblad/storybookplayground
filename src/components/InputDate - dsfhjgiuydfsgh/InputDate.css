@@ -180,6 +180,7 @@
 
 .inputdate .inputdate-label .inputdate-helper-text p {
   margin-top: 12px;
+  line-height: 1.4;
 }
 
 .inputdate-error.inputdate-label .inputdate-label-text-label {

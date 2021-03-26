@@ -41,35 +41,43 @@ h6 * {
     }
 
     //label/placeholder
+
     .inputNum-label-text {
       position: absolute;
       z-index: 1;
-      transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
-      background-color: $White;
+      transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
       height: auto;
+      border-radius: 2px;
 
-      p {
-        color: $Grey;
-        transition: max-width 0.2s;
+      .inputNum-label-text-p {
+        transition: max-width 0.5s;
       }
     }
     .inputNum-label-text-label {
       color: $Grey;
-      top: -14.5px;
+      top: -9.5px;
       left: 12.5px;
       font-size: 14px;
       font-weight: 600;
       pointer-events: none;
-      padding: 6px 3px;
-      background-color: $White;
-
+      p {
+        padding: 0 3px;
+      }
       &.inputNum-label-selected {
         color: $Selected;
       }
+      .inputNum-label-background {
+        width: auto;
+        background-color: $White;
+        height: 5px;
+        position: relative;
+        top: -4.5px;
+        z-index: -1;
+      }
     }
+
     .inputNum-label-text-placeholder {
       color: $PlaceHolderGrey;
       top: 14.5px;
@@ -147,7 +155,8 @@ h6 * {
       font-size: 12px;
       margin: 5px 14px 0 14px;
       p {
-        margin-top: 12px;
+        margin-top: 2px;
+        line-height: 1.4;
       }
     }
   }
@@ -157,7 +166,6 @@ h6 * {
 .inputNum-error.inputNum-label {
   .inputNum-label-text-label {
     color: $Red;
-    background-color: $White;
     z-index: 1;
     &.inputNum-label-selected {
       p {
@@ -203,9 +211,8 @@ h6 * {
 
 .inputNum-label.inputNum-smallField {
   .inputNum-label-text-label {
-    top: -13.5px;
+    top: -7.5px;
     font-size: 12px;
-    background-color: $White;
   }
   .inputNum-label-text-placeholder {
     color: $PlaceHolderGrey;

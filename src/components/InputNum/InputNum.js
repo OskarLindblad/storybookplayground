@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import './InputNum.css'
-import PropTypes from 'prop-types'
-import { useFormContext } from 'react-hook-form'
-import { numToString, stringToNum } from './formatNum'
+import React, { useState } from "react";
+import "./InputNum.css";
+import PropTypes from "prop-types";
+//import { useFormContext } from 'react-hook-form'
+import { numToString, stringToNum } from "./formatNum";
 
 export const InputNum = ({
   readOnly,
@@ -27,42 +27,42 @@ export const InputNum = ({
   reference,
   ...rest
 }) => {
-  const [selected, setSelected] = useState(false)
-  const { getValues } = useFormContext()
+  const [selected, setSelected] = useState(false);
+  //const { getValues } = useFormContext()
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly || defaultValue === 0 || getValues(name) !== ''
+    defaultValue || readOnly || defaultValue === 0 /*|| getValues(name) !== ''*/
       ? true
-      : false,
-  )
+      : false
+  );
 
   const handleChange = (e) => {
-    e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals)
+    e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals);
 
-    onChange(e)
+    onChange(e);
     document.getElementById(id).value = numToString(
-      decimalLimit(e.target.value, maxDecimals),
-    )
-  }
+      decimalLimit(e.target.value, maxDecimals)
+    );
+  };
 
   const blockInvalidChar = (e) =>
-    ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault()
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
   const decimalLimit = (value, limit) => {
-    value = value.toString()
-    if (value.includes('.') || value.includes(',')) {
-      let newNum = []
-      value.includes('.') && (newNum = value.split('.'))
-      value.includes(',') && (newNum = value.split(','))
-      let newDec = newNum[1].substr(0, limit)
-      return newNum[0] + '.' + newDec
+    value = value.toString();
+    if (value.includes(".") || value.includes(",")) {
+      let newNum = [];
+      value.includes(".") && (newNum = value.split("."));
+      value.includes(",") && (newNum = value.split(","));
+      let newDec = newNum[1].substr(0, limit);
+      return newNum[0] + "." + newDec;
     }
-    return value
-  }
-  var newDefaultValue
-  if (typeof defaultValue === 'number') {
-    newDefaultValue = numToString(defaultValue)
+    return value;
+  };
+  var newDefaultValue;
+  if (typeof defaultValue === "number") {
+    newDefaultValue = numToString(defaultValue);
   } else {
-    newDefaultValue = numToString(parseFloat(defaultValue))
+    newDefaultValue = numToString(parseFloat(defaultValue));
   }
 
   return (
@@ -70,18 +70,19 @@ export const InputNum = ({
       <label
         className={`
           inputNum-label 
-          ${error ? 'inputNum-error' : ''}
-          ${smallField ? 'inputNum-smallField' : ''}
-          ${className ? className : ''}
+          ${error ? "inputNum-error" : ""}
+          ${smallField ? "inputNum-smallField" : ""}
+          ${className ? className : ""}
         `}
       >
         {label && (
           <div
             className={`inputNum-label-text
-            inputNum-label-text-${labelShrink ? 'label' : 'placeholder'}
-            ${selected ? 'inputNum-label-selected' : ''}`}
+              inputNum-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "inputNum-label-selected" : ""}`}
           >
             <p
+              className="inputNum-label-text-p"
               style={
                 labelShrink
                   ? { maxWidth: width, color: tagcolor }
@@ -90,28 +91,29 @@ export const InputNum = ({
             >
               {label}
             </p>
+            {labelShrink && <div className="inputNum-label-background"></div>}
           </div>
         )}
         <div className="inputNum-container" style={{ width: width }}>
           <input
             type="text"
             className={`inputNum-inputfield ${
-              selected ? 'inputNum-inputfield-selected' : ''
+              selected ? "inputNum-inputfield-selected" : ""
             } 
-            ${className ? className : ''}
-            ${noButton ? 'inputNum-noButton' : ''}
+            ${className ? className : ""}
+            ${noButton ? "inputNum-noButton" : ""}
 
             `}
             defaultValue={newDefaultValue}
             onChange={handleChange}
             onFocus={() => {
-              setLabelShrink(true)
-              setSelected(true)
+              setLabelShrink(true);
+              setSelected(true);
             }}
             onBlur={() => {
-              !getValues(name) && setLabelShrink(false)
+              /*!getValues(name)*/ defaultValue && setLabelShrink(false);
 
-              setSelected(false)
+              setSelected(false);
             }}
             onKeyDown={blockInvalidChar}
             maxLength={maxLength}
@@ -123,8 +125,8 @@ export const InputNum = ({
           />
           <div
             className={`inputNum-suffix 
-            ${selected ? 'inputNum-suffix-selected' : ''}
-            ${suffixImg ? 'suffix-image' : ''}
+            ${selected ? "inputNum-suffix-selected" : ""}
+            ${suffixImg ? "suffix-image" : ""}
             `}
           >
             {suffixImg ? (
@@ -139,10 +141,10 @@ export const InputNum = ({
         </div>
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default InputNum
+export default InputNum;
 
 InputNum.propTypes = {
   readOnly: PropTypes.bool,
@@ -162,24 +164,24 @@ InputNum.propTypes = {
   placeHolderMaxWidth: PropTypes.string,
   tagcolor: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 InputNum.defaultProps = {
   readOnly: false,
-  suffix: '',
+  suffix: "",
   suffixImg: false,
-  label: '',
-  className: '',
-  helperText: '',
+  label: "",
+  className: "",
+  helperText: "",
   smallField: false,
   error: false,
   noButton: false,
-  errorMessage: '',
+  errorMessage: "",
   maxLength: 13,
   maxDecimals: 3,
   onChange: undefined,
-  width: '200px',
-  placeHolderMaxWidth: '100%',
-  tagcolor: '#818181',
-  id: [...Array(10)].map((i) => (~~(Math.random() * 36)).toString(36)).join(''),
-}
+  width: "200px",
+  placeHolderMaxWidth: "100%",
+  tagcolor: "#818181",
+  id: [...Array(10)].map((i) => (~~(Math.random() * 36)).toString(36)).join(""),
+};

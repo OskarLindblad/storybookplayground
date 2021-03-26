@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import './DropDown.css'
-import PropTypes from 'prop-types'
-import down from './down.svg'
+import React, { useState } from "react";
+import "./DropDown.css";
+import PropTypes from "prop-types";
+import down from "./down.svg";
 
 export const DropDown = ({
   label,
@@ -14,42 +14,43 @@ export const DropDown = ({
   helperText,
   smallField,
   width,
+  placeHolderMaxWidth,
   onChange,
   reference,
   value,
   ...rest
 }) => {
   const [labelShrink, setLabelShrink] = useState(
-    startValue || value ? true : false,
-  )
-  const [selected, setSelected] = useState(false)
-  const [newValue, setNewValue] = useState(value)
+    startValue || value ? true : false
+  );
+  const [selected, setSelected] = useState(false);
+  const [newValue, setNewValue] = useState(value);
 
-  let optionsList = []
+  let optionsList = [];
   for (let i = 0; i < options.length; i++) {
-    if (typeof options[i] === 'string' || typeof options[i] === 'number') {
-      optionsList.push({ value: options[i], title: options[i] })
+    if (typeof options[i] === "string" || typeof options[i] === "number") {
+      optionsList.push({ value: options[i], title: options[i] });
     } else {
-      optionsList.push(options[i])
+      optionsList.push(options[i]);
     }
   }
 
   const handleValue = (e) => {
-    onChange(e)
-    setNewValue(e.target.value)
-    if (e.target.value === '') {
-      setLabelShrink(false)
+    onChange(e);
+    setNewValue(e.target.value);
+    if (e.target.value === "") {
+      setLabelShrink(false);
     } else {
-      setLabelShrink(true)
+      setLabelShrink(true);
     }
-    setSelected(false)
-  }
+    setSelected(false);
+  };
 
   return (
     <div
       className={`dropdown
-    ${error ? 'dropdown-error' : ''}
-    ${smallField ? 'dropdown-smallField' : ''}
+    ${error ? "dropdown-error" : ""}
+    ${smallField ? "dropdown-smallField" : ""}
 
     `}
       style={{ width: width }}
@@ -57,42 +58,52 @@ export const DropDown = ({
       <label
         className={`
               input-label 
-              ${error ? 'input-error' : ''}
+              ${error ? "input-error" : ""}
             `}
       >
-        <p
-          className={`
-            dropdown-label-text
-            dropdown-label-text-${labelShrink ? 'label' : 'placeholder'}
-            ${selected ? 'dropdown-label-selected' : ''}
-            `}
-        >
-          {label}
-        </p>
+        {label && (
+          <div
+            className={`dropdown-label-text
+            dropdown-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "dropdown-label-selected" : ""}`}
+          >
+            <p
+              className="dropdown-label-text-p"
+              style={
+                labelShrink
+                  ? { maxWidth: width }
+                  : { maxWidth: placeHolderMaxWidth }
+              }
+            >
+              {label}
+            </p>
+            {labelShrink && <div className="dropdown-label-background"></div>}
+          </div>
+        )}
         <select
           name={name}
           className={`dropdown-select ${
-            selected ? 'dropdown-select-selected' : ''
+            selected ? "dropdown-select-selected" : ""
           }`}
           value={newValue}
           onFocus={() => {
-            setLabelShrink(true)
-            setSelected(true)
+            setLabelShrink(true);
+            setSelected(true);
           }}
           onBlur={() => {
-            newValue === '' && setLabelShrink(false)
-            setSelected(false)
+            newValue === "" && setLabelShrink(false);
+            setSelected(false);
           }}
           style={{ width: width }}
           onChange={(e) => handleValue(e)}
           ref={reference}
           {...rest}
         >
-          {newValue === '' && !startValue ? (
+          {newValue === "" && !startValue ? (
             <option
               value="notSelected"
               className="dropdown-notSelected"
-              disabled={newValue === 'notSelected' ? true : false}
+              disabled={newValue === "notSelected" ? true : false}
             ></option>
           ) : (
             <></>
@@ -119,15 +130,16 @@ export const DropDown = ({
         </div>
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default DropDown
+export default DropDown;
 
 DropDown.propTypes = {
   label: PropTypes.string,
   startValue: PropTypes.bool,
   className: PropTypes.string,
+  placeHolderMaxWidth: PropTypes.string,
   onChange: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
@@ -137,24 +149,25 @@ DropDown.propTypes = {
       }),
       PropTypes.string,
       PropTypes.number,
-    ]),
+    ])
   ),
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
   helperText: PropTypes.string,
   smallField: PropTypes.bool,
   width: PropTypes.string,
-}
+};
 
 DropDown.defaultProps = {
-  label: '',
+  label: "",
   startValue: false,
   onChange: undefined,
-  className: '',
-  options: [{ value: '', title: '' }],
+  className: "",
+  options: [{ value: "", title: "" }],
   error: false,
-  errorMessage: '',
-  helperText: '',
+  errorMessage: "",
+  helperText: "",
+  placeHolderMaxWidth: "100%",
   smallField: false,
-  width: '250px',
-}
+  width: "250px",
+};

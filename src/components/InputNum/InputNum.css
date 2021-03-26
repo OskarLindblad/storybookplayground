@@ -44,34 +44,43 @@ h6 * {
 .inputNum .inputNum-label .inputNum-label-text {
   position: absolute;
   z-index: 1;
-  -webkit-transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
-  transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
-  background-color: #fff;
+  -webkit-transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+  transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   height: auto;
+  border-radius: 2px;
 }
 
-.inputNum .inputNum-label .inputNum-label-text p {
-  color: #818181;
-  -webkit-transition: max-width 0.2s;
-  transition: max-width 0.2s;
+.inputNum .inputNum-label .inputNum-label-text .inputNum-label-text-p {
+  -webkit-transition: max-width 0.5s;
+  transition: max-width 0.5s;
 }
 
 .inputNum .inputNum-label .inputNum-label-text-label {
   color: #818181;
-  top: -14.5px;
+  top: -9.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
-  padding: 6px 3px;
-  background-color: #fff;
+}
+
+.inputNum .inputNum-label .inputNum-label-text-label p {
+  padding: 0 3px;
 }
 
 .inputNum .inputNum-label .inputNum-label-text-label.inputNum-label-selected {
   color: #2c79f7;
+}
+
+.inputNum .inputNum-label .inputNum-label-text-label .inputNum-label-background {
+  width: auto;
+  background-color: #fff;
+  height: 5px;
+  position: relative;
+  top: -4.5px;
+  z-index: -1;
 }
 
 .inputNum .inputNum-label .inputNum-label-text-placeholder {
@@ -161,12 +170,12 @@ h6 * {
 }
 
 .inputNum .inputNum-label .inputNum-helper-text p {
-  margin-top: 12px;
+  margin-top: 2px;
+  line-height: 1.4;
 }
 
 .inputNum-error.inputNum-label .inputNum-label-text-label {
   color: #b00020;
-  background-color: #fff;
   z-index: 1;
 }
 
@@ -211,9 +220,8 @@ h6 * {
 }
 
 .inputNum-label.inputNum-smallField .inputNum-label-text-label {
-  top: -13.5px;
+  top: -7.5px;
   font-size: 12px;
-  background-color: #fff;
 }
 
 .inputNum-label.inputNum-smallField .inputNum-label-text-placeholder {

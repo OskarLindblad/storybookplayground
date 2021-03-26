@@ -9,7 +9,7 @@ $PV: 13px; //Padding Vertically
 $PVs: 8.5px; //Padding Vertically small
 
 .App {
-  background-color: #ff695a;
+  background-color: #f0f0f0;
   height: 100vh;
 }
 // Remove
@@ -50,31 +50,36 @@ h6 * {
     .dataList-label-text {
       position: absolute;
       z-index: 1;
-      transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
-      background-color: $White;
+      transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
       height: auto;
       border-radius: 2px;
-      background-image: linear-gradient($White, rgba(255, 255, 255, 1.1));
 
-      p {
-        color: $Grey;
-        transition: max-width 0.2s;
+      .dataList-label-text-p {
+        transition: max-width 0.5s;
       }
     }
     .dataList-label-text-label {
       color: $Grey;
-      top: -14.5px;
+      top: -9.5px;
       left: 12.5px;
       font-size: 14px;
       font-weight: 600;
       pointer-events: none;
-      padding: 6px 3px;
-      //background-color: $White;
+      p {
+        padding: 0 3px;
+      }
       &.dataList-label-selected {
         color: $Selected;
+      }
+      .dataList-label-background {
+        width: auto;
+        background-color: $White;
+        height: 5px;
+        position: relative;
+        top: -4.5px;
+        z-index: -1;
       }
     }
     .dataList-label-text-placeholder {
@@ -85,10 +90,8 @@ h6 * {
       pointer-events: none;
     }
     input {
-      border-top: $Grey 1px solid;
-      border-left: $Grey 1px solid;
-      border-bottom: $Grey 1px solid;
-      border-right: $White 0px solid;
+      border: $Grey 1px solid;
+      border-style: solid none solid solid;
       padding: $PV 0 $PV $PH;
       border-radius: 4px 0 0 4px;
       font-size: 18px;
@@ -99,10 +102,8 @@ h6 * {
       overflow: hidden;
       text-overflow: ellipsis;
       &.dataList-inputfield-selected {
-        border-top: $Selected 2px solid !important;
-        border-left: $Selected 2px solid !important;
-        border-bottom: $Selected 2px solid !important;
-        border-right: $White 0px solid;
+        border: $Selected 2px;
+        border-style: solid none solid solid;
         padding: calc(#{$PV} - 1px) 0 calc(#{$PV} - 1px) calc(#{$PH} - 1px);
       }
     }
@@ -116,10 +117,8 @@ h6 * {
     }
     .dataList-suffix {
       background-color: $White;
-      border-top: $Grey 1px solid;
-      border-left: $White 0px solid;
-      border-bottom: $Grey 1px solid;
-      border-right: $Grey 1px solid;
+      border: $Grey 1px;
+      border-style: solid solid solid none;
       padding: #{$PV} #{$PH} #{$PV} 0;
       border-radius: 0 4px 4px 0;
       position: relative;
@@ -143,10 +142,8 @@ h6 * {
         }
       }
       &.dataList-suffix-selected {
-        border-top: $Selected 2px solid;
-        border-left: $White 0px solid;
-        border-bottom: $Selected 2px solid;
-        border-right: $Selected 2px solid;
+        border: $Selected 2px;
+        border-style: solid solid solid;
         padding: calc(#{$PV} - 1px) calc(#{$PH} - 1px) calc(#{$PV} - 1px) 0;
       }
       p {
@@ -182,7 +179,8 @@ h6 * {
       font-size: 12px;
       margin: 5px 14px 0 14px;
       p {
-        margin-top: 12px;
+        margin-top: 2px;
+        line-height: 1.4;
       }
     }
     .datalist-dropdown-container {
@@ -235,8 +233,6 @@ h6 * {
     p {
       color: $Red;
     }
-
-    background-color: $White;
     z-index: 1;
     &.dataList-label-selected {
       p {
@@ -246,29 +242,21 @@ h6 * {
   }
 
   input {
-    border-top: $Red 1px solid;
-    border-left: $Red 1px solid;
-    border-bottom: $Red 1px solid;
-    border-right: $White 0px solid;
-    color: $Red;
+    border: $Red 1px;
+    border-style: solid none solid solid;
     &.dataList-inputfield-selected {
-      border-top: $Red 2px solid !important;
-      border-left: $Red 2px solid !important;
-      border-bottom: $Red 2px solid !important;
-      border-right: $White 0px solid;
+      border: $Red 2px;
+      border-style: solid none solid solid;
     }
   }
 
   .dataList-suffix {
-    border-top: $Red 1px solid;
-    border-bottom: $Red 1px solid;
-    border-right: $Red 1px solid;
+    border: $Red 1px;
+    border-style: solid solid solid none;
     &.dataList-suffix-selected {
-      border-top: $Red 2px solid;
-      border-bottom: $Red 2px solid;
-      border-right: $Red 2px solid;
+      border: $Red 2px;
+      border-style: solid solid solid none;
     }
-
     p {
       color: $Red;
       margin-left: 14px;
@@ -283,9 +271,8 @@ h6 * {
 
 .dataList-label.dataList-smallField {
   .dataList-label-text-label {
-    top: -13.5px;
+    top: -7.5px;
     font-size: 12px;
-    background-color: $White;
   }
   .dataList-label-text-placeholder {
     color: $PlaceHolderGrey;

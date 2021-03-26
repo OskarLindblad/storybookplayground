@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import './InputDate.css'
-import PropTypes from 'prop-types'
+import React, { useState } from "react";
+import "./InputDate.css";
+import PropTypes from "prop-types";
 //import { useFormContext } from "react-hook-form";
 
 export const InputDate = ({
@@ -22,9 +22,9 @@ export const InputDate = ({
   ...rest
 }) => {
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly || defaultValue === '' ? true : false,
-  )
-  const [selected, setSeleted] = useState(false)
+    defaultValue || readOnly || defaultValue === "" ? true : false
+  );
+  const [selected, setSeleted] = useState(false);
   //const { getValues } = useFormContext();
 
   /*
@@ -37,27 +37,27 @@ export const InputDate = ({
    */
 
   const handleChange = (e) => {
-    onChange(e)
-    setSeleted(false)
-  }
+    onChange(e);
+    setSeleted(false);
+  };
 
   return (
     <div className="inputdate" style={{ width: width }}>
       <label
         className={`
           inputdate-label 
-          ${error ? 'inputdate-error' : ''}
-          ${smallField ? 'inputdate-smallField' : ''}
+          ${error ? "inputdate-error" : ""}
+          ${smallField ? "inputdate-smallField" : ""}
         `}
       >
         {label && (
           <div
             className={`inputdate-label-text
-          inputdate-label-text-${labelShrink ? 'label' : 'label'}
-          ${selected ? 'inputdate-label-selected' : ''}
-          `}
+              inputdate-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "inputdate-label-selected" : ""}`}
           >
             <p
+              className="inputdate-label-text-p"
               style={
                 labelShrink
                   ? { maxWidth: width }
@@ -66,15 +66,16 @@ export const InputDate = ({
             >
               {label}
             </p>
+            {labelShrink && <div className="inputdate-label-background"></div>}
           </div>
         )}
         <div className="inputdate-container" style={{ width: width }}>
           <input
             type="date"
             className={`inputdate-inputfield ${
-              selected ? 'inputdate-inputfield-selected' : ''
+              selected ? "inputdate-inputfield-selected" : ""
             }
-            ${className ? className : ''}
+            ${className ? className : ""}
             `}
             readOnly={readOnly ? readOnly : false}
             defaultValue={defaultValue}
@@ -82,20 +83,20 @@ export const InputDate = ({
             ref={reference}
             onChange={handleChange}
             onFocus={() => {
-              !defaultValue && setLabelShrink(true)
-              setSeleted(true)
+              !defaultValue && setLabelShrink(true);
+              setSeleted(true);
             }}
             onBlur={() => {
-              !defaultValue && setLabelShrink(true)
-              setSeleted(false)
+              !defaultValue && setLabelShrink(true);
+              setSeleted(false);
             }}
-            style={labelShrink ? { color: 'black' } : { color: 'white' }}
+            style={labelShrink ? { color: "black" } : { color: "white" }}
             {...rest}
           />
           <div
             className={`inputdate-suffix 
-            ${selected ? 'inputdate-suffix-selected' : ''}
-            ${suffixImg ? 'suffix-image' : ''}
+            ${selected ? "inputdate-suffix-selected" : ""}
+            ${suffixImg ? "suffix-image" : ""}
             `}
           >
             {suffixImg ? (
@@ -110,10 +111,10 @@ export const InputDate = ({
         </div>
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default InputDate
+export default InputDate;
 
 InputDate.propTypes = {
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -129,20 +130,20 @@ InputDate.propTypes = {
   width: PropTypes.string,
   placeHolderMaxWidth: PropTypes.string,
   className: PropTypes.string,
-}
+};
 
 InputDate.defaultProps = {
-  defaultValue: '',
-  suffix: '',
+  defaultValue: "",
+  suffix: "",
   suffixImg: false,
-  label: '',
-  helperText: '',
+  label: "",
+  helperText: "",
   smallField: false,
   error: false,
-  errorMessage: '',
+  errorMessage: "",
   onChange: undefined,
-  width: '250px',
-  placeHolderMaxWidth: '100%',
+  width: "250px",
+  placeHolderMaxWidth: "100%",
   readOnly: false,
-  className: '',
-}
+  className: "",
+};

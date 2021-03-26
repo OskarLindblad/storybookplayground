@@ -44,36 +44,43 @@ h6 * {
 .inputText .inputText-label .inputText-label-text {
   position: absolute;
   z-index: 1;
-  -webkit-transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
-  transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
-  background-color: #fff;
+  -webkit-transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+  transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   height: auto;
+  border-radius: 2px;
 }
 
-.inputText .inputText-label .inputText-label-text p {
-  -webkit-transition: max-width 0.2s;
-  transition: max-width 0.2s;
+.inputText .inputText-label .inputText-label-text .inputText-label-text-p {
+  -webkit-transition: max-width 0.5s;
+  transition: max-width 0.5s;
 }
 
 .inputText .inputText-label .inputText-label-text-label {
-  top: -14.5px;
+  color: #818181;
+  top: -9.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
-  padding: 6px 3px;
-  background-color: #fff;
 }
 
 .inputText .inputText-label .inputText-label-text-label p {
-  color: #818181;
+  padding: 0 3px;
 }
 
 .inputText .inputText-label .inputText-label-text-label.inputText-label-selected {
   color: #2c79f7;
+}
+
+.inputText .inputText-label .inputText-label-text-label .inputText-label-background {
+  width: auto;
+  background-color: #fff;
+  height: 5px;
+  position: relative;
+  top: -4.5px;
+  z-index: -1;
 }
 
 .inputText .inputText-label .inputText-label-text-placeholder {
@@ -148,12 +155,13 @@ h6 * {
 }
 
 .inputText .inputText-label .inputText-helper-text {
-  font-size: 14px;
+  font-size: 12px;
   margin: 5px 14px 0 14px;
+  line-height: 1.4;
 }
 
 .inputText .inputText-label .inputText-helper-text p {
-  margin-top: 12px;
+  margin-top: 2px;
 }
 
 .inputText-error.inputText-label .inputText-label-text-label {
@@ -202,7 +210,7 @@ h6 * {
 }
 
 .inputText-label.inputText-smallField .inputText-label-text-label {
-  top: -13.5px;
+  top: -7.5px;
   font-size: 12px;
 }
 

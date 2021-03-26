@@ -44,29 +44,36 @@ h6 * {
     .inputText-label-text {
       position: absolute;
       z-index: 1;
-      transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
-      background-color: $White;
+      transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
       height: auto;
-      p {
-        transition: max-width 0.2s;
+      border-radius: 2px;
+
+      .inputText-label-text-p {
+        transition: max-width 0.5s;
       }
     }
     .inputText-label-text-label {
-      p {
-        color: $Grey;
-      }
-      top: -14.5px;
+      color: $Grey;
+      top: -9.5px;
       left: 12.5px;
       font-size: 14px;
       font-weight: 600;
       pointer-events: none;
-      padding: 6px 3px;
-      background-color: $White;
+      p {
+        padding: 0 3px;
+      }
       &.inputText-label-selected {
         color: $Selected;
+      }
+      .inputText-label-background {
+        width: auto;
+        background-color: $White;
+        height: 5px;
+        position: relative;
+        top: -4.5px;
+        z-index: -1;
       }
     }
     .inputText-label-text-placeholder {
@@ -76,6 +83,7 @@ h6 * {
       font-size: 18px;
       pointer-events: none;
     }
+
     input {
       border: $Blue 1px;
       border-style: solid none solid solid;
@@ -134,10 +142,11 @@ h6 * {
     }
 
     .inputText-helper-text {
-      font-size: 14px;
+      font-size: 12px;
       margin: 5px 14px 0 14px;
+      line-height: 1.4;
       p {
-        margin-top: 12px;
+        margin-top: 2px;
       }
     }
   }
@@ -190,7 +199,7 @@ h6 * {
 
 .inputText-label.inputText-smallField {
   .inputText-label-text-label {
-    top: -13.5px;
+    top: -7.5px;
     font-size: 12px;
   }
   .inputText-label-text-placeholder {

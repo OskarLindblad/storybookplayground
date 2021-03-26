@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import './InputNum.css'
-import PropTypes from 'prop-types'
-import { useFormContext } from 'react-hook-form'
-import { numToString, stringToNum } from './formatNum'
+import React, { useState } from "react";
+import "./InputNumReadOnly.css";
+import PropTypes from "prop-types";
+//import { useFormContext } from 'react-hook-form'
+import { numToString, stringToNum } from "./formatNum";
 
 export const InputNumReadOnly = ({
   readOnly,
@@ -27,64 +27,67 @@ export const InputNumReadOnly = ({
   reference,
   ...rest
 }) => {
-  const [selected, setSelected] = useState(false)
-  const { getValues } = useFormContext()
+  const [selected, setSelected] = useState(false);
+  //const { getValues } = useFormContext()
   const [labelShrink, setLabelShrink] = useState(
-    value || readOnly || value === 0 || getValues(name) !== '' ? true : false,
-  )
+    value || readOnly || value === 0 /*|| getValues(name) !== ''*/
+      ? true
+      : false
+  );
 
   const handleChange = (e) => {
-    if (isNaN(e.target.value) || e.target.value === '') {
-      e.target.value = '0'
+    if (isNaN(e.target.value) || e.target.value === "") {
+      e.target.value = "0";
     } else {
-      e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals)
+      e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals);
     }
 
-    onChange(e)
+    onChange(e);
 
     document.getElementById(id).value = numToString(
-      decimalLimit(e.target.value, maxDecimals),
-    )
-  }
+      decimalLimit(e.target.value, maxDecimals)
+    );
+  };
 
   const blockInvalidChar = (e) =>
-    ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault()
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
   const decimalLimit = (value, limit) => {
-    value = value.toString()
-    if (value.includes('.') || value.includes(',')) {
-      let newNum = []
-      value.includes('.') && (newNum = value.split('.'))
-      value.includes(',') && (newNum = value.split(','))
-      let newDec = newNum[1].substr(0, limit)
-      return newNum[0] + '.' + newDec
+    value = value.toString();
+    if (value.includes(".") || value.includes(",")) {
+      let newNum = [];
+      value.includes(".") && (newNum = value.split("."));
+      value.includes(",") && (newNum = value.split(","));
+      let newDec = newNum[1].substr(0, limit);
+      return newNum[0] + "." + newDec;
     }
-    return value
-  }
-  var newDefaultValue
-  if (typeof value === 'number') {
-    newDefaultValue = numToString(value)
+    return value;
+  };
+  var newDefaultValue;
+  if (typeof value === "number") {
+    newDefaultValue = numToString(value);
   } else {
-    newDefaultValue = numToString(parseFloat(value))
+    newDefaultValue = numToString(parseFloat(value));
   }
 
   return (
-    <div className="inputNum" stye={{ width: width }}>
+    <div className="inputNum-RO" stye={{ width: width }}>
       <label
         className={`
-          inputNum-label 
-          ${error ? 'inputNum-error' : ''}
-          ${smallField ? 'inputNum-smallField' : ''}
-          ${className ? className : ''}
+          inputNum-RO-label 
+          ${error ? "inputNum-RO-error" : ""}
+          ${smallField ? "inputNum-RO-smallField" : ""}
+          ${className ? className : ""}
         `}
       >
         {label && (
           <div
-            className={`inputNum-label-text
-            inputNum-label-text-${labelShrink ? 'label' : 'placeholder'}
-            ${selected ? 'inputNum-label-selected' : ''}`}
+            className={`inputNum-RO-label-text
+            inputNum-RO-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "inputNum-RO-label-selected" : ""}`}
           >
             <p
+              className="inputNum-RO-label-text-p"
               style={
                 labelShrink
                   ? { maxWidth: width, color: tagcolor }
@@ -93,28 +96,31 @@ export const InputNumReadOnly = ({
             >
               {label}
             </p>
+            {labelShrink && (
+              <div className="inputNum-RO-label-background"></div>
+            )}
           </div>
         )}
-        <div className="inputNum-container" style={{ width: width }}>
+        <div className="inputNum-RO-container" style={{ width: width }}>
           <input
             type="text"
-            className={`inputNum-inputfield ${
-              selected ? 'inputNum-inputfield-selected' : ''
+            className={`inputNum-RO-inputfield ${
+              selected ? "inputNum-RO-inputfield-selected" : ""
             } 
-            ${className ? className : ''}
-            ${noButton ? 'inputNum-noButton' : ''}
+            ${className ? className : ""}
+            ${noButton ? "inputNum-RO-noButton" : ""}
 
             `}
             value={newDefaultValue}
             onChange={handleChange}
             onFocus={() => {
-              setLabelShrink(true)
-              setSelected(true)
+              setLabelShrink(true);
+              setSelected(true);
             }}
             onBlur={() => {
-              !getValues(name) && setLabelShrink(false)
+              /*!getValues(name)*/ value && setLabelShrink(false);
 
-              setSelected(false)
+              setSelected(false);
             }}
             onKeyDown={blockInvalidChar}
             maxLength={maxLength}
@@ -125,9 +131,9 @@ export const InputNumReadOnly = ({
             {...rest}
           />
           <div
-            className={`inputNum-suffix 
-            ${selected ? 'inputNum-suffix-selected' : ''}
-            ${suffixImg ? 'suffix-image' : ''}
+            className={`inputNum-RO-suffix 
+            ${selected ? "inputNum-RO-suffix-selected" : ""}
+            ${suffixImg ? "suffix-image" : ""}
             `}
           >
             {suffixImg ? (
@@ -137,15 +143,15 @@ export const InputNumReadOnly = ({
             )}
           </div>
         </div>
-        <div className="inputNum-helper-text">
+        <div className="inputNum-RO-helper-text">
           {errorMessage && error ? <p>{errorMessage}</p> : <p>{helperText}</p>}
         </div>
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default InputNumReadOnly
+export default InputNumReadOnly;
 
 InputNumReadOnly.propTypes = {
   readOnly: PropTypes.bool,
@@ -165,24 +171,24 @@ InputNumReadOnly.propTypes = {
   placeHolderMaxWidth: PropTypes.string,
   tagcolor: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+};
 
 InputNumReadOnly.defaultProps = {
   readOnly: false,
-  suffix: '',
+  suffix: "",
   suffixImg: false,
-  label: '',
-  className: '',
-  helperText: '',
+  label: "",
+  className: "",
+  helperText: "",
   smallField: false,
   error: false,
   noButton: false,
-  errorMessage: '',
+  errorMessage: "",
   maxLength: 13,
   maxDecimals: 3,
   onChange: undefined,
-  width: '200px',
-  placeHolderMaxWidth: '100%',
-  tagcolor: '#818181',
+  width: "200px",
+  placeHolderMaxWidth: "100%",
+  tagcolor: "#818181",
   id: Math.random().toString(36).substr(2, 9),
-}
+};
