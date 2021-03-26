@@ -183,55 +183,55 @@
 }
 
 .inputdate-error.inputdate-label .inputdate-label-text-label {
-  color: #ff695a;
+  color: #b00020;
   background-color: #fff;
 }
 
 .inputdate-error.inputdate-label .inputdate-label-text-label.inputdate-label-selected {
-  color: #ff695a;
+  color: #b00020;
 }
 
 .inputdate-error.inputdate-label input {
-  border-top: #ff695a 1px solid;
-  border-left: #ff695a 1px solid;
-  border-bottom: #ff695a 1px solid;
+  border-top: #b00020 1px solid;
+  border-left: #b00020 1px solid;
+  border-bottom: #b00020 1px solid;
   border-right: #fff 0px solid;
-  color: #ff695a;
+  color: #b00020;
 }
 
 .inputdate-error.inputdate-label input.bold-border {
-  border-top: #ff695a 3px solid !important;
-  border-left: #ff695a 3px solid !important;
-  border-bottom: #ff695a 3px solid !important;
+  border-top: #b00020 3px solid !important;
+  border-left: #b00020 3px solid !important;
+  border-bottom: #b00020 3px solid !important;
   border-right: #fff 0px solid;
   padding: calc(18.5px - 2px) 0 calc(18.5px - 2px) calc(14px - 4px);
 }
 
 .inputdate-error.inputdate-label input.inputdate-inputfield-selected {
-  border-top: #ff695a 2px solid !important;
-  border-left: #ff695a 2px solid !important;
-  border-bottom: #ff695a 2px solid !important;
+  border-top: #b00020 2px solid !important;
+  border-left: #b00020 2px solid !important;
+  border-bottom: #b00020 2px solid !important;
   border-right: #fff 0px solid;
 }
 
 .inputdate-error.inputdate-label input.inputdate-inputfield-selected.bold-border {
-  border-top: #ff695a 5px solid !important;
-  border-left: #ff695a 5px solid !important;
-  border-bottom: #ff695a 5px solid !important;
+  border-top: #b00020 5px solid !important;
+  border-left: #b00020 5px solid !important;
+  border-bottom: #b00020 5px solid !important;
   border-right: #fff 0px solid;
   padding: calc(18.5px - 4px) 0 calc(18.5px - 4px) calc(14px - 4px);
 }
 
 .inputdate-error.inputdate-label .inputdate-suffix {
-  border-top: #ff695a 1px solid;
-  border-bottom: #ff695a 1px solid;
-  border-right: #ff695a 1px solid;
+  border-top: #b00020 1px solid;
+  border-bottom: #b00020 1px solid;
+  border-right: #b00020 1px solid;
 }
 
 .inputdate-error.inputdate-label .inputdate-suffix.bold-border {
-  border-top: #ff695a 3px solid !important;
-  border-right: #ff695a 3px solid !important;
-  border-bottom: #ff695a 3px solid !important;
+  border-top: #b00020 3px solid !important;
+  border-right: #b00020 3px solid !important;
+  border-bottom: #b00020 3px solid !important;
   border-left: #fff 0px solid;
 }
 
@@ -244,9 +244,9 @@
 }
 
 .inputdate-error.inputdate-label .inputdate-suffix.inputdate-suffix-selected {
-  border-top: #ff695a 2px solid;
-  border-bottom: #ff695a 2px solid;
-  border-right: #ff695a 2px solid;
+  border-top: #b00020 2px solid;
+  border-bottom: #b00020 2px solid;
+  border-right: #b00020 2px solid;
   padding: calc(18.5px - 0px) calc(14px - 1px) calc(18.5px - 5px) 0;
 }
 
@@ -255,9 +255,9 @@
 }
 
 .inputdate-error.inputdate-label .inputdate-suffix.inputdate-suffix-selected.bold-border {
-  border-top: #ff695a 5px solid !important;
-  border-right: #ff695a 5px solid !important;
-  border-bottom: #ff695a 5px solid !important;
+  border-top: #b00020 5px solid !important;
+  border-right: #b00020 5px solid !important;
+  border-bottom: #b00020 5px solid !important;
   border-left: #fff 0px solid !important;
   padding: calc(18.5px - 3px) calc(14px - 4px) calc(18.5px - 5px) 0;
 }
@@ -271,12 +271,12 @@
 }
 
 .inputdate-error.inputdate-label .inputdate-suffix p {
-  color: #ff695a;
+  color: #b00020;
   margin-left: 14px;
 }
 
 .inputdate-error.inputdate-label .inputdate-helper-text {
-  color: #ff695a;
+  color: #b00020;
 }
 
 .inputdate-label.inputdate-smallField .inputdate-label-text-label {

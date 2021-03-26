@@ -25,7 +25,7 @@ h6 * {
 .inputdate .inputdate-label {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   position: relative;
 }
@@ -96,7 +96,7 @@ h6 * {
 }
 
 .inputdate .inputdate-label input {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   border-top: #818181 1px solid;
   border-left: #818181 1px solid;
   border-bottom: #818181 1px solid;
@@ -169,53 +169,53 @@ h6 * {
 }
 
 .inputdate .inputdate-label .inputdate-helper-text p {
-  color: #ff695a;
+  color: #b00020;
   margin-top: 12px;
 }
 
 .inputdate-error.inputdate-label .inputdate-label-text-label {
-  color: #ff695a;
+  color: #b00020;
   background-color: #fff;
 }
 
 .inputdate-error.inputdate-label .inputdate-label-text-label.inputdate-label-selected {
-  color: #ff695a;
+  color: #b00020;
 }
 
 .inputdate-error.inputdate-label input {
-  border-top: #ff695a 1px solid;
-  border-left: #ff695a 1px solid;
-  border-bottom: #ff695a 1px solid;
+  border-top: #b00020 1px solid;
+  border-left: #b00020 1px solid;
+  border-bottom: #b00020 1px solid;
   border-right: #fff 0px solid;
-  color: #ff695a;
+  color: #b00020;
 }
 
 .inputdate-error.inputdate-label input.inputdate-inputfield-selected {
-  border-top: #ff695a 2px solid !important;
-  border-left: #ff695a 2px solid !important;
-  border-bottom: #ff695a 2px solid !important;
+  border-top: #b00020 2px solid !important;
+  border-left: #b00020 2px solid !important;
+  border-bottom: #b00020 2px solid !important;
   border-right: #fff 0px solid;
 }
 
 .inputdate-error.inputdate-label .inputdate-suffix {
-  border-top: #ff695a 1px solid;
-  border-bottom: #ff695a 1px solid;
-  border-right: #ff695a 1px solid;
+  border-top: #b00020 1px solid;
+  border-bottom: #b00020 1px solid;
+  border-right: #b00020 1px solid;
 }
 
 .inputdate-error.inputdate-label .inputdate-suffix.inputdate-suffix-selected {
-  border-top: #ff695a 2px solid;
-  border-bottom: #ff695a 2px solid;
-  border-right: #ff695a 2px solid;
+  border-top: #b00020 2px solid;
+  border-bottom: #b00020 2px solid;
+  border-right: #b00020 2px solid;
 }
 
 .inputdate-error.inputdate-label .inputdate-suffix p {
-  color: #ff695a;
+  color: #b00020;
   margin-left: 14px;
 }
 
 .inputdate-error.inputdate-label .inputdate-helper-text {
-  color: #ff695a;
+  color: #b00020;
 }
 
 .inputdate-label.inputdate-smallField .inputdate-label-text-label {

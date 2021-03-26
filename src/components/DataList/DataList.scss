@@ -72,7 +72,7 @@ h6 * {
       font-weight: 600;
       pointer-events: none;
       padding: 6px 3px;
-      background-color: $White;
+      //background-color: $White;
       &.dataList-label-selected {
         color: $Selected;
       }
@@ -232,11 +232,16 @@ h6 * {
 //Error styling
 .dataList-error.dataList-label {
   .dataList-label-text-label {
-    color: $Red;
+    p {
+      color: $Red;
+    }
+
     background-color: $White;
     z-index: 1;
     &.dataList-label-selected {
-      color: $Red;
+      p {
+        color: $Red;
+      }
     }
   }
 

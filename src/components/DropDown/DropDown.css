@@ -20,7 +20,7 @@ h6 * {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .dropdown label.input-label {
@@ -28,7 +28,7 @@ h6 * {
 }
 
 .dropdown label.input-label .dropdown-label-text {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   position: absolute;
   z-index: 1;
   -webkit-transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
@@ -63,7 +63,7 @@ h6 * {
 
 .dropdown label.input-label select.dropdown-select {
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   height: auto;
   border: #818181 1px solid;
@@ -122,7 +122,7 @@ h6 * {
 }
 
 .dropdown .dropdown-helper-text p.dropdown-error-message {
-  color: #ff695a;
+  color: #b00020;
 }
 
 .dropdown-smallField label.input-label .dropdown-label-text-label {
@@ -153,14 +153,14 @@ h6 * {
 }
 
 .dropdown-error label .dropdown-label-text-label.dropdown-label-selected {
-  color: #ff695a;
+  color: #b00020;
 }
 
 .dropdown-error label select.dropdown-select {
-  border: #ff695a 1px solid;
+  border: #b00020 1px solid;
 }
 
 .dropdown-error label select.dropdown-select.dropdown-select-selected {
-  border: #ff695a 2px solid;
+  border: #b00020 2px solid;
 }
 /*# sourceMappingURL=DropDown.css.map */

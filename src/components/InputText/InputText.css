@@ -25,7 +25,7 @@ h6 * {
 .inputText .inputText-label {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   position: relative;
 }
@@ -157,48 +157,48 @@ h6 * {
 }
 
 .inputText-error.inputText-label .inputText-label-text-label {
-  color: #ff695a;
+  color: #b00020;
   background-color: #fff;
 }
 
 .inputText-error.inputText-label .inputText-label-text-label.inputText-label-selected {
-  color: #ff695a;
+  color: #b00020;
 }
 
 .inputText-error.inputText-label input {
-  border-top: #ff695a 1px solid;
-  border-left: #ff695a 1px solid;
-  border-bottom: #ff695a 1px solid;
+  border-top: #b00020 1px solid;
+  border-left: #b00020 1px solid;
+  border-bottom: #b00020 1px solid;
   border-right: #fff 0px solid;
-  color: #ff695a;
+  color: #b00020;
 }
 
 .inputText-error.inputText-label input.inputText-inputfield-selected {
-  border-top: #ff695a 2px solid !important;
-  border-left: #ff695a 2px solid !important;
-  border-bottom: #ff695a 2px solid !important;
+  border-top: #b00020 2px solid !important;
+  border-left: #b00020 2px solid !important;
+  border-bottom: #b00020 2px solid !important;
   border-right: #fff 0px solid;
 }
 
 .inputText-error.inputText-label .inputText-suffix {
-  border-top: #ff695a 1px solid;
-  border-bottom: #ff695a 1px solid;
-  border-right: #ff695a 1px solid;
+  border-top: #b00020 1px solid;
+  border-bottom: #b00020 1px solid;
+  border-right: #b00020 1px solid;
 }
 
 .inputText-error.inputText-label .inputText-suffix.inputText-suffix-selected {
-  border-top: #ff695a 2px solid;
-  border-bottom: #ff695a 2px solid;
-  border-right: #ff695a 2px solid;
+  border-top: #b00020 2px solid;
+  border-bottom: #b00020 2px solid;
+  border-right: #b00020 2px solid;
 }
 
 .inputText-error.inputText-label .inputText-suffix p {
-  color: #ff695a;
+  color: #b00020;
   margin-left: 14px;
 }
 
 .inputText-error.inputText-label .inputText-helper-text {
-  color: #ff695a;
+  color: #b00020;
 }
 
 .inputText-label.inputText-smallField .inputText-label-text-label {

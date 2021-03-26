@@ -2,7 +2,7 @@ $Blue: #2e394b;
 $Selected: #2c79f7;
 $PlaceHolderGrey: #979797;
 $White: #fff;
-$Red: #ff695a;
+$Red: #b00020;
 $Grey: #818181;
 $PH: 14px; //Padding Horizontally
 $PV: 13px; //Padding Vertically
@@ -30,7 +30,7 @@ h6 * {
   }
   .inputdate-label {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
     position: relative;
 
@@ -83,7 +83,7 @@ h6 * {
       background-color: rgba($color: #fff, $alpha: 0.1);
     }
     input {
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       border-top: $Grey 1px solid;
       border-left: $Grey 1px solid;
       border-bottom: $Grey 1px solid;

@@ -76,7 +76,6 @@ h6 * {
   font-weight: 600;
   pointer-events: none;
   padding: 6px 3px;
-  background-color: #fff;
 }
 
 .dataList .dataList-label .dataList-label-text-label.dataList-label-selected {
@@ -254,12 +253,15 @@ h6 * {
 }
 
 .dataList-error.dataList-label .dataList-label-text-label {
-  color: #b00020;
   background-color: #fff;
   z-index: 1;
 }
 
-.dataList-error.dataList-label .dataList-label-text-label.dataList-label-selected {
+.dataList-error.dataList-label .dataList-label-text-label p {
+  color: #b00020;
+}
+
+.dataList-error.dataList-label .dataList-label-text-label.dataList-label-selected p {
   color: #b00020;
 }
 
