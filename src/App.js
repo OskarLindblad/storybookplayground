@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import React from "react";
 
 //mport logo from "./logo.svg";
-import InputNum from "./components/InputNum/InputNum";
+//import InputNum from "./components/InputNum/InputNum";
 
 import "./App.css";
 
@@ -23,6 +23,7 @@ function App() {
       {/*<DatePicker />*/}
       <br />
       <br />
+
       <DataList
         onChange={handleChange}
         label="hdsjdgs"
@@ -31,16 +32,13 @@ function App() {
         smallField
         options={[-12, 23, 333]}
         placeHolderMaxWidth="30px"
+        maxValue={100000}
+        maxLength={99999}
+        error
+        errorMessage="fsgfgrufyegu"
+        helperText="sdjkgkjsd fghjbgjhdbfgjkdfg sdfbishdfguhdsfigbdr sefbhisfghiuugbr"
       />
-      <br />
-      <InputNum
-        onChange={handleChange}
-        label="hdsjdgs"
-        defaultValue={state}
-        maxDecimals={5}
-        smallField
-        placeHolderMaxWidth="30px"
-      />
+
       {state}
     </div>
   );

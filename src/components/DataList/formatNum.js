@@ -55,8 +55,6 @@ export const stringToNum = (string) => {
     string.includes(",") && (newString = string.split(","));
     let n = `${newString[0].replace(/ /g, "")}.${newString[1]}`;
 
-    console.log(newString);
-
     if (!newString[1]) {
       if (isNaN(parseFloat(n))) {
         n = 0;
@@ -66,7 +64,7 @@ export const stringToNum = (string) => {
       return n + ".";
     }
 
-    if (newString[1] === "0") {
+    if (newString[1].startsWith("0")) {
       if (isNaN(parseFloat(n))) {
         n = 0;
       } else {
@@ -78,6 +76,7 @@ export const stringToNum = (string) => {
     if (!newString[0] || newString[0] === "0") {
       return "0." + newString[1];
     }
+
     return parseFloat(n);
   } else {
     // without decimal

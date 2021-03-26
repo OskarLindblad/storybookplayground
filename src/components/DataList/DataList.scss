@@ -2,12 +2,16 @@ $Blue: #2e394b;
 $Selected: #2c79f7;
 $PlaceHolderGrey: #979797;
 $White: #fff;
-$Red: #ff695a;
+$Red: #b00020;
 $Grey: #818181;
 $PH: 14px; //Padding Horizontally
 $PV: 13px; //Padding Vertically
 $PVs: 8.5px; //Padding Vertically small
 
+.App {
+  background-color: #ff695a;
+  height: 100vh;
+}
 // Remove
 p,
 h1,
@@ -42,6 +46,7 @@ h6 * {
     }
 
     //label/placeholder
+
     .dataList-label-text {
       position: absolute;
       z-index: 1;
@@ -51,6 +56,9 @@ h6 * {
       overflow: hidden;
       text-overflow: ellipsis;
       height: auto;
+      border-radius: 2px;
+      background-image: linear-gradient($White, rgba(255, 255, 255, 1.1));
+
       p {
         color: $Grey;
         transition: max-width 0.2s;

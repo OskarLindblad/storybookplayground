@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 //import { useFormContext } from 'react-hook-form'
 import { numToString, stringToNum } from "./formatNum";
 import down from "./down.svg";
+import { cursorPlacement } from "./cursorPlacement";
 
 export const DataList = ({
   readOnly,
@@ -26,13 +27,14 @@ export const DataList = ({
   onChange,
   width,
   tagcolor,
-  id, // Default-id doesn't work with multiple Ids. ADD id
+  id, // Always add id if there is multiple Datalists
   name,
   reference,
   ...rest
 }) => {
   const [selected, setSelected] = useState(false);
-  const [dropDown, showDropDown] = useState(false);
+  const [dropDown, showDropDown] = useState(false); //sjhvdvhjd
+  const [tempValue, setTempValue] = useState(""); //ignore
 
   //const { getValues } = useFormContext()
   const [labelShrink, setLabelShrink] = useState(
@@ -42,12 +44,26 @@ export const DataList = ({
   );
 
   const handleChange = (e) => {
-    showDropDown(true);
-    e.target.value = limitValue(stringToNum(e.target.value));
+    let cursorIndex = cursorPlacement(e.target.value, tempValue);
+    setTempValue(e.target.value);
+
+    if (cursorIndex !== undefined) {
+      console.log("yay");
+      document.getElementById(id).focus();
+      document.getElementById(id).setSelectionRange(cursorIndex, cursorIndex);
+    }
+
+    e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals);
+
+    e.target.value = decimalLimit(
+      limitValue(stringToNum(e.target.value)),
+      maxDecimals
+    );
     onChange(e);
     document.getElementById(id).value = numToString(
       decimalLimit(e.target.value, maxDecimals)
     );
+    console.log(cursorIndex);
   };
 
   const handleClick = (val) => {

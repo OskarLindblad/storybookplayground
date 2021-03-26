@@ -22,7 +22,7 @@ export const InputNum = ({
   onChange,
   width,
   tagcolor,
-  id,
+  id, // Always add InputNum if there is multiple Datalists
   name,
   reference,
   ...rest
@@ -36,7 +36,7 @@ export const InputNum = ({
   );
 
   const handleChange = (e) => {
-    e.target.value = stringToNum(e.target.value);
+    e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals);
 
     onChange(e);
     document.getElementById(id).value = numToString(
@@ -104,7 +104,6 @@ export const InputNum = ({
               setSelected(true);
             }}
             onBlur={() => {
-              //console.log(!getValues(name));
               /*!getValues(name)*/ !defaultValue && setLabelShrink(false);
 
               setSelected(false);
