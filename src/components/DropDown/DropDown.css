@@ -20,7 +20,7 @@ h6 * {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .dropdown label.input-label {
@@ -28,9 +28,9 @@ h6 * {
 }
 
 .dropdown label.input-label .dropdown-label-text {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   position: absolute;
-  z-index: 33;
+  z-index: 1;
   -webkit-transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
   transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
   background-color: #fff;
@@ -63,7 +63,7 @@ h6 * {
 
 .dropdown label.input-label select.dropdown-select {
   cursor: pointer;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   height: auto;
   border: #818181 1px solid;
@@ -109,7 +109,7 @@ h6 * {
 }
 
 .dropdown .dropdown-helper-text {
-  font-size: 12 6px;
+  font-size: 14px;
   margin: 4px 14px 0 14px;
 }
 

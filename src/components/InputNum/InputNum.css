@@ -25,7 +25,7 @@ h6 * {
 .inputNum .inputNum-label {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   position: relative;
 }

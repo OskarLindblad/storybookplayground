@@ -19,8 +19,10 @@ export const DropDown = ({
   value,
   ...rest
 }) => {
-  const [labelShrink, setLabelShrink] = useState(startValue ? true : false)
-  const [selected, setSeleted] = useState(false)
+  const [labelShrink, setLabelShrink] = useState(
+    startValue || value ? true : false,
+  )
+  const [selected, setSelected] = useState(false)
   const [newValue, setNewValue] = useState(value)
 
   let optionsList = []
@@ -35,6 +37,12 @@ export const DropDown = ({
   const handleValue = (e) => {
     onChange(e)
     setNewValue(e.target.value)
+    if (e.target.value === '') {
+      setLabelShrink(false)
+    } else {
+      setLabelShrink(true)
+    }
+    setSelected(false)
   }
 
   return (
@@ -69,11 +77,11 @@ export const DropDown = ({
           value={newValue}
           onFocus={() => {
             setLabelShrink(true)
-            setSeleted(true)
+            setSelected(true)
           }}
           onBlur={() => {
             newValue === '' && setLabelShrink(false)
-            setSeleted(false)
+            setSelected(false)
           }}
           style={{ width: width }}
           onChange={(e) => handleValue(e)}
@@ -140,7 +148,7 @@ DropDown.propTypes = {
 
 DropDown.defaultProps = {
   label: '',
-  startValue: true,
+  startValue: false,
   onChange: undefined,
   className: '',
   options: [{ value: '', title: '' }],

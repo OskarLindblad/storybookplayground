@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { useFormContext } from 'react-hook-form'
 import { numToString, stringToNum } from './formatNum'
 
-export const InputNum = ({
+export const InputNumReadOnly = ({
   readOnly,
   suffix,
   suffixImg,
@@ -18,11 +18,11 @@ export const InputNum = ({
   error,
   errorMessage,
   placeHolderMaxWidth,
-  defaultValue,
+  value,
   onChange,
   width,
   tagcolor,
-  id, // Always add InputNum if there is multiple Datalists
+  id,
   name,
   reference,
   ...rest
@@ -30,15 +30,18 @@ export const InputNum = ({
   const [selected, setSelected] = useState(false)
   const { getValues } = useFormContext()
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly || defaultValue === 0 || getValues(name) !== ''
-      ? true
-      : false,
+    value || readOnly || value === 0 || getValues(name) !== '' ? true : false,
   )
 
   const handleChange = (e) => {
-    e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals)
+    if (isNaN(e.target.value) || e.target.value === '') {
+      e.target.value = '0'
+    } else {
+      e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals)
+    }
 
     onChange(e)
+
     document.getElementById(id).value = numToString(
       decimalLimit(e.target.value, maxDecimals),
     )
@@ -59,10 +62,10 @@ export const InputNum = ({
     return value
   }
   var newDefaultValue
-  if (typeof defaultValue === 'number') {
-    newDefaultValue = numToString(defaultValue)
+  if (typeof value === 'number') {
+    newDefaultValue = numToString(value)
   } else {
-    newDefaultValue = numToString(parseFloat(defaultValue))
+    newDefaultValue = numToString(parseFloat(value))
   }
 
   return (
@@ -102,7 +105,7 @@ export const InputNum = ({
             ${noButton ? 'inputNum-noButton' : ''}
 
             `}
-            defaultValue={newDefaultValue}
+            value={newDefaultValue}
             onChange={handleChange}
             onFocus={() => {
               setLabelShrink(true)
@@ -142,9 +145,9 @@ export const InputNum = ({
   )
 }
 
-export default InputNum
+export default InputNumReadOnly
 
-InputNum.propTypes = {
+InputNumReadOnly.propTypes = {
   readOnly: PropTypes.bool,
   suffix: PropTypes.string,
   suffixImg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
@@ -164,7 +167,7 @@ InputNum.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
-InputNum.defaultProps = {
+InputNumReadOnly.defaultProps = {
   readOnly: false,
   suffix: '',
   suffixImg: false,
@@ -181,5 +184,5 @@ InputNum.defaultProps = {
   width: '200px',
   placeHolderMaxWidth: '100%',
   tagcolor: '#818181',
-  id: [...Array(10)].map((i) => (~~(Math.random() * 36)).toString(36)).join(''),
+  id: Math.random().toString(36).substr(2, 9),
 }

@@ -9,12 +9,12 @@ h6 * {
   margin: 0;
 }
 
-.inputText {
+.inputNum {
   line-height: 0;
   height: auto;
 }
 
-.inputText p {
+.inputNum p {
   display: block;
   -webkit-margin-before: 0.5em;
           margin-block-start: 0.5em;
@@ -22,7 +22,7 @@ h6 * {
           margin-block-end: 0.5em;
 }
 
-.inputText .inputText-label {
+.inputNum .inputNum-label {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
@@ -30,7 +30,7 @@ h6 * {
   position: relative;
 }
 
-.inputText .inputText-label .inputText-container {
+.inputNum .inputNum-label .inputNum-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,7 +41,7 @@ h6 * {
   position: relative;
 }
 
-.inputText .inputText-label .inputText-label-text {
+.inputNum .inputNum-label .inputNum-label-text {
   position: absolute;
   z-index: 1;
   -webkit-transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
@@ -53,12 +53,14 @@ h6 * {
   height: auto;
 }
 
-.inputText .inputText-label .inputText-label-text p {
+.inputNum .inputNum-label .inputNum-label-text p {
+  color: #818181;
   -webkit-transition: max-width 0.2s;
   transition: max-width 0.2s;
 }
 
-.inputText .inputText-label .inputText-label-text-label {
+.inputNum .inputNum-label .inputNum-label-text-label {
+  color: #818181;
   top: -14.5px;
   left: 12.5px;
   font-size: 14px;
@@ -68,15 +70,11 @@ h6 * {
   background-color: #fff;
 }
 
-.inputText .inputText-label .inputText-label-text-label p {
-  color: #818181;
-}
-
-.inputText .inputText-label .inputText-label-text-label.inputText-label-selected {
+.inputNum .inputNum-label .inputNum-label-text-label.inputNum-label-selected {
   color: #2c79f7;
 }
 
-.inputText .inputText-label .inputText-label-text-placeholder {
+.inputNum .inputNum-label .inputNum-label-text-placeholder {
   color: #979797;
   top: 14.5px;
   left: 16px;
@@ -84,9 +82,11 @@ h6 * {
   pointer-events: none;
 }
 
-.inputText .inputText-label input {
-  border: #2e394b 1px;
-  border-style: solid none solid solid;
+.inputNum .inputNum-label input {
+  border-top: #818181 1px solid;
+  border-left: #818181 1px solid;
+  border-bottom: #818181 1px solid;
+  border-right: #fff 0px solid;
   padding: 13px 0 13px 14px;
   border-radius: 4px 0 0 4px;
   font-size: 18px;
@@ -98,22 +98,30 @@ h6 * {
   text-overflow: ellipsis;
 }
 
-.inputText .inputText-label input.inputText-inputfield-selected {
-  border: #2c79f7 2px solid;
-  border-style: solid none solid solid;
+.inputNum .inputNum-label input.inputNum-inputfield-selected {
+  border-top: #2c79f7 2px solid !important;
+  border-left: #2c79f7 2px solid !important;
+  border-bottom: #2c79f7 2px solid !important;
+  border-right: #fff 0px solid;
   padding: calc(13px - 1px) 0 calc(13px - 1px) calc(14px - 1px);
 }
 
-.inputText .inputText-label input:focus {
+.inputNum .inputNum-label input:focus {
   outline: none;
 }
 
-.inputText .inputText-label .inputText-suffix {
+.inputNum .inputNum-label input.inputNum-noButton::-webkit-outer-spin-button,
+.inputNum .inputNum-label input.inputNum-noButton::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputNum .inputNum-label .inputNum-suffix {
   background-color: #fff;
-  border-top: #2e394b 1px solid;
+  border-top: #818181 1px solid;
   border-left: #fff 0px solid;
-  border-bottom: #2e394b 1px solid;
-  border-right: #2e394b 1px solid;
+  border-bottom: #818181 1px solid;
+  border-right: #818181 1px solid;
   padding: 13px 14px 13px 0;
   border-radius: 0 4px 4px 0;
   position: relative;
@@ -121,7 +129,7 @@ h6 * {
   line-height: 0.1;
 }
 
-.inputText .inputText-label .inputText-suffix.inputText-suffix-selected {
+.inputNum .inputNum-label .inputNum-suffix.inputNum-suffix-selected {
   border-top: #2c79f7 2px solid;
   border-left: #fff 0px solid;
   border-bottom: #2c79f7 2px solid;
@@ -129,43 +137,44 @@ h6 * {
   padding: calc(13px - 1px) calc(14px - 1px) calc(13px - 1px) 0;
 }
 
-.inputText .inputText-label .inputText-suffix p {
+.inputNum .inputNum-label .inputNum-suffix p {
   margin-left: 14px;
 }
 
-.inputText .inputText-label .inputText-suffix img {
+.inputNum .inputNum-label .inputNum-suffix img {
   height: 22px;
   width: auto;
   margin-left: 6px;
 }
 
-.inputText .inputText-label .inputText-suffix.suffix-image {
+.inputNum .inputNum-label .inputNum-suffix.suffix-image {
   padding: calc(13px - 1px) calc(14px - 1px) calc(13px - 1px) 0;
 }
 
-.inputText .inputText-label .inputText-suffix.inputText-suffix-selected.suffix-image {
+.inputNum .inputNum-label .inputNum-suffix.inputNum-suffix-selected.suffix-image {
   padding: calc(13px - 2px) calc(14px - 2px) calc(13px - 2px) 0;
 }
 
-.inputText .inputText-label .inputText-helper-text {
+.inputNum .inputNum-label .inputNum-helper-text {
   font-size: 14px;
   margin: 5px 14px 0 14px;
 }
 
-.inputText .inputText-label .inputText-helper-text p {
+.inputNum .inputNum-label .inputNum-helper-text p {
   margin-top: 12px;
 }
 
-.inputText-error.inputText-label .inputText-label-text-label {
+.inputNum-error.inputNum-label .inputNum-label-text-label {
   color: #ff695a;
   background-color: #fff;
+  z-index: 1;
 }
 
-.inputText-error.inputText-label .inputText-label-text-label.inputText-label-selected {
+.inputNum-error.inputNum-label .inputNum-label-text-label.inputNum-label-selected {
   color: #ff695a;
 }
 
-.inputText-error.inputText-label input {
+.inputNum-error.inputNum-label input {
   border-top: #ff695a 1px solid;
   border-left: #ff695a 1px solid;
   border-bottom: #ff695a 1px solid;
@@ -173,73 +182,74 @@ h6 * {
   color: #ff695a;
 }
 
-.inputText-error.inputText-label input.inputText-inputfield-selected {
+.inputNum-error.inputNum-label input.inputNum-inputfield-selected {
   border-top: #ff695a 2px solid !important;
   border-left: #ff695a 2px solid !important;
   border-bottom: #ff695a 2px solid !important;
   border-right: #fff 0px solid;
 }
 
-.inputText-error.inputText-label .inputText-suffix {
+.inputNum-error.inputNum-label .inputNum-suffix {
   border-top: #ff695a 1px solid;
   border-bottom: #ff695a 1px solid;
   border-right: #ff695a 1px solid;
 }
 
-.inputText-error.inputText-label .inputText-suffix.inputText-suffix-selected {
+.inputNum-error.inputNum-label .inputNum-suffix.inputNum-suffix-selected {
   border-top: #ff695a 2px solid;
   border-bottom: #ff695a 2px solid;
   border-right: #ff695a 2px solid;
 }
 
-.inputText-error.inputText-label .inputText-suffix p {
+.inputNum-error.inputNum-label .inputNum-suffix p {
   color: #ff695a;
   margin-left: 14px;
 }
 
-.inputText-error.inputText-label .inputText-helper-text {
+.inputNum-error.inputNum-label .inputNum-helper-text {
   color: #ff695a;
 }
 
-.inputText-label.inputText-smallField .inputText-label-text-label {
+.inputNum-label.inputNum-smallField .inputNum-label-text-label {
   top: -13.5px;
   font-size: 12px;
+  background-color: #fff;
 }
 
-.inputText-label.inputText-smallField .inputText-label-text-placeholder {
+.inputNum-label.inputNum-smallField .inputNum-label-text-placeholder {
   color: #979797;
   top: 9.5px;
   font-size: 14px;
 }
 
-.inputText-label.inputText-smallField input {
+.inputNum-label.inputNum-smallField input {
   padding: 8.5px 0 8.5px 14px;
   font-size: 14px;
 }
 
-.inputText-label.inputText-smallField input.inputText-inputfield-selected {
+.inputNum-label.inputNum-smallField input.inputNum-inputfield-selected {
   padding: calc(8.5px - 1px) 0 calc(8.5px - 1px) calc(14px - 1px);
 }
 
-.inputText-label.inputText-smallField .inputText-suffix {
+.inputNum-label.inputNum-smallField .inputNum-suffix {
   padding: calc(8.5px + 1px) 14px calc(8.5px - 1px) 0;
   font-size: 14px;
 }
 
-.inputText-label.inputText-smallField .inputText-suffix.suffix-image {
+.inputNum-label.inputNum-smallField .inputNum-suffix.suffix-image {
   padding: calc(8.5px - 3px) calc(14px - 3px) calc(8.5px - 3px) 0;
 }
 
-.inputText-label.inputText-smallField .inputText-suffix.inputText-suffix-selected {
+.inputNum-label.inputNum-smallField .inputNum-suffix.inputNum-suffix-selected {
   padding: calc(8.5px - 0px) calc(14px - 1px) calc(8.5px - 2px) 0;
 }
 
-.inputText-label.inputText-smallField .inputText-suffix.inputText-suffix-selected.suffix-image {
+.inputNum-label.inputNum-smallField .inputNum-suffix.inputNum-suffix-selected.suffix-image {
   padding: calc(8.5px - 3.5px) calc(14px - 4px) calc(8.5px - 3.5px) 0;
 }
 
-.inputText-label.inputText-smallField .inputText-helper-text {
+.inputNum-label.inputNum-smallField .inputNum-helper-text {
   font-size: 14px;
   margin: 5px 14px 0 14px;
 }
-/*# sourceMappingURL=InputText.css.map */
+/*# sourceMappingURL=InputNum.css.map */

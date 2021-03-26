@@ -33,7 +33,7 @@ export const DataList = ({
   ...rest
 }) => {
   const [selected, setSelected] = useState(false);
-  const [dropDown, showDropDown] = useState(false); //sjhvdvhjd
+  const [dropDown, showDropDown] = useState(false);
   const [tempValue, setTempValue] = useState(""); //ignore
 
   //const { getValues } = useFormContext()
@@ -44,6 +44,7 @@ export const DataList = ({
   );
 
   const handleChange = (e) => {
+    e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals);
     let cursorIndex = cursorPlacement(e.target.value, tempValue);
     setTempValue(e.target.value);
 
@@ -52,9 +53,6 @@ export const DataList = ({
       document.getElementById(id).focus();
       document.getElementById(id).setSelectionRange(cursorIndex, cursorIndex);
     }
-
-    e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals);
-
     e.target.value = decimalLimit(
       limitValue(stringToNum(e.target.value)),
       maxDecimals
@@ -63,12 +61,10 @@ export const DataList = ({
     document.getElementById(id).value = numToString(
       decimalLimit(e.target.value, maxDecimals)
     );
-    console.log(cursorIndex);
   };
 
-  const handleClick = (val) => {
-    let b = { target: { value: val } };
-    onChange(b);
+  const handleClick = (val, e) => {
+    onChange(e, val);
     document.getElementById(id).value = numToString(decimalLimit(val));
   };
 
@@ -230,9 +226,6 @@ export const DataList = ({
               onMouseEnter={() => {
                 showDropDown(true);
               }}
-              //onMouseLeave={() => {
-              //showDropDown(false);
-              //}}
               style={{ width: width }}
             >
               <ul className="datalist-dropdown">
@@ -240,7 +233,11 @@ export const DataList = ({
                   <li
                     key={index}
                     value={option.value}
-                    onClick={() => handleClick(option.value)}
+                    onClick={(e) => handleClick(option.value, e)}
+                    className={className}
+                    name={name}
+                    id={id}
+                    {...rest}
                   >
                     {option.title}
                   </li>

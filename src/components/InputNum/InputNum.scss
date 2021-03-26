@@ -30,7 +30,7 @@ h6 * {
   }
   .inputNum-label {
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
     position: relative;
 
@@ -50,6 +50,7 @@ h6 * {
       overflow: hidden;
       text-overflow: ellipsis;
       height: auto;
+
       p {
         color: $Grey;
         transition: max-width 0.2s;
@@ -64,6 +65,7 @@ h6 * {
       pointer-events: none;
       padding: 6px 3px;
       background-color: $White;
+
       &.inputNum-label-selected {
         color: $Selected;
       }
