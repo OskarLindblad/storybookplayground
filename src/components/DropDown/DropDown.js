@@ -47,89 +47,90 @@ export const DropDown = ({
   };
 
   return (
-    <div
-      className={`dropdown
+    <>
+      <div
+        className={`dropdown
     ${error ? "dropdown-error" : ""}
     ${smallField ? "dropdown-smallField" : ""}
 
     `}
-      style={{ width: width }}
-    >
-      <label
-        className={`
+        style={{ width: width }}
+      >
+        <label
+          className={`
               input-label 
               ${error ? "input-error" : ""}
             `}
-      >
-        {label && (
-          <div
-            className={`dropdown-label-text
+        >
+          {label && (
+            <div
+              className={`dropdown-label-text
             dropdown-label-text-${labelShrink ? "label" : "placeholder"}
             ${selected ? "dropdown-label-selected" : ""}`}
-          >
-            <p
-              className="dropdown-label-text-p"
-              style={
-                labelShrink
-                  ? { maxWidth: width }
-                  : { maxWidth: placeHolderMaxWidth }
-              }
             >
-              {label}
-            </p>
-            {labelShrink && <div className="dropdown-label-background"></div>}
+              <p
+                className="dropdown-label-text-p"
+                style={
+                  labelShrink
+                    ? { maxWidth: width }
+                    : { maxWidth: placeHolderMaxWidth }
+                }
+              >
+                {label}
+              </p>
+              {labelShrink && <div className="dropdown-label-background"></div>}
+            </div>
+          )}
+          <select
+            name={name}
+            className={`dropdown-select ${
+              selected ? "dropdown-select-selected" : ""
+            }`}
+            value={newValue}
+            onFocus={() => {
+              setLabelShrink(true);
+              setSelected(true);
+            }}
+            onBlur={() => {
+              newValue === "" && setLabelShrink(false);
+              setSelected(false);
+            }}
+            style={{ width: width }}
+            onChange={(e) => handleValue(e)}
+            ref={reference}
+            {...rest}
+          >
+            {newValue === "" && !startValue ? (
+              <option
+                value="notSelected"
+                className="dropdown-notSelected"
+                disabled={newValue === "notSelected" ? true : false}
+              ></option>
+            ) : (
+              <></>
+            )}
+
+            {optionsList.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.title}
+              </option>
+            ))}
+          </select>
+          <div className="dropdown-down-icon-container">
+            <div className="dropdown-down-icon">
+              <img src={down} alt="down" />
+            </div>
           </div>
+        </label>
+      </div>
+      <div className="dropdown-helper-text">
+        {errorMessage && error ? (
+          <p className="dropdown-error-message">{errorMessage}</p>
+        ) : (
+          <p className={error ? "dropdown-text-error" : ""}>{helperText}</p>
         )}
-        <select
-          name={name}
-          className={`dropdown-select ${
-            selected ? "dropdown-select-selected" : ""
-          }`}
-          value={newValue}
-          onFocus={() => {
-            setLabelShrink(true);
-            setSelected(true);
-          }}
-          onBlur={() => {
-            newValue === "" && setLabelShrink(false);
-            setSelected(false);
-          }}
-          style={{ width: width }}
-          onChange={(e) => handleValue(e)}
-          ref={reference}
-          {...rest}
-        >
-          {newValue === "" && !startValue ? (
-            <option
-              value="notSelected"
-              className="dropdown-notSelected"
-              disabled={newValue === "notSelected" ? true : false}
-            ></option>
-          ) : (
-            <></>
-          )}
-
-          {optionsList.map((option, index) => (
-            <option key={index} value={option.value}>
-              {option.title}
-            </option>
-          ))}
-        </select>
-        <div className="dropdown-down-icon-container">
-          <div className="dropdown-down-icon">
-            <img src={down} alt="down" />
-          </div>
-        </div>
-
-        <div className="dropdown-helper-text">
-          {errorMessage && error ? (
-            <p className="dropdown-error-message">{errorMessage}</p>
-          ) : (
-            <p>{helperText}</p>
-          )}
-        </div>
-      </label>
-    </div>
+      </div>
+    </>
   );
 };
 

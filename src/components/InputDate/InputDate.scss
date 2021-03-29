@@ -64,9 +64,6 @@ h6 * {
       p {
         padding: 0 3px;
       }
-      &.inputdate-label-selected {
-        color: $Selected;
-      }
       .inputdate-label-background {
         width: auto;
         background-color: $White;
@@ -147,17 +144,19 @@ h6 * {
         }
       }
     }
+  }
+}
+.inputdate-helper-text {
+  font-size: 12px;
+  line-height: 1.4;
 
-    .inputdate-helper-text {
-      font-size: 12px;
-      line-height: 1.4;
-
-      margin: 5px 14px 0 14px;
-      p {
-        color: $Red;
-        margin-top: 2px;
-      }
-    }
+  margin: 5px 14px 0 14px;
+  p {
+    margin-top: 2px;
+  }
+  .inputdate-helper-error,
+  .inputdate-helper-error-text {
+    color: $Red;
   }
 }
 
@@ -198,9 +197,6 @@ h6 * {
       margin-left: 14px;
     }
   }
-  .inputdate-helper-text {
-    color: $Red;
-  }
 }
 
 // Small ---------------------------------------------
@@ -239,7 +235,7 @@ h6 * {
     }
   }
   .inputdate-helper-text {
-    font-size: 14px;
+    font-size: 12px;
     margin: 5px 14px 0 14px;
   }
 }

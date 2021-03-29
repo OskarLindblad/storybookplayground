@@ -196,16 +196,6 @@ h6 * {
   top: 0;
 }
 
-.dataList .dataList-label .dataList-helper-text {
-  font-size: 12px;
-  margin: 5px 14px 0 14px;
-}
-
-.dataList .dataList-label .dataList-helper-text p {
-  margin-top: 2px;
-  line-height: 1.4;
-}
-
 .dataList .dataList-label .datalist-dropdown-container {
   position: relative;
 }
@@ -215,7 +205,7 @@ h6 * {
   top: 0;
   z-index: 300;
   background-color: white;
-  border: 1px #818181;
+  border: 1px #2c79f7;
   border-style: none solid solid solid;
   width: calc(100% - 2px);
   margin: 0;
@@ -252,6 +242,16 @@ h6 * {
   z-index: -30;
 }
 
+.dataList-helper-text {
+  font-size: 12px;
+  margin: 5px 14px 0 14px;
+}
+
+.dataList-helper-text p {
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
 .dataList-error.dataList-label .dataList-label-text-label {
   z-index: 1;
 }
@@ -262,6 +262,11 @@ h6 * {
 
 .dataList-error.dataList-label .dataList-label-text-label.dataList-label-selected p {
   color: #b00020;
+}
+
+.dataList-error.dataList-label .datalist-dropdown-container .datalist-dropdown {
+  border: 1px #b00020;
+  border-style: none solid solid solid;
 }
 
 .dataList-error.dataList-label input {
@@ -289,7 +294,7 @@ h6 * {
   margin-left: 14px;
 }
 
-.dataList-error.dataList-label .dataList-helper-text {
+.dataList-helper-text .dataList-helper-text-error {
   color: #b00020;
 }
 
@@ -328,10 +333,5 @@ h6 * {
 
 .dataList-label.dataList-smallField .dataList-suffix.dataList-suffix-selected.suffix-image {
   padding: calc(8.5px - 4px) calc(14px - 4px) calc(8.5px - 4px) 0;
-}
-
-.dataList-label.dataList-smallField .dataList-helper-text {
-  font-size: 12px;
-  margin: 5px 14px 0 14px;
 }
 /*# sourceMappingURL=DataList.css.map */

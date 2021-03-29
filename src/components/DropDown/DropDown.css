@@ -56,10 +56,6 @@ h6 * {
   padding: 0 3px;
 }
 
-.dropdown label.input-label .dropdown-label-text-label.dropdown-label-selected {
-  color: #2c79f7;
-}
-
 .dropdown label.input-label .dropdown-label-text-label .dropdown-label-background {
   width: auto;
   background-color: #fff;
@@ -111,7 +107,7 @@ h6 * {
 .dropdown .dropdown-down-icon-container .dropdown-down-icon {
   height: 100%;
   position: relative;
-  border: #2e394b 2px;
+  border: #818181 2px;
 }
 
 .dropdown .dropdown-down-icon-container .dropdown-down-icon img {
@@ -123,12 +119,12 @@ h6 * {
   right: 0;
 }
 
-.dropdown .dropdown-helper-text {
-  font-size: 14px;
+.dropdown-helper-text {
+  font-size: 12px;
   margin: 4px 14px 0 14px;
 }
 
-.dropdown .dropdown-helper-text p {
+.dropdown-helper-text p {
   margin-top: 12px;
   -webkit-margin-before: 0;
           margin-block-start: 0;
@@ -136,8 +132,9 @@ h6 * {
           margin-block-end: 0;
 }
 
-.dropdown .dropdown-helper-text p.dropdown-error-message {
-  color: #ff695a;
+.dropdown-helper-text .dropdown-text-error,
+.dropdown-helper-text .dropdown-error-message {
+  color: #b00020;
 }
 
 .dropdown-smallField label.input-label .dropdown-label-text-label {
@@ -167,15 +164,27 @@ h6 * {
   height: 35px !important;
 }
 
-.dropdown-error label .dropdown-label-text-label.dropdown-label-selected {
-  color: #ff695a;
+.dropdown-error label.input-label .dropdown-label-text-label {
+  color: #b00020;
 }
 
-.dropdown-error label select.dropdown-select {
-  border: #ff695a 1px solid;
+.dropdown-error label.input-label .dropdown-label-text-label .dropdown-label-background {
+  background-color: #fff;
 }
 
-.dropdown-error label select.dropdown-select.dropdown-select-selected {
-  border: #ff695a 2px solid;
+.dropdown-error label.input-label select.dropdown-select {
+  border: #b00020 1px solid;
+}
+
+.dropdown-error label.input-label select.dropdown-select.dropdown-select-selected {
+  border: #b00020 2px solid;
+}
+
+.dropdown-error .dropdown-down-icon-container .dropdown-down-icon {
+  border: #b00020 2px;
+}
+
+.dataList-helper-text-error {
+  color: #b00020;
 }
 /*# sourceMappingURL=DropDown.css.map */

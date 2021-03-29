@@ -3,7 +3,7 @@ $Selected: #2c79f7;
 $PlaceHolderGray: #979797;
 $Grey: #818181;
 $White: #fff;
-$Red: #ff695a;
+$Red: #b00020;
 
 $PH: 14px; //Padding Horizontally
 $PV: 13px; //Padding Vertically
@@ -53,9 +53,6 @@ h6 * {
       p {
         padding: 0 3px;
       }
-      &.dropdown-label-selected {
-        color: $Selected;
-      }
       .dropdown-label-background {
         width: auto;
         background-color: $White;
@@ -103,7 +100,7 @@ h6 * {
     .dropdown-down-icon {
       height: 100%;
       position: relative;
-      border: #2e394b 2px;
+      border: $Grey 2px;
       img {
         padding-top: 0%;
         position: absolute;
@@ -114,18 +111,19 @@ h6 * {
       }
     }
   }
-  .dropdown-helper-text {
-    font-size: 14px;
-    margin: 4px 14px 0 14px;
+}
+.dropdown-helper-text {
+  font-size: 12px;
+  margin: 4px 14px 0 14px;
 
-    p {
-      margin-top: 12px;
-      margin-block-start: 0;
-      margin-block-end: 0;
-      &.dropdown-error-message {
-        color: $Red;
-      }
-    }
+  p {
+    margin-top: 12px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  .dropdown-text-error,
+  .dropdown-error-message {
+    color: $Red;
   }
 }
 
@@ -161,17 +159,31 @@ h6 * {
 
 // error
 .dropdown-error {
-  label {
+  label.input-label {
+    //label/placeholder
+
     .dropdown-label-text-label {
-      &.dropdown-label-selected {
-        color: $Red;
+      color: $Red;
+      .dropdown-label-background {
+        background-color: $White;
       }
     }
+
     select.dropdown-select {
       border: $Red 1px solid;
+
       &.dropdown-select-selected {
         border: $Red 2px solid;
       }
     }
   }
+  .dropdown-down-icon-container {
+    .dropdown-down-icon {
+      border: $Red 2px;
+    }
+  }
+}
+
+.dataList-helper-text-error {
+  color: $Red;
 }

@@ -11,7 +11,7 @@ import "./App.css";
 // import LegalFeesDistrubution from "./legalFeesDistrubution/LegalFeesDistrubution";
 import DataList from "./components/DataList/DataList";
 import DropDown from "./components/DropDown/DropDown";
-import InputDate from "./components/InputDate2/InputDate";
+import InputDate from "./components/InputDate/InputDate";
 import InputNum from "./components/InputNum/InputNum";
 import InputNumReadOnly from "./components/InputNumReadOnly/InputNumReadOnly";
 import InputText from "./components/InputText/InputText";
@@ -37,7 +37,7 @@ function App() {
         options={[-12, 23, 333]}
         placeHolderMaxWidth="30px"
         maxValue={100000}
-        maxLength={99999}
+        maxLength={10}
         error
         smallField
         errorMessage="fsgfgruefwefw fewfewweffew fewfwefew sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdrfyegu"
@@ -51,28 +51,33 @@ function App() {
         label="hdsjdgs"
         smallField
         helperText="djhidnewid sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr  ewfjiwfhiuehfu fehweghfiew"
+        error
       />
       <InputDate
         label="hdsjdgs"
         smallField
+        error
         helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
       />
-      {
-        <InputNum
-          label="hdsjdgs"
-          smallField
-          helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
-        />
-      }
+
+      <InputNum
+        label="hdsjdgs"
+        smallField
+        helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
+        error
+      />
+
       <InputNumReadOnly
         label="---"
         smallField
         helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
+        error
       />
       <InputText
         label="hdsjdgs"
         smallField
         helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
+        error
       />
       {state}
     </div>

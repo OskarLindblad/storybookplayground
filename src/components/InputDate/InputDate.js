@@ -42,75 +42,83 @@ export const InputDate = ({
   };
 
   return (
-    <div className="inputdate" style={{ width: width }}>
-      <label
-        className={`
+    <>
+      <div className="inputdate" style={{ width: width }}>
+        <label
+          className={`
           inputdate-label 
           ${error ? "inputdate-error" : ""}
           ${smallField ? "inputdate-smallField" : ""}
         `}
-      >
-        {label && (
-          <div
-            className={`inputdate-label-text
+        >
+          {label && (
+            <div
+              className={`inputdate-label-text
               inputdate-label-text-${labelShrink ? "label" : "placeholder"}
             ${selected ? "inputdate-label-selected" : ""}`}
-          >
-            <p
-              className="inputdate-label-text-p"
-              style={
-                labelShrink
-                  ? { maxWidth: width }
-                  : { maxWidth: placeHolderMaxWidth }
-              }
             >
-              {label}
-            </p>
-            {labelShrink && <div className="inputdate-label-background"></div>}
-          </div>
-        )}
-        <div className="inputdate-container" style={{ width: width }}>
-          <input
-            type="date"
-            className={`inputdate-inputfield ${
-              selected ? "inputdate-inputfield-selected" : ""
-            }
+              <p
+                className="inputdate-label-text-p"
+                style={
+                  labelShrink
+                    ? { maxWidth: width }
+                    : { maxWidth: placeHolderMaxWidth }
+                }
+              >
+                {label}
+              </p>
+              {labelShrink && (
+                <div className="inputdate-label-background"></div>
+              )}
+            </div>
+          )}
+          <div className="inputdate-container" style={{ width: width }}>
+            <input
+              type="date"
+              className={`inputdate-inputfield ${
+                selected ? "inputdate-inputfield-selected" : ""
+              }
             ${className ? className : ""}
             `}
-            readOnly={readOnly ? readOnly : false}
-            defaultValue={defaultValue}
-            name={name}
-            ref={reference}
-            onChange={handleChange}
-            onFocus={() => {
-              !defaultValue && setLabelShrink(true);
-              setSeleted(true);
-            }}
-            onBlur={() => {
-              !defaultValue && setLabelShrink(true);
-              setSeleted(false);
-            }}
-            style={labelShrink ? { color: "black" } : { color: "white" }}
-            {...rest}
-          />
-          <div
-            className={`inputdate-suffix 
+              readOnly={readOnly ? readOnly : false}
+              defaultValue={defaultValue}
+              name={name}
+              ref={reference}
+              onChange={handleChange}
+              onFocus={() => {
+                !defaultValue && setLabelShrink(true);
+                setSeleted(true);
+              }}
+              onBlur={() => {
+                !defaultValue && setLabelShrink(true);
+                setSeleted(false);
+              }}
+              style={labelShrink ? { color: "black" } : { color: "white" }}
+              {...rest}
+            />
+            <div
+              className={`inputdate-suffix 
             ${selected ? "inputdate-suffix-selected" : ""}
             ${suffixImg ? "suffix-image" : ""}
             `}
-          >
-            {suffixImg ? (
-              <img src={suffixImg} className="suffixImg" alt="suffixImg" />
-            ) : (
-              suffix && <p>{suffix}</p>
-            )}
+            >
+              {suffixImg ? (
+                <img src={suffixImg} className="suffixImg" alt="suffixImg" />
+              ) : (
+                suffix && <p>{suffix}</p>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="inputdate-helper-text">
-          {errorMessage && error ? <p>{errorMessage}</p> : <p>{helperText}</p>}
-        </div>
-      </label>
-    </div>
+        </label>
+      </div>
+      <div className="inputdate-helper-text">
+        {errorMessage && error ? (
+          <p className="inputdate-helper-error-text">{errorMessage}</p>
+        ) : (
+          <p className={error ? "inputdate-helper-error" : ""}>{helperText}</p>
+        )}
+      </div>
+    </>
   );
 };
 

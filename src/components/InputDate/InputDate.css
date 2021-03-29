@@ -70,10 +70,6 @@ h6 * {
   padding: 0 3px;
 }
 
-.inputdate .inputdate-label .inputdate-label-text-label.inputdate-label-selected {
-  color: #2c79f7;
-}
-
 .inputdate .inputdate-label .inputdate-label-text-label .inputdate-label-background {
   width: auto;
   background-color: #fff;
@@ -162,15 +158,19 @@ h6 * {
   padding: calc(13px - 2px) calc(14px - 2px) calc(13px - 2px) 0;
 }
 
-.inputdate .inputdate-label .inputdate-helper-text {
+.inputdate-helper-text {
   font-size: 12px;
   line-height: 1.4;
   margin: 5px 14px 0 14px;
 }
 
-.inputdate .inputdate-label .inputdate-helper-text p {
-  color: #b00020;
+.inputdate-helper-text p {
   margin-top: 2px;
+}
+
+.inputdate-helper-text .inputdate-helper-error,
+.inputdate-helper-text .inputdate-helper-error-text {
+  color: #b00020;
 }
 
 .inputdate-error.inputdate-label .inputdate-label-text-label {
@@ -213,10 +213,6 @@ h6 * {
   margin-left: 14px;
 }
 
-.inputdate-error.inputdate-label .inputdate-helper-text {
-  color: #b00020;
-}
-
 .inputdate-label.inputdate-smallField .inputdate-label-text-label {
   top: -7.5px;
   font-size: 12px;
@@ -255,7 +251,7 @@ h6 * {
 }
 
 .inputdate-label.inputdate-smallField .inputdate-helper-text {
-  font-size: 14px;
+  font-size: 12px;
   margin: 5px 14px 0 14px;
 }
 /*# sourceMappingURL=InputDate.css.map */

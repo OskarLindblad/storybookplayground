@@ -246,14 +246,14 @@ export const DataList = ({
               <div className="datalist-dropdown-background"></div>
             </div>
           )}
-          <div className="dataList-helper-text">
-            {errorMessage && error ? (
-              <p>{errorMessage}</p>
-            ) : (
-              <p>{helperText}</p>
-            )}
-          </div>
         </label>
+      </div>
+      <div className="dataList-helper-text">
+        {errorMessage && error ? (
+          <p className="dataList-helper-text-error">{errorMessage}</p>
+        ) : (
+          <p>{helperText}</p>
+        )}
       </div>
     </>
   );

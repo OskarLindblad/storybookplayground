@@ -66,7 +66,7 @@ export const InputNum = ({
   }
 
   return (
-    <div className="inputNum" stye={{ width: width }}>
+    <div className="inputNum" style={{ width: width }}>
       <label
         className={`
           inputNum-label 
@@ -85,7 +85,7 @@ export const InputNum = ({
               className="inputNum-label-text-p"
               style={
                 labelShrink
-                  ? { maxWidth: width, color: tagcolor }
+                  ? { maxWidth: width, color: error ? "#b00020" : tagcolor }
                   : { maxWidth: placeHolderMaxWidth }
               }
             >

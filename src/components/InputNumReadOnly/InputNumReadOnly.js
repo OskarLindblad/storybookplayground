@@ -90,7 +90,7 @@ export const InputNumReadOnly = ({
               className="inputNum-RO-label-text-p"
               style={
                 labelShrink
-                  ? { maxWidth: width, color: tagcolor }
+                  ? { maxWidth: width, color: error ? "#b00020" : tagcolor }
                   : { maxWidth: placeHolderMaxWidth }
               }
             >

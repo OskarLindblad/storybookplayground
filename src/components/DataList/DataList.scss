@@ -175,14 +175,6 @@ h6 * {
       }
     }
 
-    .dataList-helper-text {
-      font-size: 12px;
-      margin: 5px 14px 0 14px;
-      p {
-        margin-top: 2px;
-        line-height: 1.4;
-      }
-    }
     .datalist-dropdown-container {
       position: relative;
 
@@ -191,7 +183,7 @@ h6 * {
         top: 0;
         z-index: 300;
         background-color: white;
-        border: 1px $Grey;
+        border: 1px $Selected;
         border-style: none solid solid solid;
         width: calc(100% - 2px);
         margin: 0;
@@ -227,6 +219,15 @@ h6 * {
   }
 }
 
+.dataList-helper-text {
+  font-size: 12px;
+  margin: 5px 14px 0 14px;
+  p {
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+}
+
 //Error styling
 .dataList-error.dataList-label {
   .dataList-label-text-label {
@@ -238,6 +239,13 @@ h6 * {
       p {
         color: $Red;
       }
+    }
+  }
+
+  .datalist-dropdown-container {
+    .datalist-dropdown {
+      border: 1px $Red;
+      border-style: none solid solid solid;
     }
   }
 
@@ -262,7 +270,9 @@ h6 * {
       margin-left: 14px;
     }
   }
-  .dataList-helper-text {
+}
+.dataList-helper-text {
+  .dataList-helper-text-error {
     color: $Red;
   }
 }
@@ -301,9 +311,5 @@ h6 * {
         padding: calc(#{$PVs} - 4px) calc(#{$PH} - 4px) calc(#{$PVs} - 4px) 0;
       }
     }
-  }
-  .dataList-helper-text {
-    font-size: 12px;
-    margin: 5px 14px 0 14px;
   }
 }
