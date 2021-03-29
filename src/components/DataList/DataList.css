@@ -64,7 +64,6 @@ h6 * {
 }
 
 .dataList .dataList-label .dataList-label-text-label {
-  color: #818181;
   top: -9.5px;
   left: 12.5px;
   font-size: 14px;
@@ -73,11 +72,11 @@ h6 * {
 }
 
 .dataList .dataList-label .dataList-label-text-label p {
-  padding: 0 3px;
+  color: #818181;
 }
 
-.dataList .dataList-label .dataList-label-text-label.dataList-label-selected {
-  color: #2c79f7;
+.dataList .dataList-label .dataList-label-text-label p {
+  padding: 0 3px;
 }
 
 .dataList .dataList-label .dataList-label-text-label .dataList-label-background {
@@ -136,6 +135,7 @@ h6 * {
   position: relative;
   padding: 13px 14px 13px 0;
   line-height: 0.1;
+  cursor: pointer;
 }
 
 .dataList .dataList-label .dataList-suffix .dataList-suffix-empty {
@@ -152,7 +152,7 @@ h6 * {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  cursor: pointer;
+  pointer-events: none;
 }
 
 .dataList .dataList-label .dataList-suffix .dataList-dropDown-button img {
@@ -162,7 +162,7 @@ h6 * {
 
 .dataList .dataList-label .dataList-suffix.dataList-suffix-selected {
   border: #2c79f7 2px;
-  border-style: solid solid solid;
+  border-style: solid solid solid none;
   padding: calc(13px - 1px) calc(14px - 1px) calc(13px - 1px) 0;
 }
 

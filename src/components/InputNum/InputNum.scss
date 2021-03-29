@@ -165,7 +165,9 @@ h6 * {
 //Error styling
 .inputNum-error.inputNum-label {
   .inputNum-label-text-label {
-    color: $Red;
+    p {
+      color: $Red;
+    }
     z-index: 1;
     &.inputNum-label-selected {
       p {

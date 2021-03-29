@@ -36,11 +36,12 @@ $Input-Width: 250px;
       position: absolute;
       z-index: 33;
       transition: top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
-      background-color: $White;
       white-space: nowrap;
     }
     .inputdate-label-text-label {
-      color: $Blue;
+      p {
+        color: $Grey;
+      }
       top: -14.5px;
       left: 12.5px;
       font-size: 14px;
@@ -167,8 +168,9 @@ $Input-Width: 250px;
 //Error styling
 .inputdate-error.inputdate-label {
   .inputdate-label-text-label {
-    color: $Red;
-    background-color: $White;
+    p {
+      color: $Red;
+    }
     &.inputdate-label-selected {
       color: $Red;
     }

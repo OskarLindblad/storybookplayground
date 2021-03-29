@@ -58,12 +58,15 @@ h6 * {
 }
 
 .inputdate .inputdate-label .inputdate-label-text-label {
-  color: #818181;
   top: -9.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
+}
+
+.inputdate .inputdate-label .inputdate-label-text-label p {
+  color: #818181;
 }
 
 .inputdate .inputdate-label .inputdate-label-text-label p {
@@ -173,7 +176,7 @@ h6 * {
   color: #b00020;
 }
 
-.inputdate-error.inputdate-label .inputdate-label-text-label {
+.inputdate-error.inputdate-label .inputdate-label-text-label p {
   color: #b00020;
 }
 

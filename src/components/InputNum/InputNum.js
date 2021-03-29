@@ -66,7 +66,7 @@ export const InputNum = ({
   }
 
   return (
-    <div className="inputNum" style={{ width: width }}>
+    <div className="inputNum">
       <label
         className={`
           inputNum-label 

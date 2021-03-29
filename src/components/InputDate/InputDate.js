@@ -43,7 +43,7 @@ export const InputDate = ({
 
   return (
     <>
-      <div className="inputdate" style={{ width: width }}>
+      <div className="inputdate">
         <label
           className={`
           inputdate-label 
@@ -110,13 +110,15 @@ export const InputDate = ({
             </div>
           </div>
         </label>
-      </div>
-      <div className="inputdate-helper-text">
-        {errorMessage && error ? (
-          <p className="inputdate-helper-error-text">{errorMessage}</p>
-        ) : (
-          <p className={error ? "inputdate-helper-error" : ""}>{helperText}</p>
-        )}
+        <div className="inputdate-helper-text">
+          {errorMessage && error ? (
+            <p className="inputdate-helper-error-text">{errorMessage}</p>
+          ) : (
+            <p className={error ? "inputdate-helper-error" : ""}>
+              {helperText}
+            </p>
+          )}
+        </div>
       </div>
     </>
   );

@@ -58,12 +58,15 @@ h6 * {
 }
 
 .inputText .inputText-label .inputText-label-text-label {
-  color: #818181;
   top: -9.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
+}
+
+.inputText .inputText-label .inputText-label-text-label p {
+  color: #818181;
 }
 
 .inputText .inputText-label .inputText-label-text-label p {
@@ -164,11 +167,7 @@ h6 * {
   margin-top: 2px;
 }
 
-.inputText-error.inputText-label .inputText-label-text-label {
-  color: #b00020;
-}
-
-.inputText-error.inputText-label .inputText-label-text-label.inputText-label-selected {
+.inputText-error.inputText-label .inputText-label-text-label p {
   color: #b00020;
 }
 

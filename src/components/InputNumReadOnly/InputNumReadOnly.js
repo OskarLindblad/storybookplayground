@@ -71,7 +71,7 @@ export const InputNumReadOnly = ({
   }
 
   return (
-    <div className="inputNum-RO" stye={{ width: width }}>
+    <div className="inputNum-RO">
       <label
         className={`
           inputNum-RO-label 

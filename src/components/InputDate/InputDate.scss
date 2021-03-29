@@ -55,7 +55,9 @@ h6 * {
       }
     }
     .inputdate-label-text-label {
-      color: $Grey;
+      p {
+        color: $Grey;
+      }
       top: -9.5px;
       left: 12.5px;
       font-size: 14px;
@@ -163,7 +165,9 @@ h6 * {
 //Error styling
 .inputdate-error.inputdate-label {
   .inputdate-label-text-label {
-    color: $Red;
+    p {
+      color: $Red;
+    }
     &.inputdate-label-selected {
       color: $Red;
     }

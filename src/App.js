@@ -38,7 +38,6 @@ function App() {
         placeHolderMaxWidth="30px"
         maxValue={100000}
         maxLength={10}
-        error
         smallField
         errorMessage="fsgfgruefwefw fewfewweffew fewfwefew sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdrfyegu"
         helperText="sdjkgkjsd fghjbgjhdbfgjkdfg sdfbishdfguhdsfigbdr sefbhisfghiuugbr"
@@ -51,33 +50,24 @@ function App() {
         label="hdsjdgs"
         smallField
         helperText="djhidnewid sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr  ewfjiwfhiuehfu fehweghfiew"
-        error
       />
       <InputDate
         label="hdsjdgs"
         smallField
-        error
         helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
       />
 
-      <InputNum
-        label="hdsjdgs"
-        smallField
-        helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
-        error
-      />
+      <InputNum label="hdsjdgs" smallField />
 
       <InputNumReadOnly
         label="---"
         smallField
         helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
-        error
       />
       <InputText
         label="hdsjdgs"
         smallField
         helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
-        error
       />
       {state}
     </div>

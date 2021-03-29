@@ -16,10 +16,10 @@ h6 * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-family: "Roboto", sans-serif;
 }
 
@@ -44,12 +44,15 @@ h6 * {
 }
 
 .dropdown label.input-label .dropdown-label-text-label {
-  color: #818181;
   top: -9.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
+}
+
+.dropdown label.input-label .dropdown-label-text-label p {
+  color: #818181;
 }
 
 .dropdown label.input-label .dropdown-label-text-label p {
@@ -121,15 +124,16 @@ h6 * {
 
 .dropdown-helper-text {
   font-size: 12px;
-  margin: 4px 14px 0 14px;
+  margin: 6px 14px 0 14px;
+  line-height: 1.4;
 }
 
 .dropdown-helper-text p {
   margin-top: 12px;
   -webkit-margin-before: 0;
           margin-block-start: 0;
-  -webkit-margin-after: 0;
-          margin-block-end: 0;
+  -webkit-margin-after: 0.5em;
+          margin-block-end: 0.5em;
 }
 
 .dropdown-helper-text .dropdown-text-error,
@@ -138,10 +142,13 @@ h6 * {
 }
 
 .dropdown-smallField label.input-label .dropdown-label-text-label {
-  color: #818181;
   top: -8.5px;
   left: 12.5px;
   font-size: 12px;
+}
+
+.dropdown-smallField label.input-label .dropdown-label-text-label p {
+  color: #818181;
 }
 
 .dropdown-smallField label.input-label .dropdown-label-text-placeholder {
@@ -164,12 +171,8 @@ h6 * {
   height: 35px !important;
 }
 
-.dropdown-error label.input-label .dropdown-label-text-label {
+.dropdown-error label.input-label .dropdown-label-text-label p {
   color: #b00020;
-}
-
-.dropdown-error label.input-label .dropdown-label-text-label .dropdown-label-background {
-  background-color: #fff;
 }
 
 .dropdown-error label.input-label select.dropdown-select {

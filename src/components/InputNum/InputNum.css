@@ -175,8 +175,11 @@ h6 * {
 }
 
 .inputNum-error.inputNum-label .inputNum-label-text-label {
-  color: #b00020;
   z-index: 1;
+}
+
+.inputNum-error.inputNum-label .inputNum-label-text-label p {
+  color: #b00020;
 }
 
 .inputNum-error.inputNum-label .inputNum-label-text-label.inputNum-label-selected p {

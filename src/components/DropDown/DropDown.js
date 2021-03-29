@@ -54,13 +54,13 @@ export const DropDown = ({
     ${smallField ? "dropdown-smallField" : ""}
 
     `}
-        style={{ width: width }}
       >
         <label
           className={`
               input-label 
               ${error ? "input-error" : ""}
             `}
+          style={{ width: width }}
         >
           {label && (
             <div
@@ -122,13 +122,13 @@ export const DropDown = ({
             </div>
           </div>
         </label>
-      </div>
-      <div className="dropdown-helper-text">
-        {errorMessage && error ? (
-          <p className="dropdown-error-message">{errorMessage}</p>
-        ) : (
-          <p className={error ? "dropdown-text-error" : ""}>{helperText}</p>
-        )}
+        <div className="dropdown-helper-text">
+          {errorMessage && error ? (
+            <p className="dropdown-error-message">{errorMessage}</p>
+          ) : (
+            <p className={error ? "dropdown-text-error" : ""}>{helperText}</p>
+          )}
+        </div>
       </div>
     </>
   );

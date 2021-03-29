@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 //import { useFormContext } from 'react-hook-form'
 import { numToString, stringToNum } from "./formatNum";
 import down from "./down.svg";
-import { cursorPlacement } from "./cursorPlacement";
 
 export const DataList = ({
   readOnly,
@@ -34,7 +33,7 @@ export const DataList = ({
 }) => {
   const [selected, setSelected] = useState(false);
   const [dropDown, showDropDown] = useState(false);
-  const [tempValue, setTempValue] = useState(""); //ignore
+  const [hinderBlur, setHinderBlur] = useState(false);
 
   //const { getValues } = useFormContext()
   const [labelShrink, setLabelShrink] = useState(
@@ -45,14 +44,7 @@ export const DataList = ({
 
   const handleChange = (e) => {
     e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals);
-    let cursorIndex = cursorPlacement(e.target.value, tempValue);
-    setTempValue(e.target.value);
 
-    if (cursorIndex !== undefined) {
-      console.log("yay");
-      document.getElementById(id).focus();
-      document.getElementById(id).setSelectionRange(cursorIndex, cursorIndex);
-    }
     e.target.value = decimalLimit(
       limitValue(stringToNum(e.target.value)),
       maxDecimals
@@ -128,11 +120,17 @@ export const DataList = ({
   };
 
   const handleDropDown = () => {
-    setTimeout(() => {
-      document.getElementById(id).focus();
-
-      showDropDown(true);
-    }, 50);
+    document.getElementById(id).focus();
+    showDropDown(true);
+    handleBlur();
+  };
+  const handleBlur = () => {
+    if (!hinderBlur) {
+      setHinderBlur(true);
+      setTimeout(() => {
+        setHinderBlur(false);
+      }, 1000);
+    }
   };
 
   const newDefaultValue = numToString(defaultValue);
@@ -248,6 +246,7 @@ export const DataList = ({
           )}
         </label>
       </div>
+      {/*  INSIDE DIV*/}
       <div className="dataList-helper-text">
         {errorMessage && error ? (
           <p className="dataList-helper-text-error">{errorMessage}</p>
@@ -255,6 +254,13 @@ export const DataList = ({
           <p>{helperText}</p>
         )}
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      {hinderBlur && "korv"}
     </>
   );
 };

@@ -58,12 +58,15 @@ h6 * {
 }
 
 .inputNum-RO .inputNum-RO-label .inputNum-RO-label-text-label {
-  color: #818181;
   top: -9.5px;
   left: 12.5px;
   font-size: 14px;
   font-weight: 600;
   pointer-events: none;
+}
+
+.inputNum-RO .inputNum-RO-label .inputNum-RO-label-text-label p {
+  color: #818181;
 }
 
 .inputNum-RO .inputNum-RO-label .inputNum-RO-label-text-label p {
@@ -175,8 +178,11 @@ h6 * {
 }
 
 .inputNum-RO-error.inputNum-RO-label .inputNum-RO-label-text-label {
-  color: #b00020;
   z-index: 1;
+}
+
+.inputNum-RO-error.inputNum-RO-label .inputNum-RO-label-text-label p {
+  color: #b00020;
 }
 
 .inputNum-RO-error.inputNum-RO-label .inputNum-RO-label-text-label.inputNum-RO-label-selected.inputNum-RO-label-selected {

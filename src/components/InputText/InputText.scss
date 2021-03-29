@@ -55,7 +55,9 @@ h6 * {
       }
     }
     .inputText-label-text-label {
-      color: $Grey;
+      p {
+        color: $Grey;
+      }
       top: -9.5px;
       left: 12.5px;
       font-size: 14px;
@@ -155,8 +157,7 @@ h6 * {
 //Error styling
 .inputText-error.inputText-label {
   .inputText-label-text-label {
-    color: $Red;
-    &.inputText-label-selected {
+    p {
       color: $Red;
     }
   }
