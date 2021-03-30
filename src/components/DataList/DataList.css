@@ -158,6 +158,10 @@ h6 * {
 .dataList .dataList-label .dataList-suffix .dataList-dropDown-button img {
   width: 12px;
   padding: 0 2px 1px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
 }
 
 .dataList .dataList-label .dataList-suffix.dataList-suffix-selected {
@@ -257,7 +261,7 @@ h6 * {
 }
 
 .dataList-error.dataList-label .dataList-label-text-label p {
-  color: #b00020;
+  color: #b00020 !important;
 }
 
 .dataList-error.dataList-label .dataList-label-text-label.dataList-label-selected p {
@@ -291,10 +295,9 @@ h6 * {
 
 .dataList-error.dataList-label .dataList-suffix p {
   color: #b00020;
-  margin-left: 14px;
 }
 
-.dataList-helper-text .dataList-helper-text-error {
+.dataList-error.dataList-label .dataList-helper-text .dataList-helper-text-error p {
   color: #b00020;
 }
 

@@ -10,17 +10,21 @@ import "./App.css";
 
 // import LegalFeesDistrubution from "./legalFeesDistrubution/LegalFeesDistrubution";
 import DataList from "./components/DataList/DataList";
-import DropDown from "./components/DropDown/DropDown";
+/* import DropDown from "./components/DropDown/DropDown";
 import InputDate from "./components/InputDate/InputDate";
 import InputNum from "./components/InputNum/InputNum";
 import InputNumReadOnly from "./components/InputNumReadOnly/InputNumReadOnly";
-import InputText from "./components/InputText/InputText";
+import InputText from "./components/InputText/InputText"; */
+import RadioButton from "./components/RadioButton/RadioButton";
 
 function App() {
   const [state, setstate] = useState("");
+  const [test, setTest] = useState(false);
+
   const handleChange = (e) => {
     setstate(e.target.value);
   };
+  console.log(test);
 
   return (
     <div className="App">
@@ -28,47 +32,31 @@ function App() {
       {/*<DatePicker />*/}
       <br />
       <br />
-
       <DataList
         onChange={handleChange}
         label="hdsjdgs"
         defaultValue={state}
         maxDecimals={5}
-        options={[-12, 23, 333]}
+        options={[-12, 23, 11, 21, 333]}
         placeHolderMaxWidth="30px"
         maxValue={100000}
         maxLength={10}
         smallField
+        suffix="%"
+        error
         errorMessage="fsgfgruefwefw fewfewweffew fewfwefew sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdrfyegu"
         helperText="sdjkgkjsd fghjbgjhdbfgjkdfg sdfbishdfguhdsfigbdr sefbhisfghiuugbr"
       />
-      <br />
-      <br />
-      <br />
-
-      <DropDown
-        label="hdsjdgs"
-        smallField
-        helperText="djhidnewid sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr  ewfjiwfhiuehfu fehweghfiew"
+      <RadioButton
+        id="1"
+        label="text..."
+        onChange={setstate}
+        onClick={handleChange}
+        isSelected={test}
+        fontSize="33px"
+        buttonSize="112px"
       />
-      <InputDate
-        label="hdsjdgs"
-        smallField
-        helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
-      />
-
-      <InputNum label="hdsjdgs" smallField />
-
-      <InputNumReadOnly
-        label="---"
-        smallField
-        helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
-      />
-      <InputText
-        label="hdsjdgs"
-        smallField
-        helperText="sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr sdfbishdfguhdsfigbdr djhidnewid ewfjiwfhiuehfu fehweghfiew"
-      />
+      <button onClick={() => setTest(!test)}>klick</button>
       {state}
     </div>
   );

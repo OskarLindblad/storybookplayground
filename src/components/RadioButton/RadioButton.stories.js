@@ -12,27 +12,15 @@ const Template = (args) => <RadioButton {...args} />;
 export const IsSelected = Template.bind({});
 
 IsSelected.args = {
-  id: "1",
+  variant: "selected",
+  checked: true,
   label: "Is Selected",
-  checked: "",
-  type: "",
 };
 
 export const IsNotSelected = Template.bind({});
 
 IsNotSelected.args = {
-  id: "1",
+  variant: "not-selected",
+  checked: false,
   label: "Is Not Selected",
-  checked: "",
-  type: "x",
-};
-
-export const Unclickable = Template.bind({});
-
-Unclickable.args = {
-  id: "1",
-  label: "Unclickable",
-  checked: "",
-  type: "x",
-  unClickable: true,
 };

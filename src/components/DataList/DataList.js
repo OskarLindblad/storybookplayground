@@ -37,9 +37,8 @@ export const DataList = ({
 
   //const { getValues } = useFormContext()
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly || defaultValue === 0 /*|| getValues(name) !== ''*/
-      ? true
-      : false
+    /* defaultValue || readOnly || defaultValue === 0 || getValues(name) !== ''*/
+    true
   );
 
   const handleChange = (e) => {
@@ -56,6 +55,7 @@ export const DataList = ({
   };
 
   const handleClick = (val, e) => {
+    showDropDown(false);
     onChange(e, val);
     document.getElementById(id).value = numToString(decimalLimit(val));
   };
@@ -129,14 +129,14 @@ export const DataList = ({
       setHinderBlur(true);
       setTimeout(() => {
         setHinderBlur(false);
-      }, 1000);
+      }, 500);
     }
   };
 
   const newDefaultValue = numToString(defaultValue);
   return (
     <>
-      <div className="dataList" style={{ width: width }}>
+      <div className="dataList">
         <label
           className={`
           dataList-label 
@@ -181,11 +181,11 @@ export const DataList = ({
                 setSelected(true);
               }}
               onBlur={() => {
-                /*!getValues(name)*/ !defaultValue && setLabelShrink(false);
-                setTimeout(() => {
+                /*!getValues(name) !defaultValue && setLabelShrink(false);*/
+                if (!hinderBlur) {
                   showDropDown(false);
-                }, 200);
-                setSelected(false);
+                  setSelected(false);
+                }
               }}
               onKeyDown={blockInvalidChar}
               maxLength={maxLength}
@@ -231,7 +231,7 @@ export const DataList = ({
                   <li
                     key={index}
                     value={option.value}
-                    onClick={(e) => handleClick(option.value, e)}
+                    onMouseDown={(e) => handleClick(option.value, e)}
                     className={className}
                     name={name}
                     id={id}
@@ -245,22 +245,14 @@ export const DataList = ({
             </div>
           )}
         </label>
+        <div className="dataList-helper-text">
+          {errorMessage && error ? (
+            <p className="dataList-helper-text-error">{errorMessage}</p>
+          ) : (
+            <p>{helperText}</p>
+          )}
+        </div>
       </div>
-      {/*  INSIDE DIV*/}
-      <div className="dataList-helper-text">
-        {errorMessage && error ? (
-          <p className="dataList-helper-text-error">{errorMessage}</p>
-        ) : (
-          <p>{helperText}</p>
-        )}
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      {hinderBlur && "korv"}
     </>
   );
 };

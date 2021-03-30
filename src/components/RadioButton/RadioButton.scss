@@ -1,30 +1,24 @@
-$radio-button-size: 14px;
-$PlaceHolderGray: #979797;
-
-.radiobutton {
-  font-size: 18px;
-
+.RadioButton {
   font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: row;
+  align-items: center;
 
-  .radiobutton-checkbox-container {
-    height: auto;
-    width: $radio-button-size;
-    margin-right: 4px;
-    position: relative;
-    .radiobutton-checkbox {
-      height: 100%;
-      width: $radio-button-size;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-    }
+  input[type="radio"] {
+    display: none;
   }
 
-  &.radiobutton-unClickable {
-    color: $PlaceHolderGray;
+  .RadioButton-btn {
+    height: 14px;
+    width: 14px;
+    margin-right: 12px;
+    border-radius: 50%;
+    background-image: url("./radiobutton-unchecked.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  input[type="radio"]:checked + .RadioButton-btn {
+    background-image: url("./radiobutton-checked.svg");
   }
 }

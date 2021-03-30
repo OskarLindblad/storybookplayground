@@ -46,10 +46,11 @@ export const InputText = ({
         {label && (
           <div
             className={`inputText-label-text
-          inputText-label-text-${labelShrink ? "label" : "placeholder"}
-          ${selected ? "inputText-label-selected" : ""}`}
+              inputText-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "inputText-label-selected" : ""}`}
           >
             <p
+              className="inputText-label-text-p"
               style={
                 labelShrink
                   ? { maxWidth: width }
@@ -58,6 +59,7 @@ export const InputText = ({
             >
               {label}
             </p>
+            {labelShrink && <div className="inputText-label-background"></div>}
           </div>
         )}
         <div className="inputText-container" style={{ width: width }}>

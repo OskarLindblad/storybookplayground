@@ -1,52 +1,44 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./RadioButton.css";
-import checkedImg from "./radiobutton-checked.svg";
-import uncheckedImg from "./radiobutton-unchecked.svg";
-import unclickableImg from "./radiobutton-unclickable.svg";
 
 const RadioButton = ({
   id,
+  value,
+  onChange,
+  isSelected,
   label,
-  checked,
-  setChecked,
-  type,
-  unClickable,
-  rest,
+  name,
+  onClick,
+  fontSize,
+  className,
+  claimindex,
+  claimtype,
+  statename,
+  buttonSize,
 }) => {
   return (
-    <div
-      className={`radiobutton ${unClickable ? "radiobutton-unClickable" : ""}`}
-      onClick={() => !unClickable && setChecked(type)}
-      {...rest}
-    >
-      {unClickable ? (
-        <div className="radiobutton-checkbox-container">
-          <img
-            src={unclickableImg}
-            alt="checked"
-            className="radiobutton-checkbox"
-          />
-        </div>
-      ) : checked === type ? (
-        <div className="radiobutton-checkbox-container">
-          <img
-            src={checkedImg}
-            alt="checked"
-            className="radiobutton-checkbox"
-          />
-        </div>
-      ) : (
-        <div className="radiobutton-checkbox-container">
-          <img
-            src={uncheckedImg}
-            alt="unchecked"
-            className="radiobutton-checkbox"
-          />
-        </div>
-      )}
-
-      <label htmlFor={id}>{label}</label>
+    <div className="RadioButton">
+      <input
+        id={id}
+        onClick={onClick}
+        onChange={onChange}
+        value={value}
+        type="radio"
+        checked={isSelected}
+        claimindex={claimindex}
+        statename={statename}
+        claimtype={claimtype}
+        className={className}
+        name={name}
+      />
+      <div
+        className="RadioButton-btn"
+        style={{ height: buttonSize, width: buttonSize }}
+      ></div>
+      <label htmlFor={id} style={{ fontSize: fontSize }}>
+        {label}
+      </label>
     </div>
   );
 };
@@ -55,18 +47,24 @@ export default RadioButton;
 
 RadioButton.propTypes = {
   id: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
+  checked: PropTypes.bool,
   label: PropTypes.string,
-  checked: PropTypes.string,
-  setChecked: PropTypes.func,
-  type: PropTypes.string,
-  unClickable: PropTypes.bool,
+  name: PropTypes.string,
+  className: PropTypes.string,
+  fontSize: PropTypes.string,
+  buttonSize: PropTypes.string,
 };
 
 RadioButton.defaultProps = {
   id: "1",
+  onChange: undefined,
+  value: "",
+  checked: false,
   label: "",
-  checked: "",
-  setChecked: undefined,
-  type: "",
-  unClickable: false,
+  name: "",
+  className: "",
+  fontSize: "14px",
+  buttonSize: "14px",
 };

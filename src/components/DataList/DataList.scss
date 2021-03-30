@@ -139,6 +139,9 @@ h6 * {
         img {
           width: 12px;
           padding: 0 2px 1px;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          user-select: none;
         }
       }
       &.dataList-suffix-selected {
@@ -232,7 +235,7 @@ h6 * {
 .dataList-error.dataList-label {
   .dataList-label-text-label {
     p {
-      color: $Red;
+      color: $Red !important;
     }
     z-index: 1;
     &.dataList-label-selected {
@@ -267,13 +270,14 @@ h6 * {
     }
     p {
       color: $Red;
-      margin-left: 14px;
     }
   }
-}
-.dataList-helper-text {
-  .dataList-helper-text-error {
-    color: $Red;
+  .dataList-helper-text {
+    .dataList-helper-text-error {
+      p {
+        color: $Red;
+      }
+    }
   }
 }
 
