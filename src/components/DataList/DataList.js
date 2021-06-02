@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./DataList.css";
 import PropTypes from "prop-types";
-//import { useFormContext } from 'react-hook-form'
+//import { useFormContext } from 'react-hook-form' Manos Choice
 import { numToString, stringToNum } from "./formatNum";
 import down from "./down.svg";
+import { cursorPlacement } from "../InputNum/cursorPlacement";
 
 export const DataList = ({
   readOnly,
@@ -26,44 +26,71 @@ export const DataList = ({
   onChange,
   width,
   tagcolor,
+  boldBorder,
   id, // Always add id if there is multiple Datalists
   name,
+  borderColor,
   reference,
+  backgroundColor,
+  localStyle,
   ...rest
 }) => {
   const [selected, setSelected] = useState(false);
   const [dropDown, showDropDown] = useState(false);
   const [hinderBlur, setHinderBlur] = useState(false);
 
-  //const { getValues } = useFormContext()
+  // Current index
+  const [indexTracker, setIndexTracker] = useState(0);
+
+  //const { getValues } = useFormContext() Manos doesn't need that
   const [labelShrink, setLabelShrink] = useState(
-    /* defaultValue || readOnly || defaultValue === 0 || getValues(name) !== ''*/
+    /* defaultValue || readOnly || defaultValue === 0 || getValues(name) !== ''*/ //Manos Choice
     true
   );
 
-  const handleChange = (e) => {
-    e.target.value = decimalLimit(stringToNum(e.target.value), maxDecimals);
+  // Prevous value (for comparement)
+  const [prevValue, setPrevValue] = useState(
+    typeof defaultValue === "number"
+      ? numToString(defaultValue)
+      : defaultValue === ""
+      ? ""
+      : numToString(parseFloat(defaultValue))
+  );
 
+  const handleChange = (e) => {
     e.target.value = decimalLimit(
       limitValue(stringToNum(e.target.value)),
       maxDecimals
     );
     onChange(e);
+    let cursorIndex = cursorPlacement(
+      prevValue,
+      numToString(decimalLimit(e.target.value, maxDecimals)),
+      indexTracker
+    );
+
+    setPrevValue(numToString(decimalLimit(e.target.value, maxDecimals)));
+    document.getElementById(id).focus();
+    setIndexTracker(cursorIndex);
     document.getElementById(id).value = numToString(
       decimalLimit(e.target.value, maxDecimals)
     );
+    document.getElementById(id).setSelectionRange(cursorIndex, cursorIndex);
   };
 
   const handleClick = (val, e) => {
     showDropDown(false);
+    console.log(val);
     onChange(e, val);
-    document.getElementById(id).value = numToString(decimalLimit(val));
+    document.getElementById(id).value = numToString(stringToNum(val));
   };
 
   let optionsList = [];
   for (let i = 0; i < options.length; i++) {
-    if (typeof options[i] === "string" || typeof options[i] === "number") {
+    if (typeof options[i] === "string") {
       optionsList.push({ value: options[i], title: options[i] });
+    } else if (typeof options[i] === "number") {
+      optionsList.push({ value: options[i], title: numToString(options[i]) });
     } else {
       optionsList.push(options[i]);
     }
@@ -119,6 +146,35 @@ export const DataList = ({
     return value;
   };
 
+  // Keep track on arrow
+  const moveCursor = (e) => {
+    ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
+
+    if ((e.charCode || e.keyCode) === 37) {
+      console.log("left", indexTracker);
+
+      // left arrow
+      setIndexTracker(indexTracker <= 0 ? 0 : indexTracker - 1);
+    }
+    if ((e.charCode || e.keyCode) === 39) {
+      console.log("right", indexTracker);
+
+      // right arrow
+      setIndexTracker(
+        indexTracker + 1 > numToString(defaultValue).length
+          ? numToString(defaultValue).length
+          : indexTracker + 1
+      );
+    }
+    if ((e.charCode || e.keyCode) === 38) {
+      setIndexTracker(0);
+    }
+    if ((e.charCode || e.keyCode) === 40) {
+      // down arrow
+      setIndexTracker(defaultValue.length);
+    }
+  };
+
   const handleDropDown = () => {
     document.getElementById(id).focus();
     showDropDown(true);
@@ -136,42 +192,55 @@ export const DataList = ({
   const newDefaultValue = numToString(defaultValue);
   return (
     <>
-      <div className="dataList">
+      <div className={`input dataList ${boldBorder ? "boldBorder" : ""}`}>
         <label
           className={`
-          dataList-label 
-          ${error ? "dataList-error" : ""}
-          ${smallField ? "dataList-smallField" : ""}
+          input-label 
+          ${error ? "input-error" : ""}
+          ${smallField ? "input-smallField" : ""}
           ${className ? className : ""}
         `}
         >
           {label && (
             <div
-              className={`dataList-label-text
-            dataList-label-text-${labelShrink ? "label" : "placeholder"}
-            ${selected ? "dataList-label-selected" : ""}`}
+              className={`input-label-text
+            input-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "input-label-selected" : ""}`}
             >
               <p
-                className="dataList-label-text-p"
+                className="input-label-text-p"
                 style={
                   labelShrink
-                    ? { maxWidth: width, color: tagcolor }
+                    ? borderColor
+                      ? {
+                          maxWidth: width,
+                          color: error ? "#b00020" : tagcolor,
+                        }
+                      : { maxWidth: width, color: error ? "#b00020" : tagcolor }
+                    : borderColor
+                    ? { maxWidth: placeHolderMaxWidth, color: borderColor }
                     : { maxWidth: placeHolderMaxWidth }
                 }
               >
                 {label}
               </p>
-              {labelShrink && <div className="dataList-label-background"></div>}
+              {labelShrink && (
+                <div
+                  className="input-label-background"
+                  style={{ backgroundColor: backgroundColor }}
+                ></div>
+              )}
             </div>
           )}
-          <div className="dataList-container" style={{ width: width }}>
+          <div className="input-container" style={{ width: width }}>
             <input
               type="text"
-              className={`dataList-inputfield ${
-                selected ? "dataList-inputfield-selected" : ""
+              autoComplete="nope"
+              className={`input-inputfield ${
+                selected ? "input-inputfield-selected" : ""
               } 
             ${className ? className : ""}
-            ${noButton ? "dataList-noButton" : ""}
+            ${noButton ? "input-noButton" : ""}
 
             `}
               defaultValue={newDefaultValue}
@@ -187,46 +256,68 @@ export const DataList = ({
                   setSelected(false);
                 }
               }}
-              onKeyDown={blockInvalidChar}
+              onKeyDown={(e) => {
+                blockInvalidChar(e);
+                moveCursor(e);
+              }}
+              onClick={() =>
+                setIndexTracker(document.getElementById(id).selectionStart)
+              }
               maxLength={maxLength}
               readOnly={readOnly ? readOnly : false}
               ref={reference}
               name={name}
               id={id}
+              style={{
+                borderColor: error
+                  ? "#b00020"
+                  : selected
+                  ? borderColor === "#818181"
+                    ? "#2c79f7"
+                    : borderColor
+                  : borderColor,
+                backgroundColor: backgroundColor,
+                ...localStyle,
+              }}
               {...rest}
             />
             <div
-              className={`dataList-suffix 
-            ${selected ? "dataList-suffix-selected" : ""}
+              className={`input-suffix 
             ${suffixImg ? "suffix-image" : ""}
             `}
               onClick={handleDropDown}
             >
-              <div
-                className="dataList-dropDown-button"
-                onClick={handleDropDown}
-              >
-                <img alt="downArrow" src={down} />
+              <div className="input-suffix-content">
+                <div className="input-dropDown-button" onClick={handleDropDown}>
+                  <img alt="downArrow" src={down} />
+                </div>
+                {suffixImg ? (
+                  <img src={suffixImg} className="suffixImg" alt="suffixImg" />
+                ) : (
+                  suffix && <p>{suffix}</p>
+                )}
               </div>
-
-              {suffixImg ? (
-                <img src={suffixImg} className="suffixImg" alt="suffixImg" />
-              ) : suffix ? (
-                <p>{suffix}</p>
-              ) : (
-                <p className="dataList-suffix-empty"></p>
-              )}
             </div>
           </div>
           {dropDown && (
             <div
-              className="datalist-dropdown-container"
+              className="input-dropdown-container"
               onMouseEnter={() => {
                 showDropDown(true);
               }}
               style={{ width: width }}
             >
-              <ul className="datalist-dropdown">
+              <ul
+                className="input-dropdown"
+                style={{
+                  backgroundColor: backgroundColor,
+                  borderColor: error
+                    ? "#b00020"
+                    : borderColor === "#818181"
+                    ? "#2c79f7"
+                    : borderColor,
+                }}
+              >
                 {optionsList.map((option, index) => (
                   <li
                     key={index}
@@ -241,13 +332,13 @@ export const DataList = ({
                   </li>
                 ))}
               </ul>
-              <div className="datalist-dropdown-background"></div>
+              <div className="input-dropdown-background"></div>
             </div>
           )}
         </label>
-        <div className="dataList-helper-text">
+        <div className="input-helper-text">
           {errorMessage && error ? (
-            <p className="dataList-helper-text-error">{errorMessage}</p>
+            <p className="input-error-message">{errorMessage}</p>
           ) : (
             <p>{helperText}</p>
           )}
@@ -289,6 +380,10 @@ DataList.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   maxValue: PropTypes.number,
   minValue: PropTypes.number,
+  borderColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  boldBorder: PropTypes.bool,
+  localStyle: PropTypes.object,
 };
 
 DataList.defaultProps = {
@@ -312,4 +407,8 @@ DataList.defaultProps = {
   id: [...Array(10)].map((i) => (~~(Math.random() * 36)).toString(36)).join(""),
   maxValue: 100,
   minValue: 0,
+  borderColor: "#818181",
+  backgroundColor: "#fff",
+  boldBorder: true,
+  localStyle: null,
 };

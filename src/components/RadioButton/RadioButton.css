@@ -1,5 +1,11 @@
 .RadioButton {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.RadioButton label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,23 +16,23 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
 }
 
-.RadioButton input[type="radio"] {
+.RadioButton label input[type='radio'] {
   display: none;
 }
 
-.RadioButton .RadioButton-btn {
-  height: 14px;
-  width: 14px;
-  margin-right: 12px;
+.RadioButton label .RadioButton-btn {
+  margin-right: 8px;
   border-radius: 50%;
   background-image: url("./radiobutton-unchecked.svg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 102%;
 }
 
-.RadioButton input[type="radio"]:checked + .RadioButton-btn {
+.RadioButton label input[type='radio']:checked + .RadioButton-btn {
   background-image: url("./radiobutton-checked.svg");
+  background-repeat: no-repeat;
 }
 /*# sourceMappingURL=RadioButton.css.map */

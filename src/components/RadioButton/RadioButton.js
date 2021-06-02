@@ -19,24 +19,24 @@ const RadioButton = ({
 }) => {
   return (
     <div className="RadioButton">
-      <input
-        id={id}
-        onClick={onClick}
-        onChange={onChange}
-        value={value}
-        type="radio"
-        checked={isSelected}
-        claimindex={claimindex}
-        statename={statename}
-        claimtype={claimtype}
-        className={className}
-        name={name}
-      />
-      <div
-        className="RadioButton-btn"
-        style={{ height: buttonSize, width: buttonSize }}
-      ></div>
       <label htmlFor={id} style={{ fontSize: fontSize }}>
+        <input
+          id={id}
+          onClick={onClick}
+          onChange={onChange}
+          value={value}
+          type="radio"
+          checked={isSelected}
+          claimindex={claimindex}
+          statename={statename}
+          claimtype={claimtype}
+          className={className}
+          name={name}
+        />
+        <div
+          className="RadioButton-btn"
+          style={{ height: buttonSize, width: buttonSize }}
+        ></div>
         {label}
       </label>
     </div>
@@ -66,5 +66,5 @@ RadioButton.defaultProps = {
   name: "",
   className: "",
   fontSize: "14px",
-  buttonSize: "14px",
+  buttonSize: "15px",
 };

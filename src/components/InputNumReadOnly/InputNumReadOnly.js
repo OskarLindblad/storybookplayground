@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import "./InputNumReadOnly.css";
 import PropTypes from "prop-types";
-//import { useFormContext } from 'react-hook-form'
+//import { useFormContext } from "react-hook-form";
 import { numToString, stringToNum } from "./formatNum";
 
 export const InputNumReadOnly = ({
@@ -25,14 +24,18 @@ export const InputNumReadOnly = ({
   id,
   name,
   reference,
+  borderColor,
+  backgroundColor,
+  localStyle,
+  boldBorder,
   ...rest
 }) => {
   const [selected, setSelected] = useState(false);
-  //const { getValues } = useFormContext()
+  /*const { getValues } = useFormContext()  ----   validation library*/
   const [labelShrink, setLabelShrink] = useState(
-    value || readOnly || value === 0 /*|| getValues(name) !== ''*/
-      ? true
-      : false
+    value ||
+      readOnly ||
+      value === 0 /*|| getValues(name) !== '' ? true : false*/
   );
 
   const handleChange = (e) => {
@@ -63,52 +66,65 @@ export const InputNumReadOnly = ({
     }
     return value;
   };
-  var newDefaultValue;
+  let newDefaultValue;
   if (typeof value === "number") {
     newDefaultValue = numToString(value);
+  } else if (value === "") {
+    newDefaultValue = "";
   } else {
     newDefaultValue = numToString(parseFloat(value));
   }
 
   return (
-    <div className="inputNum-RO">
+    <div className={`input inputNum-RO ${boldBorder ? "boldBorder" : ""}`}>
       <label
         className={`
-          inputNum-RO-label 
-          ${error ? "inputNum-RO-error" : ""}
-          ${smallField ? "inputNum-RO-smallField" : ""}
+          input-label 
+          ${error ? "input-error" : ""}
+          ${smallField ? "input-smallField" : ""}
           ${className ? className : ""}
         `}
       >
         {label && (
           <div
-            className={`inputNum-RO-label-text
-            inputNum-RO-label-text-${labelShrink ? "label" : "placeholder"}
-            ${selected ? "inputNum-RO-label-selected" : ""}`}
+            className={`input-label-text
+            input-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "input-label-selected" : ""}`}
           >
             <p
-              className="inputNum-RO-label-text-p"
+              className="input-label-text-p"
               style={
                 labelShrink
-                  ? { maxWidth: width, color: error ? "#b00020" : tagcolor }
+                  ? borderColor
+                    ? {
+                        maxWidth: width,
+                        color: error ? "#b00020" : tagcolor,
+                      }
+                    : { maxWidth: width, color: error ? "#b00020" : tagcolor }
+                  : borderColor
+                  ? { maxWidth: placeHolderMaxWidth, color: borderColor }
                   : { maxWidth: placeHolderMaxWidth }
               }
             >
               {label}
             </p>
             {labelShrink && (
-              <div className="inputNum-RO-label-background"></div>
+              <div
+                className="input-label-background"
+                style={{ backgroundColor: backgroundColor }}
+              ></div>
             )}
           </div>
         )}
-        <div className="inputNum-RO-container" style={{ width: width }}>
+        <div className="input-container" style={{ width: width }}>
           <input
             type="text"
-            className={`inputNum-RO-inputfield ${
-              selected ? "inputNum-RO-inputfield-selected" : ""
+            autoComplete="nope"
+            className={`input-inputfield ${
+              selected ? "input-inputfield-selected" : ""
             } 
             ${className ? className : ""}
-            ${noButton ? "inputNum-RO-noButton" : ""}
+            ${noButton ? "input-noButton" : ""}
 
             `}
             value={newDefaultValue}
@@ -118,7 +134,7 @@ export const InputNumReadOnly = ({
               setSelected(true);
             }}
             onBlur={() => {
-              /*!getValues(name)*/ value && setLabelShrink(false);
+              /*!getValues(name) &&*/ setLabelShrink(false);
 
               setSelected(false);
             }}
@@ -128,23 +144,39 @@ export const InputNumReadOnly = ({
             ref={reference}
             name={name}
             id={id}
+            style={{
+              borderColor: error
+                ? "#b00020"
+                : selected
+                ? borderColor === "#818181"
+                  ? "#818181" //Does "nothing" but if a select border is wanted, change
+                  : borderColor
+                : borderColor,
+              backgroundColor: backgroundColor,
+              ...localStyle,
+            }}
             {...rest}
           />
           <div
-            className={`inputNum-RO-suffix 
-            ${selected ? "inputNum-RO-suffix-selected" : ""}
+            className={`input-suffix 
             ${suffixImg ? "suffix-image" : ""}
             `}
           >
-            {suffixImg ? (
-              <img src={suffixImg} className="suffixImg" alt="suffixImg" />
-            ) : (
-              suffix && <p>{suffix}</p>
-            )}
+            <div className="input-suffix-content">
+              {suffixImg ? (
+                <img src={suffixImg} className="suffixImg" alt="suffixImg" />
+              ) : (
+                suffix && <p>{suffix}</p>
+              )}
+            </div>
           </div>
         </div>
-        <div className="inputNum-RO-helper-text">
-          {errorMessage && error ? <p>{errorMessage}</p> : <p>{helperText}</p>}
+        <div className="input-helper-text">
+          {errorMessage && error ? (
+            <p className="input-error-message">{errorMessage}</p>
+          ) : (
+            <p>{helperText}</p>
+          )}
         </div>
       </label>
     </div>
@@ -168,13 +200,17 @@ InputNumReadOnly.propTypes = {
   maxDecimals: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func,
   width: PropTypes.string,
+  borderColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  localStyle: PropTypes.object,
   placeHolderMaxWidth: PropTypes.string,
   tagcolor: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  boldBorder: PropTypes.bool,
 };
 
 InputNumReadOnly.defaultProps = {
-  readOnly: false,
+  readOnly: true,
   suffix: "",
   suffixImg: false,
   label: "",
@@ -187,8 +223,12 @@ InputNumReadOnly.defaultProps = {
   maxLength: 13,
   maxDecimals: 3,
   onChange: undefined,
-  width: "200px",
+  width: "250px",
   placeHolderMaxWidth: "100%",
-  tagcolor: "#818181",
+  tagcolor: "#979797",
   id: Math.random().toString(36).substr(2, 9),
+  borderColor: "#818181",
+  backgroundColor: "#ffffff",
+  boldBorder: true,
+  localStyle: null,
 };

@@ -7,7 +7,7 @@ $Red: #b00020;
 
 $PH: 14px; //Padding Horizontally
 $PV: 13px; //Padding Vertically
-$PVs: 8.5px; //Padding Vertically small
+$PVs: 10.5px; //Padding Vertically small
 
 /*Remove */
 p,
@@ -26,7 +26,7 @@ h6 * {
   padding: 0;
   display: flex;
   flex-direction: column;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   label.input-label {
     position: relative;
     //label/placeholder
@@ -49,7 +49,7 @@ h6 * {
       }
       top: -9.5px;
       left: 12.5px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       pointer-events: none;
       p {
@@ -60,31 +60,34 @@ h6 * {
         background-color: $White;
         height: 5px;
         position: relative;
-        top: -6.5px;
+        top: -5.5px;
         z-index: -1;
       }
     }
     .dropdown-label-text-placeholder {
       color: $PlaceHolderGray;
-      top: 14px;
+      top: 10px;
       left: 16px;
-      font-size: 18px;
+      font-size: 16px;
+      .inputNum-label-text-p {
+        line-height: 0.2;
+      }
     }
 
     select.dropdown-select {
       cursor: pointer;
-      font-family: "Roboto", sans-serif;
-      font-size: 18px;
+      font-family: 'Roboto', sans-serif;
       height: auto;
-      border: $Grey 1px solid;
+      border-color: $Grey;
+      border-width: 1px;
       -moz-appearance: none; /* Firefox */
       -webkit-appearance: none; /* Safari and Chrome */
       appearance: none;
-      padding: $PV calc(#{$PH} + 20px) $PV $PH;
+      padding: $PVs calc(#{$PVs} + 20px) $PVs $PH;
       border-radius: 4px;
       &.dropdown-select-selected {
         border: $Selected 2px solid;
-        padding: calc(#{$PV} - 1px) calc(#{$PH} + 19px) calc(#{$PV} - 1px)
+        padding: calc(#{$PVs} - 1px) calc(#{$PH} + 19px) calc(#{$PVs} - 1px)
           calc(#{$PH} - 1px);
       }
     }
@@ -98,7 +101,7 @@ h6 * {
     top: 0;
     right: $PH;
     pointer-events: none;
-    height: 49px;
+    height: 35px;
     .dropdown-down-icon {
       height: 100%;
       position: relative;
@@ -129,38 +132,6 @@ h6 * {
   }
 }
 
-// small
-.dropdown-smallField {
-  label.input-label {
-    .dropdown-label-text-label {
-      p {
-        color: $Grey;
-      }
-      top: -8.5px;
-      left: 12.5px;
-      font-size: 12px;
-    }
-    .dropdown-label-text-placeholder {
-      top: 10px;
-      font-size: 14px;
-    }
-
-    select.dropdown-select {
-      padding: $PVs calc(#{$PVs} + 20px) $PVs $PH;
-      border-radius: 4px;
-      font-size: 14px;
-      &.dropdown-select-selected {
-        border: $Selected 2px solid;
-        padding: calc(#{$PVs} - 1px) calc(#{$PH} + 19px) calc(#{$PVs} - 1px)
-          calc(#{$PH} - 1px);
-      }
-    }
-    .dropdown-down-icon-container {
-      height: 35px !important;
-    }
-  }
-}
-
 // error
 .dropdown-error {
   label.input-label {
@@ -185,6 +156,18 @@ h6 * {
   }
 }
 
-.dataList-helper-text-error {
-  color: $Red;
+.dropdown.boldBorder {
+  label.input-label {
+    select.dropdown-select {
+      border-width: 2px;
+      padding: calc(#{$PVs} - 1px) calc(#{$PVs} + 20px) calc(#{$PVs} - 1px)
+        calc(#{$PH} - 1px);
+
+      &.dropdown-select-selected {
+        border-width: 3px;
+        padding: calc(#{$PVs} - 2px) calc(#{$PH} + 19px) calc(#{$PVs} - 2px)
+          calc(#{$PH} - 2px);
+      }
+    }
+  }
 }

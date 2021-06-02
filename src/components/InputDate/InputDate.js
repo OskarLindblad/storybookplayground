@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import "./InputDate.css";
-import PropTypes from "prop-types";
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 //import { useFormContext } from "react-hook-form";
 
 export const InputDate = ({
@@ -11,20 +10,25 @@ export const InputDate = ({
   label,
   helperText,
   readOnly,
+  tagcolor,
   smallField,
   error,
   errorMessage,
   width,
   placeHolderMaxWidth,
+  backgroundColor,
   className,
   reference,
   name,
+  borderColor,
+  boldBorder,
+  localStyle,
   ...rest
 }) => {
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly || defaultValue === "" ? true : false
-  );
-  const [selected, setSeleted] = useState(false);
+    defaultValue || readOnly || defaultValue === '' ? true : false,
+  )
+  const [selected, setSeleted] = useState(false)
   //const { getValues } = useFormContext();
 
   /*
@@ -37,48 +41,59 @@ export const InputDate = ({
    */
 
   const handleChange = (e) => {
-    onChange(e);
-    setSeleted(false);
-  };
+    onChange(e)
+    setSeleted(false)
+  }
 
   return (
     <>
-      <div className="inputdate">
+      <div className={`input inputdate ${boldBorder ? 'boldBorder' : ''}`}>
         <label
           className={`
-          inputdate-label 
-          ${error ? "inputdate-error" : ""}
-          ${smallField ? "inputdate-smallField" : ""}
+          input-label 
+          ${error ? 'input-error' : ''}
+          ${smallField ? 'input-smallField' : ''}
         `}
         >
           {label && (
             <div
-              className={`inputdate-label-text
-              inputdate-label-text-${labelShrink ? "label" : "placeholder"}
-            ${selected ? "inputdate-label-selected" : ""}`}
+              className={`input-label-text
+              input-label-text-${labelShrink ? 'label' : 'placeholder'}
+            ${selected ? 'input-label-selected' : ''}`}
             >
               <p
-                className="inputdate-label-text-p"
+                className="input-label-text-p"
                 style={
                   labelShrink
-                    ? { maxWidth: width }
+                    ? borderColor
+                      ? {
+                          maxWidth: width,
+                          color: error ? '#b00020' : tagcolor,
+                        }
+                      : { maxWidth: width, color: error ? '#b00020' : tagcolor }
+                    : borderColor
+                    ? { maxWidth: placeHolderMaxWidth, color: borderColor }
                     : { maxWidth: placeHolderMaxWidth }
                 }
               >
                 {label}
               </p>
               {labelShrink && (
-                <div className="inputdate-label-background"></div>
+                <div
+                  className="input-label-background"
+                  style={{ backgroundColor: backgroundColor }}
+                ></div>
               )}
             </div>
           )}
-          <div className="inputdate-container" style={{ width: width }}>
+          <div className="input-container" style={{ width: width }}>
             <input
               type="date"
-              className={`inputdate-inputfield ${
-                selected ? "inputdate-inputfield-selected" : ""
+              autoComplete="nope"
+              className={`input-inputfield ${
+                selected ? 'input-inputfield-selected' : ''
               }
-            ${className ? className : ""}
+            ${className ? className : ''}
             `}
               readOnly={readOnly ? readOnly : false}
               defaultValue={defaultValue}
@@ -86,45 +101,51 @@ export const InputDate = ({
               ref={reference}
               onChange={handleChange}
               onFocus={() => {
-                !defaultValue && setLabelShrink(true);
-                setSeleted(true);
+                !defaultValue && setLabelShrink(true)
+                setSeleted(true)
               }}
               onBlur={() => {
-                !defaultValue && setLabelShrink(true);
-                setSeleted(false);
+                !defaultValue && setLabelShrink(true)
+                setSeleted(false)
               }}
-              style={labelShrink ? { color: "black" } : { color: "white" }}
+              style={{
+                color: labelShrink ? 'black' : 'white',
+                borderColor: error
+                  ? '#b00020'
+                  : selected
+                  ? borderColor === '#818181'
+                    ? '#2c79f7'
+                    : borderColor
+                  : borderColor,
+                backgroundColor: backgroundColor,
+                ...localStyle,
+              }}
               {...rest}
             />
             <div
-              className={`inputdate-suffix 
-            ${selected ? "inputdate-suffix-selected" : ""}
-            ${suffixImg ? "suffix-image" : ""}
+              className={`input-suffix 
+            ${suffixImg ? 'suffix-image' : ''}
             `}
             >
-              {suffixImg ? (
-                <img src={suffixImg} className="suffixImg" alt="suffixImg" />
-              ) : (
-                suffix && <p>{suffix}</p>
-              )}
+              <div className="input-suffix-content">
+                {suffixImg ? (
+                  <img src={suffixImg} className="suffixImg" alt="suffixImg" />
+                ) : (
+                  suffix && <p>{suffix}</p>
+                )}
+              </div>
             </div>
           </div>
         </label>
-        <div className="inputdate-helper-text">
-          {errorMessage && error ? (
-            <p className="inputdate-helper-error-text">{errorMessage}</p>
-          ) : (
-            <p className={error ? "inputdate-helper-error" : ""}>
-              {helperText}
-            </p>
-          )}
+        <div className="input-helper-text" style={{ width: width }}>
+          {errorMessage && error ? <p>{errorMessage}</p> : <p>{helperText}</p>}
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default InputDate;
+export default InputDate
 
 InputDate.propTypes = {
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -137,23 +158,33 @@ InputDate.propTypes = {
   readOnly: PropTypes.bool,
   errorMessage: PropTypes.string,
   onChange: PropTypes.func,
+  tagcolor: PropTypes.string,
   width: PropTypes.string,
   placeHolderMaxWidth: PropTypes.string,
   className: PropTypes.string,
-};
+  borderColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  boldBorder: PropTypes.bool,
+  localStyle: PropTypes.object,
+}
 
 InputDate.defaultProps = {
-  defaultValue: "",
-  suffix: "",
+  defaultValue: '',
+  suffix: '',
   suffixImg: false,
-  label: "",
-  helperText: "",
+  label: '',
+  helperText: '',
   smallField: false,
   error: false,
-  errorMessage: "",
+  errorMessage: '',
   onChange: undefined,
-  width: "250px",
-  placeHolderMaxWidth: "100%",
+  width: '250px',
+  tagcolor: '#979797',
+  placeHolderMaxWidth: '100%',
   readOnly: false,
-  className: "",
-};
+  className: '',
+  borderColor: '#818181',
+  backgroundColor: '#ffffff',
+  boldBorder: true,
+  localStyle: null,
+}

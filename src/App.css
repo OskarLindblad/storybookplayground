@@ -8,3 +8,348 @@ h6 * {
   cursor: default;
   margin: 0;
 }
+
+.input {
+  line-height: 0;
+  height: auto;
+}
+
+.input p {
+  display: block;
+  -webkit-margin-before: 0.5em;
+          margin-block-start: 0.5em;
+  -webkit-margin-after: 0.5em;
+          margin-block-end: 0.5em;
+}
+
+.input .input-label {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  position: relative;
+}
+
+.input .input-label .input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+
+.input .input-label .input-label-text {
+  position: absolute;
+  z-index: 1;
+  -webkit-transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+  transition: width 0.2s, top 0.2s, font-size 0.2s, padding 0.2s, left 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  height: auto;
+  border-radius: 2px;
+}
+
+.input .input-label .input-label-text-label {
+  color: #818181;
+  top: -8.5px;
+  left: 12.5px;
+  font-size: 13px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.input .input-label .input-label-text-label p {
+  padding: 0 3px;
+}
+
+.input .input-label .input-label-text-label.input-label-selected {
+  color: #2c79f7;
+}
+
+.input .input-label .input-label-text-label .input-label-background {
+  width: auto;
+  background-color: #fff;
+  height: 5px;
+  position: relative;
+  top: -4.5px;
+  z-index: -1;
+}
+
+.input .input-label .input-label-text-placeholder {
+  color: #979797;
+  top: 9.5px;
+  left: 16px;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.input .input-label .input-label-text-placeholder .input-label-text-p {
+  line-height: 0.2;
+}
+
+.input .input-label input {
+  border-color: #818181;
+  border-width: 1px;
+  border-style: solid;
+  padding: 8.5px 14px;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  background-color: #fff;
+  outline: #fff 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.input .input-label input.input-inputfield-selected {
+  border-color: #2c79f7;
+  border-width: 2px;
+  padding: calc(8.5px - 1px) calc(14px - 1px);
+}
+
+.input .input-label input:focus {
+  outline: none;
+}
+
+.input .input-label input.input-noButton::-webkit-outer-spin-button,
+.input .input-label input.input-noButton::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input .input-label .input-suffix {
+  position: relative;
+  line-height: 1;
+  font-size: 16px;
+  height: 38px;
+}
+
+.input .input-label .input-suffix .input-suffix-content {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: calc(100% + 8.5px);
+}
+
+.input .input-label .input-suffix .input-suffix-content p {
+  margin-left: 0px;
+}
+
+.input .input-label .input-suffix .input-suffix-content img {
+  height: 22px;
+  width: auto;
+  margin-left: 0px;
+}
+
+.input .input-label .input-suffix .input-suffix-content {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: calc(100% + 8.5px + 8.5px) !important;
+}
+
+.input .input-label .input-suffix .input-suffix-content p {
+  margin-left: 0px;
+}
+
+.input .input-label .input-suffix .input-suffix-content img {
+  height: 22px;
+  width: auto;
+  margin-left: 0px;
+}
+
+.input-helper-text {
+  font-size: 12px;
+  margin: 5px 14px 0 14px;
+  line-height: 1.4;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.input-helper-text p {
+  margin-top: 12px;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0.5em;
+          margin-block-end: 0.5em;
+}
+
+.input-helper-text .input-error-message {
+  color: #b00020;
+}
+
+/*Datalist*/
+.dataList .input-label .input-suffix .input-suffix-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.dataList .input-label .input-suffix .input-suffix-content .input-dropDown-button {
+  height: 100%;
+  margin-top: 5px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.dataList .input-label .input-suffix .input-suffix-content .input-dropDown-button img {
+  width: 12px;
+  padding: 0 2px 1px;
+  margin: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+}
+
+.dataList .input-dropdown-container {
+  position: relative;
+}
+
+.dataList .input-dropdown-container .input-dropdown {
+  position: absolute;
+  top: 0;
+  z-index: 300;
+  background-color: white;
+  border-width: thin;
+  border-color: #2c79f7;
+  border-style: none solid solid solid;
+  width: calc(100% - 2px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dataList .input-dropdown-container .input-dropdown li {
+  padding: 10px 14px;
+  list-style: none;
+  font-size: 16px;
+}
+
+.dataList .input-dropdown-container .input-dropdown li:first-child {
+  padding: 16px 14px 10px;
+  list-style: none;
+  font-size: 16px;
+}
+
+.dataList .input-dropdown-container .input-dropdown li:hover {
+  background-color: #e9e8e8;
+}
+
+.dataList .input-dropdown-container .input-dropdown-background {
+  position: absolute;
+  top: -13px;
+  background-color: #fff;
+  border-width: thin;
+  border-color: #2e394b;
+  border-style: none solid none solid;
+  width: calc(100% - 2px);
+  height: 13px;
+  margin: 0;
+  padding: 0;
+  z-index: -30;
+}
+
+.input.boldBorder .input-label input {
+  border-width: 1px;
+  padding: 8.5px 14px;
+}
+
+.input.boldBorder .input-label input.input-inputfield-selected {
+  border-width: 2px;
+  padding: calc(8.5px - 1px) calc(14px - 1px);
+}
+
+.input.boldBorder .input-label .input-suffix .input-suffix-content {
+  right: calc(100% + 8.5px + 1px);
+}
+
+.inputdate .input-label input {
+  padding: 0.5px 14px;
+}
+
+.inputdate .input-label input.input-inputfield-selected {
+  padding: calc(0.5px - 1px) calc(14px - 1px);
+}
+
+.input-error.input-label .input-label-text-label {
+  z-index: 1;
+}
+
+.input-error.input-label .input-label-text-label p {
+  color: #b00020;
+}
+
+.input-error.input-label .input-label-text-label.input-label-selected p {
+  color: #b00020;
+}
+
+.input-error.input-label input {
+  border-color: #b00020 !important;
+  color: #b00020;
+}
+
+.input-error.input-label input.input-inputfield-selected {
+  border-color: #b00020 !important;
+}
+
+.input-error.input-label .input-suffix p {
+  color: #b00020;
+}
+
+.input-error.input-label .input-helper-text {
+  color: #b00020;
+}
+
+.input-error.input-label.dataList .input-dropdown-container .input-dropdown {
+  border: thin #b00020;
+  border-style: none solid solid solid;
+}
+
+.input.boldBorder .input-label input {
+  border-width: 2px;
+  border-style: solid;
+  padding: calc(8.5px - 1px) calc(14px - 1px);
+}
+
+.input.boldBorder .input-label input.input-inputfield-selected {
+  border-width: 3px;
+  padding: calc(8.5px - 2px) calc(14px - 2px);
+}
+
+.input.boldBorder.inputdate .input-label input {
+  padding: 0.5px 14px;
+}
+
+.input.boldBorder.inputdate .input-label input.input-inputfield-selected {
+  padding: calc(0.5px - 1px) calc(14px - 1px);
+}
+
+.component-container {
+  margin: 2em 1em;
+}
+
+.component-container h3 {
+  margin: 0 0 0.3em 0;
+}
+
+html * {
+  font-family: "Roboto", sans-serif;
+}
+/*# sourceMappingURL=App.css.map */

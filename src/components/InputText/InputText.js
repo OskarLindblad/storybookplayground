@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import "./InputText.css";
-import PropTypes from "prop-types";
-//import { useFormContext } from 'react-hook-form'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { useFormContext } from 'react-hook-form'
 
 export const InputText = ({
   readOnly,
@@ -21,94 +20,126 @@ export const InputText = ({
   id,
   name,
   reference,
+  type,
+  borderColor,
+  tagcolor,
+  backgroundColor,
+  boldBorder,
+  localStyle,
   ...rest
 }) => {
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly ? true : false
-  );
-  const [selected, setSeleted] = useState(false);
-  //const { getValues } = useFormContext()
+    defaultValue || readOnly ? true : false,
+  )
+  const [selected, setSeleted] = useState(false)
+  const { getValues } = useFormContext()
 
   const handleChange = (e) => {
-    onChange(e);
-  };
+    onChange(e)
+  }
 
   return (
-    <div className="inputText">
+    <div className={`input inputText ${boldBorder ? 'boldBorder' : ''}`}>
       <label
         className={`
-          inputText-label 
-          ${error ? "inputText-error" : ""}
-          ${smallField ? "inputText-smallField" : ""}
-          ${className ? className : ""}
+          input-label 
+          ${error ? 'input-error' : ''}
+          ${className ? className : ''}
         `}
       >
         {label && (
           <div
-            className={`inputText-label-text
-              inputText-label-text-${labelShrink ? "label" : "placeholder"}
-            ${selected ? "inputText-label-selected" : ""}`}
+            className={`input-label-text
+              input-label-text-${labelShrink ? 'label' : 'placeholder'}
+            ${selected ? 'input-label-selected' : ''}`}
           >
             <p
-              className="inputText-label-text-p"
+              className="input-label-text-p"
               style={
                 labelShrink
-                  ? { maxWidth: width }
+                  ? borderColor
+                    ? {
+                        maxWidth: width,
+                        color: error ? '#b00020' : tagcolor,
+                      }
+                    : { maxWidth: width, color: error ? '#b00020' : tagcolor }
+                  : borderColor
+                  ? { maxWidth: placeHolderMaxWidth, color: borderColor }
                   : { maxWidth: placeHolderMaxWidth }
               }
             >
               {label}
             </p>
-            {labelShrink && <div className="inputText-label-background"></div>}
+            {labelShrink && (
+              <div
+                className="input-label-background"
+                style={{ backgroundColor: backgroundColor }}
+              ></div>
+            )}
           </div>
         )}
-        <div className="inputText-container" style={{ width: width }}>
+        <div className="input-container" style={{ width: width }}>
           <input
-            type="text"
-            className={`inputText-inputfield ${
-              selected ? "inputText-inputfield-selected" : ""
+            type={type}
+            className={`input-inputfield ${
+              selected ? 'input-inputfield-selected' : ''
             }
-            ${className ? className : ""}
+            ${className ? className : ''}
             `}
             defaultValue={defaultValue}
             onChange={handleChange}
             onFocus={() => {
-              setLabelShrink(true);
-              setSeleted(true);
+              setLabelShrink(true)
+              setSeleted(true)
             }}
             onBlur={() => {
-              /*!getValues(name)*/ defaultValue && setLabelShrink(false);
-              setSeleted(false);
+              !getValues(name) && setLabelShrink(false)
+              setSeleted(false)
             }}
-            maxLength={maxLength ? maxLength : "none"}
+            maxLength={maxLength ? maxLength : 'none'}
             readOnly={readOnly ? readOnly : false}
             ref={reference}
             name={name}
             id={id}
+            style={{
+              borderColor: error
+                ? '#b00020'
+                : selected
+                ? borderColor === '#818181'
+                  ? '#2c79f7'
+                  : borderColor
+                : borderColor,
+              backgroundColor: backgroundColor,
+            }}
             {...rest}
           />
           <div
-            className={`inputText-suffix 
-            ${selected ? "inputText-suffix-selected" : ""}
-            ${suffixImg ? "suffix-image" : ""}
+            className={`input-suffix 
+            ${suffixImg ? 'suffix-image' : ''}
             `}
           >
-            {suffixImg ? (
-              <img src={suffixImg} className="suffixImg" alt="suffixImg" />
-            ) : (
-              suffix && <p>{suffix}</p>
-            )}
+            <div className="input-suffix-content">
+              {suffixImg ? (
+                <img src={suffixImg} className="suffixImg" alt="suffixImg" />
+              ) : (
+                suffix && <p>{suffix}</p>
+              )}
+            </div>
           </div>
         </div>
-        <div className="inputText-helper-text">
-          {errorMessage && error ? <p>{errorMessage}</p> : <p>{helperText}</p>}
+        <div className="input-helper-text">
+          {errorMessage && error ? (
+            <p className="input-error-message">{errorMessage}</p>
+          ) : (
+            <p>{helperText}</p>
+          )}
         </div>
       </label>
     </div>
-  );
-};
+  )
+}
 
-export default InputText;
+export default InputText
 
 InputText.propTypes = {
   defaultValue: PropTypes.string,
@@ -126,23 +157,33 @@ InputText.propTypes = {
   width: PropTypes.string,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-};
+  type: PropTypes.string,
+  borderColor: PropTypes.string,
+  tagcolor: PropTypes.string,
+  boldBorder: PropTypes.bool,
+  localStyle: PropTypes.bool,
+}
 
 InputText.defaultProps = {
-  defaultValue: "",
+  defaultValue: '',
   readOnly: false,
-  suffix: "",
+  suffix: '',
   suffixImg: false,
-  label: "",
-  className: "",
-  helperText: "",
+  label: '',
+  className: '',
+  helperText: '',
   smallField: false,
   error: false,
-  errorMessage: "",
-  maxLength: "none",
+  errorMessage: '',
+  maxLength: 'none',
   onChange: undefined,
-  width: "200px",
-  placeHolderMaxWidth: "100%",
+  width: '200px',
+  placeHolderMaxWidth: '100%',
   id: undefined,
   name: undefined,
-};
+  type: 'text',
+  borderColor: '#818181',
+  tagcolor: '#979797',
+  boldBorder: true,
+  localStyle: null,
+}
