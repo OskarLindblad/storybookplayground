@@ -65,6 +65,6 @@ RadioButton.defaultProps = {
   label: "",
   name: "",
   className: "",
-  fontSize: "14px",
+  fontSize: "16px",
   buttonSize: "15px",
 };

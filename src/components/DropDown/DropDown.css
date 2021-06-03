@@ -20,7 +20,7 @@ h6 * {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .dropdown label.input-label {
@@ -81,7 +81,7 @@ h6 * {
 
 .dropdown label.input-label select.dropdown-select {
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   height: auto;
   border-color: #818181;
   border-width: 1px;
@@ -124,6 +124,7 @@ h6 * {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   right: 0;
+  width: 0.8em;
 }
 
 .dropdown-helper-text {

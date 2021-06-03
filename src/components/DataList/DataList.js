@@ -80,7 +80,6 @@ export const DataList = ({
 
   const handleClick = (val, e) => {
     showDropDown(false);
-    console.log(val);
     onChange(e, val);
     document.getElementById(id).value = numToString(stringToNum(val));
   };
@@ -151,14 +150,10 @@ export const DataList = ({
     ["e", "E", "+", "-"].includes(e.key) && e.preventDefault();
 
     if ((e.charCode || e.keyCode) === 37) {
-      console.log("left", indexTracker);
-
       // left arrow
       setIndexTracker(indexTracker <= 0 ? 0 : indexTracker - 1);
     }
     if ((e.charCode || e.keyCode) === 39) {
-      console.log("right", indexTracker);
-
       // right arrow
       setIndexTracker(
         indexTracker + 1 > numToString(defaultValue).length
@@ -401,7 +396,7 @@ DataList.defaultProps = {
   maxLength: 13,
   maxDecimals: 3,
   onChange: undefined,
-  width: "200px",
+  width: "250px",
   placeHolderMaxWidth: "100%",
   tagcolor: "#818181",
   id: [...Array(10)].map((i) => (~~(Math.random() * 36)).toString(36)).join(""),

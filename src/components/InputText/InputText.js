@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { useFormContext } from 'react-hook-form'
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+//import { useFormContext } from "react-hook-form";
 
 export const InputText = ({
   readOnly,
@@ -29,29 +29,29 @@ export const InputText = ({
   ...rest
 }) => {
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly ? true : false,
-  )
-  const [selected, setSeleted] = useState(false)
-  const { getValues } = useFormContext()
+    defaultValue || readOnly ? true : false
+  );
+  const [selected, setSeleted] = useState(false);
+  //const { getValues } = useFormContext();
 
   const handleChange = (e) => {
-    onChange(e)
-  }
+    onChange(e);
+  };
 
   return (
-    <div className={`input inputText ${boldBorder ? 'boldBorder' : ''}`}>
+    <div className={`input inputText ${boldBorder ? "boldBorder" : ""}`}>
       <label
         className={`
           input-label 
-          ${error ? 'input-error' : ''}
-          ${className ? className : ''}
+          ${error ? "input-error" : ""}
+          ${className ? className : ""}
         `}
       >
         {label && (
           <div
             className={`input-label-text
-              input-label-text-${labelShrink ? 'label' : 'placeholder'}
-            ${selected ? 'input-label-selected' : ''}`}
+              input-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "input-label-selected" : ""}`}
           >
             <p
               className="input-label-text-p"
@@ -60,9 +60,9 @@ export const InputText = ({
                   ? borderColor
                     ? {
                         maxWidth: width,
-                        color: error ? '#b00020' : tagcolor,
+                        color: error ? "#b00020" : tagcolor,
                       }
-                    : { maxWidth: width, color: error ? '#b00020' : tagcolor }
+                    : { maxWidth: width, color: error ? "#b00020" : tagcolor }
                   : borderColor
                   ? { maxWidth: placeHolderMaxWidth, color: borderColor }
                   : { maxWidth: placeHolderMaxWidth }
@@ -82,31 +82,32 @@ export const InputText = ({
           <input
             type={type}
             className={`input-inputfield ${
-              selected ? 'input-inputfield-selected' : ''
+              selected ? "input-inputfield-selected" : ""
             }
-            ${className ? className : ''}
+            ${className ? className : ""}
             `}
             defaultValue={defaultValue}
             onChange={handleChange}
             onFocus={() => {
-              setLabelShrink(true)
-              setSeleted(true)
+              setLabelShrink(true);
+              setSeleted(true);
             }}
             onBlur={() => {
-              !getValues(name) && setLabelShrink(false)
-              setSeleted(false)
+              //!getValues(name) &&
+              setLabelShrink(false);
+              setSeleted(false);
             }}
-            maxLength={maxLength ? maxLength : 'none'}
+            maxLength={maxLength ? maxLength : "none"}
             readOnly={readOnly ? readOnly : false}
             ref={reference}
             name={name}
             id={id}
             style={{
               borderColor: error
-                ? '#b00020'
+                ? "#b00020"
                 : selected
-                ? borderColor === '#818181'
-                  ? '#2c79f7'
+                ? borderColor === "#818181"
+                  ? "#2c79f7"
                   : borderColor
                 : borderColor,
               backgroundColor: backgroundColor,
@@ -115,7 +116,7 @@ export const InputText = ({
           />
           <div
             className={`input-suffix 
-            ${suffixImg ? 'suffix-image' : ''}
+            ${suffixImg ? "suffix-image" : ""}
             `}
           >
             <div className="input-suffix-content">
@@ -136,13 +137,13 @@ export const InputText = ({
         </div>
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default InputText
+export default InputText;
 
 InputText.propTypes = {
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   readOnly: PropTypes.bool,
   suffix: PropTypes.string,
   suffixImg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
@@ -162,28 +163,28 @@ InputText.propTypes = {
   tagcolor: PropTypes.string,
   boldBorder: PropTypes.bool,
   localStyle: PropTypes.bool,
-}
+};
 
 InputText.defaultProps = {
-  defaultValue: '',
+  defaultValue: "",
   readOnly: false,
-  suffix: '',
+  suffix: "",
   suffixImg: false,
-  label: '',
-  className: '',
-  helperText: '',
+  label: "",
+  className: "",
+  helperText: "",
   smallField: false,
   error: false,
-  errorMessage: '',
-  maxLength: 'none',
+  errorMessage: "",
+  maxLength: "none",
   onChange: undefined,
-  width: '200px',
-  placeHolderMaxWidth: '100%',
+  width: "250px",
+  placeHolderMaxWidth: "100%",
   id: undefined,
   name: undefined,
-  type: 'text',
-  borderColor: '#818181',
-  tagcolor: '#979797',
+  type: "text",
+  borderColor: "#818181",
+  tagcolor: "#979797",
   boldBorder: true,
   localStyle: null,
-}
+};

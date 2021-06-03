@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 //import { useFormContext } from "react-hook-form";
 
 export const InputDate = ({
@@ -26,9 +26,9 @@ export const InputDate = ({
   ...rest
 }) => {
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly || defaultValue === '' ? true : false,
-  )
-  const [selected, setSeleted] = useState(false)
+    defaultValue || readOnly || defaultValue === "" ? true : false
+  );
+  const [selected, setSeleted] = useState(false);
   //const { getValues } = useFormContext();
 
   /*
@@ -41,25 +41,25 @@ export const InputDate = ({
    */
 
   const handleChange = (e) => {
-    onChange(e)
-    setSeleted(false)
-  }
+    onChange(e);
+    setSeleted(false);
+  };
 
   return (
     <>
-      <div className={`input inputdate ${boldBorder ? 'boldBorder' : ''}`}>
+      <div className={`input inputdate ${boldBorder ? "boldBorder" : ""}`}>
         <label
           className={`
           input-label 
-          ${error ? 'input-error' : ''}
-          ${smallField ? 'input-smallField' : ''}
+          ${error ? "input-error" : ""}
+          ${smallField ? "input-smallField" : ""}
         `}
         >
           {label && (
             <div
               className={`input-label-text
-              input-label-text-${labelShrink ? 'label' : 'placeholder'}
-            ${selected ? 'input-label-selected' : ''}`}
+              input-label-text-${labelShrink ? "label" : "placeholder"}
+            ${selected ? "input-label-selected" : ""}`}
             >
               <p
                 className="input-label-text-p"
@@ -68,9 +68,9 @@ export const InputDate = ({
                     ? borderColor
                       ? {
                           maxWidth: width,
-                          color: error ? '#b00020' : tagcolor,
+                          color: error ? "#b00020" : tagcolor,
                         }
-                      : { maxWidth: width, color: error ? '#b00020' : tagcolor }
+                      : { maxWidth: width, color: error ? "#b00020" : tagcolor }
                     : borderColor
                     ? { maxWidth: placeHolderMaxWidth, color: borderColor }
                     : { maxWidth: placeHolderMaxWidth }
@@ -91,9 +91,9 @@ export const InputDate = ({
               type="date"
               autoComplete="nope"
               className={`input-inputfield ${
-                selected ? 'input-inputfield-selected' : ''
+                selected ? "input-inputfield-selected" : ""
               }
-            ${className ? className : ''}
+            ${className ? className : ""}
             `}
               readOnly={readOnly ? readOnly : false}
               defaultValue={defaultValue}
@@ -101,20 +101,20 @@ export const InputDate = ({
               ref={reference}
               onChange={handleChange}
               onFocus={() => {
-                !defaultValue && setLabelShrink(true)
-                setSeleted(true)
+                !defaultValue && setLabelShrink(true);
+                setSeleted(true);
               }}
               onBlur={() => {
-                !defaultValue && setLabelShrink(true)
-                setSeleted(false)
+                !defaultValue && setLabelShrink(true);
+                setSeleted(false);
               }}
               style={{
-                color: labelShrink ? 'black' : 'white',
+                color: labelShrink ? "black" : "white",
                 borderColor: error
-                  ? '#b00020'
+                  ? "#b00020"
                   : selected
-                  ? borderColor === '#818181'
-                    ? '#2c79f7'
+                  ? borderColor === "#818181"
+                    ? "#2c79f7"
                     : borderColor
                   : borderColor,
                 backgroundColor: backgroundColor,
@@ -124,7 +124,7 @@ export const InputDate = ({
             />
             <div
               className={`input-suffix 
-            ${suffixImg ? 'suffix-image' : ''}
+            ${suffixImg ? "suffix-image" : ""}
             `}
             >
               <div className="input-suffix-content">
@@ -142,13 +142,17 @@ export const InputDate = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default InputDate
+export default InputDate;
 
 InputDate.propTypes = {
-  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.object,
+  ]),
   suffix: PropTypes.string,
   suffixImg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   label: PropTypes.string,
@@ -166,25 +170,25 @@ InputDate.propTypes = {
   backgroundColor: PropTypes.string,
   boldBorder: PropTypes.bool,
   localStyle: PropTypes.object,
-}
+};
 
 InputDate.defaultProps = {
-  defaultValue: '',
-  suffix: '',
+  defaultValue: "",
+  suffix: "",
   suffixImg: false,
-  label: '',
-  helperText: '',
+  label: "",
+  helperText: "",
   smallField: false,
   error: false,
-  errorMessage: '',
+  errorMessage: "",
   onChange: undefined,
-  width: '250px',
-  tagcolor: '#979797',
-  placeHolderMaxWidth: '100%',
+  width: "250px",
+  tagcolor: "#979797",
+  placeHolderMaxWidth: "100%",
   readOnly: false,
-  className: '',
-  borderColor: '#818181',
-  backgroundColor: '#ffffff',
+  className: "",
+  borderColor: "#818181",
+  backgroundColor: "#ffffff",
   boldBorder: true,
   localStyle: null,
-}
+};

@@ -2,16 +2,22 @@ import React, { useState } from "react";
 
 import InputNum from "../Components/InputNum/InputNum";
 
-const InputNumStyle = () => {
+const InputNumStyle = ({ styled, setStyled }) => {
   const [InputNumData, setInputNumData] = useState("");
 
   return (
     <div className="component-container">
-      <h3>Input Numbers</h3>
+      <div className="component-title">
+        <h3>Input Numbers</h3>
+        <button onClick={() => setStyled("InputNum")}>&#9998;</button>
+      </div>
       <InputNum
         defaultValue={InputNumData}
         onChange={(value) => setInputNumData(value)}
       />
+      {styled === "InputNum" && (
+        <div className="styling-container">Tittut {styled}</div>
+      )}
     </div>
   );
 };

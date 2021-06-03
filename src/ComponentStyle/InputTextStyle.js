@@ -2,11 +2,22 @@ import React, { useState } from "react";
 
 import InputText from "../Components/InputText/InputText";
 
-const InputTextStyle = () => {
+const InputTextStyle = ({ styled, setStyled }) => {
+  const [InputTextData, setInputTextData] = useState("");
+
   return (
     <div className="component-container">
-      <h3>DropDown</h3>
-      <InputText />
+      <div className="component-title">
+        <h3>Input Text</h3>
+        <button onClick={() => setStyled("InputText")}>&#9998;</button>
+      </div>
+      <InputText
+        defaultValue={InputTextData}
+        onChange={(value) => setInputTextData(value)}
+      />
+      {styled === "InputText" && (
+        <div className="styling-container">Tittut {styled}</div>
+      )}
     </div>
   );
 };

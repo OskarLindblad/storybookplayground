@@ -2,14 +2,17 @@ import React from "react";
 
 import Button from "../Components/Button/Button";
 
-const ButtonStyle = () => {
+const ButtonStyle = ({ styled, setStyled }) => {
   const buttonClick = () => {
-    console.log("object");
+    console.log("Hi, in the log!");
   };
 
   return (
     <div className="component-container">
-      <h3>Button</h3>
+      <div className="component-title">
+        <h3>Button</h3>
+        <button onClick={() => setStyled("Button")}>&#9998;</button>
+      </div>
       <Button
         label="CANCEL"
         buttonType="text"
@@ -17,6 +20,9 @@ const ButtonStyle = () => {
         className="cancelButton"
         onMouseUp={buttonClick}
       />
+      {styled === "Button" && (
+        <div className="styling-container">Tittut {styled}</div>
+      )}
     </div>
   );
 };
