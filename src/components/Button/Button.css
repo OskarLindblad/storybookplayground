@@ -1,5 +1,5 @@
 .button {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   display: inline-block;
   font-weight: 900;
   font-size: 16px;
@@ -141,7 +141,8 @@
 }
 
 .button.button-with-icon.button-icon-on-side-left img {
-  margin-right: 12px;
+  margin-right: 8px;
+  margin-left: 4px;
 }
 
 .button.button-with-icon.button-icon-on-side-right {
@@ -153,7 +154,8 @@
 }
 
 .button.button-with-icon.button-icon-on-side-right img {
-  margin-left: 12px;
+  margin-left: 8px;
+  margin-right: 4px;
 }
 
 .button.button-type-small {
@@ -174,7 +176,7 @@
 }
 
 .button.button-type-small.button-type-outlined.button-with-icon.button-icon-on-side-left {
-  padding: calc(5.8px) calc(14.2px) calc(5.8px) calc(14.2px);
+  padding: calc(5.8px) calc(14.2px) calc(5.8px) calc(3.2px);
 }
 
 .button.button-type-small.button-type-outlined.button-with-icon.button-icon-on-side-right {
@@ -198,11 +200,12 @@
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  padding: calc(6.8px) calc(3.2px) calc(6.8px) calc(16.2px);
+  padding: calc(6.8px) calc(16.2px) calc(6.8px) calc(3.2px);
 }
 
 .button.button-type-small.button-with-icon.button-icon-on-side-left img {
-  margin-right: 9.6px;
+  margin-right: 4px;
+  margin-left: 6px;
 }
 
 .button.button-type-small.button-with-icon.button-icon-on-side-right {
@@ -210,6 +213,7 @@
 }
 
 .button.button-type-small.button-with-icon.button-icon-on-side-right img {
-  margin-left: 9.6px;
+  margin-right: 6px;
+  margin-left: 4px;
 }
 /*# sourceMappingURL=Button.css.map */

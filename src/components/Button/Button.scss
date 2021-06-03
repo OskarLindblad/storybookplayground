@@ -17,7 +17,7 @@ $PVs: 6.8px; //Padding Vertically
 $PHs: 27.2px; //Padding Horizontally
 
 .button {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   display: inline-block;
   font-weight: 900;
   font-size: 16px;
@@ -139,7 +139,8 @@ $PHs: 27.2px; //Padding Horizontally
       padding: calc(#{$PV + 0px}) calc(#{$PH - 11px}) calc(#{$PV + 0px})
         calc(#{$PH - 24px});
       img {
-        margin-right: 12px;
+        margin-right: 8px;
+        margin-left: 4px;
       }
     }
     &.button-icon-on-side-right {
@@ -147,7 +148,8 @@ $PHs: 27.2px; //Padding Horizontally
       padding: calc(#{$PV + 0px}) calc(#{$PH - 24px}) calc(#{$PV + 0px})
         calc(#{$PH - 11px});
       img {
-        margin-left: 12px;
+        margin-left: 8px;
+        margin-right: 4px;
       }
     }
   }
@@ -171,7 +173,7 @@ $PHs: 27.2px; //Padding Horizontally
 
     &.button-with-icon.button-icon-on-side-left {
       padding: calc(#{$PVs - 1px}) calc(#{$PHs - 13px}) calc(#{$PVs - 1px})
-        calc(#{$PHs - 13px});
+        calc(#{$PHs - 24px});
     }
     &.button-with-icon.button-icon-on-side-right {
       padding: calc(#{$PVs - 1px}) calc(#{$PHs - 24px}) calc(#{$PVs - 1px})
@@ -195,17 +197,19 @@ $PHs: 27.2px; //Padding Horizontally
   &.button-with-icon {
     &.button-icon-on-side-left {
       flex-direction: row-reverse;
-      padding: calc(#{$PVs + 0px}) calc(#{$PHs - 24px}) calc(#{$PVs + 0px})
-        calc(#{$PHs - 11px});
+      padding: calc(#{$PVs + 0px}) calc(#{$PHs - 11px}) calc(#{$PVs + 0px})
+        calc(#{$PHs - 24px});
       img {
-        margin-right: 9.6px;
+        margin-right: 4px;
+        margin-left: 6px;
       }
     }
     &.button-icon-on-side-right {
       padding: calc(#{$PVs + 0px}) calc(#{$PHs - 24px}) calc(#{$PVs + 0px})
         calc(#{$PHs - 11px});
       img {
-        margin-left: 9.6px;
+        margin-right: 6px;
+        margin-left: 4px;
       }
     }
   }

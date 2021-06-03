@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
 import RadioButton from "../Components/RadioButton/RadioButton";
+import StyleComponent from "../Components/PlayGroundComponent/StyleComponent";
 
 const RadioButtonStyle = ({ styled, setStyled }) => {
   const [select, setSelect] = useState("");
+  const [fontSize, setFontSize] = useState(16);
+  const [buttonSize, setButtonSize] = useState(15);
 
   const nr1 = "option1";
   const nr2 = "option2";
@@ -12,7 +15,7 @@ const RadioButtonStyle = ({ styled, setStyled }) => {
   return (
     <div className="component-container">
       <div className="component-title">
-        <h3>RadioButtons</h3>
+        <h3>Radio Buttons</h3>
         <button onClick={() => setStyled("RadioButton")}>&#9998;</button>
       </div>
       <RadioButton
@@ -24,6 +27,8 @@ const RadioButtonStyle = ({ styled, setStyled }) => {
         value={nr1}
         name={nr1}
         isSelected={select === nr1 ? true : false}
+        fontSize={`${fontSize}px`}
+        buttonSize={`${buttonSize}px`}
       />
       <RadioButton
         onChange={(e) => {
@@ -34,6 +39,8 @@ const RadioButtonStyle = ({ styled, setStyled }) => {
         value={nr2}
         name={nr2}
         isSelected={select === nr2 ? true : false}
+        fontSize={`${fontSize}px`}
+        buttonSize={`${buttonSize}px`}
       />
       <RadioButton
         onChange={(e) => {
@@ -44,9 +51,32 @@ const RadioButtonStyle = ({ styled, setStyled }) => {
         value={nr3}
         name={nr3}
         isSelected={select === nr3 ? true : false}
+        fontSize={`${fontSize}px`}
+        buttonSize={`${buttonSize}px`}
       />
       {styled === "RadioButton" && (
-        <div className="styling-container">Tittut {styled}</div>
+        <div className="styling-container">
+          <h3>Radio Buttons</h3>
+
+          <StyleComponent
+            title="Font Size"
+            info="Limited here to px, but can be used with any viable font-size value"
+            handleStyle={(e) => {
+              setFontSize(e.target.value);
+            }}
+            type="number"
+            suffix="px"
+          />
+          <StyleComponent
+            title="Button Size"
+            info="Limited here to px, but can be used with any viable width value"
+            handleStyle={(e) => {
+              setButtonSize(e.target.value);
+            }}
+            type="number"
+            suffix="px"
+          />
+        </div>
       )}
     </div>
   );

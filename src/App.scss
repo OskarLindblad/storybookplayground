@@ -19,6 +19,8 @@
 }
 html * {
   font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  color: #2e394b;
 }
 
 .styling-container {
@@ -30,6 +32,46 @@ html * {
   min-height: 100vh;
   width: 20em;
   z-index: 22;
+  padding: 4em 2em 2em 2em;
+  .style-wrap {
+    margin: 0.5em 0em;
+    label {
+      display: flex;
+      margin: 0 0 0.2em 0;
+      .style-info {
+        position: absolute;
+        background-color: white;
+        padding: 0.5em;
+        width: 16em;
+        pointer-events: none;
+        border-radius: 0.3em;
+        border: thin solid gray;
+      }
+      p {
+        background-color: white;
+        height: 1em;
+        width: 1em;
+        text-align: center;
+        border-radius: 1em;
+        margin: 0 0.2em 0 0;
+        font-size: 0.9em;
+        cursor: none;
+        font-family: "Roboto", sans-serif;
+      }
+    }
+    .input-wrap {
+      display: flex;
+      p {
+        margin: 0.2em;
+      }
+    }
+    /*bool*/
+    .style-bool {
+      img {
+        height: 2em;
+      }
+    }
+  }
 }
 
 .closeBtn {
