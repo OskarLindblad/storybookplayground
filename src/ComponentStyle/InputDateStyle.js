@@ -18,7 +18,9 @@ const InputDateStyle = ({ styled, setStyled }) => {
         }}
       />
       {styled === "InputDate" && (
-        <div className="styling-container">Tittut {styled}</div>
+        <div className="styling-container">
+          <div className="styling-container-content"></div>{" "}
+        </div>
       )}
     </div>
   );

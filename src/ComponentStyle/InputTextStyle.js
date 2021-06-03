@@ -16,7 +16,9 @@ const InputTextStyle = ({ styled, setStyled }) => {
         onChange={(value) => setInputTextData(value)}
       />
       {styled === "InputText" && (
-        <div className="styling-container">Tittut {styled}</div>
+        <div className="styling-container">
+          <div className="styling-container-content"></div>
+        </div>
       )}
     </div>
   );

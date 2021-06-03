@@ -18,8 +18,10 @@ const DataListStyle = ({ styled, setStyled }) => {
         onChange={(value) => setDataListData(value)}
       />
       {styled === "DropDown" && (
-        <div className="styling-container">Tittut {styled}</div>
-      )}{" "}
+        <div className="styling-container">
+          <div className="styling-container-content"></div>
+        </div>
+      )}
     </div>
   );
 };

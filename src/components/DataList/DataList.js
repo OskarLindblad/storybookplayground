@@ -42,10 +42,8 @@ export const DataList = ({
   // Current index
   const [indexTracker, setIndexTracker] = useState(0);
 
-  //const { getValues } = useFormContext() Manos doesn't need that
   const [labelShrink, setLabelShrink] = useState(
-    /* defaultValue || readOnly || defaultValue === 0 || getValues(name) !== ''*/ //Manos Choice
-    true
+    defaultValue || readOnly ? false : true
   );
 
   // Prevous value (for comparement)
@@ -245,7 +243,7 @@ export const DataList = ({
                 setSelected(true);
               }}
               onBlur={() => {
-                /*!getValues(name) !defaultValue && setLabelShrink(false);*/
+                /*!getValues(name)*/ !defaultValue && setLabelShrink(false);
                 if (!hinderBlur) {
                   showDropDown(false);
                   setSelected(false);

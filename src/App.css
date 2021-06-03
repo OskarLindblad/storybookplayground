@@ -197,8 +197,6 @@ h6 * {
 }
 
 .dataList .input-label .input-suffix .input-suffix-content .input-dropDown-button {
-  height: 100%;
-  margin-top: 5px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -209,9 +207,9 @@ h6 * {
 }
 
 .dataList .input-label .input-suffix .input-suffix-content .input-dropDown-button img {
-  width: 12px;
+  width: 14px;
   padding: 0 2px 1px;
-  margin: 0;
+  margin: 0 0 0 0.1em;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -346,7 +344,7 @@ h6 * {
 }
 
 .component-container h3 {
-  margin: 0 0 0.3em 0;
+  margin: 0 0 0.5em 0;
   font-size: 20px;
 }
 
@@ -373,7 +371,7 @@ html * {
 }
 
 .styling-container {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   background-color: lightblue;
@@ -382,6 +380,30 @@ html * {
   width: 20em;
   z-index: 22;
   padding: 4em 2em 2em 2em;
+  direction: rtl;
+  overflow-y: scroll;
+  /* Track */
+  /* Handle */
+}
+
+.styling-container::-webkit-scrollbar {
+  width: 14px;
+  border-radius: 10px;
+}
+
+.styling-container::-webkit-scrollbar-track {
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+.styling-container::-webkit-scrollbar-thumb {
+  background: #2e394b;
+  border-radius: 10px;
+  border: lightblue 3px solid;
+}
+
+.styling-container .styling-container-content {
+  direction: ltr;
 }
 
 .styling-container .style-wrap {
@@ -429,12 +451,12 @@ html * {
 }
 
 .styling-container .style-wrap .style-bool img {
-  height: 2em;
+  height: 1.2em;
 }
 
 .closeBtn {
-  position: absolute;
-  right: 8.7em;
+  position: fixed;
+  right: 15px;
   top: 10px;
   z-index: 23;
   cursor: pointer;

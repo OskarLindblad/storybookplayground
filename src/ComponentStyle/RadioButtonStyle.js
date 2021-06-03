@@ -56,26 +56,30 @@ const RadioButtonStyle = ({ styled, setStyled }) => {
       />
       {styled === "RadioButton" && (
         <div className="styling-container">
-          <h3>Radio Buttons</h3>
+          <div className="styling-container-content">
+            <h3>Radio Buttons</h3>
 
-          <StyleComponent
-            title="Font Size"
-            info="Limited here to px, but can be used with any viable font-size value"
-            handleStyle={(e) => {
-              setFontSize(e.target.value);
-            }}
-            type="number"
-            suffix="px"
-          />
-          <StyleComponent
-            title="Button Size"
-            info="Limited here to px, but can be used with any viable width value"
-            handleStyle={(e) => {
-              setButtonSize(e.target.value);
-            }}
-            type="number"
-            suffix="px"
-          />
+            <StyleComponent
+              title="Font Size"
+              info="Limited here to px, but can be used with any viable font-size value"
+              handleStyle={(e) => {
+                setFontSize(e.target.value);
+              }}
+              type="number"
+              value={fontSize}
+              suffix="px"
+            />
+            <StyleComponent
+              title="Button Size"
+              info="Limited here to px, but can be used with any viable width value"
+              handleStyle={(e) => {
+                setButtonSize(e.target.value);
+              }}
+              type="number"
+              suffix="px"
+              value={buttonSize}
+            />
+          </div>
         </div>
       )}
     </div>

@@ -38,42 +38,44 @@ const ButtonStyle = ({ styled, setStyled }) => {
       />
       {styled === "Button" && (
         <div className="styling-container">
-          <h3>Buttons</h3>
-          <StyleComponent
-            title="Label"
-            handleStyle={(e) => {
-              setLabel(e.target.value);
-            }}
-            type="text"
-            suffix=""
-          />
-          <StyleComponentOptions
-            title="Button Style"
-            options={["outlined", "contained", "text", "nonactive", "yellow"]}
-            handleChange={(e) => setButtonType(e.target.value)}
-          />
-          {buttonType}
-          <StyleComponentBool
-            title="Icon"
-            info="Only one test icon here, but it's not a boolean otherwise"
-            boolean={icon}
-            handleBoolean={setIcon}
-          />
-          <StyleComponentBool
-            title="Icon to the Right"
-            boolean={side}
-            handleBoolean={setSide}
-          />
-          <StyleComponentBool
-            title="UpperCase"
-            boolean={noUpperCase}
-            handleBoolean={setNoUpperCase}
-          />
-          <StyleComponentBool
-            title="Small"
-            boolean={small}
-            handleBoolean={setSmall}
-          />
+          <div className="styling-container-content">
+            <h3>Buttons</h3>
+            <StyleComponent
+              title="Label"
+              handleStyle={(e) => {
+                setLabel(e.target.value);
+              }}
+              type="text"
+              suffix=""
+              value={label}
+            />
+            <StyleComponentOptions
+              title="Button Style"
+              options={["outlined", "contained", "text", "nonactive", "yellow"]}
+              handleChange={(e) => setButtonType(e.target.value)}
+            />
+            <StyleComponentBool
+              title="Icon"
+              info="Only one test icon here, but it's not a boolean otherwise"
+              boolean={icon}
+              handleBoolean={setIcon}
+            />
+            <StyleComponentBool
+              title="Icon to the Right"
+              boolean={side}
+              handleBoolean={setSide}
+            />
+            <StyleComponentBool
+              title="UpperCase"
+              boolean={noUpperCase}
+              handleBoolean={setNoUpperCase}
+            />
+            <StyleComponentBool
+              title="Small"
+              boolean={small}
+              handleBoolean={setSmall}
+            />
+          </div>
         </div>
       )}
     </div>

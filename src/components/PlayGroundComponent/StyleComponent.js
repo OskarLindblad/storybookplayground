@@ -4,6 +4,7 @@ export default function StyleComponent({
   title,
   info,
   type,
+  value,
   handleStyle,
   suffix,
 }) {
@@ -30,7 +31,7 @@ export default function StyleComponent({
         )}
       </label>
       <div className="input-wrap">
-        <input type={type} onChange={handleStyle} />
+        <input type={type} onChange={handleStyle} value={value} />
         <p>{suffix}</p>
       </div>
     </div>
