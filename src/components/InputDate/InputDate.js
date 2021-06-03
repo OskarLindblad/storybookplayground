@@ -137,8 +137,12 @@ export const InputDate = ({
             </div>
           </div>
         </label>
-        <div className="input-helper-text" style={{ width: width }}>
-          {errorMessage && error ? <p>{errorMessage}</p> : <p>{helperText}</p>}
+        <div className="input-helper-text">
+          {errorMessage && error ? (
+            <p className="input-error-message">{errorMessage}</p>
+          ) : (
+            <p>{helperText}</p>
+          )}
         </div>
       </div>
     </>

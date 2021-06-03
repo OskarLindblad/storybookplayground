@@ -144,6 +144,7 @@ h6 * {
   height: 22px;
   width: auto;
   margin-left: 0px;
+  margin-top: 3px;
 }
 
 .input .input-label .input-suffix .input-suffix-content {
@@ -162,6 +163,7 @@ h6 * {
   height: 22px;
   width: auto;
   margin-left: 0px;
+  margin-top: 3px;
 }
 
 .input-helper-text {
@@ -276,6 +278,15 @@ h6 * {
 
 .input.boldBorder .input-label .input-suffix .input-suffix-content {
   right: calc(100% + 8.5px + 1px);
+}
+
+.inputdate .input-label .input-suffix-content img {
+  margin-right: 23px;
+  margin-top: 4px;
+}
+
+.inputdate .input-label .input-suffix-content p {
+  margin-right: 23px;
 }
 
 .inputdate .input-label input {

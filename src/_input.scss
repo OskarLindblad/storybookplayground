@@ -130,6 +130,7 @@ h6 * {
           height: 22px;
           width: auto;
           margin-left: 0px;
+          margin-top: 3px;
         }
       }
       .input-suffix-content {
@@ -144,6 +145,7 @@ h6 * {
           height: 22px;
           width: auto;
           margin-left: 0px;
+          margin-top: 3px;
         }
       }
     }
@@ -250,6 +252,15 @@ h6 * {
 
 .inputdate {
   .input-label {
+    .input-suffix-content {
+      img {
+        margin-right: 23px;
+        margin-top: 4px;
+      }
+      p {
+        margin-right: 23px;
+      }
+    }
     input {
       padding: $PVdate $PH;
 

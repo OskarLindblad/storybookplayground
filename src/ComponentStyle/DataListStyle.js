@@ -4,7 +4,6 @@ import { options } from "../modules/options";
 
 import StyleComponent from "../Components/PlayGroundComponent/StyleComponent";
 import StyleComponentBool from "../Components/PlayGroundComponent/StyleComponentBool";
-//import StyleComponentOptions from "../Components/PlayGroundComponent/StyleComponentOptions";
 import test from "./test.png";
 import DataList from "../Components/DataList/DataList";
 
@@ -55,6 +54,10 @@ const DataListStyle = ({ styled, setStyled }) => {
         tagcolor={tagcolor}
         borderColor={borderColor}
         backgroundColor={backgroundColor}
+        maxValue={maxValue}
+        minValue={minValue}
+        maxLength={maxLength}
+        maxDecimals={maxDecimals}
       />
 
       {styled === "DataList" && (
@@ -67,7 +70,6 @@ const DataListStyle = ({ styled, setStyled }) => {
                 setLabel(e.target.value);
               }}
               type="text"
-              suffix=""
               value={label}
               info="Note the possibility to clash with the down-arrow and suffix. You can control width with"
             />
@@ -96,15 +98,6 @@ const DataListStyle = ({ styled, setStyled }) => {
               info="Only one test Suffix image here, but it's not a boolean otherwise"
               boolean={suffixImg}
               handleBoolean={setSuffixImg}
-            />
-            <StyleComponent
-              title="PlaceHolder MaxWidth"
-              info="Limited here to px, but can be used with any viable width value. See Label-info, for more info"
-              handleStyle={(e) => {
-                setPlaceHolderMaxWidth(e.target.value);
-              }}
-              value={placeHolderMaxWidth}
-              type="number"
             />
             <StyleComponent
               title="Max Length"
