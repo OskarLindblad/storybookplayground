@@ -2,17 +2,20 @@
   "name": "playground",
   "version": "0.1.0",
   "private": true,
+  "homepage": "OskarLindblad.github.io/storybookplayground",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.3",
     "moment": "^2.29.1",
-    "react": "^17.0.1",
+    "npm": "^7.16.0",
+    "react": "^17.0.2",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.8.4",
     "react-number-format": "^4.4.4",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.0"
+    "storybook": "^6.2.9",
+    "web-vitals": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,7 +23,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +51,7 @@
     "@storybook/addon-links": "^6.2.0-beta.2",
     "@storybook/node-logger": "^6.2.0-beta.2",
     "@storybook/preset-create-react-app": "^3.1.6",
-    "@storybook/react": "^6.2.0-beta.2"
+    "@storybook/react": "^6.2.0-beta.2",
+    "gh-pages": "^3.2.0"
   }
 }
