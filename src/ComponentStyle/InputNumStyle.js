@@ -13,10 +13,10 @@ const InputNumStyle = ({ styled, setStyled }) => {
   const [label, setLabel] = useState("test");
   const [placeHolderMaxWidth, setPlaceHolderMaxWidth] = useState("200");
   const [helperText, setHelperText] = useState("Test Helper Text");
-  const [tagcolor, setTagcolor] = useState("#818181");
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("Error Helper Text");
   const [width, setWidth] = useState(250);
+  const [tagcolor, setTagcolor] = useState("#818181");
   const [backgroundColor, setBackgroundColor] = useState("#fff");
   const [borderColor, setBorderColor] = useState("#818181");
   const [boldBorder, setBoldBorder] = useState(false);
@@ -35,6 +35,7 @@ const InputNumStyle = ({ styled, setStyled }) => {
         defaultValue={InputNumData}
         onChange={(value) => setInputNumData(value)}
         label={label}
+        value={InputNumData} //NOTE: remove when using useFormContext
         //
         placeHolderMaxWidth={`${placeHolderMaxWidth}px`}
         suffix={suffix}

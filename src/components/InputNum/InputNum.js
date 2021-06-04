@@ -21,6 +21,7 @@ export const InputNum = ({
   errorMessage,
   placeHolderMaxWidth,
   defaultValue,
+  value, //NOTE: remove when using useFormContext
   onChange,
   width,
   tagcolor,
@@ -48,7 +49,7 @@ export const InputNum = ({
 
   //const { getValues } = useFormContext()
   const [labelShrink, setLabelShrink] = useState(
-    defaultValue || readOnly || defaultValue === 0 ? true : false
+    defaultValue || readOnly ? true : false
   );
 
   const handleChange = (e) => {
@@ -119,8 +120,6 @@ export const InputNum = ({
     }
   };
 
-  //console.log(indexTracker)
-
   const limitValue = (value) => {
     const minCheck = parseFloat(value) < minValue;
     const maxCheck = parseFloat(value) > maxValue;
@@ -162,7 +161,6 @@ export const InputNum = ({
   } else {
     newDefaultValue = numToString(parseFloat(defaultValue));
   }
-
   return (
     <div className={`input inputNum ${boldBorder ? "boldBorder" : ""}`}>
       <label
@@ -221,8 +219,8 @@ export const InputNum = ({
               setSelected(true);
             }}
             onBlur={() => {
-              /*!getValues(name) &&*/ setLabelShrink(false);
-
+              // solution without useFormContext
+              value && !value.target.value && setLabelShrink(false);
               setSelected(false);
             }}
             onKeyDown={(e) => {

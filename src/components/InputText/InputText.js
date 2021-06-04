@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 export const InputText = ({
   readOnly,
   defaultValue,
+  value, //NOTE: remove when using useFormContext
   suffix,
   suffixImg,
   label,
@@ -93,8 +94,8 @@ export const InputText = ({
               setSeleted(true);
             }}
             onBlur={() => {
-              //!getValues(name) &&
-              setLabelShrink(false);
+              // solution without useFormContext
+              value && !value.target.value && setLabelShrink(false);
               setSeleted(false);
             }}
             maxLength={maxLength ? maxLength : "none"}

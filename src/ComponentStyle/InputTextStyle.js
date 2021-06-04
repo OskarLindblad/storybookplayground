@@ -32,6 +32,7 @@ const InputTextStyle = ({ styled, setStyled }) => {
         defaultValue={InputTextData}
         onChange={(value) => setInputTextData(value)}
         label={label}
+        value={InputTextData} //NOTE: remove when using useFormContext
         //
         placeHolderMaxWidth={`${placeHolderMaxWidth}px`}
         suffix={suffix}

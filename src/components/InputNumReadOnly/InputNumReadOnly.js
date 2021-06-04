@@ -33,9 +33,7 @@ export const InputNumReadOnly = ({
   const [selected, setSelected] = useState(false);
   /*const { getValues } = useFormContext()  ----   validation library*/
   const [labelShrink, setLabelShrink] = useState(
-    value ||
-      readOnly ||
-      value === 0 /*|| getValues(name) !== '' ? true : false*/
+    value ? /*|| getValues(name) !== ''*/ true : false
   );
 
   const handleChange = (e) => {
@@ -134,7 +132,7 @@ export const InputNumReadOnly = ({
               setSelected(true);
             }}
             onBlur={() => {
-              /*!getValues(name) &&*/ setLabelShrink(false);
+              !value && setLabelShrink(false);
 
               setSelected(false);
             }}
