@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/OskarLindblad.github.io/storybookplayground/static/css/main.3a773dda.chunk.css",
-    "main.js": "/OskarLindblad.github.io/storybookplayground/static/js/main.e3392a25.chunk.js",
-    "main.js.map": "/OskarLindblad.github.io/storybookplayground/static/js/main.e3392a25.chunk.js.map",
-    "runtime-main.js": "/OskarLindblad.github.io/storybookplayground/static/js/runtime-main.1ab56c08.js",
-    "runtime-main.js.map": "/OskarLindblad.github.io/storybookplayground/static/js/runtime-main.1ab56c08.js.map",
-    "static/js/2.5ebb9db3.chunk.js": "/OskarLindblad.github.io/storybookplayground/static/js/2.5ebb9db3.chunk.js",
-    "static/js/2.5ebb9db3.chunk.js.map": "/OskarLindblad.github.io/storybookplayground/static/js/2.5ebb9db3.chunk.js.map",
-    "static/js/3.614b2f28.chunk.js": "/OskarLindblad.github.io/storybookplayground/static/js/3.614b2f28.chunk.js",
-    "static/js/3.614b2f28.chunk.js.map": "/OskarLindblad.github.io/storybookplayground/static/js/3.614b2f28.chunk.js.map",
-    "index.html": "/OskarLindblad.github.io/storybookplayground/index.html",
-    "static/css/main.3a773dda.chunk.css.map": "/OskarLindblad.github.io/storybookplayground/static/css/main.3a773dda.chunk.css.map",
-    "static/js/2.5ebb9db3.chunk.js.LICENSE.txt": "/OskarLindblad.github.io/storybookplayground/static/js/2.5ebb9db3.chunk.js.LICENSE.txt",
-    "static/js/main.e3392a25.chunk.js.LICENSE.txt": "/OskarLindblad.github.io/storybookplayground/static/js/main.e3392a25.chunk.js.LICENSE.txt",
-    "static/media/down.4a915887.svg": "/OskarLindblad.github.io/storybookplayground/static/media/down.4a915887.svg",
-    "static/media/RadioButton.css": "/OskarLindblad.github.io/storybookplayground/static/media/radiobutton-unchecked.54421ffc.svg",
-    "static/media/test.b47a8a2c.png": "/OskarLindblad.github.io/storybookplayground/static/media/test.b47a8a2c.png"
+    "main.css": "/oskarlindblad.github.io/storybookplayground/static/css/main.7486d945.chunk.css",
+    "main.js": "/oskarlindblad.github.io/storybookplayground/static/js/main.e3392a25.chunk.js",
+    "main.js.map": "/oskarlindblad.github.io/storybookplayground/static/js/main.e3392a25.chunk.js.map",
+    "runtime-main.js": "/oskarlindblad.github.io/storybookplayground/static/js/runtime-main.35f502c4.js",
+    "runtime-main.js.map": "/oskarlindblad.github.io/storybookplayground/static/js/runtime-main.35f502c4.js.map",
+    "static/js/2.5ebb9db3.chunk.js": "/oskarlindblad.github.io/storybookplayground/static/js/2.5ebb9db3.chunk.js",
+    "static/js/2.5ebb9db3.chunk.js.map": "/oskarlindblad.github.io/storybookplayground/static/js/2.5ebb9db3.chunk.js.map",
+    "static/js/3.614b2f28.chunk.js": "/oskarlindblad.github.io/storybookplayground/static/js/3.614b2f28.chunk.js",
+    "static/js/3.614b2f28.chunk.js.map": "/oskarlindblad.github.io/storybookplayground/static/js/3.614b2f28.chunk.js.map",
+    "index.html": "/oskarlindblad.github.io/storybookplayground/index.html",
+    "static/css/main.7486d945.chunk.css.map": "/oskarlindblad.github.io/storybookplayground/static/css/main.7486d945.chunk.css.map",
+    "static/js/2.5ebb9db3.chunk.js.LICENSE.txt": "/oskarlindblad.github.io/storybookplayground/static/js/2.5ebb9db3.chunk.js.LICENSE.txt",
+    "static/js/main.e3392a25.chunk.js.LICENSE.txt": "/oskarlindblad.github.io/storybookplayground/static/js/main.e3392a25.chunk.js.LICENSE.txt",
+    "static/media/down.4a915887.svg": "/oskarlindblad.github.io/storybookplayground/static/media/down.4a915887.svg",
+    "static/media/RadioButton.css": "/oskarlindblad.github.io/storybookplayground/static/media/radiobutton-unchecked.54421ffc.svg",
+    "static/media/test.b47a8a2c.png": "/oskarlindblad.github.io/storybookplayground/static/media/test.b47a8a2c.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.1ab56c08.js",
+    "static/js/runtime-main.35f502c4.js",
     "static/js/2.5ebb9db3.chunk.js",
-    "static/css/main.3a773dda.chunk.css",
+    "static/css/main.7486d945.chunk.css",
     "static/js/main.e3392a25.chunk.js"
   ]
 }
